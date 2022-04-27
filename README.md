@@ -1,6 +1,6 @@
 # Produto para gestão de clínica médica
 
-<img width="300" height="auto" src="https://cdn.pixabay.com/photo/2020/08/03/09/43/medical-5459654_960_720.png" alt="ilustração de um médico" >
+<img width="300" height="auto" src="./assets/img/image-readme.svg" >
 
 ## Sobre o projeto
 Este projeto está sendo desenvolvido durante o curso da disciplina Engenharia de Software II ministrada pelo professor Taciano 
