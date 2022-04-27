@@ -25,5 +25,5 @@ Wesley Morais   | Full-Stack Developer - HTML, CSS, JavaScript, SAAS, JavaScript
 
 ### Descrição do Projeto 
 
-É sabido que a organização é um dos principais fatores que garantem o bom funcionamento de qualquer estabelecimento, e quando esta questão envolve dados, a mesma se torna 
-uma tarefa ainda mais complexa e importante. Dessa forma, a implantação de um sistema que permita a persistência desses dados e realizar interações com estes, configura uma possível solução para este dilema. E foi com esse pensamento que este projeto surgiu, buscando entregar um software capaz de realizar o gerenciamento dos serviços de uma clínica médica, agregando deste a parte de consultas até o controle dos seus clientes (pacientes) e dos seus prestadores de serviços (médicos) ...
+<p align="justify">É sabido que a organização é um dos principais fatores que garantem o bom funcionamento de qualquer estabelecimento, e quando esta questão envolve dados, a mesma se torna 
+uma tarefa ainda mais complexa e importante. Dessa forma, a implantação de um sistema que permita a persistência desses dados e realizar interações com estes, configura uma possível solução para este dilema. E foi com esse pensamento que este projeto surgiu, buscando entregar um software capaz de realizar o gerenciamento dos serviços de uma clínica médica, agregando deste a parte de consultas até o controle dos seus clientes (pacientes) e dos seus prestadores de serviços (médicos) ...</p>
