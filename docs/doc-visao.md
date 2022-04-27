@@ -17,8 +17,13 @@ Wesley Morais   | Analista | wesleydemorais@outlook.com.br
 
 Membro          | Competências 
 ----------------|------------------------------------------------------------------------------------------------------------------------------------
-Allan Almeida   | Full-Stack Developer | Python, C, Java, JavaScript, HTML, CSS, React.Js, Node.Js, MySQL, PostgreSQL, Express.Js, API REST, Django
-Adson Santos    | Full-Stack Developer | Python, Django, Dart, Flutter, HTML, CSS, JavaScript, Bootstrap
-Joan Medeiros   | Software Enginner    | HTML, CSS, JavaScript, TypeScript, React.Js, Node.Js, Express.Js, Next.Js, MySQL, NoSQL, Scrum, XP, UX/Design
-Rauan Meirelles | Back-End Developer   | Python, C, HTML, CSS, JavaScript, Next.Js, MySQL
-Wesley Morais   | Full-Stack Developer | HTML, CSS, JavaScript, SAAS, JavaScript, React.Js, Node.Js, Python, Django, Ruby, TypeScript, C, Next.Js  
+Allan Almeida   | Full-Stack Developer - Python, C, Java, JavaScript, HTML, CSS, React.Js, Node.Js, MySQL, PostgreSQL, Express.Js, API REST, Django
+Adson Santos    | Full-Stack Developer - Python, Django, Dart, Flutter, HTML, CSS, JavaScript, Bootstrap
+Joan Medeiros   | Front-End Developer  - HTML, CSS, JavaScript, TypeScript, React.Js, Node.Js, Express.Js, Next.Js, MySQL, NoSQL, Scrum, XP, UX/Design
+Rauan Meirelles | Back-End Developer   - Python, C, HTML, CSS, JavaScript, Next.Js, MySQL
+Wesley Morais   | Full-Stack Developer - HTML, CSS, JavaScript, SAAS, JavaScript, React.Js, Node.Js, Python, Django, Ruby, TypeScript, C, Next.Js 
+
+### Descrição do Projeto 
+
+É sabido que a organização é um dos principais fatores que garantem o bom funcionamento de qualquer estabelecimento, e quando esta questão envolve dados, a mesma se torna 
+uma tarefa ainda mais complexa e importante. Dessa forma, a implantação de um sistema que permita a persistência desses dados e realizar interações com estes, configura uma possível solução para este dilema. E foi com esse pensamento que este projeto surgiu, buscando entregar um software capaz de realizar o gerenciamento dos serviços de uma clínica médica, agregando deste a parte de consultas até o controle dos seus clientes (pacientes) e dos seus prestadores de serviços (médicos) ...
