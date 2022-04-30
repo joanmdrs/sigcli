@@ -101,3 +101,21 @@ Ator: Médico/Recepcionista <br>
 
 RF20 - Excluir Consulta <br>
 Ator: Médico/Recepcionista <br>
+
+RF21 - Inserir Exame <br>
+Descrição: Um exame possui titulo, paciente, médico, data, descrição e local do exame. <br>
+Ator: Médico/Recepcionista <br>
+
+RF22 - Alterar Exame <br>
+Descrição: A alteração permite a mudança do titulo, descrição e local do exame. <br>
+Ator: Médico/Recepcionista <br>
+
+RF23 - Buscar Exame <br>
+Descrição: A busca é feita com base no Id do exame. <br>
+Ator: Médico/Recepcionista  <br>
+
+RF24 - Listar Exames <br>
+Ator: Médico/Recepcionista <br>
+
+RF25 - Excluir Exame <br>
+Ator: Médico/Recepcionista <br>
