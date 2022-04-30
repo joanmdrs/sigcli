@@ -47,3 +47,21 @@ Ator: Diretor/Recepcionista <br>
 
 RF05 - Excluir Médico <br>
 Ator: Diretor <br>
+
+RF06 - Inserir Paciente <br>
+Descrição: Um paciente possui nome, nome de usuário e senha. <br>
+Ator: Médico/Recepcionista <br>
+
+RF07 - Alterar Paciente <br>
+Descrição: A alteração permite a mudança do nome, nome de usuário e senha. <br>
+Ator: Médico/Recepcionista <br>
+
+RF08 - Buscar Paciente <br>
+Descrição: A busca é feita com base no Id do paciente. <br>
+Ator: Médico/Recepcionista  <br>
+
+RF09 - Listar Pacientes <br>
+Ator: Médico/Recepcionista <br>
+
+RF10 - Excluir Paciente <br>
+Ator: Médico/Recepcionista <br>
