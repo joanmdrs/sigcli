@@ -65,3 +65,21 @@ Ator: Médico/Recepcionista <br>
 
 RF10 - Excluir Paciente <br>
 Ator: Médico/Recepcionista <br>
+
+RF11 - Inserir Recepcionista <br>
+Descrição: Um recepcionista possui nome, nome de usuário e senha. <br>
+Ator: Diretor <br>
+
+RF12 - Alterar Recepcionista <br>
+Descrição: A alteração permite a mudança do nome, nome de usuário e senha. <br>
+Ator: Diretor <br>
+
+RF13 - Buscar Recepcionista <br>
+Descrição: A busca é feita com base no Id do recepcionista. <br>
+Ator: Diretor  <br>
+
+RF14 - Listar Recepcionistas <br>
+Ator: Diretor <br>
+
+RF15 - Excluir Recepcionista <br>
+Ator: Diretor <br>
