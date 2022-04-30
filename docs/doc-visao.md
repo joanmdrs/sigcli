@@ -119,3 +119,7 @@ Ator: Médico/Recepcionista <br>
 
 RF25 - Excluir Exame <br>
 Ator: Médico/Recepcionista <br>
+
+RF26 - Criação da Pagina de Login <br>
+Descrição: Os Médicos, Recepcionistas e pacientes terão acesso a ela através do seu nome de usuário e senha. <br>
+Ator: Médico/Recepcionista/Paciente <br>
