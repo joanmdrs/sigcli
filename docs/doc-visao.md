@@ -30,20 +30,20 @@ uma tarefa ainda mais complexa e importante. Dessa forma, a implantação de um 
 
 ## Requisitos Funcionais
 
-RF01 - Inserir Médico
-Descrição: Um médico possui nome, crm, nome de usuário e senha.
-Ator: Diretor
+RF01 - Inserir Médico <br>
+Descrição: Um médico possui nome, crm, nome de usuário e senha. <br>
+Ator: Diretor <br>
 
-RF02 - Alterar Médico
-Descrição: A alteração permite a mudança do nome, nome de usuário e senha.
-Ator: Diretor
+RF02 - Alterar Médico <br>
+Descrição: A alteração permite a mudança do nome, nome de usuário e senha. <br>
+Ator: Diretor <br>
 
-RF03 - Buscar Médico
-Descrição: A busca é feita com base no Id do médico.
-Ator: Diretor/Recepcionista
+RF03 - Buscar Médico <br>
+Descrição: A busca é feita com base no Id do médico. <br>
+Ator: Diretor/Recepcionista <br>
 
-RF04 - Listar Médicos
-Ator: Diretor/Recepcionista
+RF04 - Listar Médicos <br>
+Ator: Diretor/Recepcionista <br>
 
-RF05 - Excluir Médico
-Ator: Diretor
+RF05 - Excluir Médico <br>
+Ator: Diretor <br>
