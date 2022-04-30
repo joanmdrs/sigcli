@@ -83,3 +83,21 @@ Ator: Diretor <br>
 
 RF15 - Excluir Recepcionista <br>
 Ator: Diretor <br>
+
+RF16 - Inserir Consulta <br>
+Descrição: Uma consulta possui titulo, paciente, médico, data e descrição. <br>
+Ator: Médico/Recepcionista <br>
+
+RF17 - Alterar Consulta <br>
+Descrição: A alteração permite a mudança do titulo e descrição. <br>
+Ator: Médico/Recepcionista <br>
+
+RF18 - Buscar Consulta <br>
+Descrição: A busca é feita com base no Id da consulta. <br>
+Ator: Médico/Recepcionista  <br>
+
+RF19 - Listar Consultas <br>
+Ator: Médico/Recepcionista <br>
+
+RF20 - Excluir Consulta <br>
+Ator: Médico/Recepcionista <br>
