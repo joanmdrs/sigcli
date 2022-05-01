@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Este projeto está sendo desenvolvido durante o curso da disciplina Engenharia de Software II ministrada pelo professor Taciano no curso de Bacharelado em Sistemas da Informação, pela Universidade Federal do Rio Grande do Norte / CERES - Caicó/RN.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prisma": "^3.13.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.13.0"
+  }
+}
