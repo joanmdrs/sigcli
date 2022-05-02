@@ -123,3 +123,12 @@ Ator: Médico/Recepcionista <br>
 RF26 - Criação da Pagina de Login <br>
 Descrição: Os Médicos, Recepcionistas e pacientes terão acesso a ela através do seu nome de usuário e senha. <br>
 Ator: Médico/Recepcionista/Paciente <br>
+
+## Riscos do Sistema
+
+Data       | Risco                                      | Prioridade  | Responsável  | Status    | Solução
+-----------|--------------------------------------------|-------------|--------------| ----------|---------------------------------------------------
+02/05/2022 | Falta de conhecimento das tecnologias      | Alta        | Todos        | Resolvido | Praticar tutoriais, assistir aulas sobre o assunto
+02/05/2022 | Má Divisão de Tarefas                      | Média       | Gerente      | Vigente   | Analisar cada tarefa e componente, acompanhar os integrantes nas tarefas e ajudá-los se necessário
+02/05/2022 | Atrasos na entrega de tarefas              | Alta        | Todos        | Vigente   | Realizar as tarefas previamente, com antecedência. Dedicar-se um pouco ao projeto todos os dias
+02/05/2022 | Não acompanhar o ritmo exigente do cliente | Alta        | Gerente      | Vigente   | Entender exatamente o que o cliente quer a cada iteração, ser realista entre o que entregar e o tempo disponível dos integrantes da equipe
