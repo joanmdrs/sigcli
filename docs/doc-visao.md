@@ -132,3 +132,22 @@ RNF02 - Não deve apresentar erros ao usuário final que estiver usando em tempo
 RNF03 - Deve ter confidencialidade, ou seja, apenas usuários que tem permissões de acessar determinadas páginas da aplicação deve acessa-las.
 
 RNF04 - Deve ter integridade, ou seja, os dados que foram adicionados ao banco de dados pela aplicação de uma forma deve ser retornado da mesma forma.
+
+## Riscos do Sistema
+
+Data       | Risco                                      | Prioridade  | Responsável  | Status    | Solução
+-----------|--------------------------------------------|-------------|--------------| ----------|---------------------------------------------------
+02/05/2022 | Falta de conhecimento das tecnologias      | Alta        | Todos        | Resolvido | Praticar tutoriais, assistir aulas sobre o assunto
+02/05/2022 | Má Divisão de Tarefas                      | Média       | Gerente      | Vigente   | Analisar cada tarefa e componente, acompanhar os integrantes nas tarefas e ajudá-los se necessário
+02/05/2022 | Atrasos na entrega de tarefas              | Alta        | Todos        | Vigente   | Realizar as tarefas previamente, com antecedência. Dedicar-se um pouco ao projeto todos os dias
+02/05/2022 | Não acompanhar o ritmo exigente do cliente | Alta        | Gerente      | Vigente   | Entender exatamente o que o cliente quer a cada iteração, ser realista entre o que entregar e o tempo disponível dos integrantes da equipe
+=======
+## Requisitos Não-funcionais
+
+RNF01 - Deve ser acessível via qualquer navegador escolhido pelo usuário
+
+RNF02 - Não deve apresentar erros ao usuário final que estiver usando em tempo real quando o servidor for desativado para possíveis manutenções.
+
+RNF03 - Deve ter confidencialidade, ou seja, apenas usuários que tem permissões de acessar determinadas páginas da aplicação deve acessa-las.
+
+RNF04 - Deve ter integridade, ou seja, os dados que foram adicionados ao banco de dados pela aplicação de uma forma deve ser retornado da mesma forma.
