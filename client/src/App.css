@@ -13,9 +13,14 @@
   align-items: center;
   background-color: #E0DCDC;
   border-radius: 8px;
-  margin: 0 auto;
   margin-top: 100px;
   padding: 40px 20px;
+}
+
+.container-add-recepcionist{
+  height: 400px;
+  margin-top: 40px;
+  margin-left: 100px;
 }
 
 .form-add-recepcionist, .form-search-recepcionist {
@@ -60,4 +65,50 @@
 
 .form-add-recepcionist button:hover, .form-search-recepcionist button:hover {
   background-color: #37BEB0;
+}
+
+.App {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.search-container {
+  margin-left: 50px;
+  margin-top: -60px;
+}
+
+#input-name {
+  display: none;
+}
+
+table {
+  margin-top: 30px;
+  width: 350px;
+  text-align: center;
+  border-collapse: collapse;
+  border: thin solid #c4c4c4;
+}
+
+td, th {
+  padding: 10px;
+}
+
+table thead tr th:first-of-type{
+  border-top-left-radius: 5px;
+}
+
+table thead tr th:last-of-type{
+  border-top-right-radius: 5px;
+}
+
+thead tr{
+  background-color: #b1a9a9;
+}
+
+thead {
+  border-radius: 16px;
+}
+
+#search-byId {
+  margin-top: 20px;
 }

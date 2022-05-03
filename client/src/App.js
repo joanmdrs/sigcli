@@ -1,6 +1,7 @@
 import './App.css';
 import React, {useState} from 'react'
 import Axios from 'axios'
+import Card from './components/card';
 
 function App() {
 
@@ -23,9 +24,14 @@ function App() {
       name: values.name,
       username: values.username,
       password: values.password
-    }).then((response) => {
-      console.log(response);
-    });
+    })
+
+    setValues([...values, {
+      id: values.id,
+      name: values.name,
+      username: values.username,
+      password: values.password
+    }])
   }
 
   const getUserByUsername = () => {
@@ -51,64 +57,85 @@ function App() {
     <div className="App">
       <div className="container-add-recepcionist"> 
         <h1>Add Recepcionist ...</h1>
-        <div className="form-add-recepcionist">
-          <input type="text"     className="input-name-recepcionist" name="name" placeholder="name" required onChange={handleChangeValues}/>
-          <input type="text"     className="input-username-recepcionist" name="username" placeholder="username" required onChange={handleChangeValues} />
-          <input type="password" className="input-password-recepcionist" name="password" placeholder="passoword" required onChange={handleChangeValues}/>
-          <button type="submit" className="button-save-recepcionist" onClick={() => {handleClickButton()}}>Save</button>
+        <div className="form-add-recepcionist" id="form-recepcionist" data-action="new">
+          <input type='text' name='id' placeholder=' Id:' className='input-id-recepcionist' id="input-id"></input>
+          <input type="text"     className="input-name-recepcionist" name="name" placeholder="name" id="input-name" required onChange={handleChangeValues}/>
+          <input type="text"     className="input-username-recepcionist" name="username" placeholder="username" id="input-username" required onChange={handleChangeValues} />
+          <input type="password" className="input-password-recepcionist" name="password" placeholder="password" id="input-password" required onChange={handleChangeValues}/>
+          <button type="submit" className="button-save-recepcionist" id="input-button" onClick={() => {handleClickButton()}}>Save</button>
         </div>
       </div>
 
-      <div className="container-search-recepcionist"> 
-        <div className="form-search-recepcionist"> 
-          <label htmlFor="getUser">Get user by username</label>
-          <input 
-            type="text"
-            name="getUser"
-            placeholder="get user"
-            onChange={
-              (e) => {
-                setUsernameSearch(e.target.value);
-              }}>
-          </input>
-          <button onClick={getUserByUsername}>Buscar</button>
+      <div className='search-container'>
+        <div className="container-search-recepcionist"> 
+          <div className="form-search-recepcionist"> 
+            <label htmlFor="getUser">Get user by username</label>
+            <input 
+              type="text"
+              name="getUser"
+              placeholder="get user"
+              onChange={
+                (e) => {
+                  setUsernameSearch(e.target.value);
+                }}>
+            </input>
+            <button onClick={getUserByUsername}>Buscar</button>
+          </div>
+
+          {/* user searched */}
+          {usernameSearch.name == null
+            ? ''
+            : <div>
+                <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <Card key={usernameSearch.id} listCard={usernameSearch} setListCard={setUsernameSearch} id={usernameSearch.id} name={usernameSearch.name} username={usernameSearch.username}></Card>
+                </tbody>
+              </table>
+              </div>
+          }
         </div>
 
-        {/* user searched */}
-        {usernameSearch.name == null
-          ? ''
-          : <div>
-              <p>Name: {usernameSearch.name}</p>
-              <p>Id: {usernameSearch.id}</p>
-              <p>Username: {usernameSearch.username}</p>
-            </div>
-        }
-      </div>
+        <div className="container-search-recepcionist" id="search-byId"> 
+          <div className="form-search-recepcionist"> 
+            <label htmlFor="getUser">Get user by id</label>
+            <input 
+              type="number"
+              name="getUser"
+              placeholder="get user by id"
+              onChange={
+                (e) => {
+                  setUsernameSearchById(e.target.value);
+                }}>
+            </input>
+            <button onClick={getUserById}>Buscar</button>
+          </div>
 
-      <div className="container-search-recepcionist"> 
-        <div className="form-search-recepcionist"> 
-          <label htmlFor="getUser">Get user by id</label>
-          <input 
-            type="number"
-            name="getUser"
-            placeholder="get user by id"
-            onChange={
-              (e) => {
-                setUsernameSearchById(e.target.value);
-              }}>
-          </input>
-          <button onClick={getUserById}>Buscar</button>
+          {/* user searched */}
+          {usernameSearchById.name == null
+            ? ''
+            : <div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Username</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <Card key={usernameSearchById.id} listCard={usernameSearchById} setListCard={setUsernameSearchById} id={usernameSearchById.id} name={usernameSearchById.name} username={usernameSearchById.username}></Card>
+                  </tbody>
+              </table>
+            </div>
+          }
         </div>
-
-        {/* user searched */}
-        {usernameSearchById.name == null
-          ? ''
-          : <div>
-              <p>Name: {usernameSearchById.name}</p>
-              <p>Id: {usernameSearchById.id}</p>
-              <p>Username: {usernameSearchById.username}</p>
-            </div>
-        }
       </div>
     </div>
   )

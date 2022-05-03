@@ -44,6 +44,23 @@ app.get("/get/user/:username", async(req, res) => {
   return res.status(200).json(recepcionist);
 })
 
+app.put("/update", async (req, res) => {
+  const {id, name, username, password} = req.body;
+  const updateRecepcionist = await prisma.recepcionist.update({
+      where: {
+          id: Number(id),
+      },
+      data: {
+          name: name,
+          username: username,
+          password: password,
+      },
+  });
+  res.json(updateRecepcionist);
+});
+
+
+
 async function getAll() {
   const all = await prisma.recepcionist.findMany();
   console.log("All:", all);
