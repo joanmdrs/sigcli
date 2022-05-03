@@ -65,14 +65,13 @@ npm start
 
 4. Após executar a aplicação client, navegue até a pasta "server" e utilize o comando abaixo para baixar as dependências do Back-End:
 
-
 ```console
 npm install
 ```
 
 ### Preparando o Prisma ORM 
 
-5. Após a instalação das dependências da aplicação server, ainda na pasta "server", crie o arquivo .env e defina o DATABASEURL da seguinte forma:
+5. Após a instalação das dependências da aplicação server, dentro da pasta "server", crie o arquivo .env e defina o DATABASEURL da seguinte forma:
  
 ```console
 DATABASE_URL="postgresql://myuser:mypassword@localhost:5432/mydb?schema=public"
@@ -86,39 +85,38 @@ npx prisma generate
 
 7. Neste momento, todas as dependências do sistema estão instaladas, agora você só precisa executar o servidor do Back-End com o comando abaixo:
 
-
 ```console
-docker run server
+npm run server
 ```
 
-### Executando o Banco de Dados
+### Executando o Banco de Dados com Docker
 
-1. Criando a network
+8. Criando a network
 ```console
 docker network create -d bridge imd-network
 ```
 
-2. Criando o container do PostgresSQL 
+9. Criando o container do PostgresSQL 
 ```console
 docker run --name postgres-server -e "POSTGRES_PASSWORD=postgres" -p 5432:5432 -v $HOME/dev/docker/volumes/postgres/postgresql:/var/lib/postgresql -v $HOME/dev/docker/volumes/postgres/postgresql_data:/var/lib/postgresql/data --network=imd-network -d postgres:latest
 ```
 
-3. Criando o container do PgAdmin
+10. Criando o container do PgAdmin
 ```console
 docker run --name pgadmin-server -p 15432:80 -e "PGADMIN_DEFAULT_EMAIL=admin@admin.com" -e "PGADMIN_DEFAULT_PASSWORD=pgadmin" --network=imd-network -d dpage/pgadmin4:latest
 ```
 
-4. Executando o PostgresSQL
+11. Executando o PostgresSQL
 ```console
 docker start postgres-server
 ```
 
-5. Executando o PgAdmin
+12. Executando o PgAdmin
 ```console
 docker start pgadmin-server
 ```
 
-6. Iniciando o PgAdmin
+13. Abrindo o PgAdmin no Browser
 ```console
 localhost:15432
 ```
