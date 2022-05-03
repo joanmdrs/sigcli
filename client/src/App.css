@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-.container-add-recepcionist {
+.container-add-recepcionist, .container-search-recepcionist, .container-query-result {
   display: flex;
   width: 25vw;
   flex-direction: column;
@@ -18,7 +18,7 @@
   padding: 40px 20px;
 }
 
-.form-add-recepcionist {
+.form-add-recepcionist, .form-search-recepcionist {
   width: 70%;
   display: flex;
   flex-direction: column;
@@ -27,12 +27,12 @@
   
 }
 
-.container-add-recepcionist h1 {
+.container-add-recepcionist h1, .form-search-recepcionist h1 {
   margin-bottom: 30px;
   font-size: 24px;
 }
 
-.form-add-recepcionist input {
+.form-add-recepcionist input, .form-search-recepcionist input {
   width: 100%;
   height: 40px;
   margin-bottom: 10px;
@@ -44,7 +44,7 @@
 
 }
 
-.form-add-recepcionist button {
+.form-add-recepcionist button, .form-search-recepcionist button {
   width: 100px;
   height: 40px;
   padding: 10px;
@@ -58,6 +58,6 @@
   transition: 1s;
 }
 
-.form-add-recepcionist button:hover {
+.form-add-recepcionist button:hover, .form-search-recepcionist button:hover {
   background-color: #37BEB0;
 }
