@@ -20,6 +20,14 @@ function App() {
   }
 
   const handleClickButton = () => {
+    if(document.getElementById("form-recepcionist").dataset.action === "new"){
+      handleSaveButton();
+    } else{ 
+      handleUpdateButton();
+    }
+  }
+
+  const handleSaveButton = async () => {
     Axios.post("http://localhost:3001/register", {
       name: values.name,
       username: values.username,
@@ -32,6 +40,22 @@ function App() {
       username: values.username,
       password: values.password
     }])
+  }
+
+  const handleUpdateButton = async () => {
+    const id = document.getElementById("input-id").value;
+    const name = document.getElementById("input-name").value;
+    const username = document.getElementById("input-username").value;
+    const password = document.getElementById("input-password").value;
+  
+    Axios.put("http://localhost:3001/update", {
+      id: id,
+      name: name,
+      username: username,
+      password: password,
+    }).then((response) => {
+      console.log(response);
+    });
   }
 
   const getUserByUsername = () => {
@@ -69,7 +93,7 @@ function App() {
       <div className='search-container'>
         <div className="container-search-recepcionist"> 
           <div className="form-search-recepcionist"> 
-            <label htmlFor="getUser">Get user by username</label>
+            <label htmlFor="getUser" className='label-get'>Get user by username</label>
             <input 
               type="text"
               name="getUser"
@@ -104,7 +128,7 @@ function App() {
 
         <div className="container-search-recepcionist" id="search-byId"> 
           <div className="form-search-recepcionist"> 
-            <label htmlFor="getUser">Get user by id</label>
+            <label htmlFor="getUser" className='label-get'>Get user by id</label>
             <input 
               type="number"
               name="getUser"
