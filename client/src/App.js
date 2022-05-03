@@ -7,8 +7,8 @@ function App() {
 
 
   const [values, setValues] = useState();
-  const [usernameSearch, setUsernameSearch] = useState([]);
-  const [usernameSearchById, setUsernameSearchById] = useState([]);
+  const [usernameSearch, setUsernameSearch] = useState(null);
+  const [usernameSearchById, setUsernameSearchById] = useState(null);
 
   const handleChangeValues = (value) => {
     setValues((prevValue) => ({
@@ -72,7 +72,11 @@ function App() {
     {
       username: usernameSearchById,
     }).then((response) => {
-      setUsernameSearchById(response.data);
+      if (response === 'null'){
+        setUsernameSearchById([]);
+      } else {
+        setUsernameSearchById(response.data);
+      }
     });
   }
 
@@ -107,7 +111,7 @@ function App() {
           </div>
 
           {/* user searched */}
-          {usernameSearch.name == null
+          {usernameSearch == null
             ? ''
             : <div>
                 <table>
@@ -142,7 +146,7 @@ function App() {
           </div>
 
           {/* user searched */}
-          {usernameSearchById.name == null
+          {usernameSearchById == null
             ? ''
             : <div>
                 <table>
@@ -166,3 +170,7 @@ function App() {
 }
 
 export default App;
+
+export const handleDeleteButton = async (id) => {
+  Axios.delete(`http://localhost:3001/${id}`)
+}
