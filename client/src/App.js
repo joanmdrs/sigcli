@@ -26,7 +26,7 @@ function App() {
   };
 
   const handleSaveButton = async () => {
-    Axios.post("http://localhost:3001/register", {
+    Axios.post("http://localhost:3001/recepcionist/register", {
       name: values.name,
       username: values.username,
       password: values.password,
@@ -49,7 +49,7 @@ function App() {
     const username = document.getElementById("input-username").value;
     const password = document.getElementById("input-password").value;
 
-    Axios.put("http://localhost:3001/update", {
+    Axios.put("http://localhost:3001/recepcionist/update", {
       id: id,
       name: name,
       username: username,
@@ -60,7 +60,7 @@ function App() {
   };
 
   const getUserByUsername = () => {
-    Axios.get(`http://localhost:3001/get/user/${usernameSearch}`, {
+    Axios.get(`http://localhost:3001/recepcionist/get/user/${usernameSearch}`, {
       username: usernameSearch,
     }).then((response) => {
       setUsernameSearch(response.data);
@@ -68,7 +68,7 @@ function App() {
   };
 
   const getUserById = () => {
-    Axios.get(`http://localhost:3001/get/${usernameSearchById}`, {
+    Axios.get(`http://localhost:3001/recepcionist/get/${usernameSearchById}`, {
       username: usernameSearchById,
     }).then((response) => {
       if (response === "null") {
@@ -231,5 +231,5 @@ function App() {
 export default App;
 
 export const handleDeleteButton = async (id) => {
-  Axios.delete(`http://localhost:3001/${id}`);
+  Axios.delete(`http://localhost:3001/recepcionist/${id}`);
 };
