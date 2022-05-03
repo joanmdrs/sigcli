@@ -41,6 +41,8 @@ app.get("/get/user/:username", async(req, res) => {
       username: username,
     },
   });
+  
+  console.log(recepcionist);
   return res.status(200).json(recepcionist);
 })
 
@@ -59,7 +61,15 @@ app.put("/update", async (req, res) => {
   res.json(updateRecepcionist);
 });
 
-
+app.delete("/:id", async (req, res) => {
+  const id = req.params.id;
+  const deleteRecepcionist = await prisma.recepcionist.delete({
+    where: {
+      id: Number(id),
+    },
+  });
+  res.json(deleteRecepcionist);
+})
 
 async function getAll() {
   const all = await prisma.recepcionist.findMany();

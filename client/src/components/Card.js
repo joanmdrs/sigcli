@@ -1,5 +1,6 @@
 import React from "react";
 import "./card.css";
+import { handleDeleteButton } from "../App";
 
 export default function Card(props){
     return <tr>
@@ -13,7 +14,7 @@ export default function Card(props){
                 document.getElementById("input-password").defaultValue = props.password;
                 document.getElementById("form-recepcionist").dataset.action = "edit"
             }}>Edit</button>
-            <button className="card-button">Del</button>
+            <button className="card-button" onClick={() => handleDeleteButton(props.id)}>Del</button>
         </td>
     </tr>
 }
