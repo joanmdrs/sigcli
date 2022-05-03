@@ -40,40 +40,87 @@ no curso de Bacharelado em Sistemas da Informação, pela Universidade Federal d
 
 ## Instalação
 
-1. Após realizar o clone do repositório na sua máquina, navegue até a pasta "client" e execute o comando abaixo para instalar as dependências:
+Nesta seção você encontra o tutorial de execução do projeto
+
+1. A primeira ação a se tomar é realizar o clone do projeto na sua máquina com o comando:
+
+```console
+git clone https://github.com/joanmdrs/sigcli.git
+```
+### Executando o Front-End
+
+
+2. Após realizar o clone do repositório na sua máquina, navegue até a pasta "client" e execute o comando abaixo para instalar as dependências:
 
 ```console
 npm install
 ```
-
-2. Após instalar as dependencias da aplicação client, navegue até a pasta "server" e utilize o mesmo comando do passo anterior.
-
-```console
-npm install
-```
-
-3. Após a instação das dependências, ainda na pasta "server", crie o arquivo .env e defina o DATABASEURL da seguinte forma:
- 
-```console
-DATABASE_URL="postgresql://myuser:mypassword@localhost:5432/mydb?schema=public"
-```
-
-4. Agora, com o DATABASEURL definido, execute o seguinte comando:
-
-```console
-npx prisma generate
-```
-
-5. Neste momento, todas as dependências do sistema estão instaladas, agora você só precisa executar o servidor do Front-End e do Back-End. Para executar o Front-End, acesse a pasta "client" e execute o comando abaixo:
+3. Agora, ainda na pasta "client" execute o comando abaixo para executar o Front-End:
 
 ```console
 npm start
 ```
 
-6. E para rodar o Back-End, acesse a pasta server e execute o comando abaixo:
+### Executando o Back-End
+
+4. Após executar a aplicação client, navegue até a pasta "server" e utilize o comando abaixo para baixar as dependências do Back-End:
+
 
 ```console
-npm run server
+npm install
+```
+
+### Preparando o Prisma ORM 
+
+5. Após a instalação das dependências da aplicação server, ainda na pasta "server", crie o arquivo .env e defina o DATABASEURL da seguinte forma:
+ 
+```console
+DATABASE_URL="postgresql://myuser:mypassword@localhost:5432/mydb?schema=public"
+```
+
+6. Agora, com o DATABASEURL definido, execute o seguinte comando:
+
+```console
+npx prisma generate
+```
+
+7. Neste momento, todas as dependências do sistema estão instaladas, agora você só precisa executar o servidor do Back-End com o comando abaixo:
+
+
+```console
+docker run server
+```
+
+### Executando o Banco de Dados
+
+1. Criando a network
+```console
+docker network create -d bridge imd-network
+```
+
+2. Criando o container do PostgresSQL 
+```console
+docker run --name postgres-server -e "POSTGRES_PASSWORD=postgres" -p 5432:5432 -v $HOME/dev/docker/volumes/postgres/postgresql:/var/lib/postgresql -v $HOME/dev/docker/volumes/postgres/postgresql_data:/var/lib/postgresql/data --network=imd-network -d postgres:latest
+```
+
+3. Criando o container do PgAdmin
+```console
+docker run --name pgadmin-server -p 15432:80 -e "PGADMIN_DEFAULT_EMAIL=admin@admin.com" -e "PGADMIN_DEFAULT_PASSWORD=pgadmin" --network=imd-network -d dpage/pgadmin4:latest
+```
+
+4. Executando o PostgresSQL
+```console
+docker start postgres-server
+```
+
+5. Executando o PgAdmin
+```console
+docker start pgadmin-server
+```
+
+6. Iniciando o PgAdmin
+```console
+localhost:15432
 ```
 
 ## Tutoriais 
