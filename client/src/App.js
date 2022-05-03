@@ -79,6 +79,27 @@ function App() {
         <p>Id: {usernameSearch.id}</p>
         <p>Username: {usernameSearch.username}</p>
       </div>
+
+      <div className="container-search-recepcionist"> 
+        <div className="form-search-recepcionist"> 
+          <label htmlFor="getUser">Get user by id</label>
+          <input 
+            type="text"
+            name="getUser"
+            placeholder="get user by id"
+            onChange={
+              (e) => {
+                setUsernameSearchById(e.target.value);
+              }}>
+          </input>
+          <button onClick={getUserById}>Buscar</button>
+        </div>
+
+        {/* user searched */}
+        <h1>Name: {usernameSearchById.name}</h1>
+        <p>Id: {usernameSearchById.id}</p>
+        <p>Username: {usernameSearchById.username}</p>
+      </div>
     </div>
   )
 }
