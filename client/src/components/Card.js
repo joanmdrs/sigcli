@@ -4,6 +4,7 @@ import { handleDeleteButton } from "../App";
 
 export default function Card(props){
     return <tr>
+        <td>{props.id}</td>
         <td>{props.name}</td>
         <td>{props.username}</td>
         <td>

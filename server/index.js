@@ -41,8 +41,6 @@ app.get("/get/user/:username", async(req, res) => {
       username: username,
     },
   });
-  
-  console.log(recepcionist);
   return res.status(200).json(recepcionist);
 })
 
