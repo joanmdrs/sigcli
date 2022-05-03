@@ -1,59 +1,38 @@
-import { prisma } from "../service/prisma.js";
+import {
+  createRecepcionist,
+  deleteRecepcionistWithPrisma,
+  findUniqueByIDRecepcionist,
+  findUniqueByUsernameRecepcionist,
+  updateRecepcionistWithPrisma,
+} from "../repositories/recepcionistRepository.js";
 export const registerRecepcionist = async (req, res) => {
-  const { name, username, password } = req.body;
+  const recepcionistBody = req.body;
 
-  const recepcionist = await prisma.recepcionist.create({
-    data: {
-      name: name,
-      username: username,
-      password: password,
-    },
-  });
+  const recepcionist = await createRecepcionist(recepcionistBody);
   res.json(recepcionist);
 };
 
 export const getByIdRecepcionist = async (req, res) => {
   const { id } = req.params;
-  const recepcionist = await prisma.recepcionist.findUnique({
-    where: {
-      id: parseInt(id),
-    },
-  });
+  const recepcionist = await findUniqueByIDRecepcionist(id);
   return res.status(200).json(recepcionist);
 };
 
 export const getByUsernameRecepcionist = async (req, res) => {
   const { username } = req.params;
-  const recepcionist = await prisma.recepcionist.findUnique({
-    where: {
-      username: username,
-    },
-  });
+  const recepcionist = await findUniqueByUsernameRecepcionist(username);
 
   return res.status(200).json(recepcionist);
 };
 
 export const updateRecepcionist = async (req, res) => {
-  const { id, name, username, password } = req.body;
-  const updateRecepcionist = await prisma.recepcionist.update({
-    where: {
-      id: Number(id),
-    },
-    data: {
-      name: name,
-      username: username,
-      password: password,
-    },
-  });
-  res.json(updateRecepcionist);
+  const recepcionist = req.body;
+  const updatedRecepcionist = await updateRecepcionistWithPrisma(recepcionist);
+  res.json(updatedRecepcionist);
 };
 
 export const deleteRecepcionist = async (req, res) => {
   const id = req.params.id;
-  const deleteRecepcionist = await prisma.recepcionist.delete({
-    where: {
-      id: Number(id),
-    },
-  });
-  res.json(deleteRecepcionist);
+  const deletedRecepcionist = await deleteRecepcionistWithPrisma(id);
+  res.json(deletedRecepcionist);
 };

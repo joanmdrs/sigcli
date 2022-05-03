@@ -8,6 +8,7 @@ import {
 } from "../controllers/recepcionistController.js";
 export const recepcionistRoutes = Router();
 
+// /recepcionist/register
 recepcionistRoutes.post("/register", registerRecepcionist);
 
 recepcionistRoutes.get("/get/:id", getByIdRecepcionist);
