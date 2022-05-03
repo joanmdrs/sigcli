@@ -24,7 +24,15 @@ app.listen(3001, () => {
     console.log("SERVER RUNNING ON PORT 3001");
 })
 
-
+app.get("/get/:id", async(req, res) => {
+  const { id } = req.params;
+  const recepcionist = await prisma.recepcionist.findUnique({
+    where: {
+      id: parseInt(id),
+    },
+  });
+  return res.status(200).json(recepcionist);
+})
 
 async function getAll() {
   const all = await prisma.recepcionist.findMany();
