@@ -151,3 +151,14 @@ RNF02 - Não deve apresentar erros ao usuário final que estiver usando em tempo
 RNF03 - Deve ter confidencialidade, ou seja, apenas usuários que tem permissões de acessar determinadas páginas da aplicação deve acessa-las.
 
 RNF04 - Deve ter integridade, ou seja, os dados que foram adicionados ao banco de dados pela aplicação de uma forma deve ser retornado da mesma forma.
+
+## Perfis dos Usuários
+
+O sistema poderá ser utilizado por diversos usuários. Temos os seguintes perfis/atores:
+
+Perfil                                 | Descrição   |
+---------                              | ----------- |
+Administrador | Este usuário tem acesso a todas as entidades e funcionalidades do sistema, além de ter acesso à base de dados.
+Recepcionista | Este usuário tem acesso acesso a todas as funcionalidades de CRUD relativas às entidades: consulta, paciente, médico e exame.
+Paciente | Este usuário pode consultar as informações do seu próprio perfil, assim como visualizar o registro das suas consultas e exames. 
+Médico | Este usuário pode consultar as informações do seu próprio perfil, assim como visualizar o registro das suas consultas. Além disso, o médico tem acesso as funções de CRUD relativas a entidade Exame.
