@@ -73,7 +73,7 @@ npm start
 6. E para rodar o Back-End, acesse a pasta server e execute o comando abaixo:
 
 ```console
-npm run devStart
+npm run server
 ```
 
 ## Tutoriais 
