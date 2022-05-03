@@ -6,6 +6,8 @@ function App() {
 
 
   const [values, setValues] = useState();
+  const [usernameSearch, setUsernameSearch] = useState([]);
+  const [usernameSearchById, setUsernameSearchById] = useState([]);
 
   const handleChangeValues = (value) => {
     setValues((prevValue) => ({
@@ -26,6 +28,24 @@ function App() {
     });
   }
 
+  const getUserByUsername = () => {
+    Axios.get(`http://localhost:3001/get/user/${usernameSearch}`,
+    {
+      username: usernameSearch,
+    }).then((response) => {
+      setUsernameSearch(response.data);
+    });
+  }
+
+  const getUserById = () => {
+    Axios.get(`http://localhost:3001/get/${usernameSearchById}`,
+    {
+      username: usernameSearchById,
+    }).then((response) => {
+      setUsernameSearchById(response.data);
+    });
+  }
+
 
   return (
     <div className="App">
@@ -39,6 +59,57 @@ function App() {
         </div>
       </div>
 
+      <div className="container-search-recepcionist"> 
+        <div className="form-search-recepcionist"> 
+          <label htmlFor="getUser">Get user by username</label>
+          <input 
+            type="text"
+            name="getUser"
+            placeholder="get user"
+            onChange={
+              (e) => {
+                setUsernameSearch(e.target.value);
+              }}>
+          </input>
+          <button onClick={getUserByUsername}>Buscar</button>
+        </div>
+
+        {/* user searched */}
+        {usernameSearch.name == null
+          ? ''
+          : <div>
+              <p>Name: {usernameSearch.name}</p>
+              <p>Id: {usernameSearch.id}</p>
+              <p>Username: {usernameSearch.username}</p>
+            </div>
+        }
+      </div>
+
+      <div className="container-search-recepcionist"> 
+        <div className="form-search-recepcionist"> 
+          <label htmlFor="getUser">Get user by id</label>
+          <input 
+            type="number"
+            name="getUser"
+            placeholder="get user by id"
+            onChange={
+              (e) => {
+                setUsernameSearchById(e.target.value);
+              }}>
+          </input>
+          <button onClick={getUserById}>Buscar</button>
+        </div>
+
+        {/* user searched */}
+        {usernameSearchById.name == null
+          ? ''
+          : <div>
+              <p>Name: {usernameSearchById.name}</p>
+              <p>Id: {usernameSearchById.id}</p>
+              <p>Username: {usernameSearchById.username}</p>
+            </div>
+        }
+      </div>
     </div>
   )
 }
