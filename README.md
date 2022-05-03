@@ -96,7 +96,7 @@ npm run server
 docker network create -d bridge imd-network
 ```
 
-9. Criando o container do PostgresSQL 
+9. Criando o container do PostgreSQL 
 ```console
 docker run --name postgres-server -e "POSTGRES_PASSWORD=postgres" -p 5432:5432 -v $HOME/dev/docker/volumes/postgres/postgresql:/var/lib/postgresql -v $HOME/dev/docker/volumes/postgres/postgresql_data:/var/lib/postgresql/data --network=imd-network -d postgres:latest
 ```
@@ -106,7 +106,7 @@ docker run --name postgres-server -e "POSTGRES_PASSWORD=postgres" -p 5432:5432 -
 docker run --name pgadmin-server -p 15432:80 -e "PGADMIN_DEFAULT_EMAIL=admin@admin.com" -e "PGADMIN_DEFAULT_PASSWORD=pgadmin" --network=imd-network -d dpage/pgadmin4:latest
 ```
 
-11. Executando o PostgresSQL
+11. Executando o PostgreSQL
 ```console
 docker start postgres-server
 ```
