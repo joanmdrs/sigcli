@@ -75,16 +75,21 @@ function App() {
         </div>
 
         {/* user searched */}
-        <h1>Name: {usernameSearch.name}</h1>
-        <p>Id: {usernameSearch.id}</p>
-        <p>Username: {usernameSearch.username}</p>
+        {usernameSearch.name == null
+          ? ''
+          : <div>
+              <p>Name: {usernameSearch.name}</p>
+              <p>Id: {usernameSearch.id}</p>
+              <p>Username: {usernameSearch.username}</p>
+            </div>
+        }
       </div>
 
       <div className="container-search-recepcionist"> 
         <div className="form-search-recepcionist"> 
           <label htmlFor="getUser">Get user by id</label>
           <input 
-            type="text"
+            type="number"
             name="getUser"
             placeholder="get user by id"
             onChange={
@@ -96,9 +101,14 @@ function App() {
         </div>
 
         {/* user searched */}
-        <h1>Name: {usernameSearchById.name}</h1>
-        <p>Id: {usernameSearchById.id}</p>
-        <p>Username: {usernameSearchById.username}</p>
+        {usernameSearchById.name == null
+          ? ''
+          : <div>
+              <p>Name: {usernameSearchById.name}</p>
+              <p>Id: {usernameSearchById.id}</p>
+              <p>Username: {usernameSearchById.username}</p>
+            </div>
+        }
       </div>
     </div>
   )
