@@ -34,6 +34,16 @@ app.get("/get/:id", async(req, res) => {
   return res.status(200).json(recepcionist);
 })
 
+app.get("/get/user/:username", async(req, res) => {
+  const { username } = req.params;
+  const recepcionist = await prisma.recepcionist.findUnique({
+    where: {
+      username: username,
+    },
+  });
+  return res.status(200).json(recepcionist);
+})
+
 async function getAll() {
   const all = await prisma.recepcionist.findMany();
   console.log("All:", all);
