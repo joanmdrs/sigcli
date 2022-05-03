@@ -31,118 +31,52 @@ uma tarefa ainda mais complexa e importante. Dessa forma, a implantação de um 
 
 O sistema poderá ser utilizado por diversos usuários. Temos os seguintes perfis/atores:
 
-Perfil                                 | Descrição   |
----------                              | ----------- |
+Perfil        | Descrição                                                                                                                                             |
+------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 Administrador | Este usuário tem acesso a todas as entidades e funcionalidades do sistema, além de ter acesso à base de dados.
 Recepcionista | Este usuário tem acesso acesso a todas as funcionalidades de CRUD relativas às entidades: consulta, paciente, médico e exame.
-Paciente | Este usuário pode consultar as informações do seu próprio perfil, assim como visualizar o registro das suas consultas e exames. 
-Médico | Este usuário pode consultar as informações do seu próprio perfil, assim como visualizar o registro das suas consultas. Além disso, o médico tem acesso as funções de CRUD relativas a entidade Exame.
+Paciente      | Este usuário pode consultar as informações do seu próprio perfil, assim como visualizar o registro das suas consultas e exames. 
+Médico        | Este usuário pode consultar as informações do seu próprio perfil, assim como visualizar o registro das suas consultas. Além disso, o médico tem acesso as funções de CRUD relativas a entidade Exame.
 
 ## Requisitos Funcionais
 
-RF01 - Inserir Médico <br>
-Descrição: Um médico possui nome, crm, nome de usuário e senha. <br>
-Ator: Diretor <br>
-
-RF02 - Alterar Médico <br>
-Descrição: A alteração permite a mudança do nome, nome de usuário e senha. <br>
-Ator: Diretor <br>
-
-RF03 - Buscar Médico <br>
-Descrição: A busca é feita com base no Id do médico. <br>
-Ator: Diretor/Recepcionista <br>
-
-RF04 - Listar Médicos <br>
-Ator: Diretor/Recepcionista <br>
-
-RF05 - Excluir Médico <br>
-Ator: Diretor <br>
-
-RF06 - Inserir Paciente <br>
-Descrição: Um paciente possui nome, nome de usuário e senha. <br>
-Ator: Médico/Recepcionista <br>
-
-RF07 - Alterar Paciente <br>
-Descrição: A alteração permite a mudança do nome, nome de usuário e senha. <br>
-Ator: Médico/Recepcionista <br>
-
-RF08 - Buscar Paciente <br>
-Descrição: A busca é feita com base no Id do paciente. <br>
-Ator: Médico/Recepcionista <br>
-
-RF09 - Listar Pacientes <br>
-Ator: Médico/Recepcionista <br>
-
-RF10 - Excluir Paciente <br>
-Ator: Médico/Recepcionista <br>
-
-RF11 - Inserir Recepcionista <br>
-Descrição: Um recepcionista possui nome, nome de usuário e senha. <br>
-Ator: Diretor <br>
-
-RF12 - Alterar Recepcionista <br>
-Descrição: A alteração permite a mudança do nome, nome de usuário e senha. <br>
-Ator: Diretor <br>
-
-RF13 - Buscar Recepcionista <br>
-Descrição: A busca é feita com base no Id do recepcionista. <br>
-Ator: Diretor <br>
-
-RF14 - Listar Recepcionistas <br>
-Ator: Diretor <br>
-
-RF15 - Excluir Recepcionista <br>
-Ator: Diretor <br>
-
-RF16 - Inserir Consulta <br>
-Descrição: Uma consulta possui titulo, paciente, médico, data e descrição. <br>
-Ator: Médico/Recepcionista <br>
-
-RF17 - Alterar Consulta <br>
-Descrição: A alteração permite a mudança do titulo e descrição. <br>
-Ator: Médico/Recepcionista <br>
-
-RF18 - Buscar Consulta <br>
-Descrição: A busca é feita com base no Id da consulta. <br>
-Ator: Médico/Recepcionista <br>
-
-RF19 - Listar Consultas <br>
-Ator: Médico/Recepcionista <br>
-
-RF20 - Excluir Consulta <br>
-Ator: Médico/Recepcionista <br>
-
-RF21 - Inserir Exame <br>
-Descrição: Um exame possui titulo, paciente, médico, data, descrição e local do exame. <br>
-Ator: Médico/Recepcionista <br>
-
-RF22 - Alterar Exame <br>
-Descrição: A alteração permite a mudança do titulo, descrição e local do exame. <br>
-Ator: Médico/Recepcionista <br>
-
-RF23 - Buscar Exame <br>
-Descrição: A busca é feita com base no Id do exame. <br>
-Ator: Médico/Recepcionista <br>
-
-RF24 - Listar Exames <br>
-Ator: Médico/Recepcionista <br>
-
-RF25 - Excluir Exame <br>
-Ator: Médico/Recepcionista <br>
-
-RF26 - Criação da Pagina de Login <br>
-Descrição: Os Médicos, Recepcionistas e pacientes terão acesso a ela através do seu nome de usuário e senha. <br>
-Ator: Médico/Recepcionista/Paciente <br>
+Requisito                         | Descrição   | Ator       |
+--------------------------------- | ----------- | ---------- |
+RF01 - Inserir Médico             | Um médico possui nome, crm, nome de usuário e senha. | Administrador/Recepcionista
+RF02 - Alterar Médico             | A alteração permite a mudança do nome, nome de usuário e senha. | Administrador/Recepcionista
+RF03 - Buscar Médico              | A busca é feita com base no Id do médico. | Administrador/Recepcionista
+RF04 - Listar Médicos             | Lista todos as instâncias de médico  | Administrador/Recepcionista
+RF05 - Excluir Médico             | A exclusão é feita com base no Id do médico | Administrador/Recepcionista
+RF06 - Inserir Paciente           | Um paciente possui nome, nome de usuário e senha. | Administrador/Recepcionista
+RF07 - Alterar Paciente           | A alteração permite a mudança do nome, nome de usuário e senha. | Administrador/Recepcionista
+RF08 - Buscar Paciente            | A busca é feita com base no Id do paciente. | Administrador/Médico/Recepcionista 
+RF09 - Listar Pacientes           | Lista todos as instâncias de paciente | Administrador/Médico/Recepcionista
+RF10 - Excluir Paciente           | A exclusão é feita com base no Id do paciente | Administrador/Recepcionista
+RF11 - Inserir Recepcionista      | Um recepcionista possui nome, nome de usuário e senha. | Administrador
+RF12 - Alterar Recepcionista      | A alteração permite a mudança do nome, nome de usuário e senha. | Administrador 
+RF13 - Buscar Recepcionista       | A busca é feita com base no Id do recepcionista. | Administrador 
+RF14 - Listar Recepcionistas      | Lista todos as instâncias de recepcionista | Administrador
+RF15 - Excluir Recepcionista      | A exclusão é feita com base no Id do(a) recepcionista | Administrador 
+RF16 - Inserir Consulta           | Uma consulta possui titulo, paciente, médico, data e descrição. | Administrador/Recepcionista 
+RF17 - Alterar Consulta           | A alteração permite a mudança do titulo e descrição. | Administrador/Médico/Recepcionista
+RF18 - Buscar Consulta            | A busca é feita com base no Id da consulta. | Administrador/Médico/Recepcionista
+RF19 - Listar Consultas           | Lista todas as instâncias de consulta | Administrador/Médico/Recepcionista
+RF20 - Excluir Consulta           | A exclusão é feita com base no Id da consulta | Administrador/Recepcionista 
+RF21 - Inserir Exame              | Um exame possui titulo, paciente, médico, data, descrição e local do exame. | Administrador/Médico/Recepcionista
+RF22 - Alterar Exame              | A alteração permite a mudança do titulo, descrição e local do exame. | Administrador/Médico/Recepcionista 
+RF23 - Buscar Exame               | A busca é feita com base no Id do exame. | Administrador/Médico/Recepcionista
+RF24 - Listar Exames              | Lista todas as instâncias de exame | Administrador/Médico/Recepcionista 
+RF25 - Excluir Exame              | A exclusão é feita com base no Id do exame | Administrador/Médico/Recepcionista 
+RF26 - Criação da Pagina de Login | Os Médicos, Recepcionistas e pacientes terão acesso a ela através do seu nome de usuário e senha. | Médico/Recepcionista/Paciente
 
 ## Requisitos Não-funcionais
 
-RNF01 - Deve ser acessível via qualquer navegador escolhido pelo usuário
-
-RNF02 - Não deve apresentar erros ao usuário final que estiver usando em tempo real quando o servidor for desativado para possíveis manutenções.
-
-RNF03 - Deve ter confidencialidade, ou seja, apenas usuários que tem permissões de acessar determinadas páginas da aplicação deve acessa-las.
-
-RNF04 - Deve ter integridade, ou seja, os dados que foram adicionados ao banco de dados pela aplicação de uma forma deve ser retornado da mesma forma.
+Requisito | Descrição  
+--------- | -----------
+RNF01 | Deve ser acessível via qualquer navegador escolhido pelo usuário
+RNF02 | Não deve apresentar erros ao usuário final que estiver usando em tempo real quando o servidor for desativado para possíveis manutenções.
+RNF03 | Deve ter confidencialidade, ou seja, apenas usuários que tem permissões de acessar determinadas páginas da aplicação deve acessa-las.
+RNF04 | Deve ter integridade, ou seja, os dados que foram adicionados ao banco de dados pela aplicação de uma forma deve ser retornado da mesma forma.
 
 ## Riscos do Sistema
 
