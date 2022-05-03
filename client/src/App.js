@@ -6,6 +6,8 @@ function App() {
 
 
   const [values, setValues] = useState();
+  const [usernameSearch, setUsernameSearch] = useState([]);
+  const [usernameSearchById, setUsernameSearchById] = useState([]);
 
   const handleChangeValues = (value) => {
     setValues((prevValue) => ({
@@ -23,6 +25,24 @@ function App() {
       password: values.password
     }).then((response) => {
       console.log(response);
+    });
+  }
+
+  const getUserByUsername = () => {
+    Axios.get(`http://localhost:3001/get/user/${usernameSearch}`,
+    {
+      username: usernameSearch,
+    }).then((response) => {
+      setUsernameSearch(response.data);
+    });
+  }
+
+  const getUserById = () => {
+    Axios.get(`http://localhost:3001/get/${usernameSearchById}`,
+    {
+      username: usernameSearchById,
+    }).then((response) => {
+      setUsernameSearchById(response.data);
     });
   }
 
