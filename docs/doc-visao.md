@@ -27,6 +27,17 @@ Documento construído a partido do Modelo BSI - Doc 001 - Documento de Visão qu
 <p align="justify">É sabido que a organização é um dos principais fatores que garantem o bom funcionamento de qualquer estabelecimento, e quando esta questão envolve dados, a mesma se torna 
 uma tarefa ainda mais complexa e importante. Dessa forma, a implantação de um sistema que permita a persistência desses dados e realizar interações com estes, configura uma possível solução para este dilema. E foi com esse pensamento que este projeto surgiu, buscando entregar um software capaz de realizar o gerenciamento dos serviços de uma clínica médica, agregando deste a parte de consultas até o controle dos seus clientes (pacientes) e dos seus prestadores de serviços (médicos) ...</p>
 
+## Perfis dos Usuários
+
+O sistema poderá ser utilizado por diversos usuários. Temos os seguintes perfis/atores:
+
+Perfil                                 | Descrição   |
+---------                              | ----------- |
+Administrador | Este usuário tem acesso a todas as entidades e funcionalidades do sistema, além de ter acesso à base de dados.
+Recepcionista | Este usuário tem acesso acesso a todas as funcionalidades de CRUD relativas às entidades: consulta, paciente, médico e exame.
+Paciente | Este usuário pode consultar as informações do seu próprio perfil, assim como visualizar o registro das suas consultas e exames. 
+Médico | Este usuário pode consultar as informações do seu próprio perfil, assim como visualizar o registro das suas consultas. Além disso, o médico tem acesso as funções de CRUD relativas a entidade Exame.
+
 ## Requisitos Funcionais
 
 RF01 - Inserir Médico <br>
@@ -141,24 +152,4 @@ Data       | Risco                                      | Prioridade  | Respons�
 02/05/2022 | Má Divisão de Tarefas                      | Média       | Gerente      | Vigente   | Analisar cada tarefa e componente, acompanhar os integrantes nas tarefas e ajudá-los se necessário
 02/05/2022 | Atrasos na entrega de tarefas              | Alta        | Todos        | Vigente   | Realizar as tarefas previamente, com antecedência. Dedicar-se um pouco ao projeto todos os dias
 02/05/2022 | Não acompanhar o ritmo exigente do cliente | Alta        | Gerente      | Vigente   | Entender exatamente o que o cliente quer a cada iteração, ser realista entre o que entregar e o tempo disponível dos integrantes da equipe
-=======
-## Requisitos Não-funcionais
 
-RNF01 - Deve ser acessível via qualquer navegador escolhido pelo usuário
-
-RNF02 - Não deve apresentar erros ao usuário final que estiver usando em tempo real quando o servidor for desativado para possíveis manutenções.
-
-RNF03 - Deve ter confidencialidade, ou seja, apenas usuários que tem permissões de acessar determinadas páginas da aplicação deve acessa-las.
-
-RNF04 - Deve ter integridade, ou seja, os dados que foram adicionados ao banco de dados pela aplicação de uma forma deve ser retornado da mesma forma.
-
-## Perfis dos Usuários
-
-O sistema poderá ser utilizado por diversos usuários. Temos os seguintes perfis/atores:
-
-Perfil                                 | Descrição   |
----------                              | ----------- |
-Administrador | Este usuário tem acesso a todas as entidades e funcionalidades do sistema, além de ter acesso à base de dados.
-Recepcionista | Este usuário tem acesso acesso a todas as funcionalidades de CRUD relativas às entidades: consulta, paciente, médico e exame.
-Paciente | Este usuário pode consultar as informações do seu próprio perfil, assim como visualizar o registro das suas consultas e exames. 
-Médico | Este usuário pode consultar as informações do seu próprio perfil, assim como visualizar o registro das suas consultas. Além disso, o médico tem acesso as funções de CRUD relativas a entidade Exame.
