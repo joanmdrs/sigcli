@@ -82,7 +82,7 @@ function App() {
       <div className="container-add-recepcionist"> 
         <h1>Add Recepcionist ...</h1>
         <div className="form-add-recepcionist" id="form-recepcionist" data-action="new">
-          <input type='text' name='id' placeholder=' Id:' className='input-id-recepcionist' id="input-id"></input>
+          <input type='text' name='id' placeholder=' id' className='input-id-recepcionist' id="input-id"></input>
           <input type="text"     className="input-name-recepcionist" name="name" placeholder="name" id="input-name" required onChange={handleChangeValues}/>
           <input type="text"     className="input-username-recepcionist" name="username" placeholder="username" id="input-username" required onChange={handleChangeValues} />
           <input type="password" className="input-password-recepcionist" name="password" placeholder="password" id="input-password" required onChange={handleChangeValues}/>
@@ -103,7 +103,7 @@ function App() {
                   setUsernameSearch(e.target.value);
                 }}>
             </input>
-            <button onClick={getUserByUsername}>Buscar</button>
+            <button onClick={getUserByUsername}>Search</button>
           </div>
 
           {/* user searched */}
@@ -138,7 +138,7 @@ function App() {
                   setUsernameSearchById(e.target.value);
                 }}>
             </input>
-            <button onClick={getUserById}>Buscar</button>
+            <button onClick={getUserById}>Search</button>
           </div>
 
           {/* user searched */}
