@@ -17,3 +17,14 @@ RF22| Alterar Exame
 RF23| Buscar Exame
 RF24| Listar Exames
 RF25| Excluir Exame
+
+|                           |              |
+| ------------------------- | -------------|
+| **Prioridade**            | Essencial    |
+| **Estimativa**            | 6h           |
+| **Tempo Gasto (real):**   |              |
+| **Tamanho Funcional**     | **A definir**|
+| **Analista**              | Adson        |
+| **Desenvolvedor**         | Joan         |
+| **Revisor**               | Rauan        |
+| **Testador**              | Rauan        |
