@@ -60,16 +60,24 @@ function App() {
   };
 
   const getUserByUsername = () => {
-    Axios.get(`http://localhost:3001/recepcionist/get/user/${usernameSearch}`, {
-      username: usernameSearch,
+    const searchUsername = document.getElementById("input-get-username").value
+    Axios.get(`http://localhost:3001/recepcionist/get/user/${searchUsername}`,
+    {
+      username: searchUsername,
     }).then((response) => {
-      setUsernameSearch(response.data);
+      if (response === 'null'){
+        setUsernameSearch([]);
+      } else {
+        setUsernameSearch(response.data);
+      }
     });
   };
 
   const getUserById = () => {
-    Axios.get(`http://localhost:3001/recepcionist/get/${usernameSearchById}`, {
-      username: usernameSearchById,
+    const searchId = document.getElementById("input-get-id").value
+    Axios.get(`http://localhost:3001/recepcionist/get/${searchId}`,
+    {
+      username: searchId,
     }).then((response) => {
       if (response === "null") {
         setUsernameSearchById([]);
@@ -145,10 +153,10 @@ function App() {
               type="text"
               name="getUser"
               placeholder="get user"
-              onChange={(e) => {
-                setUsernameSearch(e.target.value);
-              }}
-            ></input>
+              id="input-get-username"
+              >
+            </input>
+
             <button onClick={getUserByUsername}>Search</button>
           </div>
 
@@ -160,6 +168,7 @@ function App() {
               <table>
                 <thead>
                   <tr>
+                    <th>Id</th>
                     <th>Name</th>
                     <th>Username</th>
                     <th>Actions</th>
@@ -189,10 +198,8 @@ function App() {
               type="number"
               name="getUser"
               placeholder="get user by id"
-              onChange={(e) => {
-                setUsernameSearchById(e.target.value);
-              }}
-            ></input>
+              id="input-get-id">
+            </input>
             <button onClick={getUserById}>Search</button>
           </div>
 
@@ -204,6 +211,7 @@ function App() {
               <table>
                 <thead>
                   <tr>
+                    <th>Id</th>
                     <th>Name</th>
                     <th>Username</th>
                     <th>Actions</th>
