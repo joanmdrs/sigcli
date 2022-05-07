@@ -39,6 +39,4 @@ RF10| Excluir Paciente
 | **TA02.07** | LISTAR - Caso de Sucesso: Após ir na opção de Listar Pacientes, surgirá uma tela com todos os pacientes já cadastrados até o momento. |
 | **TA02.08** | LISTAR - Caso de Fracasso: Após ir na opção de Listar Pacientes, caso não haja nenhum paciente cadastrado até o momento, surgirá uma notificação na tela informando erro na operação, como: "ERRO: Não há pacientes cadastrado até o momento". |
 | **TA02.09** | EXCLUIR - Caso de Sucesso: O usuário deseja excluir um Paciente do sistema, então após o sistema exibir a lista de pacientes cadastrados, o usúario escolhe o paciente que deseja e clica na opção de "Excluir". Após confirmar a operação, receberá uma notificação de sucesso em tela, como: "Paciente excluído com sucesso!". |
-| **TA02.10** | EXCLUIR - Caso de Fracasso: O usuário deseja excluir um Paciente do sistema. Então após o sistema exibir a lista de pacientes cadastrados, o usúario escolhe o paciente que deseja e clica na opção de "CANCELAR". Após cancelar a operação, receberá uma notificação em tela, como: "Exclusão cancelada!". |
-
 
