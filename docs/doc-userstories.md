@@ -107,3 +107,16 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA03.02** | O usuário tenta cadastrar um exame no sistema sem preencher todos os campos obrigatórios definidos. Então deve ser notificado em tela informando que não foi possível cadastrar o exame pois há campos obrigatórios em branco.                                               |
 | **TA03.03** | Ao editar um exame já cadastrado, o usuário deixa algum campo obrigatório em branco. Desse modo, deve surgir uma notificação em tela informando que não é possível salvar a edição feita com campos obrigatórios faltando.                                                   |
 | **TA03.04** | Ao realizar uma busca de um exame não cadastrado ou que não atende aos parâmetros de pesquisa, uma mensagem de aviso deve ser mostrada em tela, informando que "Não há nenhum exame no sistema que atenda a esses parâmetros" ou "A consulta não retornou nenhum resultado". |
+
+### User Story US04 - Manter Médico
+
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir os médicos. Um médico tem como atributos um nome, um crm, um username, e uma senha. O diagrama de classe desse User Story está [aqui](ClassDiagram/DC_medico.png).
+
+
+| #    | Requisitos Envolvidos |
+| ---- | --------------------- |
+| RF06 | Inserir Médico        |
+| RF07 | Alterar Médico        |
+| RF08 | Buscar Médico         |
+| RF09 | Listar Médicos        |
+| RF10 | Excluir Médico        |
