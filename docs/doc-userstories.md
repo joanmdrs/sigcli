@@ -120,3 +120,15 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | RF08 | Buscar Médico         |
 | RF09 | Listar Médicos        |
 | RF10 | Excluir Médico        |
+
+|                         |               |
+| ----------------------- | ------------- |
+| **Prioridade**          | Essencial     |
+| **Estimativa**          | 8h            |
+| **Tempo Gasto (real):** |               |
+| **Tamanho Funcional**   | **A definir** |
+| **Analista**            | Joan          |
+| **Desenvolvedor**       | Adson         |
+| **Revisor**             | Allan         |
+| **Testador**            | Allan         |
+
