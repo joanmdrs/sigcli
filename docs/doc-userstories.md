@@ -107,3 +107,43 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA03.02** | O usuário tenta cadastrar um exame no sistema sem preencher todos os campos obrigatórios definidos. Então deve ser notificado em tela informando que não foi possível cadastrar o exame pois há campos obrigatórios em branco.                                               |
 | **TA03.03** | Ao editar um exame já cadastrado, o usuário deixa algum campo obrigatório em branco. Desse modo, deve surgir uma notificação em tela informando que não é possível salvar a edição feita com campos obrigatórios faltando.                                                   |
 | **TA03.04** | Ao realizar uma busca de um exame não cadastrado ou que não atende aos parâmetros de pesquisa, uma mensagem de aviso deve ser mostrada em tela, informando que "Não há nenhum exame no sistema que atenda a esses parâmetros" ou "A consulta não retornou nenhum resultado". |
+
+### User Story US04 - Manter Médico
+
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir os médicos. Um médico tem como atributos um nome, um crm, um username, e uma senha. O diagrama de classe desse User Story está [aqui](ClassDiagram/DC_medico.png).
+
+
+| #    | Requisitos Envolvidos |
+| ---- | --------------------- |
+| RF06 | Inserir Médico        |
+| RF07 | Alterar Médico        |
+| RF08 | Buscar Médico         |
+| RF09 | Listar Médicos        |
+| RF10 | Excluir Médico        |
+
+|                         |               |
+| ----------------------- | ------------- |
+| **Prioridade**          | Essencial     |
+| **Estimativa**          | 8h            |
+| **Tempo Gasto (real):** |               |
+| **Tamanho Funcional**   | **A definir** |
+| **Analista**            | Joan          |
+| **Desenvolvedor**       | Adson         |
+| **Revisor**             | Allan         |
+| **Testador**            | Allan         |
+
+
+**Testes de Aceitação (TA)**
+
+| **Código**  | **Descrição**                                                                                                                                                                                                                                                                |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **TA04.01** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário preenche todos os campos do formulário corretamente e clica no botão Salvar, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Cadastro realizado com sucesso.
+| **TA04.02** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário preenche os dados de maneira incorreta e clica no botão Salvar, ao clicar em Salvar ele é notificado com uma mensagem de erro. Mensagem: Cadastro não realizado, o campo “xxxx” não foi informado corretamente.
+| **TA04.03** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário seleciona a opção buscar, e prenche o campo de busca corretamente e clica e em Buscar, ao clicar em Buscar, o sistema fará uma busca no banco de dados, se a informação contida no campo de busca corresponder a alguma instância da entidade médico, o sistema deve exibir aquela instância, caso contrário, o sistema deve exibir uma mensagem de aviso. Mensagem: Nada foi encontrado.
+| **TA04.04** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário seleciona a opção buscar, e prenche o campo de busca de maneira incorreta e clica e em Buscar, ao clicar em Buscar ele é notificado com uma mensagem de aviso. Mensagem: Preencha o campo de busca corretamente.
+| **TA04.05** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do médico pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão de editar, e os campos do formulário são preenchidos com os dados do médico a ser alterado. O usuário realiza a alteração dos campos corretamente e clica em Salvar, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Médico alterado com sucesso.
+| **TA04.06** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do médico pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão de editar, e os campos do formulário são preenchidos com os dados do médico a ser alterado. O usuário realiza a alteração dos campos de maneira incorreta e clica em Salvar, ao clicar em Salvar ele é notificado com uma mensagem de erro. Mensagem: A operação falhou, o campo “xxxx” não foi preenchido corretamente.
+| **TA04.07** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do médico pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão Excluir, ao clicar em Excluir, o usuário é notificado com uma pergunta acompanhada de 2 botões de escolha: um botão com a palavra Não e outro com a palavra Sim. Pergunta: Deseja realmente excluir o médico de id: 'xxxx'. Caso o usuário selecione a opção 'Não' ele deve ser notificado com uma mensagem informativa. Mensagem: Nenhuma alteração foi feita. Caso o usuário selecione a opção 'Sim' ele deve ser notificado com uma mensagem de sucesso. Mensagem: Médico excluído com sucesso. 
+| **TA04.08** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do médico pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão Excluir e ele não tem permissão para Excluir, ao clicar em Excluir, o usuário é notificado com uma mensagem de erro. Mensagem: Você não possui permissão para realizar esta operação.
+
+
