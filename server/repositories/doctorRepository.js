@@ -5,3 +5,7 @@ export const createDoctor = async (doctor) => {
       data: doctor,
     });
 };
+
+export const findManyDoctors = async () => {
+  return await prisma.doctor.findMany();
+};
