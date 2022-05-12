@@ -1,6 +1,7 @@
 import {
     createDoctor,
-    findManyDoctors
+    findManyDoctors,
+    updateDoctorWithPrisma
 } from "../repositories/doctorRepository.js";
 
 export const registerDoctor = async (req, res) => {
@@ -11,4 +12,10 @@ export const registerDoctor = async (req, res) => {
 export const getDoctors = async (req, res) => {
     const doctors = await findManyDoctors();
     res.json(doctors);
+};
+
+export const updateDoctor = async (req, res) => {
+    const doctor = req.body;
+    const updatedDoctor = await updateDoctorWithPrisma(doctor);
+    res.json(updatedDoctor);
 };
