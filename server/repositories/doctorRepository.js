@@ -24,3 +24,11 @@ export const updateDoctorWithPrisma = async (doctor) => {
     },
   });
 };
+
+export const deleteDoctorWithPrisma = async (doctorID) => {
+  return await prisma.doctor.delete({
+    where: {
+      id: Number(doctorID),
+    },
+  });
+};
