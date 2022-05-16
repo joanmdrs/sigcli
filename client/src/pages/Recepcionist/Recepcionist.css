@@ -14,6 +14,7 @@
     align-items: center;
     background-color: #E0DCDC;
     border-radius: 8px;
+    border: 1px solid #000;
     margin-top: 100px;
     padding: 40px 20px;
   }

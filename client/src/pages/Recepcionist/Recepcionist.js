@@ -1,7 +1,7 @@
 import "./Recepcionist.css";
 import React, { useState } from "react";
 import api from "../../services/api";
-import Card from "../../components/Card"
+import Card from "../../components/Card";
 
 function Recepcionist() {
   const [values, setValues] = useState();
@@ -26,7 +26,7 @@ function Recepcionist() {
   };
 
   const handleSaveButton = async () => {
-    api.post("/recepcionist/register", {
+    api.post("/rcepcionist/register", {
       name: values.name,
       username: values.username,
       password: values.password,
@@ -70,11 +70,11 @@ function Recepcionist() {
       } else {
         setUsernameSearch(response.data);
       }
-    })
-  }
+    });
+  };
 
   const getUserById = () => {
-    const searchId = document.getElementById("input-get-id").value;
+    const searchId = document.getElementById("input-get-id").value
     api.get(`/recepcionist/get/${searchId}`,
     {
       username: searchId,
@@ -85,7 +85,7 @@ function Recepcionist() {
         setUsernameSearchById(response.data);
       }
     });
-  }
+  };
 
   return (
     <div className="App">

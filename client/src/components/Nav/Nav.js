@@ -9,7 +9,8 @@ import
     faHome,
     faBed,
     faStethoscope,
-    faFileWaveform
+    faFileWaveform,
+    faUserGear
  } from '@fortawesome/free-solid-svg-icons'
 
 export default function Nav(){
@@ -43,7 +44,7 @@ export default function Nav(){
                 </Link>
 
                 <Link className="tag-link" to="/recepcionist" >
-                   <FontAwesomeIcon className="icon-menu" icon={faFileWaveform} /> 
+                   <FontAwesomeIcon className="icon-menu" icon={faUserGear} /> 
                    <p> Recepcionist </p>
                 </Link>
 

@@ -1,6 +1,6 @@
 import React from "react";
 import "./card.css";
-import { handleDeleteButton } from "../App";
+import { handleDeleteButton } from "../pages/Recepcionist/Recepcionist";
 
 export default function Card(props){
     return <tr>
