@@ -1,6 +1,6 @@
 ```mermaid
 classDiagram
-
+    
     class Recepcionist{
         -String username
         -String password
@@ -61,13 +61,13 @@ classDiagram
         +deletePatient() Patient
     }
     
-    
     Recepcionist "1" -->  "0..*" Appointment: Marca
     Recepcionist "1" -->  "0..*" Exam: Marca
-    Doctor  --*  Exam: Realiza
     Doctor  --*  Appointment:Realiza
     Patient  --*  Appointment: Participa
     Patient  --*  Exam: Participa
-
+    Doctor  --*  Exam: Realiza
+    
+    
 
 ```
