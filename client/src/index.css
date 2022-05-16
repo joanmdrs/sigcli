@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap');
 
 
+*{
+  text-decoration: none !important;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
 body {
   margin: 0;
   background-color: azure;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
