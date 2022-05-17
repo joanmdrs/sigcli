@@ -26,7 +26,7 @@ function Recepcionist() {
   };
 
   const handleSaveButton = async () => {
-    api.post("/rcepcionist/register", {
+    api.post("/recepcionist/register", {
       name: values.name,
       username: values.username,
       password: values.password,
