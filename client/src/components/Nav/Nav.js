@@ -34,7 +34,7 @@ export default function Nav(){
                     <FontAwesomeIcon className="icon-menu" icon={faBed} /> 
                     <p> Patients </p>
                 </Link>
-                <Link className="tag-link" to="/" >
+                <Link className="tag-link" to="/doctor" >
                     <FontAwesomeIcon className="icon-menu" icon={faStethoscope} />  
                     <p> Doctors </p>
                 </Link>
