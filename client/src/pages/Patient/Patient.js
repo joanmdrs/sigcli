@@ -1,10 +1,10 @@
-import './Patient.css'
-import React from 'react'
-import Nav from '../../components/Nav/Nav'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHospitalUser } from '@fortawesome/free-solid-svg-icons'
-import { Form, FormGroup, Label, Input, Row, Col, Button, Table, InputGroup } from 'reactstrap'
+import './Patient.css';
+import React from 'react';
+import Nav from '../../components/Nav/Nav';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHospitalUser } from '@fortawesome/free-solid-svg-icons';
+import { Form, FormGroup, Label, Input, Row, Col, Button, Table, InputGroup } from 'reactstrap';
 
 export default function Patient() {
   return (
