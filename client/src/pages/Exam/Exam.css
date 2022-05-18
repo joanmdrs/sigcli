@@ -1,6 +1,7 @@
 .container-exam {
     display: flex;
-    background-color: #d0d6db;;
+    background-color: #d0d6db;
+    min-height: 100vh;
 }
 
 .box-exam {

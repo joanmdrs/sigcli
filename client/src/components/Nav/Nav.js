@@ -7,7 +7,7 @@ import
     faHeartPulse,
     faCalendarCheck,
     faHome,
-    faBed,
+    faHospitalUser,
     faStethoscope,
     faFileWaveform,
     faUserGear
@@ -30,8 +30,8 @@ export default function Nav(){
                     <FontAwesomeIcon className="icon-menu" icon={faCalendarCheck} />
                     Appoitments
                 </Link>
-                <Link className="tag-link" to="/" >
-                    <FontAwesomeIcon className="icon-menu" icon={faBed} /> 
+                <Link className="tag-link" to="/patients" >
+                    <FontAwesomeIcon className="icon-menu" icon={faHospitalUser} /> 
                     Patients
                 </Link>
                 <Link className="tag-link" to="/" >
