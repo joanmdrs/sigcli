@@ -57,10 +57,6 @@
   justify-content: flex-end;
 }
 
-.btn-save, .btn-cancel {
-  /* background-color: #fff ; */
-}
-
 .box-patient  .tablePatient {
   padding: 30px;
   margin: 10px 15px 15px 15px;
