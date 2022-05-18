@@ -1,14 +1,5 @@
 version: "3.9"
-services:
-  pgadmin:
-    container_name: pgadmin_sigcli
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: 'admin@gmail.com'
-      PGADMIN_DEFAULT_PASSWORD: '123456'
-    ports:
-      - '15432:80'
-    
+services:  
   client:
     container_name: client_sigcli
     image: client_sigcli_image

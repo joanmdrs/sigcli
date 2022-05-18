@@ -47,78 +47,44 @@ Nesta seção você encontra o tutorial de execução do projeto
 ```console
 git clone https://github.com/joanmdrs/sigcli.git
 ```
-### Executando o Front-End
-
-
-2. Após realizar o clone do repositório na sua máquina, navegue até a pasta "client" e execute o comando abaixo para instalar as dependências:
-
-```console
-npm install
-```
-3. Agora, ainda na pasta "client" execute o comando abaixo para executar o Front-End:
-
-```console
-npm start
-```
-
-### Executando o Back-End
-
-4. Após executar a aplicação client, navegue até a pasta "server" e utilize o comando abaixo para baixar as dependências do Back-End:
-
-```console
-npm install
-```
 
 ### Preparando o Prisma ORM 
 
-5. Após a instalação das dependências da aplicação server, dentro da pasta "server", crie o arquivo .env e defina o DATABASEURL da seguinte forma:
+2. Dentro da pasta "server", crie o arquivo .env e defina o DATABASEURL da seguinte forma:
  
 ```console
 DATABASE_URL="postgresql://myuser:mypassword@localhost:5432/mydb?schema=public"
 ```
 
-6. Agora, com o DATABASEURL definido, execute o seguinte comando:
-
-```console
-npx prisma generate
-```
-
-7. Neste momento, todas as dependências do sistema estão instaladas, agora você só precisa executar o servidor do Back-End com o comando abaixo:
-
-```console
-npm run server
-```
-
 ### Executando o Banco de Dados com Docker
 
-8. Criando a network
+3. Criando a network
 ```console
 docker network create -d bridge imd-network
 ```
 
-9. Criando o container do PostgreSQL 
+4. Criando o container do PostgreSQL 
 ```console
 docker run --name postgres-server -e "POSTGRES_PASSWORD=postgres" -p 5432:5432 -v $HOME/dev/docker/volumes/postgres/postgresql:/var/lib/postgresql -v $HOME/dev/docker/volumes/postgres/postgresql_data:/var/lib/postgresql/data --network=imd-network -d postgres:latest
 ```
 
-10. Criando o container do PgAdmin
+5. Criando o container do PgAdmin
 ```console
 docker run --name pgadmin-server -p 15432:80 -e "PGADMIN_DEFAULT_EMAIL=admin@admin.com" -e "PGADMIN_DEFAULT_PASSWORD=pgadmin" --network=imd-network -d dpage/pgadmin4:latest
 ```
 
-11. Executando o PostgreSQL
-```console
-docker start postgres-server
-```
-
-12. Executando o PgAdmin
-```console
-docker start pgadmin-server
-```
-
-13. Abrindo o PgAdmin no Browser
+6. Abrindo o PgAdmin no Browser
 ```console
 localhost:15432
+```
+
+7. Instale o docker compose [link](https://docs.docker.com/compose/install/)
+
+8. Rodando as aplicações
+
+```console
+docker-compose up
+
 ```
 
 ## Tutoriais 
