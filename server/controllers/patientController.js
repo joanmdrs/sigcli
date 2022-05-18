@@ -3,7 +3,7 @@ import {
   listPatient,
   updatePatientWithPrisma,
   deletePatientWithPrisma
-} from '../repositories/patientRepository'
+} from '../repositories/patientRepository.js'
 
 export const registerPatient = async (req, res) => {
   const patientBody = req.body

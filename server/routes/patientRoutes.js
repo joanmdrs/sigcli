@@ -1,18 +1,18 @@
-import { Router } from "express";
+import { Router } from 'express'
 import {
   registerPatient,
   listPatients,
   updatePatient,
-  deletePatient,
-} from "../controllers/patientController";
+  deletePatient
+} from '../controllers/patientController.js'
 
-export const patientRoutes = Router();
+export const patientRoutes = Router()
 
 // /recepcionist/register
-patientRoutes.post("/register", registerPatient);
+patientRoutes.post('/register', registerPatient)
 
-patientRoutes.get("/getAll", listPatients);
+patientRoutes.get('/getAll', listPatients)
 
-patientRoutes.put("/update", updatePatient);
+patientRoutes.put('/update', updatePatient)
 
-patientRoutes.delete("/:cpf", deletePatient);
+patientRoutes.delete('/:cpf', deletePatient)
