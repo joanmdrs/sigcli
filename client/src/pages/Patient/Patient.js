@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHospitalUser } from '@fortawesome/free-solid-svg-icons';
 import { Form, FormGroup, Label, Input, Row, Col, Button, Table, InputGroup } from 'reactstrap';
+import { createPatient, listPatients, editPatient, removePatient } from '../../services/patientServices.js'
 
 export default function Patient() {
   return (
