@@ -7,7 +7,7 @@ export const createExam = async (exam) => {
           title: String(exam.title),
           cpf_hash_patient: String(exam.patient_cpf),
           crm_doctor: String(exam.doctor_crm),
-          description: String(exam.description)
+          description: String(exam.description)   
         }
     });
     
