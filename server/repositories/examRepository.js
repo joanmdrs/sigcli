@@ -6,9 +6,9 @@ export const createExam = async (exam) => {
     });
 }
 
-export const listExams = async () => {
+export const listExamWithPrisma = async () => {
     return await prisma.exam.findMany();
-}
+};
 
 
 export const updateExamWithPrisma = async (exam) => {
