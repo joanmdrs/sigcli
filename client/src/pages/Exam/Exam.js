@@ -1,5 +1,5 @@
 import "./Exam.css"
-import React from "react";
+import React, { useState } from "react";
 import Nav from "../../components/Nav/Nav";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -13,8 +13,26 @@ import {
     Col,
     Button
 } from 'reactstrap'
+import { addExam } from "../../services/ExamServices";
 
 export default function Exam(){
+
+    const [values, setValues] = useState();
+
+
+    const handleSaveButton = () => {
+
+        const exam = {
+            title: document.getElementById("title").value,
+            patient_cpf: document.getElementById("patient-cpf").value,
+            doctor_crm: document.getElementById("doctor-crm").value,
+            description: document.getElementById("description").value
+        };
+
+       addExam(exam);
+    
+
+    }
 
     return (
         <div className="container-exam">
@@ -100,11 +118,11 @@ export default function Exam(){
                     <Row >
                         <Col md={8}>
                             <FormGroup>
-                                <Label for="appointment-description">
+                                <Label for="description">
                                 Description
                                 </Label>
                                 <Input 
-                                    id="appointment-description"
+                                    id="description"
                                     type="textarea" 
                                     placeholder="description"
                                     className="input-textarea" >
@@ -115,7 +133,7 @@ export default function Exam(){
                             <Button  type="submit" className="btn-cancel btn-danger">
                                 Cancel
                             </Button>
-                            <Button type="button" className="btn-save btn-success">
+                            <Button type="button" className="btn-save btn-success" onClick={handleSaveButton}>
                                 Save
                             </Button>
                         </Col>

@@ -7,7 +7,7 @@ import {
 
 
 export const registerExam = async (req, res) => {
-    const examBody = req.body;
+    const examBody = req.body
     const exam = await createExam(examBody)
     res.json(exam);
 };

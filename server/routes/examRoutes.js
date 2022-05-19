@@ -4,7 +4,7 @@ import {
     listExam,
     updateExam,
     deleteExam
-} from "../controllers/examController"
+} from "../controllers/examController.js"
 
 export const examRoutes = Router();
 
