@@ -6,8 +6,16 @@ import {
 } from '../repositories/patientRepository.js'
 
 export const registerPatient = async (req, res) => {
-  const patientBody = req.body
+  const {name, cpf, phone, email, username, password} = req.body
 
+  const patientBody = {
+    name: name,
+    cpf: cpf,
+    phone: phone,
+    email: email,
+    username: username,
+    password: password
+  }
   const patient = await createPatient(patientBody)
   res.json(patient)
 }
@@ -24,7 +32,7 @@ export const updatePatient = async (req, res) => {
 }
 
 export const deletePatient = async (req, res) => {
-  const cpf = req.params.cpf
-  const deletedPatient = await deletePatientWithPrisma(cpf)
+  const id = req.params.id
+  const deletedPatient = await deletePatientWithPrisma(id)
   res.json(deletedPatient)
 }

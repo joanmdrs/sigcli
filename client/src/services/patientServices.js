@@ -13,7 +13,7 @@ export const createPatient = (props) => {
 
 export const listPatients = () => {
   api.get("/patient/getAll").then((response) => {
-    return response.data;
+    return (response.data);
   })
 }
 
@@ -30,11 +30,9 @@ export const editPatient = (props) => {
     email: props.email,
     username: props.username,
     password: props.password,
-  }).then((response) => {
-    return response;
-  });
+  })
 }
 
-export const removePatient = (props) => {
-  api.delete(`/patient/${props.cpf}`);
+export const removePatient = (id) => {
+  api.delete(`/patient/${id}`);
 }

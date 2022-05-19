@@ -13,7 +13,7 @@ export default function Routes () {
         <BrowserRouter>
             <Switch>
                 <Route path="/" element={<Home />} />
-                <Route path="/patients" element={<Patient />} />
+                <Route path="/patient" element={<Patient />} />
                 <Route path="/exams" element={<Exam />} />
                 <Route path="/recepcionist" element={<Recepcionist />} />
             </Switch>

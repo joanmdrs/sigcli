@@ -27,10 +27,10 @@ export const updatePatientWithPrisma = async (patient) => {
   });
 };
 
-export const deletePatientWithPrisma = async (patientCPF) => {
+export const deletePatientWithPrisma = async (patientID) => {
   return await prisma.patient.delete({
     where: {
-      cpf: patientCPF,
+      id: Number(patientID),
     },
   });
 };

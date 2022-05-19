@@ -15,4 +15,4 @@ patientRoutes.get('/getAll', listPatients)
 
 patientRoutes.put('/update', updatePatient)
 
-patientRoutes.delete('/:cpf', deletePatient)
+patientRoutes.delete('/:id', deletePatient)

@@ -30,7 +30,7 @@ export default function Nav(){
                     <FontAwesomeIcon className="icon-menu" icon={faCalendarCheck} />
                     Appoitments
                 </Link>
-                <Link className="tag-link" to="/patients" >
+                <Link className="tag-link" to="/patient" >
                     <FontAwesomeIcon className="icon-menu" icon={faHospitalUser} /> 
                     Patients
                 </Link>
