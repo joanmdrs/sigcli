@@ -57,7 +57,7 @@
   justify-content: flex-end;
 }
 
-.box-patient  .tablePatient {
+.box-patient  .tablePatient{
   padding: 30px;
   margin: 10px 15px 15px 15px;
   border: 1px solid #d0d6db;
@@ -67,6 +67,44 @@
   width: 1270px;
 }
 
+.tableFilterPatient{
+  padding: 0px;
+  margin: 10px 15px 15px 15px;
+  border: 1px solid #d0d6db;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  min-width: 1270px;
+  display: block;
+}
+
+#thead{
+  min-width: 100%;
+}
+
+#tbody{
+  min-width: 100%;
+}
+
+.tableFilterPatientOp{
+  padding: 0px;
+  margin: 10px 15px 15px 15px;
+  border: 1px solid #d0d6db;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  min-width: 1270px;
+  display: block;
+}
+
 .idForm {
   display: none;
+}
+
+.tablePatientClosed {
+  display: none;
+}
+
+#linhaInvisivel {
+  visibility: hidden;
 }

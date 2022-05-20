@@ -10,6 +10,14 @@ export const listPatient = async () => {
   return await prisma.patient.findMany();
 };
 
+export const findUniqueByCPFPatient = async (id) => {
+  return await prisma.patient.findUnique({
+    where: {
+      id: Number(id),
+    },
+  });
+};
+
 export const updatePatientWithPrisma = async (patient) => {
   const { id, name, cpf, phone, email, username, password } = patient;
   return await prisma.patient.update({

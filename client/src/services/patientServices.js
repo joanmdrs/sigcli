@@ -17,8 +17,10 @@ export const listPatients = () => {
   })
 }
 
-// export const filterPatient = (props) => {
-//   return 
+// export const filterPatient = (cpf) => {
+//   api.get(`/patient/get/${cpf}`).then((response) => {
+//     return (response.data);
+//   })
 // }
 
 export const editPatient = (props) => {

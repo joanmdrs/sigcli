@@ -1,6 +1,7 @@
 import {
   createPatient,
   listPatient,
+  findUniqueByCPFPatient,
   updatePatientWithPrisma,
   deletePatientWithPrisma
 } from '../repositories/patientRepository.js'
@@ -23,6 +24,12 @@ export const registerPatient = async (req, res) => {
 export const listPatients = async (req, res) => {
   const listPatients = await listPatient()
   return res.status(200).json(listPatients)
+}
+
+export const getPatientByCPF = async (req, res) => {
+  const { id } = req.params;
+  const patient = await findUniqueByCPFPatient(id);
+  return res.status(200).json(patient);
 }
 
 export const updatePatient = async (req, res) => {
