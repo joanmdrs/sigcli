@@ -56,7 +56,7 @@ RF20| Excluir Consulta
 | **Prioridade**          | Essencial     |
 | **Estimativa**          | 8h            |
 | **Tempo Gasto (real):** |               |
-| **Tamanho Funcional**   | **A definir** |
+| **Tamanho Funcional**   | 40            |
 | **Analista**            | Rauan         |
 | **Desenvolvedor**       | Allan         |
 | **Revisor**             | Joan          |
