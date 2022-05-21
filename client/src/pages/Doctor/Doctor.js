@@ -51,6 +51,10 @@ function Doctor(){
         })
     }, []);
 
+    const deleteDoctor = async (doctorId) => {
+        api.delete(`/doctor/delete/${doctorId}`);
+    }
+
     return (
         <div className="App">
             <div>
@@ -137,7 +141,9 @@ function Doctor(){
                                     <td>{doctor.username}</td>
                                     <td>
                                         <button className="card-button">Edit</button>
-                                        <button className="card-button">Del</button>
+                                        <button className="card-button" onClick={() =>
+                                            deleteDoctor(doctor.id)
+                                        }>Del</button>
                                     </td>
                                 </tr>
                             )})}
