@@ -1,7 +1,8 @@
-### Documento de Projeto Arquitetural
+# Documento de Projeto Arquitetural
 
 Neste documento temos o projeto arquitetural do sistema, e uma breve descrição de cada componente.
 
+## Diagrama 
 
 ```mermaid
 flowchart LR
@@ -17,3 +18,13 @@ flowchart LR
     Repository <-->|Persistence| BD[(database)]
     end
 ```
+
+## Descrição
+
+| Componente | Tecnologia | Descrição
+|------------|------------|----------
+|View|ReactJS| Criação de componentes visuais para a tela
+|Service|Axios| Comunicação via HTTP com a API
+|Controller| Express| Servidor para receber as requisições HTTP
+|Repository| Prisma| ORM para fazer comunicação com o banco de dados
+|Database|Postgres| Banco de dados para guardar as informações salvas
