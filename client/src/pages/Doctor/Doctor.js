@@ -1,11 +1,11 @@
 import './Doctor.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import api from "../../services/api";
-import Card from "../../components/Card";
 
 function Doctor(){
     //axios get post put delete
     const [values, setValues] = useState();
+    const [doctorSearch, setDoctorSearch] = useState([]);
 
     const handleChangeValues = (value) => {
         setValues((prevValue) => ({
@@ -45,12 +45,18 @@ function Doctor(){
         ]);
     };
 
+    useEffect(() => {
+        api.get("/doctor/getAll").then((response) => {
+            setDoctorSearch(response.data);
+        })
+    }, []);
+
     return (
         <div className="App">
-            <div className="container-add-doctor">
+            <div>
                 <h1>Add doctor</h1>
                 <div
-                className="form-add-doctor"
+                className="form-add-doctor needs-validation"
                 id="form-doctor"
                 data-action="new"
                 >
@@ -107,6 +113,36 @@ function Doctor(){
                 >
                     Save
                 </button>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>CRM</th>
+                                <th>Username</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            {doctorSearch.map((doctor) => {
+                            return (
+                                <tr key={doctor.crm}>
+                                    <td>{doctor.name}</td>
+                                    <td>{doctor.crm}</td>
+                                    <td>{doctor.username}</td>
+                                    <td>
+                                        <button className="card-button">Edit</button>
+                                        <button className="card-button">Del</button>
+                                    </td>
+                                </tr>
+                            )})}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
