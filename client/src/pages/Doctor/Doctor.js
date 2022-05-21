@@ -4,9 +4,8 @@ import api from "../../services/api";
 import Swal from 'sweetalert2';
 
 function Doctor(){
-    //axios get post put delete
     const [values, setValues] = useState();
-    const [doctorSearch, setDoctorSearch] = useState([]);
+    const [doctorList, setDoctorList] = useState([]);    
 
     const handleChangeValues = (value) => {
         setValues((prevValue) => ({
@@ -60,7 +59,7 @@ function Doctor(){
 
     useEffect(() => {
         api.get("/doctor/getAll").then((response) => {
-            setDoctorSearch(response.data);
+            setDoctorList(response.data);
         })
     }, []);
 
@@ -186,7 +185,7 @@ function Doctor(){
                         </thead>
                         <tbody>
                             
-                            {doctorSearch.map((doctor) => {
+                            {doctorList.map((doctor) => {
                             return (
                                 <tr key={doctor.crm}>
                                     <td>{doctor.name}</td>
