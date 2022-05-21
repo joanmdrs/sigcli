@@ -21,7 +21,7 @@ function Doctor(){
         if (document.getElementById("form-doctor").dataset.action === "new") {
           handleSaveButton();
         } else {
-          //handleUpdateButton();
+          handleUpdateButton();
         }
     };
 
@@ -51,6 +51,22 @@ function Doctor(){
         })
     }, []);
 
+    const handleUpdateButton = async () => {
+        const id = document.getElementById("input-id").value;
+        const name = document.getElementById("input-name").value;
+        const crm = document.getElementById("input-crm").value;
+        const username = document.getElementById("input-username").value;
+        const password = document.getElementById("input-password").value;
+
+        api.put('/doctor/update/', {
+            id: id,
+            name: name,
+            crm: crm,
+            username: username,
+            password: password,
+        });
+    }
+
     const deleteDoctor = async (doctorId) => {
         api.delete(`/doctor/delete/${doctorId}`);
     }
@@ -60,7 +76,7 @@ function Doctor(){
             <div>
                 <h1>Add doctor</h1>
                 <div
-                className="form-add-doctor needs-validation"
+                className="form-add-doctor"
                 id="form-doctor"
                 data-action="new"
                 >
@@ -140,7 +156,15 @@ function Doctor(){
                                     <td>{doctor.crm}</td>
                                     <td>{doctor.username}</td>
                                     <td>
-                                        <button className="card-button">Edit</button>
+                                        <button className="card-button" onClick={() => {
+                                            document.getElementById("input-id").defaultValue = doctor.id;
+                                            document.getElementById("input-name").defaultValue = doctor.name;
+                                            document.getElementById("input-crm").defaultValue = doctor.crm;
+                                            document.getElementById("input-username").defaultValue = doctor.username;
+                                            document.getElementById("input-password").defaultValue = doctor.password;
+                                            document.getElementById("form-doctor").dataset.action = "edit";
+                                        }}
+                                        >Edit</button>
                                         <button className="card-button" onClick={() =>
                                             deleteDoctor(doctor.id)
                                         }>Del</button>
