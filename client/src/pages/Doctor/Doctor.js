@@ -1,6 +1,7 @@
 import './Doctor.css';
 import React, { useState, useEffect } from "react";
 import api from "../../services/api";
+import Swal from 'sweetalert2';
 
 function Doctor(){
     //axios get post put delete
@@ -32,6 +33,18 @@ function Doctor(){
             username: values.username,
             password: values.password,
         });
+
+        Swal.fire({
+            title: 'Success',
+            text: 'New doctor added.',
+            icon:'success',
+            showCancelButton: false,
+            confirmButtonColor: '#0C6170',
+            confirmButtonText: 'Ok',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.location.reload();
+        }});
 
         setValues([
             ...values,
@@ -65,10 +78,34 @@ function Doctor(){
             username: username,
             password: password,
         });
+
+        Swal.fire({
+            title: 'Success',
+            text: 'The informations about this doctor were updated.',
+            icon:'success',
+            showCancelButton: false,
+            confirmButtonColor: '#0C6170',
+            confirmButtonText: 'Ok',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.location.reload();
+        }});
     }
 
     const deleteDoctor = async (doctorId) => {
-        api.delete(`/doctor/delete/${doctorId}`);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#0C6170',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            api.delete(`/doctor/delete/${doctorId}`);
+            document.location.reload();
+        }})
     }
 
     return (
@@ -157,6 +194,14 @@ function Doctor(){
                                     <td>{doctor.username}</td>
                                     <td>
                                         <button className="card-button" onClick={() => {
+                                            Swal.fire({
+                                                title: 'Edit Doctor',
+                                                text: "Now you will edit this Doctor's informations, be careful.",
+                                                icon:'info',
+                                                showCancelButton: false,
+                                                confirmButtonColor: '#0C6170',
+                                                confirmButtonText: 'Ok',
+                                            });
                                             document.getElementById("input-id").defaultValue = doctor.id;
                                             document.getElementById("input-name").defaultValue = doctor.name;
                                             document.getElementById("input-crm").defaultValue = doctor.crm;
