@@ -15,7 +15,7 @@ import {
 
 function FormExam({handleSaveButton}) {
   return (
-    <Form className="form-exam">
+    <Form className="form-exam" data-action='add' id='form-exam'>
         <FormGroup>
             <Label for="title">
                 Title

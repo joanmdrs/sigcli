@@ -4,7 +4,7 @@ import { Container as ContainerExam} from "../../components/Container/Container"
 import {BoxExam} from "../../components/BoxExam/BoxExam";
 import HeaderExam from "../../components/HeaderExam/HeaderExam";
 import FormExam from "../../components/FormExam/FormExam";
-import { addExam, getExams } from "../../services/ExamServices";
+import { addExam, getActionForm, getExams, getValuesInput, setFields, updateExam } from "../../services/ExamServices";
 import ListExam from "../../components/ListExam/ListExam";
 
 export default function Exam(){
@@ -14,17 +14,13 @@ export default function Exam(){
     // POST 
     const handleSaveButton = () => {
 
-        const exam = {
-            title: document.getElementById("title").value,
-            patient_cpf: document.getElementById("patient-cpf").value,
-            patient_name: document.getElementById("patient-name").value,
-            doctor_crm: document.getElementById("doctor-crm").value,
-            doctor_name: document.getElementById("doctor-name").value,
-            description: document.getElementById("description").value
-        };
+        const data = getValuesInput();
 
-        console.log(exam);
-       addExam(exam);
+        const action = getActionForm();
+
+        action === "add" ? addExam(data) : updateExam(action, data);
+
+
     }
 
     // LIST 
@@ -41,7 +37,18 @@ export default function Exam(){
         fetchData();
     }, []);
     
-  
+    // SETFIELDS  
+
+    const handlePreparaToUpdate = (ExamID) => {
+
+        let data = {}
+        listExams.forEach(element => {
+            element.id === ExamID ? data = element : data = data
+        });
+
+        setFields(data);
+    
+    }
 
 
     return (
@@ -50,7 +57,7 @@ export default function Exam(){
             <BoxExam>
                 <HeaderExam />
                 <FormExam handleSaveButton={handleSaveButton} />
-               <ListExam exams={listExams} />
+               <ListExam exams={listExams} setFields={handlePreparaToUpdate} />
             </BoxExam>
         </ContainerExam>
     )

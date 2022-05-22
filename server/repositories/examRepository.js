@@ -21,15 +21,17 @@ export const listExamWithPrisma = async () => {
 
 
 export const updateExamWithPrisma = async (exam) => {
-  const { id, title, cpf_hash_patient, crm_doctor, description } = exam;
+  const { id, title, patient_cpf, patient_name, crm_doctor, doctor_name, description } = exam;
   return await prisma.exam.update({
     where: {
       id: Number(id),
     },
     data: {
         title, 
-        cpf_hash_patient, 
+        patient_cpf, 
+        patient_name, 
         crm_doctor, 
+        doctor_name,
         description
     },
   });
