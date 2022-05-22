@@ -1,17 +1,19 @@
 import "./Exam.css"
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../../components/Nav/Nav";
 import { Container as ContainerExam} from "../../components/Container/Container";
-import { BoxExam } from "./BoxExam";
+import {BoxExam} from "../../components/BoxExam/BoxExam";
 import HeaderExam from "../../components/HeaderExam/HeaderExam";
 import FormExam from "../../components/FormExam/FormExam";
 import { addExam } from "../../services/ExamServices";
+import ListExam from "../../components/ListExam/ListExam";
 
 export default function Exam(){
 
-    const [values, setValues] = useState();
+    const [values, setValues] = useState([]);
 
 
+    // POST 
     const handleSaveButton = () => {
 
         const exam = {
@@ -20,11 +22,9 @@ export default function Exam(){
             doctor_crm: document.getElementById("doctor-crm").value,
             description: document.getElementById("description").value
         };
-
        addExam(exam);
-    
-
     }
+
 
 
     return (
@@ -33,6 +33,7 @@ export default function Exam(){
             <BoxExam>
                 <HeaderExam />
                 <FormExam handleSaveButton={handleSaveButton} />
+                <ListExam />
             </BoxExam>
         </ContainerExam>
     )

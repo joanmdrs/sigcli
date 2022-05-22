@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+.table-list-exams {
+    background-color: #fff;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: calc(100% - 30px);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 8px;
+
+}
+
+.table-list-exams thead  tr{
+    background-color: #fff;
+}
+
+
+.table-list-exams thead tr th,
+.table-list-exams tbody tr td {
+    padding: 15px;
+}
