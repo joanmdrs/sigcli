@@ -5,8 +5,10 @@ export const createExam = async (exam) => {
     return await prisma.exam.create({
         data : {
           title: String(exam.title),
-          cpf_hash_patient: String(exam.patient_cpf),
-          crm_doctor: String(exam.doctor_crm),
+          patient_cpf: String(exam.patient_cpf),
+          patient_name: String(exam.patient_name),
+          crm_doctor: String(exam.crm_doctor),
+          doctor_name: String(exam.doctor_name),
           description: String(exam.description)   
         }
     });
