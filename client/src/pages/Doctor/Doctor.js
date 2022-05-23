@@ -113,7 +113,7 @@ function Doctor(){
     return (
         <div className="container m-0 p-0">
             <Row>
-                <div className='col-sm-3'>
+                <div className='col-sm-3 p-0'>
                     <Nav />
                 </div>
                 <div className='col-sm-6'>
@@ -134,7 +134,7 @@ function Doctor(){
                                     <td>{doctor.crm}</td>
                                     <td>{doctor.username}</td>
                                     <td>
-                                        <button className="card-button" onClick={() => {
+                                        <button className="card-button m-1" onClick={() => {
                                             Swal.fire({
                                                 title: 'Edit Doctor',
                                                 text: "Now you will edit this Doctor's informations, be careful.",
@@ -151,7 +151,7 @@ function Doctor(){
                                             document.getElementById("form-doctor").dataset.action = "edit";
                                         }}
                                         >Edit</button>
-                                        <button className="card-button" onClick={() =>
+                                        <button className="card-button m-1" onClick={() =>
                                             deleteDoctor(doctor.id)
                                         }>Del</button>
                                     </td>
