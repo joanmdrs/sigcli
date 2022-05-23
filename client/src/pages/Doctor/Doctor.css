@@ -1,4 +1,4 @@
-
+/* 
 * {
     margin: 0;
     padding: 0;
@@ -66,12 +66,13 @@
   .form-add-doctor button:hover, .form-search-doctor button:hover {
     background-color: #37BEB0;
   }
-  
+  */
   .App {
     display: flex;
     justify-content: space-evenly;
   }
   
+  /*
   .search-container {
     margin-left: 50px;
     margin-top: -60px;
@@ -120,4 +121,4 @@
   .error-user {
     display: none;
   }
-  
+   */

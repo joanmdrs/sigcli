@@ -1,7 +1,10 @@
 import './Doctor.css';
 import React, { useState, useEffect } from "react";
+import { Form, FormGroup, Label, Input, Row, Col, Button, Table, InputGroup } from 'reactstrap';
+import Nav from '../../components/Nav/Nav';
 import api from "../../services/api";
 import Swal from 'sweetalert2';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Doctor(){
     const [values, setValues] = useState();
@@ -108,87 +111,26 @@ function Doctor(){
     }
 
     return (
-        <div className="App">
-            <div>
-                <h1>Add doctor</h1>
-                <div
-                className="form-add-doctor"
-                id="form-doctor"
-                data-action="new"
-                >
-                <input
-                    type="text"
-                    name="id"
-                    placeholder=" id"
-                    className="input-id-doctor"
-                    id="input-id"
-                />
-                <input
-                    type="text"
-                    className="input-name-doctor"
-                    name="name"
-                    placeholder="name"
-                    id="input-name"
-                    required
-                    onChange={handleChangeValues}
-                />
-                <input
-                    type="text"
-                    className="input-crm-doctor"
-                    name="crm"
-                    placeholder="crm"
-                    id="input-crm"
-                    required
-                    onChange={handleChangeValues}
-                />
-                <input
-                    type="text"
-                    className="input-username-doctor"
-                    name="username"
-                    placeholder="username"
-                    id="input-username"
-                    required
-                    onChange={handleChangeValues}
-                />
-                <input
-                    type="password"
-                    className="input-password-doctor"
-                    name="password"
-                    placeholder="password"
-                    id="input-password"
-                    required
-                    onChange={handleChangeValues}
-                />
-                <button
-                    type="submit"
-                    className="button-save-doctor"
-                    id="input-button"
-                    onClick={() => {
-                      handleClickButton();
-                    }}
-                >
-                    Save
-                </button>
+        <div className="container m-0 p-0">
+            <Row>
+                <div className='col-sm-3'>
+                    <Nav />
                 </div>
-            </div>
-
-            <div>
-                <div>
-                    <table>
+                <div className='col-sm-6'>
+                    <Table responsive hover borderless className='tableFilterPatient' id='filterTable'>
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>CRM</th>
-                                <th>Username</th>
-                                <th>Actions</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">CRM</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            
                             {doctorList.map((doctor) => {
                             return (
                                 <tr key={doctor.crm}>
-                                    <td>{doctor.name}</td>
+                                    <td scope="row">{doctor.name}</td>
                                     <td>{doctor.crm}</td>
                                     <td>{doctor.username}</td>
                                     <td>
@@ -216,9 +158,40 @@ function Doctor(){
                                 </tr>
                             )})}
                         </tbody>
-                    </table>
+                    </Table>
                 </div>
-            </div>
+                <div className='col-sm-3 card mt-1'>
+                    <h1 className='text-center'>Add doctor</h1>
+                    <div
+                    className="form-add-doctor card-body"
+                    id="form-doctor"
+                    data-action="new"
+                    >
+                        <FormGroup>
+                            <Input id="input-id" name="id" type="text" placeholder="id" className="input-id-doctor"></Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="input-name">Name:</Label>
+                            <Input id="input-name" name="name" type="text" placeholder="Name" className="input-name-doctor" required onChange={handleChangeValues}></Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="input-crm">CRM:</Label>
+                            <Input id="input-crm" name="crm" type="text" placeholder="CRM" className="input-crm-doctor" required onChange={handleChangeValues}></Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="input-username">Username:</Label>
+                            <Input id="input-username" name="username" type="text" placeholder="Username" className="input-username-doctor" required onChange={handleChangeValues}></Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="input-password">Password:</Label>
+                            <Input id="input-password" name="password" type="password" placeholder="Password" className="input-password-doctor" required onChange={handleChangeValues}></Input>
+                        </FormGroup>
+                        <Button type="submit" className="btn btn-primary" onClick={() => {
+                            handleClickButton();
+                        }}>Save</Button>
+                    </div>
+                </div>
+            </Row>
         </div>
     );
 };
