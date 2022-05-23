@@ -1,6 +1,6 @@
 import './Doctor.css';
 import React, { useState, useEffect } from "react";
-import { Form, FormGroup, Label, Input, Row, Col, Button, Table, InputGroup } from 'reactstrap';
+import { FormGroup, Label, Input, Row, Button, Table } from 'reactstrap';
 import Nav from '../../components/Nav/Nav';
 import api from "../../services/api";
 import Swal from 'sweetalert2';
@@ -130,7 +130,7 @@ function Doctor(){
                             {doctorList.map((doctor) => {
                             return (
                                 <tr key={doctor.crm}>
-                                    <td scope="row">{doctor.name}</td>
+                                    <td>{doctor.name}</td>
                                     <td>{doctor.crm}</td>
                                     <td>{doctor.username}</td>
                                     <td>
