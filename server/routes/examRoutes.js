@@ -15,4 +15,4 @@ examRoutes.get("/getAll", listExam);
 
 examRoutes.put("/update", updateExam);
 
-examRoutes.delete("/:id", deleteExam);
+examRoutes.delete("/delete/:id", deleteExam);

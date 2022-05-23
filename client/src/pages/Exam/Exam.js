@@ -4,7 +4,7 @@ import { Container as ContainerExam} from "../../components/Container/Container"
 import {BoxExam} from "../../components/BoxExam/BoxExam";
 import HeaderExam from "../../components/HeaderExam/HeaderExam";
 import FormExam from "../../components/FormExam/FormExam";
-import { addExam, getActionForm, getExams, getValuesInput, setFields, updateExam } from "../../services/ExamServices";
+import { addExam, deleteExam, getActionForm, getExams, getValuesInput, setFields, updateExam } from "../../services/ExamServices";
 import ListExam from "../../components/ListExam/ListExam";
 
 export default function Exam(){
@@ -50,6 +50,12 @@ export default function Exam(){
     
     }
 
+    // DELETE 
+
+    const handleDelete = (id) => {
+        deleteExam(id);
+    }
+
 
     return (
         <ContainerExam>
@@ -57,7 +63,7 @@ export default function Exam(){
             <BoxExam>
                 <HeaderExam />
                 <FormExam handleSaveButton={handleSaveButton} />
-               <ListExam exams={listExams} setFields={handlePreparaToUpdate} />
+               <ListExam exams={listExams} setFields={handlePreparaToUpdate} handleDelete={handleDelete} />
             </BoxExam>
         </ContainerExam>
     )

@@ -1,7 +1,6 @@
 import { prisma } from "../service/prisma.js";
 
 export const createExam = async (exam) => {
-  console.log("Estou em Repository:", exam);
     return await prisma.exam.create({
         data : {
           title: String(exam.title),

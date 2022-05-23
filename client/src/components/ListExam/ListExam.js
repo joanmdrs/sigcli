@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table, Button } from 'reactstrap'
 import { faPenToSquare , faTrash } from '@fortawesome/free-solid-svg-icons'
-function ListExam({exams, setFields}) {
+function ListExam({exams, setFields, handleDelete}) {
 
     return (
         <Table responsive hover borderless className='table-list-exams'>
@@ -30,12 +30,16 @@ function ListExam({exams, setFields}) {
                                     <td>{exam.doctor_name}</td>
                                     <td>{exam.crm_doctor}</td>
                                     <td className="td-with-btns">
+
                                         <Button className="btn-action btn-warning" onClick={() => {
                                             setFields(exam.id);
                                         }}>
                                             <FontAwesomeIcon className="icon-menu" icon={faPenToSquare} /> 
                                         </Button>
-                                        <Button className="btn-action btn-danger">
+
+                                        <Button className="btn-action btn-danger" onClick={() => {
+                                            handleDelete(exam.id);
+                                        }}>
                                             <FontAwesomeIcon className="icon-menu" icon={faTrash} /> 
                                         </Button>
                                     </td>

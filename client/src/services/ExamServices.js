@@ -67,7 +67,11 @@ export const updateExam = (id, data) => {
       doctor_name: doctor_name,
       description: description
 
-   })
+   });
+}
+
+export const deleteExam = (id) => {
+   api.delete(`/exam/delete/${id}`);
 }
  
 
