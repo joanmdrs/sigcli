@@ -6,7 +6,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 
 ### User Story US01 - Manter Consulta
 
-**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir consultas. Uma consulta tem como atributos um título, paciente, doutor, possui uma data e uma descrição. O diagrama de classe desse User Story está [aqui](ClassDiagram/DC_consulta.png).
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir consultas. Uma consulta tem como atributos um título, paciente, doutor, possui uma data e uma descrição. Diagrama de classe disponível [aqui](doc-class-diagram.md).
 
 | # | Requisitos Envolvidos |
 ----|---------------------
@@ -41,7 +41,7 @@ RF20| Excluir Consulta
 
 ### User Story US02 - Manter Paciente
 
-**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir pacientes. Um paciente tem como atributos um nome, username e password. O diagrama de classe desse User Story está [aqui](ClassDiagram/DC_paceinte.png).
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir pacientes. Um paciente tem como atributos um nome, username e password. Diagrama de classe disponível [aqui](doc-class-diagram.md).
 
 | #    | Requisitos Envolvidos |
 | ---- | --------------------- |
@@ -78,7 +78,7 @@ RF20| Excluir Consulta
 
 ### User Story US03 - Manter Exame
 
-**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir exames. Um exame tem como atributos um título, paciente, doutor, possui uma data, além de uma descrição e local do exame. O diagrama de classe desse User Story está [aqui](ClassDiagram/DC_exame.png).
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir exames. Um exame tem como atributos um título, paciente, doutor, possui uma data, além de uma descrição e local do exame. Diagrama de classe disponível [aqui](doc-class-diagram.md).
 
 | #    | Requisitos Envolvidos |
 | ---- | --------------------- |
@@ -110,7 +110,7 @@ RF20| Excluir Consulta
 
 ### User Story US04 - Manter Médico
 
-**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir os médicos. Um médico tem como atributos um nome, um crm, um username, e uma senha. O diagrama de classe desse User Story está [aqui](ClassDiagram/DC_medico.png).
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir os médicos. Um médico tem como atributos um nome, um crm, um username, e uma senha. Diagrama de classe disponível [aqui](doc-class-diagram.md).
 
 
 | #    | Requisitos Envolvidos |
@@ -145,5 +145,3 @@ RF20| Excluir Consulta
 | **TA04.06** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do médico pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão de editar, e os campos do formulário são preenchidos com os dados do médico a ser alterado. O usuário realiza a alteração dos campos de maneira incorreta e clica em Salvar, ao clicar em Salvar ele é notificado com uma mensagem de erro. Mensagem: A operação falhou, o campo “xxxx” não foi preenchido corretamente.
 | **TA04.07** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do médico pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão Excluir, ao clicar em Excluir, o usuário é notificado com uma pergunta acompanhada de 2 botões de escolha: um botão com a palavra Não e outro com a palavra Sim. Pergunta: Deseja realmente excluir o médico de id: 'xxxx'. Caso o usuário selecione a opção 'Não' ele deve ser notificado com uma mensagem informativa. Mensagem: Nenhuma alteração foi feita. Caso o usuário selecione a opção 'Sim' ele deve ser notificado com uma mensagem de sucesso. Mensagem: Médico excluído com sucesso. 
 | **TA04.08** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do médico pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão Excluir e ele não tem permissão para Excluir, ao clicar em Excluir, o usuário é notificado com uma mensagem de erro. Mensagem: Você não possui permissão para realizar esta operação.
-
-
