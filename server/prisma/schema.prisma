@@ -42,6 +42,7 @@ model Appointment {
   patient_name String @db.VarChar(255)
   crm_doctor String @db.VarChar(4)
   doctor_name String @db.VarChar(255)
+  data_appointment String @db.VarChar(20)
   description String @db.VarChar(500)
 }  
 
