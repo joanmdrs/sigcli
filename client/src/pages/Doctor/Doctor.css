@@ -1,0 +1,124 @@
+/* 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  
+  .container-add-doctor, .container-search-doctor, .container-query-result {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    background-color: #E0DCDC;
+    border-radius: 8px;
+    border: 1px solid #000;
+    margin-top: 30px;
+    padding: 20px;
+  }
+  
+  .container-add-doctor{
+    width: 30%;
+    justify-content: center;
+  }
+
+  .form-add-doctor, .form-search-doctor {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .container-add-doctor h1, .form-search-doctor h1 {
+    margin-bottom: 30px;
+    font-size: 24px;
+  }
+  
+  .form-add-doctor input, .form-search-doctor input {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: none;
+    text-indent: 20px;
+    outline: none;
+    padding: 5px;
+  
+  }
+  
+  .form-add-doctor button, .form-search-doctor button {
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    margin-top: 10px;
+    color: #fff;
+    background-color: rgb(137, 163, 224);
+    cursor: pointer;
+    transition: 1s;
+  }
+  
+  .form-add-doctor button:hover, .form-search-doctor button:hover {
+    background-color: #37BEB0;
+  }
+  */
+  .App {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  /*
+  .search-container {
+    margin-left: 50px;
+    margin-top: -60px;
+  }
+  
+  #input-id {
+    display: none;
+  }
+  
+  table {
+    margin-top: 30px;
+    width: 350px;
+    text-align: center;
+    border-collapse: collapse;
+    border: thin solid #c4c4c4;
+  }
+  
+  td, th {
+    padding: 10px;
+  }
+  
+  table thead tr th:first-of-type{
+    border-top-left-radius: 5px;
+  }
+  
+  table thead tr th:last-of-type{
+    border-top-right-radius: 5px;
+  }
+  
+  thead tr{
+    background-color: #b1a9a9;
+  }
+  
+  thead {
+    border-radius: 16px;
+  }
+  
+  #search-byId {
+    margin-top: 20px;
+  }
+  
+  .label-get {
+    margin-bottom: 3px;
+  }
+  
+  .error-user {
+    display: none;
+  }
+   */
