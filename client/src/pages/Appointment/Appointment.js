@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swal from 'sweetalert2';
 import Nav from "../../components/Nav/Nav";
 import { Container as ContainerAppointment} from "../../components/Container/Container";
 import {BoxAppointment} from "../../components/BoxAppointment/BoxAppointment";
@@ -19,7 +20,6 @@ export default function Appointment(){
         const action = getActionForm();
 
         action === "add" ? addAppointment(data) : updateAppointment(action, data);
-
 
     }
 
@@ -47,13 +47,35 @@ export default function Appointment(){
         });
 
         setFields(data);
+        
+        Swal.fire({
+            title: 'Edit Patient',
+            text: "Now you will edit this Appointment's informations, be careful.",
+            icon: 'info',
+            showCancelButton: false,
+            confirmButtonColor: '#0C6170',
+            confirmButtonText: 'Ok',
+          });
 
     }
 
     // DELETE 
 
     const handleDelete = (id) => {
-        deleteAppointment(id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#0C6170',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                deleteAppointment(id);
+              document.location.reload();
+            }
+          })
     }
 
 

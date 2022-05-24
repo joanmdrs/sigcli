@@ -1,4 +1,5 @@
 import api from "./api"
+import Swal from 'sweetalert2';
 
 
 export const getValuesInput = () => {
@@ -33,6 +34,20 @@ export const getValuesInput = () => {
         data_appointment: data_appointment,
         description: description
     });
+    
+    Swal.fire({
+      title: 'Success',
+      text: 'New Appointment added.',
+      icon: 'success',
+      showCancelButton: false,
+      confirmButtonColor: '#0C6170',
+      confirmButtonText: 'Ok',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.location.reload();
+      }
+    });
+
 
 }
 
@@ -72,6 +87,21 @@ export const getAppointments = async () => {
        description: description
  
     });
+
+    Swal.fire({
+      title: 'Success',
+      text: 'The informations about this Appointment were updated.',
+      icon: 'success',
+      showCancelButton: false,
+      confirmButtonColor: '#0C6170',
+      confirmButtonText: 'Ok',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.location.reload();
+      }
+    });
+   
+
 }
 
 export const deleteAppointment = (id) => {
