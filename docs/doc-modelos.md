@@ -4,20 +4,81 @@ Neste documento temos o modelo Conceitual (UML) ou de Dados (Entidade-Relacionam
 
 ## Modelo Conceitual
 
-### Entidade Recepcionist
-<img width=700px src="./ClassDiagram/DC_recepcionista.png" />
+```mermaid
+classDiagram
+    
+    class Recepcionist{
+        -String username
+        -String password
+        -String name
 
-### Entidade Patient
-<img width=700px src="./ClassDiagram/DC_paciente.png" />
+        +insertRecepcionist() void
+        +getRecepcionist() Recepcionist
+        +updateRecepcionist() Recepcionist
+        +deleteRecepcionist() Recepcionist
+    }
 
-### Entidade Doctor
-<img width=700px src="./ClassDiagram/DC_medico.png" />
+    class Appointment{
+        -String title
+        -Patient patient
+        -Doctor doctor
+        -Date date
+        -String description
+        +insertDoctor() void
+        +getDoctor() Doctor
+        +updateDoctor() Doctor
+        +deleteDoctor() Doctor
+    }
 
-### Entidade Appointment
-<img width=700px src="./ClassDiagram/DC_consulta.png" />
+    class Exam{
+        -String title
+        -Patient patient
+        -Doctor doctor
+        -String description
 
-### Entidade Exam
-<img width=700px src="./ClassDiagram/DC_exame.png" />
+        +insertExam() void
+        +getExam() Exam
+        +updateExam() Exam
+        +deleteExam() Exam
+    }
+
+    class Doctor{
+        -String username
+        -String password
+        -String name
+        -String crm
+
+        +insertDoctor() void
+        +getDoctor() Doctor
+        +updateDoctor() Doctor
+        +deleteDoctor() Doctor
+    }
+
+    class Patient{
+        -String name
+        -String cpf
+        -String phone
+        -String email
+        -String username
+        -String password
+
+
+        +insertPatient() void
+        +getPatient() Patient
+        +updatePatient() Patient
+        +deletePatient() Patient
+    }
+    
+    Recepcionist "1" -->  "0..*" Appointment: Marca
+    Recepcionist "1" -->  "0..*" Exam: Marca
+    Doctor  --*  Appointment:Realiza
+    Patient  --*  Appointment: Participa
+    Patient  --*  Exam: Participa
+    Doctor  --*  Exam: Realiza
+    
+    
+
+```
 
 ## Descrição das Entidades
 
