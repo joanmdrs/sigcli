@@ -15,7 +15,7 @@ import {
 
 function FormAppointment({handleSaveButton}) {
   return (
-    <Form className="form-appointment">
+    <Form className="form-appointment" data-action='add' id='form-appointment'>
         <FormGroup>
             <Label for="title">
                 Title

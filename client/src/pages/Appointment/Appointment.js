@@ -4,7 +4,7 @@ import { Container as ContainerAppointment} from "../../components/Container/Con
 import {BoxAppointment} from "../../components/BoxAppointment/BoxAppointment";
 import HeaderAppointment from "../../components/HeaderAppointment/HeaderAppointment";
 import FormAppointment from "../../components/FormAppointment/FormAppointment";
-import { addAppointment, getAppointments } from "../../services/AppointmentServices";
+import { addAppointment, getActionForm, getAppointments, getValuesInput, setFields, updateAppointment } from "../../services/AppointmentServices";
 import ListAppointment from "../../components/ListAppointment/ListAppointment";
 
 export default function Appointment(){
@@ -14,17 +14,13 @@ export default function Appointment(){
     // POST
     const handleSaveButton = () => {
 
-        const appointment = {
-            title: document.getElementById("title").value,
-            patient_cpf: document.getElementById("patient-cpf").value,
-            patient_name: document.getElementById("patient-name").value,
-            doctor_crm: document.getElementById("doctor-crm").value,
-            doctor_name: document.getElementById("doctor-name").value,
-            description: document.getElementById("description").value
-        };
-        
-        console.log(appointment);
-       addAppointment(appointment);
+        const data = getValuesInput();
+
+        const action = getActionForm();
+
+        action === "add" ? addAppointment(data) : updateAppointment(action, data);
+
+
     }
 
     // LIST 
@@ -41,7 +37,18 @@ export default function Appointment(){
         fetchData();
     }, []);
 
+    // SETFIELDS  
 
+    const handlePreparaToUpdate = (AppointmentID) => {
+
+        let data = {}
+        listAppointments.forEach(element => {
+            element.id === AppointmentID ? data = element : data = data
+        });
+
+        setFields(data);
+
+    }
 
 
     return (
@@ -50,7 +57,7 @@ export default function Appointment(){
             <BoxAppointment>
                 <HeaderAppointment />
                 <FormAppointment handleSaveButton={handleSaveButton} />
-                <ListAppointment appointments={listAppointments} />
+                <ListAppointment appointments={listAppointments} setFields={handlePreparaToUpdate} />
             </BoxAppointment>
         </ContainerAppointment>
     )

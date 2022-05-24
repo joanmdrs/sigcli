@@ -14,3 +14,25 @@ export const createAppointment = async (appointment) => {
     });
 
 }
+
+export const listAppointmentWithPrisma = async () => {
+    return await prisma.appointment.findMany();
+};
+
+
+export const updateAppointmentWithPrisma = async (appointment) => {
+    const { id, title, patient_cpf, patient_name, crm_doctor, doctor_name, description } = appointment;
+    return await prisma.appointment.update({
+        where: {
+          id: Number(id),
+        },
+        data: {
+            title,
+            patient_cpf, 
+            patient_name, 
+            crm_doctor, 
+            doctor_name,
+            description
+        },
+  });
+};
