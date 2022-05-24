@@ -14,7 +14,7 @@ function ListAppointment({appointments, setFields, handleDelete}) {
                     <th> title   </th>
                     <th> patient </th>
                     <th> doctor </th>
-                    <th> crm </th>
+                    <th> data </th>
                     <th> ações </th>
                 </tr>
             </thead>
@@ -28,7 +28,7 @@ function ListAppointment({appointments, setFields, handleDelete}) {
                                     <td>{appointment.title}</td>
                                     <td>{appointment.patient_name}</td>
                                     <td>{appointment.doctor_name}</td>
-                                    <td>{appointment.crm_doctor}</td>
+                                    <td>{appointment.data_appointment}</td>
                                     <td className="td-with-btns">
                                         
                                         <Button className="btn-action btn-warning" onClick={() => {

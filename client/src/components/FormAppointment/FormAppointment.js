@@ -81,6 +81,17 @@ function FormAppointment({handleSaveButton}) {
             </Col>
         </Row>
 
+        <FormGroup>
+            <Label for="data">
+                Date of Appointment
+            </Label>
+            <Input 
+                id="data-appointment"
+                type="data" 
+                placeholder="data appointment">
+            </Input>
+        </FormGroup>
+
         <Row >
             <Col md={8}>
                 <FormGroup>
