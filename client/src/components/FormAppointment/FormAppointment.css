@@ -1,0 +1,19 @@
+.form-appointment {
+    padding: 30px;
+    margin: 10px 15px 15px 15px;
+    border: 1px solid #d0d6db;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.input-textarea {
+    height: 180px;    
+}
+
+.col-btn-save-cancel {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
