@@ -8,6 +8,7 @@ export const createAppointment = async (appointment) => {
             patient_name: String(appointment.patient_name),
             crm_doctor: String(appointment.crm_doctor),
             doctor_name: String(appointment.doctor_name),
+            data_appointment: String(appointment.data_appointment),
             description: String(appointment.description)   
         }
     });
@@ -31,6 +32,7 @@ export const updateAppointmentWithPrisma = async (appointment) => {
             patient_name, 
             crm_doctor, 
             doctor_name,
+            data_appointment,
             description
         },
   });
