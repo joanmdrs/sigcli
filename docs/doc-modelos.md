@@ -69,12 +69,12 @@ classDiagram
         +deletePatient() Patient
     }
     
-    Recepcionist "1" -->  "0..*" Appointment: Marca
-    Recepcionist "1" -->  "0..*" Exam: Marca
-    Doctor  --*  Appointment:Realiza
-    Patient  --*  Appointment: Participa
-    Patient  --*  Exam: Participa
-    Doctor  --*  Exam: Realiza
+    Recepcionist "1" -->  "0..*" Appointment: Register
+    Recepcionist "1" -->  "0..*" Exam: Register
+    Doctor  --*  Appointment: Conducts
+    Patient  --*  Appointment: Participates
+    Patient  --*  Exam: Participates
+    Doctor  --*  Exam: Requests
     
     
 
@@ -92,8 +92,16 @@ classDiagram
 
 ## Modelo de Dados (Entidade-Relacionamento)
 
-<img width=700px src="./DataDiagram/modeloDeDados.png" />
-
+```mermaid
+erDiagram
+    Recepcionist ||--o{ Appointment : register
+    Recepcionist ||--o{ Exam : register
+    Doctor ||--o{ Appointment : conducts
+    Patient ||--o{ Appointment : participates
+    Patient ||--o{ Exam : participates
+    Doctor ||--o{ Exam : requests
+    
+```
 ## Dicionário de Dados
 
 ### Recepcionist
@@ -117,6 +125,7 @@ classDiagram
 | ------------- | ------------------------------------------------------------ | ------------ | ------- | --------------------- |
 | id            | identificador gerado pelo SGBD                               | INT          | ---     | PK / Identity         |
 | name          | representa o nome do(a) paciente                             | VARCHAR      | 255     | Not Null              |
+| cpf           | representa o cpf do(a) paciente                              | VARCHAR      | 11      | Unique / Not Null     |
 | username      | representa o nome de usuário do(a) paciente no sistema       | VARCHAR      | 50      | Unique / Not Null     |
 | password      | representa a senha de usuário do(a) paciente no sistema      | VARCHAR      | 50      | Not Null              |
 
@@ -156,9 +165,7 @@ classDiagram
 | ------------- | ------------------------------------------------------------ | ------------ | ------- | --------------------- |
 | id            | identificador gerado pelo SGBD                               | INT          | ---     | PK / Identity         |
 | title         | representa o nome do exame                                   | VARCHAR      | 50      | Not Null              |
-| date          | representa a data de realização do exame                     | DATE         | ---     | Not Null              |
 | description   | representa a descrição do exame, os detalhes                 | VARCHAR      | 500     | Not Null              |
-| patient       | representa o id do(a) paciente que realizou o exame          | INT          | ---     | FK                    |
-| doctor        | representa o id do médico(a) que solicitou o exame           | INT          | ---     | FK                    |
-| exam_place    | representa o local que o exame foi realizado                 | VARCHAR      | 255     | Not Null              |
+| patient       | representa o cpf do(a) paciente que realizou o exame         | INT          |         | FK                    |
+| doctor        | representa o crm do médico(a) que solicitou o exame          | INT          | ---     | FK                    |
 
