@@ -126,7 +126,7 @@ RF20| Excluir Consulta
 | **Prioridade**          | Essencial     |
 | **Estimativa**          | 8h            |
 | **Tempo Gasto (real):** |               |
-| **Tamanho Funcional**   | **A definir** |
+| **Tamanho Funcional**   | 20            |
 | **Analista**            | Joan          |
 | **Desenvolvedor**       | Adson         |
 | **Revisor**             | Allan         |
