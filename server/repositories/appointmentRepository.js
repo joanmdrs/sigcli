@@ -21,7 +21,7 @@ export const listAppointmentWithPrisma = async () => {
 
 
 export const updateAppointmentWithPrisma = async (appointment) => {
-    const { id, title, patient_cpf, patient_name, crm_doctor, doctor_name, description } = appointment;
+    const { id, title, patient_cpf, patient_name, crm_doctor, doctor_name, data_appointment, description } = appointment;
     return await prisma.appointment.update({
         where: {
           id: Number(id),

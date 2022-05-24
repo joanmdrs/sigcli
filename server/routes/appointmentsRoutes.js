@@ -8,7 +8,7 @@ import {
 
 export const appointmentRoutes = Router();
 
-// /recepcionist/register
+// /appointment/register
 appointmentRoutes.post("/register", registerAppointment);
 
 appointmentRoutes.get("/getAll", listAppointment);
