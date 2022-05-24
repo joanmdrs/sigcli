@@ -4,7 +4,7 @@ import { Container as ContainerAppointment} from "../../components/Container/Con
 import {BoxAppointment} from "../../components/BoxAppointment/BoxAppointment";
 import HeaderAppointment from "../../components/HeaderAppointment/HeaderAppointment";
 import FormAppointment from "../../components/FormAppointment/FormAppointment";
-import { addAppointment, getActionForm, getAppointments, getValuesInput, setFields, updateAppointment } from "../../services/AppointmentServices";
+import { addAppointment, deleteAppointment, getActionForm, getAppointments, getValuesInput, setFields, updateAppointment } from "../../services/AppointmentServices";
 import ListAppointment from "../../components/ListAppointment/ListAppointment";
 
 export default function Appointment(){
@@ -50,6 +50,12 @@ export default function Appointment(){
 
     }
 
+    // DELETE 
+
+    const handleDelete = (id) => {
+        deleteAppointment(id);
+    }
+
 
     return (
         <ContainerAppointment>
@@ -57,7 +63,7 @@ export default function Appointment(){
             <BoxAppointment>
                 <HeaderAppointment />
                 <FormAppointment handleSaveButton={handleSaveButton} />
-                <ListAppointment appointments={listAppointments} setFields={handlePreparaToUpdate} />
+                <ListAppointment appointments={listAppointments} setFields={handlePreparaToUpdate} handleDelete={handleDelete} />
             </BoxAppointment>
         </ContainerAppointment>
     )

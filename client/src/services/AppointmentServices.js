@@ -67,8 +67,11 @@ export const getAppointments = async () => {
        doctor_name: doctor_name,
        description: description
  
-    })
- }
- 
+    });
+}
+
+export const deleteAppointment = (id) => {
+   api.delete(`/appointment/delete/${id}`);
+}
  
  

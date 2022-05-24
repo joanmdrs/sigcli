@@ -15,4 +15,4 @@ appointmentRoutes.get("/getAll", listAppointment);
 
 appointmentRoutes.put("/update", updateAppointment);
 
-appointmentRoutes.delete("/:id", deleteAppointment);
+appointmentRoutes.delete("/delete/:id", deleteAppointment);

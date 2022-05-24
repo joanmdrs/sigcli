@@ -1,7 +1,6 @@
 import { prisma } from "../service/prisma.js";
 
 export const createAppointment = async (appointment) => {
-  console.log("Estou em Repository:", appointment);
     return await prisma.appointment.create({
         data : {
             title: String(appointment.title),
@@ -36,3 +35,11 @@ export const updateAppointmentWithPrisma = async (appointment) => {
         },
   });
 };
+
+export const deleteAppointmentWithPrisma = async (appointmentID) => {
+    return await prisma.appointment.delete({
+      where: {
+        id: Number(appointmentID),
+      },
+    });
+  };
