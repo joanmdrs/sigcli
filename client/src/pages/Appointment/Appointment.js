@@ -1,5 +1,5 @@
 import "./Appointment.css"
-import React from "react";
+import React, { useState } from "react";
 import Nav from "../../components/Nav/Nav";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -13,8 +13,26 @@ import {
     Col,
     Button
 } from 'reactstrap'
+import { addAppointment } from "../../services/AppointmentServices";
 
 export default function Appointment(){
+
+    const [values, setValues] = useState();
+
+
+    const handleSaveButton = () => {
+
+        const appointment = {
+            title: document.getElementById("title").value,
+            patient_cpf: document.getElementById("patient-cpf").value,
+            doctor_crm: document.getElementById("doctor-crm").value,
+            description: document.getElementById("description").value
+        };
+
+       addAppointment(appointment);
+
+
+    }
 
     return (
         <div className="container-appointment">
@@ -33,42 +51,28 @@ export default function Appointment(){
                     </div>
                 </div>
                 <Form className="form-appointment">
-                    <Row>
-                        <Col md={8}>
-                            <FormGroup>
-                                <Label for="title">
-                                    Title
-                                </Label>
-                                <Input 
-                                    id="title"
-                                    type="text" 
-                                    placeholder="title">
-                                </Input>
-                            </FormGroup>
-                        </Col>
-                        <Col md={4}>
-                            <FormGroup>
-                                <Label for="appointment-date">
-                                        Date
-                                </Label>
-                                <Input 
-                                    id="appointment-date"
-                                    type="date" 
-                                    placeholder="appointment date" >
-                                </Input>
-                            </FormGroup>
-                        </Col>
-                    </Row>
+            
+                    <FormGroup>
+                        <Label for="title">
+                            Title
+                        </Label>
+                        <Input 
+                            id="title"
+                            type="text" 
+                            placeholder="title">
+                        </Input>
+                    </FormGroup>
+                       
                     <Row>
                         <Col md={2}>
                             <FormGroup>
-                                <Label for="patient-id">
-                                    Patient id
+                                <Label for="patient-cpf">
+                                    Patient CPF
                                 </Label>
                                 <Input 
-                                    id="patient-id"
-                                    type="number" 
-                                    placeholder="patient id">
+                                    id="patient-cpf"
+                                    type="text" 
+                                    placeholder="patient cpf">
                                 </Input>
                             </FormGroup>
                         </Col>
@@ -89,12 +93,12 @@ export default function Appointment(){
                         <Col md={2}>
                             <FormGroup>
                                 <Label for="doctor-id">
-                                    Doctor id
+                                    Doctor CRM
                                 </Label>
                                 <Input 
-                                    id="doctor-id"
+                                    id="doctor-crm"
                                     type="number" 
-                                    placeholder="doctor id">
+                                    placeholder="doctor crm">
                                 </Input>
                             </FormGroup>
                         </Col>
@@ -114,23 +118,23 @@ export default function Appointment(){
                     <Row >
                         <Col md={8}>
                             <FormGroup>
-                                <Label for="appointment-description">
-                                Description
-                                </Label>
-                                <Input 
-                                    id="appointment-description"
+                            <Label for="description">
+                            Description
+                            </Label>
+                            <Input
+                            id="description"
                                     type="textarea" 
                                     placeholder="description"
                                     className="input-textarea" >
-                                </Input>
+                            </Input>
                             </FormGroup>
                         </Col>
                         <Col className="col-btn-save-cancel" md={4}>
-                            <Button type="button" className="btn-save btn-success">
-                                Save
-                            </Button>
                             <Button  type="submit" className="btn-cancel btn-danger">
                                 Cancel
+                            </Button>
+                            <Button type="button" className="btn-save btn-success" onClick={handleSaveButton}>
+                            Save
                             </Button>
                         </Col>
                     </Row>
@@ -139,4 +143,4 @@ export default function Appointment(){
             </div>
         </div>
     )
-} 
+}

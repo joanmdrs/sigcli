@@ -4,7 +4,7 @@ import {
     listAppointment,
     updateAppointment,
     deleteAppointment
-} from "../controllers/appointmentController"
+} from "../controllers/appointmentController.js"
 
 export const appointmentRoutes = Router();
 
