@@ -5,10 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHospitalUser } from '@fortawesome/free-solid-svg-icons';
 import { Form, FormGroup, Label, Input, Row, Col, Button, Table, InputGroup } from 'reactstrap';
-import { createPatient, filterPatient, editPatient, removePatient } from '../../services/patientServices.js'
+import { createPatient, editPatient, removePatient } from '../../services/patientServices.js'
 import TableCard from "../../components/Table/Table.js";
 import api from '../../services/api';
-
+import Swal from 'sweetalert2';
 
 export default function Patient() {
 
@@ -34,6 +34,19 @@ export default function Patient() {
 
   const handleSaveButton = () => {
     createPatient(values);
+
+    Swal.fire({
+      title: 'Success',
+      text: 'New patient added.',
+      icon: 'success',
+      showCancelButton: false,
+      confirmButtonColor: '#0C6170',
+      confirmButtonText: 'Ok',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.location.reload();
+      }
+    });
   }
 
   const handleClickButton = () => {
@@ -54,6 +67,19 @@ export default function Patient() {
     const password = document.getElementById("password").value;
 
     editPatient({id: id, name: name, cpf: cpf, phone: phone, email: email, username: username, password: password})
+
+    Swal.fire({
+      title: 'Success',
+      text: 'The informations about this patient were updated.',
+      icon: 'success',
+      showCancelButton: false,
+      confirmButtonColor: '#0C6170',
+      confirmButtonText: 'Ok',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.location.reload();
+      }
+    });
   };
 
   const handleCancelButton = () => {
@@ -229,35 +255,22 @@ export default function Patient() {
               <td>{searchValue.email}</td>
               <td>
                   <button className="card-button" onClick={() => {
-                      document.getElementById("id").defaultValue = searchValue.id;
-                      document.getElementById("name").defaultValue = searchValue.name;
-                      document.getElementById("cpf").defaultValue = searchValue.cpf;
-                      document.getElementById("phone").defaultValue = searchValue.phone;
-                      document.getElementById("email").defaultValue = searchValue.email;
-                      document.getElementById("username").defaultValue = searchValue.username;
-                      document.getElementById("password").defaultValue = searchValue.password;
-                      document.getElementById("form-patient").dataset.action = "edit"
-                  }}>Edit</button>
-                  <button className="card-button" onClick={() => handleDeleteButton(searchValue.id)}>Del</button>
-              </td>
-            </tr>
-            <tr id="linhaInvisivel">
-              <th scope="row">{searchValue.id}</th>
-              <td>{searchValue.name}</td>
-              <td>{searchValue.username}</td>
-              <td>{searchValue.cpf}</td>
-              <td>{searchValue.phone}</td>
-              <td>{searchValue.email}</td>
-              <td>
-                  <button className="card-button" onClick={() => {
-                      document.getElementById("id").defaultValue = searchValue.id;
-                      document.getElementById("name").defaultValue = searchValue.name;
-                      document.getElementById("cpf").defaultValue = searchValue.cpf;
-                      document.getElementById("phone").defaultValue = searchValue.phone;
-                      document.getElementById("email").defaultValue = searchValue.email;
-                      document.getElementById("username").defaultValue = searchValue.username;
-                      document.getElementById("password").defaultValue = searchValue.password;
-                      document.getElementById("form-patient").dataset.action = "edit"
+                    Swal.fire({
+                      title: 'Edit Patient',
+                      text: "Now you will edit this Patient's informations, be careful.",
+                      icon: 'info',
+                      showCancelButton: false,
+                      confirmButtonColor: '#0C6170',
+                      confirmButtonText: 'Ok',
+                    });
+                    document.getElementById("id").defaultValue = searchValue.id;
+                    document.getElementById("name").defaultValue = searchValue.name;
+                    document.getElementById("cpf").defaultValue = searchValue.cpf;
+                    document.getElementById("phone").defaultValue = searchValue.phone;
+                    document.getElementById("email").defaultValue = searchValue.email;
+                    document.getElementById("username").defaultValue = searchValue.username;
+                    document.getElementById("password").defaultValue = searchValue.password;
+                    document.getElementById("form-patient").dataset.action = "edit"
                   }}>Edit</button>
                   <button className="card-button" onClick={() => handleDeleteButton(searchValue.id)}>Del</button>
               </td>
@@ -314,5 +327,18 @@ export default function Patient() {
 }
 
 export const handleDeleteButton = async (id) => {
-  removePatient(id);
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#0C6170',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      removePatient(id);
+      document.location.reload();
+    }
+  })
 };

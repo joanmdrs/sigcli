@@ -1,4 +1,5 @@
 import React from "react";
+import Swal from 'sweetalert2';
 import { handleDeleteButton } from "../../pages/Patient/Patient"; 
 
 export default function TableCard(props){
@@ -11,6 +12,14 @@ export default function TableCard(props){
         <td>{props.email}</td>
         <td>
             <button className="card-button" onClick={() => {
+                Swal.fire({
+                    title: 'Edit Patient',
+                    text: "Now you will edit this Patient's informations, be careful.",
+                    icon: 'info',
+                    showCancelButton: false,
+                    confirmButtonColor: '#0C6170',
+                    confirmButtonText: 'Ok',
+                });
                 document.getElementById("id").defaultValue = props.id;
                 document.getElementById("name").defaultValue = props.name;
                 document.getElementById("cpf").defaultValue = props.cpf;
