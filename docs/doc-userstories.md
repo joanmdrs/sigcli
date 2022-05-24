@@ -78,7 +78,7 @@ RF20| Excluir Consulta
 
 ### User Story US03 - Manter Exame
 
-**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir exames. Um exame tem como atributos um título, paciente, doutor, possui uma data, além de uma descrição e local do exame. O diagrama de classe desse User Story está [aqui](ClassDiagram/DC_exame.png).
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir exames. Um exame tem como atributos um título, paciente, doutor, possui uma data, além de uma descrição e local do exame. Diagrama de classe disponível [aqui](doc-class-diagram.md).
 
 | #    | Requisitos Envolvidos |
 | ---- | --------------------- |
@@ -93,7 +93,7 @@ RF20| Excluir Consulta
 | **Prioridade**          | Essencial     |
 | **Estimativa**          | 6h            |
 | **Tempo Gasto (real):** |               |
-| **Tamanho Funcional**   | **A definir** |
+| **Tamanho Funcional**   | 40            |
 | **Analista**            | Adson         |
 | **Desenvolvedor**       | Joan          |
 | **Revisor**             | Rauan         |
@@ -125,7 +125,7 @@ RF20| Excluir Consulta
 | ----------------------- | ------------- |
 | **Prioridade**          | Essencial     |
 | **Estimativa**          | 8h            |
-| **Tempo Gasto (real):** |               |
+| **Tempo Gasto (real):** | 12h           |
 | **Tamanho Funcional**   | 20            |
 | **Analista**            | Joan          |
 | **Desenvolvedor**       | Adson         |
