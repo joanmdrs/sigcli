@@ -1,11 +1,12 @@
 import React from 'react';
 import "./ListAppointment.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Table } from 'reactstrap'
+import { Table, Button } from 'reactstrap'
+import { faPenToSquare , faTrash } from '@fortawesome/free-solid-svg-icons'
+function ListAppointment({appointments}) {
 
-// import { Container } from './styles';
-
-function ListAppointment() {
+    console.log(typeof(appointments))
   return (
     <Table responsive hover borderless className='table-list-appointments'>
         <thead>
@@ -15,35 +16,33 @@ function ListAppointment() {
                 <th> patient </th>
                 <th> doctor </th>
                 <th> crm </th>
-                <th> description </th>
+                <th> ações </th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td> 1 </td>
-                <td> Consulta 1 </td>
-                <td> Paciente 1 </td>
-                <td> Médico 1 </td>
-                <td> CRM </td>
-                <td> description 1</td>
-            </tr>
-            <tr>
-                <td> 1 </td>
-                <td> Consulta 1 </td>
-                <td> Paciente 1 </td>
-                <td> Médico 1 </td>
-                <td> CRM </td>
-                <td> description 1</td>
-            </tr>
-            <tr>
-                <td> 1 </td>
-                <td> Consulta 1 </td>
-                <td> Paciente 1 </td>
-                <td> Médico 1 </td>
-                <td> CRM </td>
-                <td> description 1</td>
-            </tr>
-
+            {
+                appointments !== undefined ?                 
+                    appointments.map((appointment) => {
+                        return (
+                            <tr>
+                                <td>{appointment.id}</td>
+                                <td>{appointment.title}</td>
+                                <td>{appointment.patient_name}</td>
+                                <td>{appointment.doctor_name}</td>
+                                <td>{appointment.crm_doctor}</td>
+                                <td className="td-with-btns">
+                                    <Button className="btn-action btn-warning">
+                                        <FontAwesomeIcon className="icon-menu" icon={faPenToSquare} /> 
+                                    </Button>
+                                    <Button className="btn-action btn-danger">
+                                        <FontAwesomeIcon className="icon-menu" icon={faTrash} /> 
+                                    </Button>
+                                </td>
+                            </tr>
+                        )
+                        })
+                    : "" 
+            }
         </tbody>
     </Table>
 

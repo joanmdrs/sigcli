@@ -5,8 +5,10 @@ export const createAppointment = async (appointment) => {
     return await prisma.appointment.create({
         data : {
             title: String(appointment.title),
-            cpf_hash_patient: String(appointment.patient_cpf),
-            crm_doctor: String(appointment.doctor_crm),
+            patient_cpf: String(appointment.patient_cpf),
+            patient_name: String(appointment.patient_name),
+            crm_doctor: String(appointment.crm_doctor),
+            doctor_name: String(appointment.doctor_name),
             description: String(appointment.description)   
         }
     });
