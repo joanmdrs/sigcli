@@ -1,0 +1,117 @@
+.container-patient {
+  display: flex;
+  background-color: #d0d6db;
+  min-height: 100vh;
+}
+
+.box-patient {
+  width: 100%;
+}
+
+.box-header-patient {
+  padding: 10px;
+  padding-bottom: 5px;
+  background-color: #fff;
+}
+
+.box-icon-and-title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.box-list-functions {
+  color: #848484;
+  font-size: 18px;
+}
+
+.box-icon-and-title .icon {
+  font-size: 25px;
+}
+
+.box-patient .form-patient {
+  padding: 30px;
+  margin: 10px 15px 15px 15px;
+  border: 1px solid #d0d6db;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.box-patient .input-search-patient {
+  padding: 10px;
+  padding-left: 0px;
+  margin: 10px 15px -10px 15px;
+  width: 400px;
+}
+
+.input-textarea {
+  height: 180px;
+  
+}
+
+.col-btn-save-cancel {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.box-patient  .tablePatient{
+  padding: 30px;
+  margin: 10px 15px 15px 15px;
+  border: 1px solid #d0d6db;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 1270px;
+}
+
+.box-patient  .tableFilterPatient{
+  padding: 30px;
+  margin: 10px 15px 15px 15px;
+  border: 1px solid #d0d6db;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: none;
+  width: 1270px;
+}
+
+.tableFilterPatientOp{
+  padding: 0px;
+  margin: 10px 15px 15px 15px;
+  border: 1px solid #d0d6db;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: inline-;
+  width: 100%;
+}
+
+.idForm {
+  display: none;
+}
+
+.tablePatientClosed {
+  display: none;
+}
+
+#linhaInvisivel {
+  visibility: hidden;
+}
+
+.td-with-btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-action {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

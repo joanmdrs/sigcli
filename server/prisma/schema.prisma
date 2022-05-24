@@ -10,17 +10,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Recepcionist{
-  id Int @id @default(autoincrement())
-  name String @db.VarChar(255)
+model Recepcionist {
+  id       Int    @id @default(autoincrement())
+  name     String @db.VarChar(255)
   username String @unique @db.VarChar(50)
   password String @db.VarChar(50)
 }
 
-model Doctor{
-  id Int @id @default(autoincrement())
-  name String @db.VarChar(255)
-  crm String @db.VarChar(20)
+model Doctor {
+  id       Int    @id @default(autoincrement())
+  name     String @db.VarChar(255)
+  crm      String @unique @db.VarChar(20)
   username String @unique @db.VarChar(50)
   password String @db.VarChar(50)
 }
