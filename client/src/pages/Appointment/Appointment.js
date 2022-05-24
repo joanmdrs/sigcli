@@ -1,17 +1,19 @@
 import "./Appointment.css"
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../../components/Nav/Nav";
 import { Container as ContainerAppointment} from "../../components/Container/Container";
-import { BoxAppointment } from "./BoxAppointment";
+import {BoxAppointment} from "../../components/BoxAppointment/BoxAppointment";
 import HeaderAppointment from "../../components/HeaderAppointment/HeaderAppointment";
 import FormAppointment from "../../components/FormAppointment/FormAppointment";
 import { addAppointment } from "../../services/AppointmentServices";
+import ListAppointment from "../../components/ListAppointment/ListAppointment";
 
 export default function Appointment(){
 
-    const [values, setValues] = useState();
+    const [values, setValues] = useState([]);
 
 
+    // POST
     const handleSaveButton = () => {
 
         const appointment = {
@@ -20,11 +22,9 @@ export default function Appointment(){
             doctor_crm: document.getElementById("doctor-crm").value,
             description: document.getElementById("description").value
         };
-
        addAppointment(appointment);
-
-
     }
+
 
 
     return (
@@ -33,6 +33,7 @@ export default function Appointment(){
             <BoxAppointment>
                 <HeaderAppointment />
                 <FormAppointment handleSaveButton={handleSaveButton} />
+                <ListAppointment />
             </BoxAppointment>
         </ContainerAppointment>
     )
