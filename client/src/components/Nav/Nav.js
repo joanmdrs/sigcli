@@ -24,28 +24,28 @@ export default function Nav(){
             <nav>
                 <Link className="tag-link" to="/" >
                     <FontAwesomeIcon className="icon-menu" icon={faHome} /> 
-                    <p> Home </p>
+                    Home
                 </Link>
                 <Link className="tag-link" to="/" >
                     <FontAwesomeIcon className="icon-menu" icon={faCalendarCheck} />
-                    <p> Appoitments </p>
+                    Appoitments
                 </Link>
                 <Link className="tag-link" to="/" >
                     <FontAwesomeIcon className="icon-menu" icon={faBed} /> 
-                    <p> Patients </p>
+                    Patients
                 </Link>
                 <Link className="tag-link" to="/" >
                     <FontAwesomeIcon className="icon-menu" icon={faStethoscope} />  
-                    <p> Doctors </p>
+                    Doctors
                 </Link>
                 <Link className="tag-link" to="/exams" >
                    <FontAwesomeIcon className="icon-menu" icon={faFileWaveform} /> 
-                   <p> Exams </p>
+                   Exams
                 </Link>
 
                 <Link className="tag-link" to="/recepcionist" >
                    <FontAwesomeIcon className="icon-menu" icon={faUserGear} /> 
-                   <p> Recepcionist </p>
+                   Recepcionist
                 </Link>
 
             </nav>

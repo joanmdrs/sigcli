@@ -1,20 +1,13 @@
-*{
-    text-decoration: none;
-    margin: 0;
-    box-sizing: border-box;
-}
+
 aside {
     background-color: #0C6170;
-    width: 230px;
-    height: 100vh;
+    width: 250px;
+    min-height: 100%;
     margin: 0;
     display: flex;
+    justify-content: flex-start;
     flex-direction: column;
-    padding: 0;
-
-    
-
-    
+    padding: 0px;
 }
 
 aside h1 {
@@ -25,23 +18,33 @@ aside h1 {
     padding-top: 30px;
     padding-bottom: 30px;
     display: flex;
-    justify-content: flex-start;
+    align-items: baseline;
+    justify-content: center;
     gap: 10px;
 }
 
 nav {
     display: flex;
     flex-direction: column;
-    padding: 50px
-    
+    padding: 30px;
 }
 
 .tag-link {
     color: #fff;
     margin-bottom: 20px;
     display: flex;
-    gap: 15px;
+    align-items: baseline;
+    gap: 5px;
+    transition: 300ms;
+}
 
+.tag-link:hover {
+    color: #796767;
+}
+
+.icon-menu {
+    
+    width: 50px;
 }
 
 

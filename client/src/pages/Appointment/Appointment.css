@@ -1,0 +1,58 @@
+.container-appointment {
+    display: flex;
+    background-color: #d0d6db;;
+}
+
+.box-appointment {
+    width: 100%;
+}
+
+.box-header-appointment {
+    padding: 10px;
+    padding-bottom: 5px;
+    background-color: #fff;
+}
+
+.box-icon-and-title {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.box-list-functions {
+    color: #848484;
+    font-size: 18px;
+}
+
+.box-icon-and-title .icon {
+    font-size: 25px;
+}
+
+.box-appointment .form-appointment {
+    padding: 30px;
+    margin: 10px 15px 15px 15px;
+    border: 1px solid #d0d6db;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+
+.input-textarea {
+    height: 180px;
+
+}
+
+
+
+.col-btn-save-cancel {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.btn-save, .btn-cancel {
+    /* background-color: #fff ; */
+}
