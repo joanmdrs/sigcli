@@ -67,23 +67,15 @@
   width: 1270px;
 }
 
-.tableFilterPatient{
-  padding: 0px;
+.box-patient  .tableFilterPatient{
+  padding: 30px;
   margin: 10px 15px 15px 15px;
   border: 1px solid #d0d6db;
   border-radius: 4px;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  min-width: 1270px;
   display: none;
-}
-
-#thead{
-  min-width: 100%;
-}
-
-#tbody{
-  min-width: 100%;
+  width: 1270px;
 }
 
 .tableFilterPatientOp{
@@ -93,8 +85,8 @@
   border-radius: 4px;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  min-width: 1270px;
-  display: block;
+  display: inline-;
+  width: 100%;
 }
 
 .idForm {
@@ -107,4 +99,19 @@
 
 #linhaInvisivel {
   visibility: hidden;
+}
+
+.td-with-btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-action {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

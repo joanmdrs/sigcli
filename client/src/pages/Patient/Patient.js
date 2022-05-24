@@ -3,12 +3,13 @@ import React, { useState, useLayoutEffect, useRef } from 'react';
 import Nav from '../../components/Nav/Nav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHospitalUser } from '@fortawesome/free-solid-svg-icons';
+import { faHospitalUser, faPenToSquare , faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Form, FormGroup, Label, Input, Row, Col, Button, Table, InputGroup } from 'reactstrap';
 import { createPatient, editPatient, removePatient } from '../../services/patientServices.js'
 import TableCard from "../../components/Table/Table.js";
 import api from '../../services/api';
 import Swal from 'sweetalert2';
+
 
 export default function Patient() {
 
@@ -253,8 +254,8 @@ export default function Patient() {
               <td>{searchValue.cpf}</td>
               <td>{searchValue.phone}</td>
               <td>{searchValue.email}</td>
-              <td>
-                  <button className="card-button" onClick={() => {
+              <td className='td-with-btns'>
+                  <Button className="btn-action btn-warning" onClick={() => {
                     Swal.fire({
                       title: 'Edit Patient',
                       text: "Now you will edit this Patient's informations, be careful.",
@@ -271,8 +272,12 @@ export default function Patient() {
                     document.getElementById("username").defaultValue = searchValue.username;
                     document.getElementById("password").defaultValue = searchValue.password;
                     document.getElementById("form-patient").dataset.action = "edit"
-                  }}>Edit</button>
-                  <button className="card-button" onClick={() => handleDeleteButton(searchValue.id)}>Del</button>
+                  }}>
+                    <FontAwesomeIcon className="icon-menu" icon={faPenToSquare} /> 
+                  </Button>
+                  <Button className="btn-action btn-danger" onClick={() => handleDeleteButton(searchValue.id)}>
+                    <FontAwesomeIcon className="icon-menu" icon={faTrash} />
+                  </Button>
               </td>
             </tr>
           </tbody>

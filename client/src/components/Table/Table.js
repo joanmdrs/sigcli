@@ -1,6 +1,11 @@
 import React from "react";
 import Swal from 'sweetalert2';
+import { Button } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPenToSquare , faTrash } from '@fortawesome/free-solid-svg-icons';
 import { handleDeleteButton } from "../../pages/Patient/Patient"; 
+import './Table.css'
 
 export default function TableCard(props){
     return <tr>
@@ -10,8 +15,8 @@ export default function TableCard(props){
         <td>{props.cpf}</td>
         <td>{props.phone}</td>
         <td>{props.email}</td>
-        <td>
-            <button className="card-button" onClick={() => {
+        <td className="td-with-btns">
+            <Button className="btn-action btn-warning" onClick={() => {
                 Swal.fire({
                     title: 'Edit Patient',
                     text: "Now you will edit this Patient's informations, be careful.",
@@ -28,8 +33,12 @@ export default function TableCard(props){
                 document.getElementById("username").defaultValue = props.username;
                 document.getElementById("password").defaultValue = props.password;
                 document.getElementById("form-patient").dataset.action = "edit"
-            }}>Edit</button>
-            <button className="card-button" onClick={() => handleDeleteButton(props.id)}>Del</button>
+            }}>
+                <FontAwesomeIcon className="icon-menu" icon={faPenToSquare} /> 
+            </Button>
+            <Button className="btn-action btn-danger" onClick={() => handleDeleteButton(props.id)}>
+                <FontAwesomeIcon className="icon-menu" icon={faTrash} />
+            </Button>
         </td>
     </tr>
 }
