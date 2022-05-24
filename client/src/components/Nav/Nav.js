@@ -26,9 +26,9 @@ export default function Nav(){
                     <FontAwesomeIcon className="icon-menu" icon={faHome} /> 
                     Home
                 </Link>
-                <Link className="tag-link" to="/" >
+                <Link className="tag-link" to="/appointments" >
                     <FontAwesomeIcon className="icon-menu" icon={faCalendarCheck} />
-                    Appoitments
+                    Appointments
                 </Link>
                 <Link className="tag-link" to="/" >
                     <FontAwesomeIcon className="icon-menu" icon={faBed} /> 
