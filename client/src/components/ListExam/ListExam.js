@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table, Button } from 'reactstrap'
 import { faPenToSquare , faTrash } from '@fortawesome/free-solid-svg-icons'
+import { messageConfirmDelete, messagePrepareToUpdate } from '../../services/ExamServices';
 function ListExam({exams, setFields, handleDelete}) {
 
     return (
@@ -33,12 +34,15 @@ function ListExam({exams, setFields, handleDelete}) {
 
                                         <Button className="btn-action btn-warning" onClick={() => {
                                             setFields(exam.id);
+                                            messagePrepareToUpdate();
+                                        
                                         }}>
                                             <FontAwesomeIcon className="icon-menu" icon={faPenToSquare} /> 
                                         </Button>
 
                                         <Button className="btn-action btn-danger" onClick={() => {
                                             handleDelete(exam.id);
+                                            
                                         }}>
                                             <FontAwesomeIcon className="icon-menu" icon={faTrash} /> 
                                         </Button>

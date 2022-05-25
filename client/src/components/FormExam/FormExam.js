@@ -11,6 +11,7 @@ import {
     Col,
     Button
 } from 'reactstrap'
+import { clearFields } from '../../services/ExamServices';
 
 
 function FormExam({handleSaveButton}) {
@@ -96,7 +97,7 @@ function FormExam({handleSaveButton}) {
                 </FormGroup>
             </Col>
             <Col className="col-btn-save-cancel" md={4}>
-                <Button  type="submit" className="btn-cancel btn-danger">
+                <Button  type="submit" className="btn-cancel btn-danger" onClick={() => clearFields()}>
                     Cancel
                 </Button>
                 <Button type="button" className="btn-save btn-success" onClick={handleSaveButton}>
