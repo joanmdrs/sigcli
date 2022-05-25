@@ -4,8 +4,10 @@ import { Container as ContainerExam} from "../../components/Container/Container"
 import {BoxExam} from "../../components/BoxExam/BoxExam";
 import HeaderExam from "../../components/HeaderExam/HeaderExam";
 import FormExam from "../../components/FormExam/FormExam";
-import { addExam, deleteExam, getActionForm, getExams, getValuesInput, setFields, updateExam } from "../../services/ExamServices";
+import { addExam, deleteExam, getActionForm, getExams, getValuesInput, messageConfirm, setFields, updateExam } from "../../services/ExamServices";
 import ListExam from "../../components/ListExam/ListExam";
+import Swal from 'sweetalert2';
+
 
 export default function Exam(){
 
@@ -18,8 +20,13 @@ export default function Exam(){
 
         const action = getActionForm();
 
-        action === "add" ? addExam(data) : updateExam(action, data);
-
+        if(action === "add"){
+            addExam(data);
+            messageConfirm("New exam added.");
+        }else {
+            updateExam(action, data);
+            messageConfirm("The informations about this exam were updated.")
+        }
 
     }
 
@@ -53,7 +60,20 @@ export default function Exam(){
     // DELETE 
 
     const handleDelete = (id) => {
-        deleteExam(id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#0C6170',
+            confirmButtonText: 'Yes, delete it!'
+         }).then((result) => {
+            if (result.isConfirmed) {
+               deleteExam(id);
+               document.location.reload();
+            }
+         })
     }
 
 

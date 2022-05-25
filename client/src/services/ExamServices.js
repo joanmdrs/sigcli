@@ -1,4 +1,6 @@
-import api from "./api"
+import api from "./api";
+import Swal from 'sweetalert2';
+
 
 
 export const getValuesInput = () => {
@@ -73,6 +75,44 @@ export const updateExam = (id, data) => {
 export const deleteExam = (id) => {
    api.delete(`/exam/delete/${id}`);
 }
+
+export const clearFields = () => {
+   document.getElementById("title").value = "";
+   document.getElementById("patient-cpf").value = "";
+   document.getElementById("patient-name").value = "";
+   document.getElementById("doctor-crm").value = "";
+   document.getElementById("doctor-name").value = "";
+   document.getElementById("description").value = "";
+};
  
+export const messageConfirm = (message) => {
+
+   Swal.fire({
+      title: 'Success',
+      text: `${message}`,
+      icon: 'success',
+      showCancelButton: false,
+      confirmButtonColor: '#0C6170',
+      confirmButtonText: 'Ok',
+   }).then((result) => {
+      if (result.isConfirmed) {
+         document.location.reload();
+      }
+   });
+
+
+}
+
+export const messagePrepareToUpdate = () => {
+   Swal.fire({
+      title: 'Edit Exam',
+      text: "Now you will edit this Exam's informations, be careful.",
+      icon: 'info',
+      showCancelButton: false,
+      confirmButtonColor: '#0C6170',
+      confirmButtonText: 'Ok',
+  });
+}
+
 
 
