@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .container-patient {
   display: flex;
   background-color: #d0d6db;
@@ -6,6 +10,8 @@
 
 .box-patient {
   width: 100%;
+  display: flex;
+  flex-direction: column ;
 }
 
 .box-header-patient {
@@ -29,7 +35,7 @@
   font-size: 25px;
 }
 
-.box-patient .form-patient {
+.form-patient {
   padding: 30px;
   margin: 10px 15px 15px 15px;
   border: 1px solid #d0d6db;
@@ -58,24 +64,36 @@
 }
 
 .box-patient  .tablePatient{
-  padding: 30px;
-  margin: 10px 15px 15px 15px;
-  border: 1px solid #d0d6db;
-  border-radius: 4px;
   background-color: #fff;
+  margin-left: 15px;
+  margin-right: 15px;
+  width: calc(100% - 30px);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  width: 1270px;
+  border-radius: 8px;
+}
+
+
+.box-patient .tablePatient thead tr,
+.box-patient .tableFilterPatientOp thead tr {
+  background-color: #fff;
+}
+
+
+.tablePatient thead tr th,
+.tablePatient tbody tr td,
+.tableFilterPatientOp thead tr th,
+.tableFilterPatientOp tbody tr td {
+    padding: 15px;
 }
 
 .box-patient  .tableFilterPatient{
-  padding: 30px;
   margin: 10px 15px 15px 15px;
   border: 1px solid #d0d6db;
   border-radius: 4px;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: none;
-  width: 1270px;
+  width: calc(100% - 30px);
 }
 
 .tableFilterPatientOp{
@@ -86,7 +104,8 @@
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: inline-;
-  width: 100%;
+  width: calc(100% - 30px);
+
 }
 
 .idForm {
