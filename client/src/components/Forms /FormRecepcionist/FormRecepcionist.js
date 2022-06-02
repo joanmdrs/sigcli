@@ -15,6 +15,7 @@ export function FormRecepcionist({handleSaveButton}) {
 
 
     const nameRef = useRef(null);
+    const cpfRef = useRef(null);
     const phoneRef = useRef(null);
     const emailRef = useRef(null);
     const usernameRef = useRef(null);
@@ -23,18 +24,35 @@ export function FormRecepcionist({handleSaveButton}) {
 
         <BaseForm idForm="form-recepcionist">
             <Row>
-                <FormGroup>
-                    <Label for="name">
-                        Name
-                    </Label>
-                    <Input 
-                        id="name" 
-                        name="name" 
-                        type="text" 
-                        placeholder="name"
-                        ref={nameRef}
-                    ></Input>
-                </FormGroup> 
+                <Col md={8}>
+                    <FormGroup>
+                        <Label for="name">
+                            Name
+                        </Label>
+                        <Input 
+                            id="name" 
+                            name="name" 
+                            type="text" 
+                            placeholder="name"
+                            ref={nameRef}
+                        ></Input>
+                    </FormGroup>    
+                </Col>
+                <Col md={4}>
+                    <FormGroup>
+                        <Label for="cpf">
+                            CPF
+                        </Label>
+                        <Input 
+                            id="cpf" 
+                            name="cpf" 
+                            type="text" 
+                            placeholder="cpf"
+                            ref={cpfRef}
+                        ></Input>
+                    </FormGroup> 
+                </Col>
+                
             </Row>
             <Row>
                 <Col md={4}>

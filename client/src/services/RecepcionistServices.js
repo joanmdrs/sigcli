@@ -3,12 +3,12 @@ import Swal from 'sweetalert2';
 
 export const getValuesInput = () => {
    const data = {
-      title: document.getElementById("title").value,
-      patient_cpf: document.getElementById("patient-cpf").value,
-      patient_name: document.getElementById("patient-name").value,
-      doctor_crm: document.getElementById("doctor-crm").value,
-      doctor_name: document.getElementById("doctor-name").value,
-      description: document.getElementById("description").value
+      name: document.getElementById("name").value,
+      cpf: document.getElementById("cpf").value,
+      phone: document.getElementById("phone").value,
+      email: document.getElementById("email").value,
+      username: document.getElementById("username").value,
+      password: document.getElementById("password").value
   };
 
   return data;
@@ -19,17 +19,17 @@ export const getActionForm = () => {
    return action;
 }
 
-export const addExam = (data) => {
+export const addRecepcionist = (data) => {
 
-    const {title, patient_cpf, patient_name, doctor_crm, doctor_name, description} = data;
+    const {name, cpf, phone, email, username, password} = data;
 
-    api.post("/exam/register", {
-      title: title,
-      patient_cpf: patient_cpf,
-      patient_name: patient_name,
-      doctor_crm: doctor_crm,
-      doctor_name: doctor_name,
-      description: description
+    api.post("/recepcionist/register", {
+      name: name,
+      cpf: cpf,
+      phone: phone,
+      email: email,
+      username: username,
+      password: password
     });
   
 }
