@@ -4,19 +4,34 @@ import { Container as ContainerRecepcionist} from "../../components/Container/Co
 import { Box as BoxRecepcionist } from "../../components/Box/Box";
 import { Header as HeaderRecepcionist} from "../../components/Header/Header"
 import { FormRecepcionist } from "../../components/Forms /FormRecepcionist/FormRecepcionist";
-import { addRecepcionist, getValuesInput, messageConfirm } from "../../services/RecepcionistServices";
-
+import { addRecepcionist, getAllRecepcionist, getValuesInput, messageConfirm } from "../../services/RecepcionistServices";
+import { ListRecepcionist } from "../../components/Listing/ListRecepcionist/ListRecepcionist";
 export default function Recepcionist() {
 
+  const [listRecepcionist, setListRecepcionist] = useState([]);
 
-    // POST 
-    const handleSaveButton = () => {
+  // POST 
+  const handleSaveButton = () => {
 
-      const data = getValuesInput();
-      addRecepcionist(data);
-      messageConfirm("New Recepcionist added.");
-     
-    }
+    const data = getValuesInput();
+    addRecepcionist(data);
+    messageConfirm("New Recepcionist added.");
+    
+  }
+
+  // LIST 
+  // Após a renderização, retornar todos os recepcionistas 
+
+  useEffect( () => {
+
+      const fetchData = async () => {
+          const data = await getAllRecepcionist();
+          const recepcionists = JSON.parse(data)
+          setListRecepcionist(recepcionists)
+      }
+  
+      fetchData();
+  }, []);
 
   return (
     <ContainerRecepcionist>
@@ -28,6 +43,7 @@ export default function Recepcionist() {
               icon="user-gear"
             ></HeaderRecepcionist>
             <FormRecepcionist handleSaveButton={handleSaveButton} />
+            <ListRecepcionist recepcionists={listRecepcionist}/>
         </BoxRecepcionist> 
     </ContainerRecepcionist>
   )

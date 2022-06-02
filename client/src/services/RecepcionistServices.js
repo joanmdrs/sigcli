@@ -34,8 +34,8 @@ export const addRecepcionist = (data) => {
   
 }
 
-export const getExams = async () => {
-   const res = await api.get("/exam/getAll");
+export const getAllRecepcionist = async () => {
+   const res = await api.get("/recepcionist/getAll");
    const data = res.data;    
    return JSON.stringify(data);
 }

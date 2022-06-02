@@ -6,6 +6,12 @@ export const createRecepcionist = async (recepcionist) => {
   });
 };
 
+
+export const listRecepcionistWithPrisma = async () => {
+  return await prisma.recepcionist.findMany();
+};
+
+
 export const findUniqueByIDRecepcionist = async (recepcionistID) => {
   return await prisma.recepcionist.findUnique({
     where: {

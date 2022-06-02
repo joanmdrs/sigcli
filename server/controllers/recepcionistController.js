@@ -3,13 +3,21 @@ import {
   deleteRecepcionistWithPrisma,
   findUniqueByIDRecepcionist,
   findUniqueByUsernameRecepcionist,
+  listRecepcionistWithPrisma,
   updateRecepcionistWithPrisma,
 } from "../repositories/recepcionistRepository.js";
+
+
 export const registerRecepcionist = async (req, res) => {
   const recepcionistBody = req.body;
 
   const recepcionist = await createRecepcionist(recepcionistBody);
   res.json(recepcionist);
+};
+
+export const listRecepcionist = async (req, res) => {
+  const recepcionistList = await listRecepcionistWithPrisma();
+  res.status(200).json(recepcionistList);
 };
 
 export const getByIdRecepcionist = async (req, res) => {
