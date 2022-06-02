@@ -1,7 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./FormExam.css";
-import BaseForm from '../BaseForm/BaseForm';
+import { BaseForm } from '../BaseForm/BaseForm';
 import GroupButtons from '../GroupButtons/GroupButtons';
 import TextArea from '../TextArea/TextArea';
 import {
@@ -17,7 +16,7 @@ import {
 
 function FormExam({handleSaveButton}) {
   return (
-    <BaseForm id="form-exam" >
+    <BaseForm idForm="form-exam">
         <FormGroup>
             <Label for="title">
                 Title

@@ -29,7 +29,7 @@ function ListExam({exams, setFields, handleDelete}) {
                                     <td>{exam.title}</td>
                                     <td>{exam.patient_name}</td>
                                     <td>{exam.doctor_name}</td>
-                                    <td>{exam.crm_doctor}</td>
+                                    <td>{exam.doctor_crm}</td>
                                     <td className="td-with-btns">
 
                                         <Button className="btn-action btn-warning" onClick={() => {

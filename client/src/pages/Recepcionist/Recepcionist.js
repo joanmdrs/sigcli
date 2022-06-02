@@ -12,7 +12,6 @@ export default function Recepcionist() {
     <ContainerRecepcionist>
         <Nav />
         <BoxRecepcionist>
-
             <HeaderRecepcionist
               title="Recepcionist" 
               text="Recepcionist registration: Include, Search, Change, Delete and List" 
