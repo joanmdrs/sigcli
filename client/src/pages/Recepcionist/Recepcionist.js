@@ -4,8 +4,10 @@ import { Container as ContainerRecepcionist} from "../../components/Container/Co
 import { Box as BoxRecepcionist } from "../../components/Box/Box";
 import { Header as HeaderRecepcionist} from "../../components/Header/Header"
 import { FormRecepcionist } from "../../components/Forms /FormRecepcionist/FormRecepcionist";
-import { addRecepcionist, getActionForm, getAllRecepcionist, getValuesInput, messageConfirm, setFields, updateRecepcionist } from "../../services/RecepcionistServices";
+import { addRecepcionist, deleteRecepcionist, getActionForm, getAllRecepcionist, getValuesInput, messageConfirm, setFields, updateRecepcionist } from "../../services/RecepcionistServices";
 import { ListRecepcionist } from "../../components/Listing/ListRecepcionist/ListRecepcionist";
+import Swal from 'sweetalert2';
+
 export default function Recepcionist() {
 
   const [listRecepcionist, setListRecepcionist] = useState([]);
@@ -53,7 +55,27 @@ export default function Recepcionist() {
 
     setFields(data);
 
+  }
+
+  // DELETE 
+
+  const handleDelete = (id) => {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#0C6170',
+        confirmButtonText: 'Yes, delete it!'
+     }).then((result) => {
+        if (result.isConfirmed) {
+           deleteRecepcionist(id);
+           document.location.reload();
+        }
+     })
 }
+
 
   return (
     <ContainerRecepcionist>
@@ -65,7 +87,12 @@ export default function Recepcionist() {
               icon="user-gear"
             ></HeaderRecepcionist>
             <FormRecepcionist handleSaveButton={handleSaveButton} />
-            <ListRecepcionist recepcionists={listRecepcionist} setFields={handlePreparaToUpdate}/>
+            <ListRecepcionist 
+              recepcionists={listRecepcionist} 
+              setFields={handlePreparaToUpdate}
+              handleDelete={handleDelete}
+              
+            />
         </BoxRecepcionist> 
     </ContainerRecepcionist>
   )

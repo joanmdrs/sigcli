@@ -71,8 +71,8 @@ export const updateRecepcionist = (id, data) => {
    });
 }
 
-export const deleteExam = (id) => {
-   api.delete(`/exam/delete/${id}`);
+export const deleteRecepcionist = (id) => {
+   api.delete(`/recepcionist/delete/${id}`);
 }
 
 export const clearFields = () => {

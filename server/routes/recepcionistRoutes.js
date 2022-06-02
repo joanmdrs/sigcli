@@ -14,4 +14,4 @@ recepcionistRoutes.get("/getAll", listRecepcionist);
 
 recepcionistRoutes.put("/update", updateRecepcionist);
 
-recepcionistRoutes.delete("/:id", deleteRecepcionist);
+recepcionistRoutes.delete("/delete/:id", deleteRecepcionist);
