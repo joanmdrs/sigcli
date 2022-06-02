@@ -10,18 +10,29 @@ import { messagePrepareToUpdate } from '../../../services/RecepcionistServices';
 export function ListRecepcionist({recepcionists, setFields, handleDelete}) {
 
     return (
+
+        
         <Table responsive hover borderless className='table-list-recepcionists'>
-            <thead>
-                <tr>
-                    <th> ID </th>
-                    <th> name   </th>
-                    <th> cpf </th>
-                    <th> phone </th>
-                    <th> email </th>
-                    <th> username </th>
-                    <th> ações </th>
-                </tr>
-            </thead>
+
+            { 
+                recepcionists !== undefined ?  
+
+                    <thead>
+                        <tr>
+                            <th> ID </th>
+                            <th> name   </th>
+                            <th> cpf </th>
+                            <th> phone </th>
+                            <th> email </th>
+                            <th> username </th>
+                            <th> ações </th>
+                        </tr>
+                    </thead>
+
+                : ""
+            
+            }
+            
             <tbody>
                 {
                     recepcionists !== undefined ?                 

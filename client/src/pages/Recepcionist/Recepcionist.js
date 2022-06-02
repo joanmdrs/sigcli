@@ -4,15 +4,16 @@ import { Container as ContainerRecepcionist} from "../../components/Container/Co
 import { Box as BoxRecepcionist } from "../../components/Box/Box";
 import { Header as HeaderRecepcionist} from "../../components/Header/Header"
 import { FormRecepcionist } from "../../components/Forms /FormRecepcionist/FormRecepcionist";
-import { addRecepcionist, deleteRecepcionist, getActionForm, getAllRecepcionist, getValuesInput, messageConfirm, setFields, updateRecepcionist } from "../../services/RecepcionistServices";
+import { addRecepcionist, deleteRecepcionist, getActionForm, getAllRecepcionist, getOneRecepcionist, getValuesInput, messageConfirm, setFields, updateRecepcionist } from "../../services/RecepcionistServices";
 import { ListRecepcionist } from "../../components/Listing/ListRecepcionist/ListRecepcionist";
 import Swal from 'sweetalert2';
+import { Search } from "../../components/Search/Search";
 
 export default function Recepcionist() {
 
   const [listRecepcionist, setListRecepcionist] = useState([]);
 
-  // POST 
+  // POST and UPDATE
   const handleSaveButton = () => {
 
     const data = getValuesInput();
@@ -42,6 +43,22 @@ export default function Recepcionist() {
   
       fetchData();
   }, []);
+
+
+  const handleFilterByCpf = async () => {
+
+    const searchCpf = document.getElementById("searchCpf").value;
+    let recepcionist = {} ;
+    const all = await getAllRecepcionist();
+    const data = JSON.parse(all);
+
+    data.forEach(element => {
+      element.cpf === searchCpf ? recepcionist = element : recepcionist = {}
+    });
+
+    const one = await getOneRecepcionist(recepcionist.id)
+    recepcionist = JSON.parse(one);
+  }
 
 
   // SETFIELDS  
@@ -74,7 +91,8 @@ export default function Recepcionist() {
            document.location.reload();
         }
      })
-}
+  }
+
 
 
   return (
@@ -85,14 +103,21 @@ export default function Recepcionist() {
               title="Recepcionist" 
               text="Recepcionist registration: Include, Search, Change, Delete and List" 
               icon="user-gear"
-            ></HeaderRecepcionist>
-            <FormRecepcionist handleSaveButton={handleSaveButton} />
+            />
+            <FormRecepcionist 
+              handleSaveButton={handleSaveButton} 
+            />
+
+            <Search 
+              handleFilterByCpf={handleFilterByCpf}
+            />
             <ListRecepcionist 
               recepcionists={listRecepcionist} 
               setFields={handlePreparaToUpdate}
               handleDelete={handleDelete}
               
             />
+
         </BoxRecepcionist> 
     </ContainerRecepcionist>
   )

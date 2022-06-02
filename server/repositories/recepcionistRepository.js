@@ -12,18 +12,10 @@ export const listRecepcionistWithPrisma = async () => {
 };
 
 
-export const findUniqueByIDRecepcionist = async (recepcionistID) => {
+export const findUniqueByIdRecepcionist = async (id) => {
   return await prisma.recepcionist.findUnique({
     where: {
-      id: parseInt(recepcionistID),
-    },
-  });
-};
-
-export const findUniqueByUsernameRecepcionist = async (username) => {
-  return await prisma.recepcionist.findUnique({
-    where: {
-      username,
+      id: Number(id),
     },
   });
 };

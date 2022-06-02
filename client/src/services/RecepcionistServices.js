@@ -40,6 +40,12 @@ export const getAllRecepcionist = async () => {
    return JSON.stringify(data);
 }
 
+export const getOneRecepcionist = async (id) => {
+   const res = await api.get(`/recepcionist/get/${id}`);
+   const data = res.data;
+   return JSON.stringify(data);
+}
+
 
 export const setFields = (data) => {
 
@@ -98,8 +104,6 @@ export const messageConfirm = (message) => {
          document.location.reload();
       }
    });
-
-
 }
 
 export const messagePrepareToUpdate = () => {
@@ -113,5 +117,9 @@ export const messagePrepareToUpdate = () => {
   });
 }
 
+
+export const messageConfirmDelete = () => {
+
+}
 
 

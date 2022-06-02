@@ -1,9 +1,8 @@
 import {
   createRecepcionist,
-  deleteRecepcionistWithPrisma,
-  findUniqueByIDRecepcionist,
-  findUniqueByUsernameRecepcionist,
   listRecepcionistWithPrisma,
+  findUniqueByIdRecepcionist,
+  deleteRecepcionistWithPrisma,
   updateRecepcionistWithPrisma,
 } from "../repositories/recepcionistRepository.js";
 
@@ -20,6 +19,11 @@ export const listRecepcionist = async (req, res) => {
   res.status(200).json(recepcionistList);
 };
 
+export const getRecepcionistById = async (req, res) => {
+  const { id } = req.params;
+  const recepcionist = await findUniqueByIdRecepcionist(id)
+  return res.status(200).json(recepcionist);
+}
 
 export const updateRecepcionist = async (req, res) => {
   const recepcionist = req.body;
