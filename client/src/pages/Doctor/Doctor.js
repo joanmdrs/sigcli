@@ -15,6 +15,8 @@ function Doctor(){
           ...prevValue,
           [value.target.name]: value.target.value,
           [value.target.crm]: value.target.crm,
+          [value.target.phone] : value.target.phone,
+          [value.target.email] : value.target.email,
           [value.target.username]: value.target.username,
           [value.target.password]: value.target.password,
         }));
@@ -32,6 +34,8 @@ function Doctor(){
         await api.post("/doctor/register", {
             name: values.name,
             crm: values.crm,
+            phone: values.phone,
+            email: values.email,
             username: values.username,
             password: values.password,
         });
@@ -54,6 +58,8 @@ function Doctor(){
                 id: values.id,
                 name: values.name,
                 crm: values.crm,
+                phone: values.phone,
+                email: values.email,
                 username: values.username,
                 password: values.password,
             },
@@ -70,6 +76,8 @@ function Doctor(){
         const id = document.getElementById("input-id").value;
         const name = document.getElementById("input-name").value;
         const crm = document.getElementById("input-crm").value;
+        const phone = document.getElementById("input-phone").value;
+        const email = document.getElementById("input-email").value;
         const username = document.getElementById("input-username").value;
         const password = document.getElementById("input-password").value;
 
@@ -77,6 +85,8 @@ function Doctor(){
             id: id,
             name: name,
             crm: crm,
+            phone: phone,
+            email: email,
             username: username,
             password: password,
         });
@@ -122,6 +132,8 @@ function Doctor(){
                             <tr>
                                 <th scope="col">Name</th>
                                 <th scope="col">CRM</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Actions</th>
                             </tr>
@@ -132,6 +144,8 @@ function Doctor(){
                                 <tr key={doctor.crm}>
                                     <td>{doctor.name}</td>
                                     <td>{doctor.crm}</td>
+                                    <td>{doctor.phone}</td>
+                                    <td>{doctor.email}</td>
                                     <td>{doctor.username}</td>
                                     <td>
                                         <button className="card-button m-1" onClick={() => {
@@ -146,6 +160,8 @@ function Doctor(){
                                             document.getElementById("input-id").defaultValue = doctor.id;
                                             document.getElementById("input-name").defaultValue = doctor.name;
                                             document.getElementById("input-crm").defaultValue = doctor.crm;
+                                            document.getElementById("input-phone").defaultValue = doctor.phone;
+                                            document.getElementById("input-email").defaultValue = doctor.email;
                                             document.getElementById("input-username").defaultValue = doctor.username;
                                             document.getElementById("input-password").defaultValue = doctor.password;
                                             document.getElementById("form-doctor").dataset.action = "edit";
@@ -177,6 +193,14 @@ function Doctor(){
                         <FormGroup>
                             <Label for="input-crm">CRM:</Label>
                             <Input id="input-crm" name="crm" type="text" placeholder="CRM" className="input-crm-doctor" required onChange={handleChangeValues}></Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="input-phone">Phone:</Label>
+                            <Input id="input-phone" name="phone" type="text" placeholder="Phone" className="input-phone-doctor" required onChange={handleChangeValues}></Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="input-email">Email:</Label>
+                            <Input id="input-email" name="email" type="text" placeholder="Email" className="input-email-doctor" required onChange={handleChangeValues}></Input>
                         </FormGroup>
                         <FormGroup>
                             <Label for="input-username">Username:</Label>

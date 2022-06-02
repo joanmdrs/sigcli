@@ -13,6 +13,9 @@ datasource db {
 model Recepcionist {
   id       Int    @id @default(autoincrement())
   name     String @db.VarChar(255)
+  cpf String @db.VarChar(255)
+  phone String @db.VarChar(14)
+  email String @db.VarChar(255)
   username String @unique @db.VarChar(50)
   password String @db.VarChar(50)
 }
@@ -21,7 +24,7 @@ model Patient{
   id Int @id @default(autoincrement())
   name String @db.VarChar(255)
   cpf String @db.VarChar(255)
-  phone String @db.VarChar(255)
+  phone String @db.VarChar(14)
   email String @db.VarChar(255)
   username String @unique @db.VarChar(50)
   password String @db.VarChar(50)
@@ -31,7 +34,9 @@ model Patient{
 model Doctor{
   id Int @id @default(autoincrement())
   name String @db.VarChar(255)
-  crm String @db.VarChar(20)
+  crm String @db.VarChar(13)
+  phone String @db.VarChar(14)
+  email String @db.VarChar(255)
   username String @unique @db.VarChar(50)
   password String @db.VarChar(50)
 }
@@ -41,7 +46,7 @@ model Exam {
   title String @db.VarChar(255)
   patient_cpf String @db.VarChar(255)
   patient_name String @db.VarChar(255)
-  crm_doctor String @db.VarChar(4)
+  doctor_crm String @db.VarChar(13)
   doctor_name String @db.VarChar(255)
   description String @db.VarChar(500)
 }
@@ -51,7 +56,7 @@ model Appointment {
   title String @db.VarChar(255)
   patient_cpf String @db.VarChar(255)
   patient_name String @db.VarChar(255)
-  crm_doctor String @db.VarChar(4)
+  doctor_crm String @db.VarChar(13)
   doctor_name String @db.VarChar(255)
   data_appointment String @db.VarChar(20)
   description String @db.VarChar(500)

@@ -1,10 +1,8 @@
 import React, { useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./FormRecepcionist.css";
 import { BaseForm } from '../BaseForm/BaseForm';
 import GroupButtons from '../GroupButtons/GroupButtons';
 import {
-    Form,
     FormGroup,
     Label,
     Input,
@@ -91,7 +89,7 @@ export function FormRecepcionist({handleSaveButton}) {
                     <Input 
                         id="password" 
                         name="password" 
-                        type="text" 
+                        type="password" 
                         placeholder="password" 
                         ref={passwordRef} 
                     ></Input>
