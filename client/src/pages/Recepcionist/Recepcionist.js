@@ -4,7 +4,7 @@ import { Container as ContainerRecepcionist} from "../../components/Container/Co
 import { Box as BoxRecepcionist } from "../../components/Box/Box";
 import { Header as HeaderRecepcionist} from "../../components/Header/Header"
 import { FormRecepcionist } from "../../components/Forms /FormRecepcionist/FormRecepcionist";
-import { addRecepcionist, getAllRecepcionist, getValuesInput, messageConfirm } from "../../services/RecepcionistServices";
+import { addRecepcionist, getActionForm, getAllRecepcionist, getValuesInput, messageConfirm, setFields, updateRecepcionist } from "../../services/RecepcionistServices";
 import { ListRecepcionist } from "../../components/Listing/ListRecepcionist/ListRecepcionist";
 export default function Recepcionist() {
 
@@ -14,8 +14,16 @@ export default function Recepcionist() {
   const handleSaveButton = () => {
 
     const data = getValuesInput();
-    addRecepcionist(data);
-    messageConfirm("New Recepcionist added.");
+    const action = getActionForm();
+
+    if(action === "add"){
+        addRecepcionist(data);
+        messageConfirm("New Recepcionist added.");
+    }else {
+        updateRecepcionist(action, data);
+        messageConfirm("The informations about this recepcionist were updated.")
+    }
+
     
   }
 
@@ -33,6 +41,20 @@ export default function Recepcionist() {
       fetchData();
   }, []);
 
+
+  // SETFIELDS  
+
+  const handlePreparaToUpdate = (RecepcionistID) => {
+
+    let data = {}
+    listRecepcionist.forEach(element => {
+        element.id === RecepcionistID ? data = element : data = data
+    });
+
+    setFields(data);
+
+}
+
   return (
     <ContainerRecepcionist>
         <Nav />
@@ -43,7 +65,7 @@ export default function Recepcionist() {
               icon="user-gear"
             ></HeaderRecepcionist>
             <FormRecepcionist handleSaveButton={handleSaveButton} />
-            <ListRecepcionist recepcionists={listRecepcionist}/>
+            <ListRecepcionist recepcionists={listRecepcionist} setFields={handlePreparaToUpdate}/>
         </BoxRecepcionist> 
     </ContainerRecepcionist>
   )

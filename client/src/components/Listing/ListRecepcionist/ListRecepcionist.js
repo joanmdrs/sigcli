@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table, Button } from 'reactstrap'
 import { faPenToSquare , faTrash } from '@fortawesome/free-solid-svg-icons'
+import { messagePrepareToUpdate } from '../../../services/RecepcionistServices';
+
 
 export function ListRecepcionist({recepcionists, setFields, handleDelete}) {
 
@@ -35,7 +37,8 @@ export function ListRecepcionist({recepcionists, setFields, handleDelete}) {
                                     <td className="td-with-btns">
 
                                         <Button className="btn-action btn-warning" onClick={() => {
-                                            
+                                            setFields(recepcionist.id);
+                                            messagePrepareToUpdate();
                                         
                                         }}>
                                             <FontAwesomeIcon className="icon-menu" icon={faPenToSquare} /> 

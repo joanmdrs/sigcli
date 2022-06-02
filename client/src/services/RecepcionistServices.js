@@ -15,7 +15,7 @@ export const getValuesInput = () => {
 }
 
 export const getActionForm = () => {
-   const action = document.getElementById("form-exam").dataset.action;
+   const action = document.getElementById("form-recepcionist").dataset.action;
    return action;
 }
 
@@ -43,29 +43,30 @@ export const getAllRecepcionist = async () => {
 
 export const setFields = (data) => {
 
-   const {id, title, patient_cpf, patient_name, doctor_crm, doctor_name, description} = data;
+   const {id, name, cpf, phone, email, username, password} = data;
 
-   document.getElementById("form-exam").dataset.action = id;
-   document.getElementById("title").value = title;
-   document.getElementById("patient-cpf").value = patient_cpf;
-   document.getElementById("patient-name").value = patient_name;
-   document.getElementById("doctor-crm").value = doctor_crm;
-   document.getElementById("doctor-name").value = doctor_name;
-   document.getElementById("description").value = description;
+   document.getElementById("form-recepcionist").dataset.action = id;
+   document.getElementById("name").value = name;
+   document.getElementById("cpf").value = cpf;
+   document.getElementById("phone").value = phone;
+   document.getElementById("email").value = email;
+   document.getElementById("username").value = username;
+   document.getElementById("password").value = password;
 }
 
-export const updateExam = (id, data) => {
+export const updateRecepcionist = (id, data) => {
 
-   const {title, patient_cpf, patient_name, doctor_crm, doctor_name, description} = data;
+   const {name, cpf, phone, email, username, password} = data;
 
-   api.put("/exam/update", {
+
+   api.put("/recepcionist/update", {
       id: id,
-      title: title,
-      patient_cpf: patient_cpf,
-      patient_name: patient_name,
-      doctor_crm: doctor_crm,
-      doctor_name: doctor_name,
-      description: description
+      name: name,
+      cpf: cpf,
+      phone: phone,
+      email: email,
+      username: username,
+      password: password
 
    });
 }
@@ -103,8 +104,8 @@ export const messageConfirm = (message) => {
 
 export const messagePrepareToUpdate = () => {
    Swal.fire({
-      title: 'Edit Exam',
-      text: "Now you will edit this Exam's informations, be careful.",
+      title: 'Edit Recepcionist',
+      text: "Now you will edit this Recepcionist's informations, be careful.",
       icon: 'info',
       showCancelButton: false,
       confirmButtonColor: '#0C6170',
