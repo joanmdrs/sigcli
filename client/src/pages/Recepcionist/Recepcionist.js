@@ -55,10 +55,7 @@ export default function Recepcionist() {
     const verifyCpf = (value) => value == cpfProvided;
     let recepcionist = data.filter((element) => (verifyCpf(element.cpf)));
 
-    const oneRecepcionist = await getOneRecepcionist(recepcionist[0].id);
-    recepcionist = JSON.parse(oneRecepcionist);
-
-    setListRecepcionist([recepcionist]);
+    setListRecepcionist([recepcionist[0]]);
 
 
   }
