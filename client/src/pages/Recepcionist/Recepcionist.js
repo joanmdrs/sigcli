@@ -4,7 +4,7 @@ import { Container as ContainerRecepcionist} from "../../components/Container/Co
 import { Box as BoxRecepcionist } from "../../components/Box/Box";
 import { Header as HeaderRecepcionist} from "../../components/Header/Header"
 import { FormRecepcionist } from "../../components/Forms /FormRecepcionist/FormRecepcionist";
-import { addRecepcionist, deleteRecepcionist, getActionForm, getAllRecepcionist, getOneRecepcionist, getValuesInput, messageConfirm, setFields, updateRecepcionist } from "../../services/RecepcionistServices";
+import { addRecepcionist, deleteRecepcionist, getActionForm, getAllRecepcionist, getOneRecepcionist, getValuesInput, messageConfirm, messageConfirmDelete, setFields, updateRecepcionist } from "../../services/RecepcionistServices";
 import { ListRecepcionist } from "../../components/Listing/ListRecepcionist/ListRecepcionist";
 import Swal from 'sweetalert2';
 import { Search } from "../../components/Search/Search";
@@ -47,50 +47,41 @@ export default function Recepcionist() {
 
   const handleFilterByCpf = async () => {
 
-    const searchCpf = document.getElementById("searchCpf").value;
-    let recepcionist = {} ;
-    const all = await getAllRecepcionist();
-    const data = JSON.parse(all);
+    const cpfProvided = document.getElementById("searchCpf").value;
+   
+    const allRecepcionists = await getAllRecepcionist();
+    const data = JSON.parse(allRecepcionists);
 
-    data.forEach(element => {
-      element.cpf === searchCpf ? recepcionist = element : recepcionist = {}
-    });
+    const verifyCpf = (value) => value == cpfProvided;
+    let recepcionist = data.filter((element) => (verifyCpf(element.cpf)));
 
-    const one = await getOneRecepcionist(recepcionist.id)
-    recepcionist = JSON.parse(one);
+    const oneRecepcionist = await getOneRecepcionist(recepcionist[0].id);
+    recepcionist = JSON.parse(oneRecepcionist);
+
+    setListRecepcionist([recepcionist]);
+
+
   }
 
 
   // SETFIELDS  
 
-  const handlePreparaToUpdate = (RecepcionistID) => {
+  const handlePreparaToUpdate = async (RecepcionistID) => {
 
-    let data = {}
-    listRecepcionist.forEach(element => {
-        element.id === RecepcionistID ? data = element : data = data
-    });
+    const allRecepcionists = await getAllRecepcionist();
+    const data = JSON.parse(allRecepcionists);
 
-    setFields(data);
+    const verifyID = (value) => value == RecepcionistID;
+    let recepcionist = data.filter((element) => (verifyID(element.id)));
+
+    setFields(recepcionist[0]);
 
   }
 
   // DELETE 
 
   const handleDelete = (id) => {
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#d33',
-        cancelButtonColor: '#0C6170',
-        confirmButtonText: 'Yes, delete it!'
-     }).then((result) => {
-        if (result.isConfirmed) {
-           deleteRecepcionist(id);
-           document.location.reload();
-        }
-     })
+    messageConfirmDelete(id);
   }
 
 
