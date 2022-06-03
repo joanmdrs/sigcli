@@ -9,12 +9,12 @@ import {
 export const recepcionistRoutes = Router();
 
 // /recepcionist/register
-recepcionistRoutes.post("/register", registerRecepcionist);
+recepcionistRoutes.post("/", registerRecepcionist);
 
-recepcionistRoutes.get("/get/:id", getByIdRecepcionist);
+recepcionistRoutes.get("/:id", getByIdRecepcionist);
 
 recepcionistRoutes.get("/get/user/:username", getByUsernameRecepcionist);
 
-recepcionistRoutes.put("/update", updateRecepcionist);
+recepcionistRoutes.put("/:id", updateRecepcionist);
 
 recepcionistRoutes.delete("/:id", deleteRecepcionist);

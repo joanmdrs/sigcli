@@ -26,7 +26,7 @@ function Recepcionist() {
   };
 
   const handleSaveButton = async () => {
-    api.post("/recepcionist/register", {
+    api.post("/recepcionists", {
       name: values.name,
       username: values.username,
       password: values.password,
@@ -49,7 +49,7 @@ function Recepcionist() {
     const username = document.getElementById("input-username").value;
     const password = document.getElementById("input-password").value;
 
-    api.put("/recepcionist/update", {
+    api.put(`/recepcionists/${id}`, {
       id: id,
       name: name,
       username: username,
@@ -61,7 +61,7 @@ function Recepcionist() {
 
   const getUserByUsername = () => {
     const searchUsername = document.getElementById("input-get-username").value
-    api.get(`/recepcionist/get/user/${searchUsername}`,
+    api.get(`/recepcionists/get/user/${searchUsername}`,
     {
       username: searchUsername,
     }).then((response) => {
@@ -75,7 +75,7 @@ function Recepcionist() {
 
   const getUserById = () => {
     const searchId = document.getElementById("input-get-id").value
-    api.get(`/recepcionist/get/${searchId}`,
+    api.get(`/recepcionists/${searchId}`,
     {
       username: searchId,
     }).then((response) => {
@@ -239,5 +239,5 @@ function Recepcionist() {
 export default Recepcionist;
 
 export const handleDeleteButton = async (id) => {
-  api.delete(`/recepcionist/${id}`);
+  api.delete(`/recepcionists/${id}`);
 };
