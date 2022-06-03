@@ -1,9 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./FormExam.css";
-
+import { BaseForm } from '../BaseForm/BaseForm';
+import GroupButtons from '../GroupButtons/GroupButtons';
+import TextArea from '../TextArea/TextArea';
 import {
-    Form,
     FormGroup,
     Label,
     Input,
@@ -11,12 +11,12 @@ import {
     Col,
     Button
 } from 'reactstrap'
-import { clearFields } from '../../services/ExamServices';
+
 
 
 function FormExam({handleSaveButton}) {
   return (
-    <Form className="form-exam" data-action='add' id='form-exam'>
+    <BaseForm idForm="form-exam">
         <FormGroup>
             <Label for="title">
                 Title
@@ -88,25 +88,23 @@ function FormExam({handleSaveButton}) {
                     <Label for="description">
                     Description
                     </Label>
-                    <Input 
-                        id="description"
-                        type="textarea" 
+                    <TextArea 
+                        idInput="description"
                         placeholder="description"
-                        className="input-textarea" >
-                    </Input>
+                    />
                 </FormGroup>
             </Col>
-            <Col className="col-btn-save-cancel" md={4}>
-                <Button  type="submit" className="btn-cancel btn-danger" onClick={() => clearFields()}>
+            <GroupButtons>
+                <Button  type="submit" className="btn-cancel btn-danger">
                     Cancel
                 </Button>
                 <Button type="button" className="btn-save btn-success" onClick={handleSaveButton}>
                     Save
                 </Button>
-            </Col>
+            </GroupButtons>
         </Row>
         
-    </Form>
+    </BaseForm>
   );
 }
 

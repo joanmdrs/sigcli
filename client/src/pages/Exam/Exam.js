@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Nav from "../../components/Nav/Nav";
 import { Container as ContainerExam} from "../../components/Container/Container";
-import {BoxExam} from "../../components/BoxExam/BoxExam";
-import HeaderExam from "../../components/HeaderExam/HeaderExam";
-import FormExam from "../../components/FormExam/FormExam";
+import { Box as BoxExam } from "../../components/Box/Box";
+import { Header as HeaderExam} from "../../components/Header/Header"
+import FormExam from "../../components/Forms /FormExam/FormExam";
 import { addExam, deleteExam, getActionForm, getExams, getValuesInput, messageConfirm, setFields, updateExam } from "../../services/ExamServices";
 import ListExam from "../../components/ListExam/ListExam";
 import Swal from 'sweetalert2';
-
 
 export default function Exam(){
 
@@ -81,7 +80,11 @@ export default function Exam(){
         <ContainerExam>
             <Nav />
             <BoxExam>
-                <HeaderExam />
+                <HeaderExam 
+                    title="Exam" 
+                    text="Exam registration: Include, Search, Change, Delete and List" 
+                    icon="file-waveform"
+                ></HeaderExam>
                 <FormExam handleSaveButton={handleSaveButton} />
                <ListExam exams={listExams} setFields={handlePreparaToUpdate} handleDelete={handleDelete} />
             </BoxExam>
