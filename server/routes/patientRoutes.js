@@ -10,12 +10,12 @@ import {
 export const patientRoutes = Router()
 
 // /recepcionist/register
-patientRoutes.post('/register', registerPatient)
+patientRoutes.post('/', registerPatient)
 
-patientRoutes.get('/getAll', listPatients)
+patientRoutes.get('/', listPatients)
 
-patientRoutes.get("/get/:id", getPatientByCPF);
+patientRoutes.get("/:id", getPatientByCPF);
 
-patientRoutes.put('/update', updatePatient)
+patientRoutes.put('/:id', updatePatient)
 
 patientRoutes.delete('/:id', deletePatient)
