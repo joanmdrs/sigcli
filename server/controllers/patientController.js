@@ -6,19 +6,21 @@ import {
   deletePatientWithPrisma
 } from '../repositories/patientRepository.js'
 
-export const registerPatient = async (req, res) => {
-  const {name, cpf, phone, email, username, password} = req.body
+import {validateCPF} from '../service/validations.js';
 
-  const patientBody = {
-    name: name,
-    cpf: cpf,
-    phone: phone,
-    email: email,
-    username: username,
-    password: password
+export const registerPatient = async (req, res) => {
+  const patientBody = req.body;
+  if (!validateCPF(patientBody.cpf)) {
+    return res.status(406).json({ msg: "CPF inválido!" });
   }
-  const patient = await createPatient(patientBody)
-  res.json(patient)
+  
+  try{
+    const patient = await createPatient(patientBody);
+    res.status(200).json(patient);
+  }catch(error){
+    res.status(500).json({msg:"Error no servidor!"});
+  }
+  
 }
 
 export const listPatients = async (req, res) => {
