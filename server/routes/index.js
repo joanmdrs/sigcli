@@ -6,8 +6,8 @@ import { examRoutes } from "./examRoutes.js";
 import { appointmentRoutes } from "./appointmentsRoutes.js";
 export const apiRoutes = Router();
 
-apiRoutes.use("/doctor", doctorRoutes);
-apiRoutes.use("/recepcionist", recepcionistRoutes);
-apiRoutes.use("/patient", patientRoutes);
-apiRoutes.use("/exam", examRoutes);
-apiRoutes.use("/appointment", appointmentRoutes);
+apiRoutes.use("/doctors", doctorRoutes);
+apiRoutes.use("/recepcionists", recepcionistRoutes);
+apiRoutes.use("/patients", patientRoutes);
+apiRoutes.use("/exams", examRoutes);
+apiRoutes.use("/appointments", appointmentRoutes);

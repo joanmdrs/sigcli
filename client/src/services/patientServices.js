@@ -1,7 +1,7 @@
 import api from "./api";
 
 export const createPatient = (props) => {
-  api.post("/patient/register", {
+  api.post("/patients", {
     name: props.name,
     cpf: props.cpf,
     phone: props.phone,
@@ -12,7 +12,7 @@ export const createPatient = (props) => {
 }
 
 export const listPatients = () => {
-  api.get("/patient/getAll").then((response) => {
+  api.get("/patients").then((response) => {
     return (response.data);
   })
 }
@@ -24,7 +24,7 @@ export const listPatients = () => {
 // }
 
 export const editPatient = (props) => {
-  api.put("/patient/update", {
+  api.put(`/patients/${props.id}`, {
     id: props.id,
     name: props.name,
     cpf: props.cpf,
@@ -36,5 +36,5 @@ export const editPatient = (props) => {
 }
 
 export const removePatient = (id) => {
-  api.delete(`/patient/${id}`);
+  api.delete(`/patients/${id}`);
 }

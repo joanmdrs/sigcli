@@ -9,10 +9,10 @@ import {
 export const examRoutes = Router();
 
 // /recepcionist/register
-examRoutes.post("/register", registerExam);
+examRoutes.post("/", registerExam);
 
-examRoutes.get("/getAll", listExam);
+examRoutes.get("/", listExam);
 
-examRoutes.put("/update", updateExam);
+examRoutes.put("/:id", updateExam);
 
-examRoutes.delete("/delete/:id", deleteExam);
+examRoutes.delete("/:id", deleteExam);
