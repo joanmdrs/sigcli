@@ -9,10 +9,10 @@ import {
 export const appointmentRoutes = Router();
 
 // /appointment/register
-appointmentRoutes.post("/register", registerAppointment);
+appointmentRoutes.post("/", registerAppointment);
 
-appointmentRoutes.get("/getAll", listAppointment);
+appointmentRoutes.get("/", listAppointment);
 
-appointmentRoutes.put("/update", updateAppointment);
+appointmentRoutes.put("/:id", updateAppointment);
 
-appointmentRoutes.delete("/delete/:id", deleteAppointment);
+appointmentRoutes.delete("/:id", deleteAppointment);
