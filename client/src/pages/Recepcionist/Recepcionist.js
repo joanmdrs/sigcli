@@ -3,7 +3,7 @@ import Nav from "../../components/Nav/Nav";
 import { Container as ContainerRecepcionist} from "../../components/Container/Container";
 import { Box as BoxRecepcionist } from "../../components/Box/Box";
 import { Header as HeaderRecepcionist} from "../../components/Header/Header"
-import { FormRecepcionist } from "../../components/Forms /FormRecepcionist/FormRecepcionist";
+import { FormRecepcionist } from "../../components/Forms/FormRecepcionist/FormRecepcionist";
 import { addRecepcionist, deleteRecepcionist, getActionForm, getAllRecepcionist, getOneRecepcionist, getValuesInput, messageConfirm, messageConfirmDelete, setFields, updateRecepcionist } from "../../services/RecepcionistServices";
 import { ListRecepcionist } from "../../components/Listing/ListRecepcionist/ListRecepcionist";
 import Swal from 'sweetalert2';
