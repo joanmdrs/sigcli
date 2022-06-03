@@ -23,7 +23,7 @@ export const addExam = (data) => {
 
     const {title, patient_cpf, patient_name, doctor_crm, doctor_name, description} = data;
 
-    api.post("/exam/register", {
+    api.post("/exams", {
       title: title,
       patient_cpf: patient_cpf,
       patient_name: patient_name,
@@ -35,7 +35,7 @@ export const addExam = (data) => {
 }
 
 export const getExams = async () => {
-   const res = await api.get("/exam/getAll");
+   const res = await api.get("/exams");
    const data = res.data;    
    return JSON.stringify(data);
 }
@@ -58,20 +58,19 @@ export const updateExam = (id, data) => {
 
    const {title, patient_cpf, patient_name, doctor_crm, doctor_name, description} = data;
 
-   api.put("/exam/update", {
-      id: id,
-      title: title,
-      patient_cpf: patient_cpf,
-      patient_name: patient_name,
-      doctor_crm: doctor_crm,
-      doctor_name: doctor_name,
-      description: description
-
+   api.put(`/exams/${id}`, {
+     id: id,
+     title: title,
+     patient_cpf: patient_cpf,
+     patient_name: patient_name,
+     crm_doctor: doctor_crm,
+     doctor_name: doctor_name,
+     description: description,
    });
 }
 
 export const deleteExam = (id) => {
-   api.delete(`/exam/delete/${id}`);
+   api.delete(`/exams/${id}`);
 }
 
 export const clearFields = () => {

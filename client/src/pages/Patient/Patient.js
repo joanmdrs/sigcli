@@ -107,7 +107,7 @@ export default function Patient() {
       // setListValues(searchValue);
     } 
 
-    api.get(`/patient/get/${id}`).then((response) => {
+    api.get(`/patient/${id}`).then((response) => {
       setSearchValue(response.data);
     })
 
@@ -116,7 +116,7 @@ export default function Patient() {
   }
 
   useLayoutEffect(() => {
-    api.get("/patient/getAll").then((response) => {
+    api.get("/patients").then((response) => {
       setListValues(response.data);
     })
   }, [])

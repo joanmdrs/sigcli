@@ -8,7 +8,7 @@ import {
 
 export const doctorRoutes = Router();
 
-doctorRoutes.post("/register", registerDoctor);
-doctorRoutes.get("/getAll", getDoctors);
-doctorRoutes.put("/update", updateDoctor);
-doctorRoutes.delete("/delete/:id", deleteDoctor);
+doctorRoutes.post("/", registerDoctor);
+doctorRoutes.get("/", getDoctors);
+doctorRoutes.put("/:id", updateDoctor);
+doctorRoutes.delete("/:id", deleteDoctor);

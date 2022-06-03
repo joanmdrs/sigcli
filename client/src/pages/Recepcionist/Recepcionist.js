@@ -26,7 +26,6 @@ export default function Recepcionist() {
         updateRecepcionist(action, data);
         messageConfirm("The informations about this recepcionist were updated.")
     }
-
     
   }
 
@@ -59,7 +58,6 @@ export default function Recepcionist() {
 
 
   }
-
 
   // SETFIELDS  
 

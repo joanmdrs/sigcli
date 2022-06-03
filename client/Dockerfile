@@ -11,7 +11,10 @@ RUN npm install
 
 # COPY
 COPY . .
+
+RUN npm run build
+RUN npm install -g serve
+
 EXPOSE 3000
 # Start the app
-CMD npm run start
-
+CMD serve -s build

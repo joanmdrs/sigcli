@@ -31,7 +31,7 @@ function Doctor(){
     };
 
     const handleSaveButton = async () => {
-        await api.post("/doctor/register", {
+        await api.post("/doctors", {
             name: values.name,
             crm: values.crm,
             phone: values.phone,
@@ -67,7 +67,7 @@ function Doctor(){
     };
 
     useEffect(() => {
-        api.get("/doctor/getAll").then((response) => {
+        api.get("/doctors").then((response) => {
             setDoctorList(response.data);
         })
     }, []);
@@ -81,7 +81,7 @@ function Doctor(){
         const username = document.getElementById("input-username").value;
         const password = document.getElementById("input-password").value;
 
-        api.put('/doctor/update/', {
+        api.put(`/doctor/${id}`, {
             id: id,
             name: name,
             crm: crm,
@@ -115,7 +115,7 @@ function Doctor(){
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
         if (result.isConfirmed) {
-            api.delete(`/doctor/delete/${doctorId}`);
+            api.delete(`/doctors/${doctorId}`);
             document.location.reload();
         }})
     }

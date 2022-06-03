@@ -25,7 +25,7 @@ export const getValuesInput = () => {
  
      const {title, patient_cpf, patient_name, doctor_crm, doctor_name, data_appointment, description} = data;
 
-    api.post("/appointment/register", {
+    api.post("/appointments", {
         title: title,
         patient_cpf: patient_cpf,
         patient_name: patient_name,
@@ -52,7 +52,7 @@ export const getValuesInput = () => {
 }
 
 export const getAppointments = async () => {
-    const res = await api.get("/appointment/getAll");
+    const res = await api.get("/appointments");
     const data = res.data;    
     return JSON.stringify(data);
  }
@@ -76,7 +76,7 @@ export const getAppointments = async () => {
  
     const {title, patient_cpf, patient_name, doctor_crm, doctor_name, data_appointment, description} = data;
  
-    api.put("/appointment/update", {
+    api.put(`/appointments/${id}`, {
        id: id,
        title: title,
        patient_cpf: patient_cpf,
@@ -105,7 +105,7 @@ export const getAppointments = async () => {
 }
 
 export const deleteAppointment = (id) => {
-   api.delete(`/appointment/delete/${id}`);
+   api.delete(`/appointments/${id}`);
 }
  
  
