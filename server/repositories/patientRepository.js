@@ -10,7 +10,7 @@ export const listPatient = async () => {
   return await prisma.patient.findMany();
 };
 
-export const findUniqueByCPFPatient = async (id) => {
+export const findUniqueByIDPatient = async (id) => {
   return await prisma.patient.findUnique({
     where: {
       id: Number(id),
@@ -18,20 +18,13 @@ export const findUniqueByCPFPatient = async (id) => {
   });
 };
 
-export const updatePatientWithPrisma = async (patient) => {
-  const { id, name, cpf, phone, email, username, password } = patient;
+export const updatePatientWithPrisma = async (patient, idReceived) => {
+  //const { name, cpf, phone, email, username, password } = patient;
   return await prisma.patient.update({
     where: {
-      id: Number(id),
+      id: Number(idReceived),
     },
-    data: {
-      name,
-      cpf,
-      phone,
-      email,
-      username,
-      password,
-    },
+    data: patient
   });
 };
 
