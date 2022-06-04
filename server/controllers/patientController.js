@@ -36,7 +36,7 @@ export const listPatients = async (req, res) => {
   try{
     const listPatients = await listPatient();
     if(listPatients.length == 0){
-      res.status(200).json({msg:"Não existe pacientes cadastrados!"})
+      res.status(404).json({msg:"Não existe pacientes cadastrados!"})
     }else{
       res.status(200).json(listPatients);
     }
@@ -50,8 +50,20 @@ export const listPatients = async (req, res) => {
 
 export const getPatientByID = async (req, res) => {
   const { id } = req.params;
-  const patient = await findUniqueByIDPatient(id);
-  return res.status(200).json(patient);
+  try{
+    const patient = await findUniqueByIDPatient(id);
+    if(patient == undefined){
+      res.status(404).json({msg:"Paciente não foi encontrado!"})
+    }else{
+      res.status(200).json(patient);
+    }
+    
+  }catch(error){
+    res
+      .status(500)
+      .json({ msg: "Error no servidor! Procure o administrador!" });
+  }
+  
 }
 
 export const updatePatient = async (req, res) => {
