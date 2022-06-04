@@ -93,7 +93,15 @@ export const updatePatient = async (req, res) => {
 }
 
 export const deletePatient = async (req, res) => {
-  const id = req.params.id
-  const deletedPatient = await deletePatientWithPrisma(id)
-  res.json(deletedPatient)
+  try{
+    const id = req.params.id;
+    const deletedPatient = await deletePatientWithPrisma(id)
+    res.json(deletedPatient)
+  }catch(error){
+    res
+      .status(500)
+      .json({ msg: "Error no servidor! Procure o administrador!" });
+  }
+  
+  
 }
