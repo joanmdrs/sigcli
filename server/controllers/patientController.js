@@ -6,13 +6,18 @@ import {
   deletePatientWithPrisma
 } from '../repositories/patientRepository.js'
 
-import {validateCPF} from '../service/validations.js';
+import {validateCPF, validatePhone} from '../service/validations.js';
 
 export const registerPatient = async (req, res) => {
   const {name, cpf, phone, email,username, password} = req.body;
   if (!validateCPF(cpf)) {
-    return res.status(406).json({ msg: "CPF inválido!" });
+    return res.status(406).json({ msg: "CPF Inválido!" });
   }
+
+  if(!validatePhone(phone)){
+    return res.status(406).json({msg:"Telefone Inválido!"})
+  }
+
   try{
     const patientBody = {
       name: name.toLowerCase().trim(),
@@ -71,6 +76,9 @@ export const updatePatient = async (req, res) => {
   const { id, name, cpf, phone, email, username, password } = req.body;
   if (!validateCPF(cpf)) {
     return res.status(406).json({ msg: "CPF inválido!" });
+  }
+  if (!validatePhone(phone)) {
+    return res.status(406).json({ msg: "Telefone Inválido!" });
   }
   try {
     const patientBody = {
