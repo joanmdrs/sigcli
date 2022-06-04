@@ -33,8 +33,19 @@ export const registerPatient = async (req, res) => {
 }
 
 export const listPatients = async (req, res) => {
-  const listPatients = await listPatient()
-  return res.status(200).json(listPatients)
+  try{
+    const listPatients = await listPatient();
+    if(listPatients.length == 0){
+      res.status(200).json({msg:"Não existe pacientes cadastrados!"})
+    }else{
+      res.status(200).json(listPatients);
+    }
+  }catch(error){
+    res
+      .status(500)
+      .json({ msg: "Error no servidor! Procure o administrador!" });
+  }
+  
 }
 
 export const getPatientByID = async (req, res) => {
