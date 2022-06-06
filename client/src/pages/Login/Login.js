@@ -61,7 +61,7 @@ export default function Login() {
                         Sign in
                     </Button>
                     <p className="text-align"> 
-                        D'ont have an account ? 
+                        Don't have an account ? 
                         <span> Sign up</span>
                     </p>
                 </div>
@@ -72,8 +72,8 @@ export default function Login() {
                     <div className="container-text">
                         <h3 className="text-align">Schedule your appointments</h3>
                         <p className="text-align">
-                        Lorem ipsum dolor sit amet, consectetur 
-                        adipiscing elit, sed do.
+                        Manage your medical clinic with a system 
+                        that works entirely on the Web.
                         </p>
                     </div>
                     <div className="grid-container-third">
