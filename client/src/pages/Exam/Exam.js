@@ -3,7 +3,7 @@ import Nav from "../../components/Nav/Nav";
 import { Container as ContainerExam} from "../../components/Container/Container";
 import { Box as BoxExam } from "../../components/Box/Box";
 import { Header as HeaderExam} from "../../components/Header/Header"
-import FormExam from "../../components/Forms /FormExam/FormExam";
+import FormExam from "../../components/Forms/FormExam/FormExam";
 import { addExam, deleteExam, getActionForm, getExams, getValuesInput, messageConfirm, setFields, updateExam } from "../../services/ExamServices";
 import ListExam from "../../components/ListExam/ListExam";
 import Swal from 'sweetalert2';
