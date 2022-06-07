@@ -8,6 +8,7 @@ import { addRecepcionist, deleteRecepcionist, getActionForm, getAllRecepcionist,
 import { ListRecepcionist } from "../../components/Listing/ListRecepcionist/ListRecepcionist";
 import Swal from 'sweetalert2';
 import { Search } from "../../components/Search/Search";
+import api from "../../services/api";
 
 export default function Recepcionist() {
 
@@ -48,13 +49,11 @@ export default function Recepcionist() {
 
     const cpfProvided = document.getElementById("searchCpf").value;
    
-    const allRecepcionists = await getAllRecepcionist();
-    const data = JSON.parse(allRecepcionists);
+    api.get(`/recepcionists/${cpfProvided}`).then((response) => {
+      console.log(response.data);
+      setListRecepcionist([response.data]);
+    })
 
-    const verifyCpf = (value) => value == cpfProvided;
-    let recepcionist = data.filter((element) => (verifyCpf(element.cpf)));
-
-    setListRecepcionist([recepcionist[0]]);
 
 
   }

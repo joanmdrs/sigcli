@@ -2,7 +2,7 @@ import { Router } from 'express'
 import {
   registerPatient,
   listPatients,
-  getPatientByID,
+  getPatientByCPF,
   updatePatient,
   deletePatient
 } from '../controllers/patientController.js'
@@ -14,7 +14,7 @@ patientRoutes.post('/', registerPatient)
 
 patientRoutes.get('/', listPatients)
 
-patientRoutes.get("/:id", getPatientByID);
+patientRoutes.get("/:cpf", getPatientByCPF);
 
 patientRoutes.put('/:id', updatePatient)
 

@@ -15,7 +15,7 @@ export default function Routes () {
             <Switch>
                 <Route path="/login" element={<Login />} />
                 <Route path="/" element={<Home />} />
-                <Route path="/patient" element={<Patient />} />
+                <Route path="/patients" element={<Patient />} />
                 <Route path="/exams" element={<Exam />} />
                 <Route path="/appointments" element={<Appointment />} />
                 <Route path="/recepcionist" element={<Recepcionist />} />

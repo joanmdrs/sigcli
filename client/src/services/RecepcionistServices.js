@@ -36,6 +36,7 @@ export const addRecepcionist = (data) => {
 
 export const getAllRecepcionist = async () => {
    const res = await api.get("/recepcionists");
+
    const data = res.data;    
    return JSON.stringify(data);
 }
