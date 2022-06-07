@@ -11,17 +11,12 @@ export const createPatient = (props) => {
   });
 }
 
-export const listPatients = () => {
-  api.get("/patients").then((response) => {
-    return (response.data);
-  })
+export const listPatients = async () => {
+  const res = await api.get("/patients");
+  const data = res.data;    
+  return JSON.stringify(data);
 }
 
-// export const filterPatient = (cpf) => {
-//   api.get(`/patient/get/${cpf}`).then((response) => {
-//     return (response.data);
-//   })
-// }
 
 export const editPatient = (props) => {
   api.put(`/patients/${props.id}`, {

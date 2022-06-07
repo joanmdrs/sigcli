@@ -1,11 +1,11 @@
 import './Patient.css';
-import React, { useState, useLayoutEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Nav from '../../components/Nav/Nav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHospitalUser, faPenToSquare , faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Form, FormGroup, Label, Input, Row, Col, Button, Table, InputGroup } from 'reactstrap';
-import { createPatient, editPatient, removePatient } from '../../services/patientServices.js'
+import { createPatient, editPatient, removePatient,listPatients } from '../../services/patientServices.js'
 import TableCard from "../../components/Table/Table.js";
 import api from '../../services/api';
 import Swal from 'sweetalert2';
@@ -104,11 +104,16 @@ export default function Patient() {
     document.getElementById('filterTable').className = "tableFilterPatientOp table table-borderless table-hover";
   }
 
-  useLayoutEffect(() => {
-    api.get("/patients").then((response) => {
-      setListValues(response.data);
-    })
-  }, [])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await listPatients();
+      const patients = JSON.parse(data);
+      setListValues(patients);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="container-patient">
