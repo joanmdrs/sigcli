@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHospitalUser, faPenToSquare , faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Form, FormGroup, Label, Input, Row, Col, Button, Table, InputGroup } from 'reactstrap';
-import { createPatient, editPatient, removePatient } from '../../services/patientServices.js'
+import { createPatient, editPatient, removePatient, messageSucess, messageFailure } from '../../services/patientServices.js'
 import TableCard from "../../components/Table/Table.js";
 import api from '../../services/api';
 import Swal from 'sweetalert2';
@@ -34,20 +34,13 @@ export default function Patient() {
   };
 
   const handleSaveButton = () => {
-    createPatient(values);
-
-    Swal.fire({
-      title: 'Success',
-      text: 'New patient added.',
-      icon: 'success',
-      showCancelButton: false,
-      confirmButtonColor: '#0C6170',
-      confirmButtonText: 'Ok',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        document.location.reload();
-      }
+    createPatient(values).then((patient)=>{
+      messageSucess(`${patient.data.name} was added.`)
+    }).catch((error)=>{
+      messageFailure("Something went wrong.");
     });
+    
+    
   }
 
   const handleClickButton = () => {
