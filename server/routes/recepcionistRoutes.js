@@ -2,7 +2,7 @@ import { Router } from "express";
 import {
   registerRecepcionist,
   listRecepcionist,
-  getRecepcionistById,
+  getRecepcionistByCPF,
   updateRecepcionist,
   deleteRecepcionist
 } from "../controllers/recepcionistController.js";
@@ -14,7 +14,7 @@ recepcionistRoutes.post("/", registerRecepcionist);
 
 recepcionistRoutes.get("/", listRecepcionist);
 
-recepcionistRoutes.get("/get/:id", getRecepcionistById);
+recepcionistRoutes.get("/:cpf", getRecepcionistByCPF);
 
 recepcionistRoutes.put("/:id", updateRecepcionist);
 
