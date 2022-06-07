@@ -59,21 +59,29 @@ export default function Patient() {
     const email = document.getElementById("email").value;
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
+    const patientUpdated = {
+      id: Number(id),
+      name: name,
+      cpf: cpf,
+      phone: phone,
+      email: email,
+      username: username,
+      password: password,
+    };
+    editPatient(patientUpdated).then((response)=>{
+      messageSucess(`${response.data.name} was updated.`)
+    }).catch((error)=>{
+       Swal.fire({
+         title: "Edit Patient",
+         text: "Something was wrong.",
+         icon: "info",
+         showCancelButton: false,
+         confirmButtonColor: "#0C6170",
+         confirmButtonText: "Ok",
+       });
+    })
 
-    editPatient({id: id, name: name, cpf: cpf, phone: phone, email: email, username: username, password: password})
-
-    Swal.fire({
-      title: 'Success',
-      text: 'The informations about this patient were updated.',
-      icon: 'success',
-      showCancelButton: false,
-      confirmButtonColor: '#0C6170',
-      confirmButtonText: 'Ok',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        document.location.reload();
-      }
-    });
+    
   };
 
   const handleCancelButton = () => {

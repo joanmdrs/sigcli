@@ -55,7 +55,7 @@ export const listPatients = () => {
 // }
 
 export const editPatient = (props) => {
-  api.put(`/patients/${props.id}`, {
+  return api.put(`/patients/${props.id}`, {
     id: props.id,
     name: props.name,
     cpf: props.cpf,
