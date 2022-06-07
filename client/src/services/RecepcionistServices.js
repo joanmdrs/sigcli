@@ -23,7 +23,7 @@ export const addRecepcionist = (data) => {
 
     const {name, cpf, phone, email, username, password} = data;
 
-    api.post("/recepcionist/register", {
+    api.post("/recepcionists", {
       name: name,
       cpf: cpf,
       phone: phone,
@@ -35,13 +35,14 @@ export const addRecepcionist = (data) => {
 }
 
 export const getAllRecepcionist = async () => {
-   const res = await api.get("/recepcionists/");
+   const res = await api.get("/recepcionists");
+
    const data = res.data;    
    return JSON.stringify(data);
 }
 
 export const getOneRecepcionist = async (id) => {
-   const res = await api.get(`/recepcionist/get/${id}`);
+   const res = await api.get(`/recepcionists/${id}`);
    const data = res.data;
    return JSON.stringify(data);
 }
@@ -65,20 +66,19 @@ export const updateRecepcionist = (id, data) => {
    const {name, cpf, phone, email, username, password} = data;
 
 
-   api.put("/recepcionist/update", {
-      id: id,
-      name: name,
-      cpf: cpf,
-      phone: phone,
-      email: email,
-      username: username,
-      password: password
-
+   api.put(`/recepcionists/${id}`, {
+     id: id,
+     name: name,
+     cpf: cpf,
+     phone: phone,
+     email: email,
+     username: username,
+     password: password,
    });
 }
 
 export const deleteRecepcionist = (id) => {
-   api.delete(`/recepcionist/delete/${id}`);
+   api.delete(`/recepcionists/${id}`);
 }
 
 export const clearFields = () => {
