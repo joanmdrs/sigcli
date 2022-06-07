@@ -10,10 +10,10 @@ export const listPatient = async () => {
   return await prisma.patient.findMany();
 };
 
-export const findUniqueByIDPatient = async (id) => {
+export const findUniqueByCPFPatient = async (cpf) => {
   return await prisma.patient.findUnique({
     where: {
-      id: Number(id),
+      cpf: cpf,
     },
   });
 };
