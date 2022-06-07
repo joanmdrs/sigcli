@@ -12,8 +12,8 @@ datasource db {
 }
 
 model Recepcionist {
-  id       Int    @id @default(autoincrement())
-  name     String @db.VarChar(255)
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(255)
   cpf String @unique @db.VarChar(255)
   phone String @db.VarChar(14)
   email String @db.VarChar(255)
