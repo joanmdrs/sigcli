@@ -49,7 +49,6 @@ export const listPatients = async (req, res) => {
 
 export const getPatientByCPF = async (req, res) => {
   const { cpf } = req.params
-  console.log(cpf)
   try {
     const patient = await findUniqueByCPFPatient(cpf)
     if (patient == undefined) {

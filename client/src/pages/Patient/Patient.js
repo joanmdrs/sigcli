@@ -95,19 +95,8 @@ export default function Patient() {
 
   const handleFilterButton = async ()  => {
     const searchCpf = document.getElementById("searchCpf").value;
-    let  list = listValues;
-    let id = '';
-    if (list !== "undefined"){
-      for(let i=0; i < list.length; i++){
-        if(list[i].cpf === searchCpf){
-          id = list[i].id;
-        }
-      }
-      // console.log(id);
-      // setListValues(searchValue);
-    } 
 
-    api.get(`/patient/${id}`).then((response) => {
+    api.get(`/patients/${searchCpf}`).then((response) => {
       setSearchValue(response.data);
     })
 
