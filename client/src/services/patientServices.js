@@ -42,17 +42,17 @@ export const messageFailure = (message) => {
   });
 };
 
-export const listPatients = () => {
-  api.get("/patients").then((response) => {
-    return (response.data);
-  })
+export const listPatients = async () => {
+  const res = await api.get("/patients");
+  const data = res.data;    
+  return JSON.stringify(data);
 }
 
-// export const filterPatient = (cpf) => {
-//   api.get(`/patient/get/${cpf}`).then((response) => {
-//     return (response.data);
-//   })
-// }
+export const filterPatient = async (cpf) => {
+  const res = await api.get(`/patients/${cpf}`);
+  const data = res.data;    
+  return JSON.stringify(data);
+}
 
 export const editPatient = (props) => {
   return api.put(`/patients/${props.id}`, {
