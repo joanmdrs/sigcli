@@ -1,7 +1,7 @@
 import api from "./api";
-
+import Swal from "sweetalert2";
 export const createPatient = (props) => {
-  api.post("/patients", {
+  let response = api.post("/patients", {
     name: props.name,
     cpf: props.cpf,
     phone: props.phone,
@@ -9,7 +9,38 @@ export const createPatient = (props) => {
     username: props.username,
     password: props.password,
   });
+  return response;
 }
+
+export const messageSucess = (message) => {
+  Swal.fire({
+    title: "Success",
+    text: message,
+    icon: "success",
+    showCancelButton: false,
+    confirmButtonColor: "#0C6170",
+    confirmButtonText: "Ok",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      document.location.reload();
+    }
+  });
+};
+
+export const messageFailure = (message) => {
+  Swal.fire({
+    title: "Failure",
+    text: message,
+    icon: "error",
+    showCancelButton: false,
+    confirmButtonColor: "#0C6170",
+    confirmButtonText: "Ok",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      document.location.reload();
+    }
+  });
+};
 
 export const listPatients = async () => {
   const res = await api.get("/patients");
@@ -24,7 +55,7 @@ export const filterPatient = async (cpf) => {
 }
 
 export const editPatient = (props) => {
-  api.put(`/patients/${props.id}`, {
+  return api.put(`/patients/${props.id}`, {
     id: props.id,
     name: props.name,
     cpf: props.cpf,

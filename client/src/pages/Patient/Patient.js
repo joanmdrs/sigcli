@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHospitalUser, faPenToSquare , faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Form, FormGroup, Label, Input, Row, Col, Button, Table, InputGroup } from 'reactstrap';
-import { createPatient, editPatient, removePatient,listPatients,filterPatient } from '../../services/patientServices.js'
+import { createPatient, editPatient, removePatient, listPatients, filterPatient, messageSucess, messageFailure } from '../../services/patientServices.js'
 import TableCard from "../../components/Table/Table.js";
 import api from '../../services/api';
 import Swal from 'sweetalert2';
@@ -34,20 +34,13 @@ export default function Patient() {
   };
 
   const handleSaveButton = () => {
-    createPatient(values);
-
-    Swal.fire({
-      title: 'Success',
-      text: 'New patient added.',
-      icon: 'success',
-      showCancelButton: false,
-      confirmButtonColor: '#0C6170',
-      confirmButtonText: 'Ok',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        document.location.reload();
-      }
+    createPatient(values).then((patient)=>{
+      messageSucess(`${patient.data.name} was added.`)
+    }).catch((error)=>{
+      messageFailure("Something went wrong.");
     });
+    
+    
   }
 
   const handleClickButton = () => {
@@ -66,21 +59,29 @@ export default function Patient() {
     const email = document.getElementById("email").value;
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
+    const patientUpdated = {
+      id: Number(id),
+      name: name,
+      cpf: cpf,
+      phone: phone,
+      email: email,
+      username: username,
+      password: password,
+    };
+    editPatient(patientUpdated).then((response)=>{
+      messageSucess(`${response.data.name} was updated.`)
+    }).catch((error)=>{
+       Swal.fire({
+         title: "Edit Patient",
+         text: "Something was wrong.",
+         icon: "info",
+         showCancelButton: false,
+         confirmButtonColor: "#0C6170",
+         confirmButtonText: "Ok",
+       });
+    })
 
-    editPatient({id: id, name: name, cpf: cpf, phone: phone, email: email, username: username, password: password})
-
-    Swal.fire({
-      title: 'Success',
-      text: 'The informations about this patient were updated.',
-      icon: 'success',
-      showCancelButton: false,
-      confirmButtonColor: '#0C6170',
-      confirmButtonText: 'Ok',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        document.location.reload();
-      }
-    });
+    
   };
 
   const handleCancelButton = () => {
