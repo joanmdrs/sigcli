@@ -7,7 +7,6 @@ import { faHospitalUser, faPenToSquare , faTrash } from '@fortawesome/free-solid
 import { Form, FormGroup, Label, Input, Row, Col, Button, Table, InputGroup } from 'reactstrap';
 import { createPatient, editPatient, removePatient, listPatients, filterPatient, messageSucess, messageFailure } from '../../services/patientServices.js'
 import TableCard from "../../components/Table/Table.js";
-import api from '../../services/api';
 import Swal from 'sweetalert2';
 
 

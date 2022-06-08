@@ -6,6 +6,8 @@ import {
   deletePatientWithPrisma
 } from '../repositories/patientRepository.js'
 
+import { hashPassword } from '../service/cryptoService.js'
+
 import { validateCPF, validatePhone } from '../service/validations.js'
 
 export const registerPatient = async (req, res) => {
@@ -18,6 +20,8 @@ export const registerPatient = async (req, res) => {
     return res.status(406).json({ msg: 'Telefone Inválido!' })
   }
 
+
+
   try {
     const patientBody = {
       name: name.toLowerCase().trim(),
@@ -25,7 +29,7 @@ export const registerPatient = async (req, res) => {
       phone: phone.trim(),
       email: email.trim(),
       username,
-      password
+      password: hashPassword(password)
     }
     const patient = await createPatient(patientBody)
     res.status(200).json(patient)

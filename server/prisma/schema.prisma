@@ -18,7 +18,7 @@ model Recepcionist {
   phone String @db.VarChar(14)
   email String @db.VarChar(255)
   username String @unique @db.VarChar(50)
-  password String @db.VarChar(50)
+  password String @db.VarChar(60)
 }
 
 model Patient{
@@ -28,7 +28,7 @@ model Patient{
   phone String @db.VarChar(14)
   email String @db.VarChar(255)
   username String @unique @db.VarChar(50)
-  password String @db.VarChar(50)
+  password String @db.VarChar(60)
 
   @@index([cpf], type: Hash)
 }
@@ -41,7 +41,7 @@ model Doctor{
   phone String @db.VarChar(14)
   email String @db.VarChar(255)
   username String @unique @db.VarChar(50)
-  password String @db.VarChar(50)
+  password String @db.VarChar(60)
 }
 
 model Exam {
