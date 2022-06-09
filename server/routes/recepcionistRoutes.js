@@ -18,4 +18,4 @@ recepcionistRoutes.get("/:cpf", getRecepcionistByCPF);
 
 recepcionistRoutes.put("/:id", updateRecepcionist);
 
-recepcionistRoutes.delete("/delete/:id", deleteRecepcionist);
+recepcionistRoutes.delete("/:id", deleteRecepcionist);
