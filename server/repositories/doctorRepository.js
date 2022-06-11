@@ -6,6 +6,14 @@ export const createDoctor = async (doctor) => {
     });
 };
 
+export const findUniqueByCrmDoctor = async (crm) => {
+  return await prisma.doctor.findUnique({
+    where: {
+      crm,
+    },
+  });
+};
+
 export const findManyDoctors = async () => {
   return await prisma.doctor.findMany();
 };

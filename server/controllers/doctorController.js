@@ -3,6 +3,7 @@ import {
     findManyDoctors,
     updateDoctorWithPrisma,
     deleteDoctorWithPrisma,
+    findUniqueByCrmDoctor,
 } from "../repositories/doctorRepository.js";
 
 import { hashPassword } from '../service/cryptoService.js'
@@ -29,6 +30,14 @@ export const registerDoctor = async (req, res) => {
         res.status(500).json({ msg: 'Error no servidor! Procure o administrador!' })
     }
 };
+
+
+export const getDoctorByCrm = async (req, res) => {
+    const { crm } = req.params;
+    const doctor = await findUniqueByCrmDoctor(crm)
+    return res.status(200).json(doctor);
+}
+
 export const getDoctors = async (req, res) => {
     const doctors = await findManyDoctors();
     res.json(doctors);

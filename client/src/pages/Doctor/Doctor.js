@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container as ContainerDoctor} from "../../components/Container/Container";
 import { Box as BoxDoctor } from "../../components/Box/Box";
 import { Header as HeaderDoctor } from "../../components/Header/Header";
+import { Search } from "../../components/Search/Search";
 import {
     addDoctor,
     updateDoctor,
@@ -15,8 +16,10 @@ import {
     getValuesInput,
     getActionForm,
     setFields,
-    messageConfirm 
+    messageConfirm, 
+    getDoctorByCrm
 } from "../../services/DoctorServices";
+import api from "../../services/api";
 
 function Doctor(){
     const [listDoctors, setListDoctors] = useState([]);
@@ -60,6 +63,16 @@ function Doctor(){
         })
     }
 
+    const handleFilterByCrm = async () => {
+
+        const crmProvided = document.getElementById("searchCrm").value;
+       
+        const data = await getDoctorByCrm(crmProvided);
+        const doctor = JSON.parse(data);
+        setListDoctors([doctor]);
+    
+    }
+
     const handlePrepareToUpdate = (DoctorId) => {
         let data = {}
         listDoctors.forEach(element => {
@@ -70,6 +83,9 @@ function Doctor(){
         setFields(data);
     }
 
+
+
+
     return (
         <ContainerDoctor>
             <Nav />
@@ -77,8 +93,14 @@ function Doctor(){
                 <HeaderDoctor
                     title="Doctor"
                     text="Doctor registration: Include, Search, Change, Delete and List" 
-                    icon="file-waveform"/>
+                    icon="stethoscope"/>
                 <FormDoctor handleSaveButton={handleSaveButton} />
+                <Search 
+                    id="searchCrm"
+                    title="Filter by CRM"
+                    placeholder="crm"
+                    handleSearch={handleFilterByCrm}
+                />
                 <ListDoctor doctors={listDoctors} setFields={handlePrepareToUpdate} handleDelete={handleDelete} />
             </BoxDoctor>
         </ContainerDoctor>
