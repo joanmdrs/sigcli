@@ -80,8 +80,23 @@ export const messagePrepareToUpdate = () => {
 export const messageConfirm = (message) => {
     Swal.fire({
        title: 'Success',
-       text: `${message}`,
+       text: message,
        icon: 'success',
+       showCancelButton: false,
+       confirmButtonColor: '#0C6170',
+       confirmButtonText: 'Ok',
+    }).then((result) => {
+       if (result.isConfirmed) {
+          document.location.reload();
+       }
+    });
+}
+
+export const messageFailure = (message) => {
+    Swal.fire({
+       title: 'Error',
+       text: message,
+       icon: 'error',
        showCancelButton: false,
        confirmButtonColor: '#0C6170',
        confirmButtonText: 'Ok',
