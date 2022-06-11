@@ -14,6 +14,12 @@ export const addDoctor = (data) => {
     });
 }
 
+export const getDoctorByCrm = async (crmProvided) => {
+    const res = await api.get(`/doctors/${crmProvided}`);
+    const data = res.data;
+    return JSON.stringify(data);
+}
+
 export const updateDoctor = (id, data) => {
     const {name, crm, phone, email, username, password} = data;
 
