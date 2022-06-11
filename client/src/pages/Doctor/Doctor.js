@@ -15,7 +15,8 @@ import {
     getValuesInput,
     getActionForm,
     setFields,
-    messageConfirm 
+    messageConfirm,
+    messageFailure,
 } from "../../services/DoctorServices";
 
 function Doctor(){
@@ -26,11 +27,19 @@ function Doctor(){
         const action = getActionForm();
 
         if(action === "add"){
-            addDoctor(data);
-            messageConfirm("New doctor added.");
+            try {
+                addDoctor(data);
+                messageConfirm("New doctor added.");
+            } catch(error) {
+                messageFailure("Something went wrong.");
+            }
         } else {
-            updateDoctor(action, data);
-            messageConfirm("The informations about this doctor were updated.")
+            try {
+                updateDoctor(action, data);
+                messageConfirm("The informations about this doctor were updated.")
+            } catch(error){
+                messageFailure("Something went wrong");
+            }
         }
     }
 
@@ -54,8 +63,13 @@ function Doctor(){
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                deleteDoctor(doctorId);
-                document.location.reload();
+                try {
+                    deleteDoctor(doctorId);
+                } catch(error) {
+                    messageFailure("Something went wrong");
+                } finally {
+                    document.location.reload();
+                }
             }
         })
     }
