@@ -1,3 +1,5 @@
+
+
 .box-header {
     padding: 10px;
     padding-bottom: 5px;
@@ -8,13 +10,19 @@
     display: flex;
     align-items: baseline;
     gap: 10px;
+    
 }
 
 .box-list-functions {
     color: #848484;
     font-size: 18px;
+
 }
 
 .box-icon-and-title .icon {
     font-size: 25px;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    margin: 5px !important;
 }
