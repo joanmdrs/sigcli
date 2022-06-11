@@ -5,22 +5,35 @@ import { Container as ContainerAppointment} from "../../components/Container/Con
 import {BoxAppointment} from "../../components/BoxAppointment/BoxAppointment";
 import HeaderAppointment from "../../components/HeaderAppointment/HeaderAppointment";
 import FormAppointment from "../../components/FormAppointment/FormAppointment";
-import { addAppointment, deleteAppointment, getActionForm, getAppointments, getValuesInput, setFields, updateAppointment } from "../../services/AppointmentServices";
+import { addAppointment, deleteAppointment, getActionForm, getAppointments, getValuesInput, messageFailure, messagePrepareToUpdate, messageSucess, setFields, updateAppointment } from "../../services/AppointmentServices";
 import ListAppointment from "../../components/ListAppointment/ListAppointment";
 
 export default function Appointment(){
 
     const [listAppointments, setListAppointments] = useState([]);
 
-    // POST
+    // POST OR UPDATE
     const handleSaveButton = () => {
 
         const data = getValuesInput();
-
         const action = getActionForm();
 
-        action === "add" ? addAppointment(data) : updateAppointment(action, data);
-
+        if(action === "add"){
+            try {
+                addAppointment(data);
+                messageSucess("New Appointment added");
+            } catch(error){
+                messageFailure("Something went wrong.");
+            }
+              
+        }else {
+            try {
+                updateAppointment(action, data);
+                messageSucess("The informations about this appointment were updated.")
+            } catch (error) {
+                messageFailure("Something went wrong")
+            }
+        }
     }
 
     // LIST 
@@ -48,34 +61,17 @@ export default function Appointment(){
 
         setFields(data);
         
-        Swal.fire({
-            title: 'Edit Patient',
-            text: "Now you will edit this Appointment's informations, be careful.",
-            icon: 'info',
-            showCancelButton: false,
-            confirmButtonColor: '#0C6170',
-            confirmButtonText: 'Ok',
-          });
+        messagePrepareToUpdate(
+            "Edit Appointment",
+            "Now you will edit this Appointment's informations, be careful."
+        );
 
     }
 
     // DELETE 
 
     const handleDelete = (id) => {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#0C6170',
-            confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
-            if (result.isConfirmed) {
-                deleteAppointment(id);
-              document.location.reload();
-            }
-          })
+        deleteAppointment(id);
     }
 
 
@@ -85,7 +81,10 @@ export default function Appointment(){
             <BoxAppointment>
                 <HeaderAppointment />
                 <FormAppointment handleSaveButton={handleSaveButton} />
-                <ListAppointment appointments={listAppointments} setFields={handlePreparaToUpdate} handleDelete={handleDelete} />
+                <ListAppointment 
+                    appointments={listAppointments} 
+                    setFields={handlePreparaToUpdate} 
+                    handleDelete={handleDelete} />
             </BoxAppointment>
         </ContainerAppointment>
     )
