@@ -58,12 +58,8 @@ function FormDoctor({handleSaveButton}) {
         </Row>
         <Row>
             <GroupButtons>
-                <Button  type="submit" className="btn-cancel btn-danger">
-                    Cancel
-                </Button>
-                <Button type="button" className="btn-save btn-success" onClick={handleSaveButton}>
-                    Save
-                </Button>
+                <Button type="reset" className="btn-cancel btn-danger">Cancel</Button>
+                <Button type="button" className="btn-save btn-success" onClick={handleSaveButton}>Save</Button>
             </GroupButtons>
         </Row>
     </BaseForm>
