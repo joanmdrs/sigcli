@@ -17,14 +17,14 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "reactstrap": "^9.0.2",
-    "sweetalert2": "^11.4.16",
     "styled-components": "^5.3.5",
+    "sweetalert2": "^11.4.16",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -44,5 +44,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
+    "babel-jest": "^28.1.1",
+    "jest": "^28.1.1",
+    "react-test-renderer": "^18.1.0",
+    "regenerator-runtime": "^0.13.9"
   }
 }
