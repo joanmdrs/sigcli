@@ -1,20 +1,21 @@
 import { Router } from "express";
 import {
   registerRecepcionist,
-  deleteRecepcionist,
-  getByIdRecepcionist,
-  getByUsernameRecepcionist,
+  listRecepcionist,
+  getRecepcionistByCPF,
   updateRecepcionist,
+  deleteRecepcionist
 } from "../controllers/recepcionistController.js";
+
 export const recepcionistRoutes = Router();
 
 // /recepcionist/register
-recepcionistRoutes.post("/register", registerRecepcionist);
+recepcionistRoutes.post("/", registerRecepcionist);
 
-recepcionistRoutes.get("/get/:id", getByIdRecepcionist);
+recepcionistRoutes.get("/", listRecepcionist);
 
-recepcionistRoutes.get("/get/user/:username", getByUsernameRecepcionist);
+recepcionistRoutes.get("/:cpf", getRecepcionistByCPF);
 
-recepcionistRoutes.put("/update", updateRecepcionist);
+recepcionistRoutes.put("/:id", updateRecepcionist);
 
 recepcionistRoutes.delete("/:id", deleteRecepcionist);
