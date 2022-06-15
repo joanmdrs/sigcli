@@ -7,14 +7,14 @@ import {
   deletePatient,
 } from "../controllers/patientController.js";
 
-import { verifyJwtRecepcionist } from "../service/middlewares/recepcionist.middleware.js";
+import { verifyToken, verifyAuthorization } from "../service/middlewares/recepcionist.middleware.js";
 
 export const patientRoutes = Router();
 
 // /recepcionist/register
 patientRoutes.post("/register", registerPatient);
 
-patientRoutes.get("/getAll", verifyJwtRecepcionist, listPatients);
+patientRoutes.get("/getAll", verifyToken, verifyAuthorization, listPatients);
 
 patientRoutes.get("/:cpf", getPatientByCPF);
 
