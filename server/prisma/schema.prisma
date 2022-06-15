@@ -2,7 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["extendedIndexes"]
 }
 
@@ -11,58 +11,85 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Recepcionist {
-  id Int @id @default(autoincrement())
-  name String @db.VarChar(255)
-  cpf String @unique @db.VarChar(255)
-  phone String @db.VarChar(14)
-  email String @db.VarChar(255)
-  username String @unique @db.VarChar(50)
-  password String @db.VarChar(60)
+model User {
+  id           Int           @id @default(autoincrement())
+  username     String        @unique @db.VarChar(60)
+  password     String        @db.VarChar(60)
+  role         Role
+  Recepcionist Recepcionist?
+  Patient      Patient?
+  Doctor       Doctor?
 }
 
-model Patient{
-  id Int @id @default(autoincrement())
-  name String @db.VarChar(255)
-  cpf String @unique @db.VarChar(255)
+model Recepcionist {
+  id          Int    @id @default(autoincrement())
+  name        String @db.VarChar(255)
+  cpf         String @unique @db.VarChar(255)
+  phone       String @db.VarChar(14)
+  email       String @db.VarChar(255)
+  username_fk String @unique
+  User        User   @relation(fields: [username_fk], references: [username])
+}
+
+
+enum Role {
+  PATIENT
+  DOCTOR
+  RECEPCIONIST
+  ADMIN
+}
+
+model Patient {
+  id    Int    @id @default(autoincrement())
+  name  String @db.VarChar(255)
+  cpf   String @unique @db.VarChar(255)
   phone String @db.VarChar(14)
   email String @db.VarChar(255)
-  username String @unique @db.VarChar(50)
-  password String @db.VarChar(60)
+
+  User        User   @relation(fields: [username_fk], references: [username])
+  username_fk String @unique
+
+  Exam        Exam[]
+  Appointment Appointment[]
 
   @@index([cpf], type: Hash)
 }
 
-
-model Doctor{
-  id Int @id @default(autoincrement())
-  name String @db.VarChar(255)
-  crm String @unique @db.VarChar(13)
+model Doctor {
+  id    Int    @id @default(autoincrement())
+  name  String @db.VarChar(255)
+  crm   String @unique @db.VarChar(13)
   phone String @db.VarChar(14)
   email String @db.VarChar(255)
-  username String @unique @db.VarChar(50)
-  password String @db.VarChar(60)
+
+  User        User   @relation(fields: [username_fk], references: [username])
+  username_fk String @unique
+
+  Exam        Exam[]
+  Appointment Appointment[]
+
 }
 
 model Exam {
-  id Int @id @default(autoincrement())
-  title String @db.VarChar(255)
-  patient_cpf String @unique @db.VarChar(255)
-  patient_name String @db.VarChar(255)
-  doctor_crm String @unique @db.VarChar(13)
-  doctor_name String @db.VarChar(255)
+  id          Int    @id @default(autoincrement())
+  title       String @db.VarChar(255)
   description String @db.VarChar(500)
+
+  Patient     Patient @relation(fields: [patient_fk], references: [cpf])
+  Doctor      Doctor  @relation(fields: [doctor_fk], references: [crm])
+  patient_fk String
+  doctor_fk  String
 }
 
 model Appointment {
-  id Int @id @default(autoincrement())
-  title String @db.VarChar(255)
-  patient_cpf String @db.VarChar(255)
-  patient_name String @db.VarChar(255)
-  doctor_crm String @db.VarChar(13)
-  doctor_name String @db.VarChar(255)
+  id               Int    @id @default(autoincrement())
+  title            String @db.VarChar(255)
   data_appointment String @db.VarChar(20)
-  description String @db.VarChar(500)
-}  
+  description      String @db.VarChar(500)
 
+  Patient     Patient @relation(fields: [patient_fk], references: [cpf])
+  Doctor      Doctor  @relation(fields: [doctor_fk], references: [crm])
+  patient_fk String
+  doctor_fk  String
 
+}
