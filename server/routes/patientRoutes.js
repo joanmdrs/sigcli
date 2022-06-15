@@ -12,22 +12,12 @@ import { verifyJwtRecepcionist } from "../service/middlewares/recepcionist.middl
 export const patientRoutes = Router();
 
 // /recepcionist/register
-<<<<<<< HEAD
 patientRoutes.post("/register", registerPatient);
 
 patientRoutes.get("/getAll", verifyJwtRecepcionist, listPatients);
-=======
-patientRoutes.post('/', registerPatient)
-
-patientRoutes.get('/', listPatients)
->>>>>>> main
 
 patientRoutes.get("/:cpf", getPatientByCPF);
 
-<<<<<<< HEAD
-patientRoutes.put("/update", updatePatient);
-=======
-patientRoutes.put('/:id', updatePatient)
->>>>>>> main
+patientRoutes.put('/:id', updatePatient);
 
 patientRoutes.delete("/:id", deletePatient);
