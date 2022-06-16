@@ -145,3 +145,27 @@ RF20| Excluir Consulta
 | **TA04.06** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do médico pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão de editar, e os campos do formulário são preenchidos com os dados do médico a ser alterado. O usuário realiza a alteração dos campos de maneira incorreta e clica em Salvar, ao clicar em Salvar ele é notificado com uma mensagem de erro. Mensagem: A operação falhou, o campo “xxxx” não foi preenchido corretamente.
 | **TA04.07** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do médico pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão Excluir, ao clicar em Excluir, o usuário é notificado com uma pergunta acompanhada de 2 botões de escolha: um botão com a palavra Não e outro com a palavra Sim. Pergunta: Deseja realmente excluir o médico de id: 'xxxx'. Caso o usuário selecione a opção 'Não' ele deve ser notificado com uma mensagem informativa. Mensagem: Nenhuma alteração foi feita. Caso o usuário selecione a opção 'Sim' ele deve ser notificado com uma mensagem de sucesso. Mensagem: Médico excluído com sucesso. 
 | **TA04.08** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do médico pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão Excluir e ele não tem permissão para Excluir, ao clicar em Excluir, o usuário é notificado com uma mensagem de erro. Mensagem: Você não possui permissão para realizar esta operação.
+
+
+### User Story US05 - Manter Diagnóstico
+
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar e excluir os diagósticos. Um diagnóstico tem como atributos um paciente, um médico, um problema encontrado, e uma descrição. Diagrama de classe disponível [aqui](doc-class-diagram.md).
+
+
+| #    | Requisitos Envolvidos |
+| ---- | --------------------- |
+| RF06 | Inserir Diagnósico        |
+| RF07 | Alterar Diagnósico        |
+| RF08 | Buscar Diagnósico         |
+| RF09 | Excluir Diagnósico        |
+
+|                         |               |
+| ----------------------- | ------------- |
+| **Prioridade**          | Essencial     |
+| **Estimativa**          | 8h            |
+| **Tempo Gasto (real):** |               |
+| **Tamanho Funcional**   | 37            |
+| **Analista**            | Wesley        |
+| **Desenvolvedor**       | Wesley        |
+| **Revisor**             | Allan         |
+| **Testador**            | Allan         |
