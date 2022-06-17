@@ -145,3 +145,41 @@ RF20| Excluir Consulta
 | **TA04.06** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do médico pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão de editar, e os campos do formulário são preenchidos com os dados do médico a ser alterado. O usuário realiza a alteração dos campos de maneira incorreta e clica em Salvar, ao clicar em Salvar ele é notificado com uma mensagem de erro. Mensagem: A operação falhou, o campo “xxxx” não foi preenchido corretamente.
 | **TA04.07** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do médico pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão Excluir, ao clicar em Excluir, o usuário é notificado com uma pergunta acompanhada de 2 botões de escolha: um botão com a palavra Não e outro com a palavra Sim. Pergunta: Deseja realmente excluir o médico de id: 'xxxx'. Caso o usuário selecione a opção 'Não' ele deve ser notificado com uma mensagem informativa. Mensagem: Nenhuma alteração foi feita. Caso o usuário selecione a opção 'Sim' ele deve ser notificado com uma mensagem de sucesso. Mensagem: Médico excluído com sucesso. 
 | **TA04.08** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do médico pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão Excluir e ele não tem permissão para Excluir, ao clicar em Excluir, o usuário é notificado com uma mensagem de erro. Mensagem: Você não possui permissão para realizar esta operação.
+
+### User Story US05 - Manter Recepcionista
+
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir os recepcionistas. Um recepcionista tem como atributos um nome, um cpf, um telefone, um email, um username e uma senha. Diagrama de classe disponível [aqui](doc-class-diagram.md).
+
+
+| #    | Requisitos Envolvidos |
+| ---- | --------------------- |
+| RF11 | Inserir Recepcionista |
+| RF12 | Alterar Recepcionista |
+| RF13 | Buscar Recepcionista  |
+| RF14 | Listar Recepcionista  |
+| RF15 | Excluir Recepcionista |
+
+|                         |               |
+| ----------------------- | ------------- |
+| **Prioridade**          | Essencial     |
+| **Estimativa**          | 8h            |
+| **Tempo Gasto (real):** | (A preencher) |
+| **Tamanho Funcional**   | 20            |
+| **Analista**            | Allan         |
+| **Desenvolvedor**       | Joan          |
+| **Revisor**             | Rauan         |
+| **Testador**            | Rauan         |
+
+
+**Testes de Aceitação (TA)**
+
+| **Código**  | **Descrição**                                                                                                                                                                                                                                                                |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **TA04.01** | O usuário administrador navega até o módulo recepcionista. Estando no módulo de recepcionista, o usuário preenche todos os campos do formulário corretamente e clica no botão Salvar, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Cadastro realizado com sucesso.
+| **TA04.02** | O usuário administrador navega até o módulo recepcionista. Estando no módulo de recepcionista, o usuário preenche os dados de maneira incorreta e clica no botão Salvar, ao clicar em Salvar ele é notificado com uma mensagem de erro. Mensagem: Cadastro não realizado, o campo “xxxx” não foi informado corretamente.
+| **TA04.03** | O usuário administrador navega até o módulo recepcionista. Estando no módulo de recepcionista, o usuário seleciona a opção buscar, e prenche o campo de busca corretamente e clica e em Buscar, ao clicar em Buscar, o sistema fará uma busca no banco de dados, se a informação contida no campo de busca corresponder a alguma instância da entidade recepcionista, o sistema deve exibir aquela instância, caso contrário, o sistema deve exibir uma mensagem de aviso. Mensagem: Nada foi encontrado.
+| **TA04.04** | O usuário administrador navega até o módulo recepcionista. Estando no módulo de recepcionista, o usuário seleciona a opção buscar, e prenche o campo de busca de maneira incorreta e clica e em Buscar, ao clicar em Buscar ele é notificado com uma mensagem de aviso. Mensagem: Preencha o campo de busca corretamente.
+| **TA04.05** | O usuário administrador navega até o módulo recepcionista. Estando no módulo de recepcionista, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do recepcionista pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão de editar, e os campos do formulário são preenchidos com os dados do recepcionista a ser alterado. O usuário realiza a alteração dos campos corretamente e clica em Salvar, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Recepcionista alterado com sucesso.
+| **TA04.06** | O usuário administrador navega até o módulo recepcionista. Estando no módulo de recepcionista, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do recepcionista pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão de editar, e os campos do formulário são preenchidos com os dados do recepcionista a ser alterado. O usuário realiza a alteração dos campos de maneira incorreta e clica em Salvar, ao clicar em Salvar ele é notificado com uma mensagem de erro. Mensagem: A operação falhou, o campo “xxxx” não foi preenchido corretamente.
+| **TA04.07** | O usuário administrador navega até o módulo recepcionista. Estando no módulo de recepcionista, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do recepcionista pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão Excluir, ao clicar em Excluir, o usuário é notificado com uma pergunta acompanhada de 2 botões de escolha: um botão com a palavra Não e outro com a palavra Sim. Pergunta: Deseja realmente excluir o recepcionista de id: 'xxxx'. Caso o usuário selecione a opção 'Não' ele deve ser notificado com uma mensagem informativa. Mensagem: Nenhuma alteração foi feita. Caso o usuário selecione a opção 'Sim' ele deve ser notificado com uma mensagem de sucesso. Mensagem: Recepcionista excluído com sucesso. 
+| **TA04.08** | O usuário administrador navega até o módulo recepcionista. Estando no módulo de recepcionista, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do recepcionista pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão Excluir e ele não tem permissão para Excluir, ao clicar em Excluir, o usuário é notificado com uma mensagem de erro. Mensagem: Você não possui permissão para realizar esta operação.
