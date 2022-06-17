@@ -78,6 +78,19 @@ classDiagram
         +deleteMedicalRecord() MedicalRecord
         +listMedicalRecord() List~MedicalRecord~
     }
+    
+    class Diagnosis{
+        -Int id
+        -Doctor doctor
+        -Patient patient
+        -Appointment appointment
+        -String description
+
+        +insertDiagnosis() void
+        +getDiagnosis() Diagnosis
+        +updateDiagnosis() Diagnosis
+        +listMedicalRecord() List~Diagnosis~
+    }
 
     class Doctor{
         -Int id
@@ -114,13 +127,14 @@ classDiagram
     Recepcionist "1" -->  "0..*" Appointment: Marca
     Recepcionist "1" -->  "0..*" Exam: Marca
     Doctor  --*  Appointment:Realiza
+    Doctor  --*  Exam: Realiza
+    Doctor  --*  Diagnosis: Fornece
     Patient  --*  Appointment: Participa
     Patient  --*  Exam: Participa
     Patient  "1" -->  "0..*"  Payament: Contém
     Patient  "1" -->  "1"  MedicalRecord: Contém
-    Doctor  --*  Exam: Realiza
-    
-    
+    Patient  "1" -->  "1"  Diagnosis: Contém
+   
 
 ```
 
@@ -135,7 +149,7 @@ classDiagram
 | Exam          | Entidade que representa o exame                         |
 | Payament      | Entidade que representa o pagamento de consultas/exames |
 | MedicalRecord | Entidade que representa o prontuário do paciente        |
-
+| Diagnosis     | Entidade que representa o diagnóstico do paciente       |
 
 ## Modelo de Dados (Entidade-Relacionamento)
 
