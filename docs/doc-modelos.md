@@ -8,53 +8,7 @@ Neste documento temos o modelo Conceitual (UML) ou de Dados (Entidade-Relacionam
 classDiagram
     
     class Recepcionist{
-        -String username
-        -String password
-        -String name
-
-        +insertRecepcionist() void
-        +getRecepcionist() Recepcionist
-        +updateRecepcionist() Recepcionist
-        +deleteRecepcionist() Recepcionist
-    }
-
-    class Appointment{
-        -String title
-        -Patient patient
-        -Doctor doctor
-        -Date date
-        -String description
-        +insertDoctor() void
-        +getDoctor() Doctor
-        +updateDoctor() Doctor
-        +deleteDoctor() Doctor
-    }
-
-    class Exam{
-        -String title
-        -Patient patient
-        -Doctor doctor
-        -String description
-
-        +insertExam() void
-        +getExam() Exam
-        +updateExam() Exam
-        +deleteExam() Exam
-    }
-
-    class Doctor{
-        -String username
-        -String password
-        -String name
-        -String crm
-
-        +insertDoctor() void
-        +getDoctor() Doctor
-        +updateDoctor() Doctor
-        +deleteDoctor() Doctor
-    }
-
-    class Patient{
+        -Int id
         -String name
         -String cpf
         -String phone
@@ -62,33 +16,141 @@ classDiagram
         -String username
         -String password
 
+        +insertRecepcionist() void
+        +getRecepcionist() Recepcionist
+        +updateRecepcionist() Recepcionist
+        +deleteRecepcionist() Recepcionist
+        +listRecepcionist() List~Recepcionist~
+    }
+
+    class Appointment{
+        -Int id
+        -String title
+        -Patient patient
+        -Doctor doctor
+        -Date date
+        -String description
+        
+        +insertAppointment() void
+        +getAppointment() Appointment
+        +updateAppointment() Appointment
+        +deleteAppointment() Appointment
+        +listAppointment() List~Appointment~
+    }
+
+    class Exam{
+        -Int id
+        -String title
+        -Patient patient
+        -Doctor doctor
+        -Date date
+        -String description
+
+        +insertExam() void
+        +getExam() Exam
+        +updateExam() Exam
+        +deleteExam() Exam
+        +listExam() List~Exam~
+    }
+    
+    class Payament{
+        -Int id
+        -String type
+        -Int id_attendance
+        -Patient patient
+        -Double value
+        -String payment_method
+        -Date date_payment
+
+        +insertPayament() void
+        +listPayament() List~Payament~
+    }
+    
+    class MedicalRecord{
+        -Int id
+        -List~Appointment~ appointment_historic
+        -List~Exam~ exam_historic
+        -Patient patient
+
+        +insertMedicalRecord() void
+        +getMedicalRecord() MedicalRecord
+        +updateMedicalRecord() MedicalRecord
+        +deleteMedicalRecord() MedicalRecord
+        +listMedicalRecord() List~MedicalRecord~
+    }
+    
+    class Diagnosis{
+        -Int id
+        -Doctor doctor
+        -Patient patient
+        -Appointment appointment
+        -String description
+        -String Illness
+
+        +insertDiagnosis() void
+        +getDiagnosis() Diagnosis
+        +updateDiagnosis() Diagnosis
+        +listMedicalRecord() List~Diagnosis~
+    }
+
+    class Doctor{
+        -Int id
+        -String name
+        -String crm
+        -String phone
+        -String email
+        -String username
+        -String password
+
+        +insertDoctor() void
+        +getDoctor() Doctor
+        +updateDoctor() Doctor
+        +deleteDoctor() Doctor
+        +listDoctor() List~Doctor~
+    }
+
+    class Patient{
+        -Int id
+        -String name
+        -String cpf
+        -String phone
+        -String email
+        -String username
+        -String password
 
         +insertPatient() void
         +getPatient() Patient
         +updatePatient() Patient
         +deletePatient() Patient
+        +listPatient() List~Patient~
     }
     
-    Recepcionist "1" -->  "0..*" Appointment: Register
-    Recepcionist "1" -->  "0..*" Exam: Register
-    Doctor  --*  Appointment: Conducts
-    Patient  --*  Appointment: Participates
-    Patient  --*  Exam: Participates
-    Doctor  --*  Exam: Requests
-    
-    
+    Recepcionist "1" -->  "0..*" Appointment: Marca
+    Recepcionist "1" -->  "0..*" Exam: Marca
+    Doctor  --*  Appointment:Realiza
+    Doctor  --*  Exam: Realiza
+    Doctor  --*  Diagnosis: Fornece
+    Patient  --*  Appointment: Participa
+    Patient  --*  Exam: Participa
+    Patient  "1" -->  "0..*"  Payament: Contém
+    Patient  "1" -->  "1"  MedicalRecord: Contém
+    Patient  "1" -->  "1"  Diagnosis: Contém
+   
 
 ```
 
 ## Descrição das Entidades
 
-| Entidade     | Descrição                                              |
-|--------------|--------------------------------------------------------|
-| Recepcionist | Entidade concreta que representa um(a) recepcionista   |
-| Patient      | Entidade que representa o(a) Paciente                  |
-| Doctor       | Entidade que representa o(a) Médico(a)                 |
-| Appointment  | Entidade que representa a consulta                     |
-| Exam         | Entidade que representa o exame                        |
+| Entidade      | Descrição                                               |
+|---------------|---------------------------------------------------------|
+| Recepcionist  | Entidade concreta que representa um(a) recepcionista    |
+| Patient       | Entidade que representa o(a) Paciente                   |
+| Doctor        | Entidade que representa o(a) Médico(a)                  |
+| Appointment   | Entidade que representa a consulta                      |
+| Exam          | Entidade que representa o exame                         |
+| Payament      | Entidade que representa o pagamento de consultas/exames |
+| MedicalRecord | Entidade que representa o prontuário do paciente        |
+| Diagnosis     | Entidade que representa o diagnóstico do paciente       |
 
 ## Modelo de Dados (Entidade-Relacionamento)
 

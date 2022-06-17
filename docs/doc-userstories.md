@@ -6,7 +6,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 
 ### User Story US01 - Manter Consulta
 
-**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir consultas. Uma consulta tem como atributos um título, paciente, doutor, possui uma data e uma descrição. Diagrama de classe disponível [aqui](doc-class-diagram.md).
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir consultas. Uma consulta tem como atributos um título, paciente, doutor, possui uma data e uma descrição. Diagrama de classe disponível [aqui](doc-modelos.md).
 
 | # | Requisitos Envolvidos |
 ----|---------------------
@@ -41,7 +41,7 @@ RF20| Excluir Consulta
 
 ### User Story US02 - Manter Paciente
 
-**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir pacientes. Um paciente tem como atributos um nome, username e password. Diagrama de classe disponível [aqui](doc-class-diagram.md).
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir pacientes. Um paciente tem como atributos um nome, username e password. Diagrama de classe disponível [aqui](doc-modelos.md).
 
 | #    | Requisitos Envolvidos |
 | ---- | --------------------- |
@@ -78,7 +78,7 @@ RF20| Excluir Consulta
 
 ### User Story US03 - Manter Exame
 
-**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir exames. Um exame tem como atributos um título, paciente, doutor, possui uma data, além de uma descrição e local do exame. Diagrama de classe disponível [aqui](doc-class-diagram.md).
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir exames. Um exame tem como atributos um título, paciente, doutor, possui uma data, além de uma descrição e local do exame. Diagrama de classe disponível [aqui](doc-modelos.md).
 
 | #    | Requisitos Envolvidos |
 | ---- | --------------------- |
@@ -110,7 +110,7 @@ RF20| Excluir Consulta
 
 ### User Story US04 - Manter Médico
 
-**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir os médicos. Um médico tem como atributos um nome, um crm, um username, e uma senha. Diagrama de classe disponível [aqui](doc-class-diagram.md).
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir os médicos. Um médico tem como atributos um nome, um crm, um username, e uma senha. Diagrama de classe disponível [aqui](doc-modelos.md).
 
 
 | #    | Requisitos Envolvidos |
@@ -148,7 +148,7 @@ RF20| Excluir Consulta
 
 ### User Story US05 - Manter Recepcionista
 
-**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir os recepcionistas. Um recepcionista tem como atributos um nome, um cpf, um telefone, um email, um username e uma senha. Diagrama de classe disponível [aqui](doc-class-diagram.md).
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir os recepcionistas. Um recepcionista tem como atributos um nome, um cpf, um telefone, um email, um username e uma senha. Diagrama de classe disponível [aqui](doc-modelos.md).
 
 
 | #    | Requisitos Envolvidos |
