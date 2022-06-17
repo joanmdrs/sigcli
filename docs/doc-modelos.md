@@ -8,53 +8,7 @@ Neste documento temos o modelo Conceitual (UML) ou de Dados (Entidade-Relacionam
 classDiagram
     
     class Recepcionist{
-        -String username
-        -String password
-        -String name
-
-        +insertRecepcionist() void
-        +getRecepcionist() Recepcionist
-        +updateRecepcionist() Recepcionist
-        +deleteRecepcionist() Recepcionist
-    }
-
-    class Appointment{
-        -String title
-        -Patient patient
-        -Doctor doctor
-        -Date date
-        -String description
-        +insertDoctor() void
-        +getDoctor() Doctor
-        +updateDoctor() Doctor
-        +deleteDoctor() Doctor
-    }
-
-    class Exam{
-        -String title
-        -Patient patient
-        -Doctor doctor
-        -String description
-
-        +insertExam() void
-        +getExam() Exam
-        +updateExam() Exam
-        +deleteExam() Exam
-    }
-
-    class Doctor{
-        -String username
-        -String password
-        -String name
-        -String crm
-
-        +insertDoctor() void
-        +getDoctor() Doctor
-        +updateDoctor() Doctor
-        +deleteDoctor() Doctor
-    }
-
-    class Patient{
+        -Int id
         -String name
         -String cpf
         -String phone
@@ -62,19 +16,95 @@ classDiagram
         -String username
         -String password
 
+        +insertRecepcionist() void
+        +getRecepcionist() Recepcionist
+        +updateRecepcionist() Recepcionist
+        +deleteRecepcionist() Recepcionist
+        +listRecepcionist() Array<Recepcionist>
+    }
+
+    class Appointment{
+        -Int id
+        -String title
+        -Patient patient
+        -Doctor doctor
+        -Date date
+        -String description
+        
+        +insertAppointment() void
+        +getAppointment() Doctor
+        +updateAppointment() Doctor
+        +deleteAppointment() Doctor
+        +listAppointment() Array<Appointment>
+    }
+
+    class Exam{
+        -Int id
+        -String title
+        -Patient patient
+        -Doctor doctor
+        -Date date
+        -String description
+
+        +insertExam() void
+        +getExam() Exam
+        +updateExam() Exam
+        +deleteExam() Exam
+        +listExam() Array<Exam>
+    }
+    
+    class Payament{
+        -Int id
+        -String type
+        -Int id_attendance
+        -Patient patient
+        -Double value
+        -String payment_method
+        -Date date_payment
+
+        +insertPayament() void
+        +listPayament() Array<Payament>
+    }
+
+    class Doctor{
+        -Int id
+        -String name
+        -String crm
+        -String phone
+        -String email
+        -String username
+        -String password
+
+        +insertDoctor() void
+        +getDoctor() Doctor
+        +updateDoctor() Doctor
+        +deleteDoctor() Doctor
+        +listDoctor() Array<Doctor>
+    }
+
+    class Patient{
+        -Int id
+        -String name
+        -String cpf
+        -String phone
+        -String email
+        -String username
+        -String password
 
         +insertPatient() void
         +getPatient() Patient
         +updatePatient() Patient
         +deletePatient() Patient
+        +listPatient() Array<Patient>
     }
     
-    Recepcionist "1" -->  "0..*" Appointment: Register
-    Recepcionist "1" -->  "0..*" Exam: Register
-    Doctor  --*  Appointment: Conducts
-    Patient  --*  Appointment: Participates
-    Patient  --*  Exam: Participates
-    Doctor  --*  Exam: Requests
+    Recepcionist "1" -->  "0..*" Appointment: Marca
+    Recepcionist "1" -->  "0..*" Exam: Marca
+    Doctor  --*  Appointment:Realiza
+    Patient  --*  Appointment: Participa
+    Patient  --*  Exam: Participa
+    Patient  "1" -->  "0..*"  Payament: Contém
+    Doctor  --*  Exam: Realiza
     
     
 
