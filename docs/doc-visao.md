@@ -52,9 +52,9 @@ RF07 - Alterar Paciente           | A alteração permite a mudança do nome, no
 RF08 - Buscar Paciente            | A busca é feita com base no Id do paciente. | Administrador/Médico/Recepcionista 
 RF09 - Listar Pacientes           | Lista todos as instâncias de paciente | Administrador/Médico/Recepcionista
 RF10 - Excluir Paciente           | A exclusão é feita com base no Id do paciente | Administrador/Recepcionista
-RF11 - Inserir Recepcionista      | Um recepcionista possui nome, nome de usuário e senha. | Administrador
-RF12 - Alterar Recepcionista      | A alteração permite a mudança do nome, nome de usuário e senha. | Administrador 
-RF13 - Buscar Recepcionista       | A busca é feita com base no Id do recepcionista. | Administrador 
+RF11 - Inserir Recepcionista      | Um recepcionista possui nome, cpf, telefone, email, nome de usuário e senha. | Administrador
+RF12 - Alterar Recepcionista      | A alteração permite a mudança do telefone, email, nome, nome de usuário e senha. | Administrador 
+RF13 - Buscar Recepcionista       | A busca é feita com base no cpf do recepcionista. | Administrador 
 RF14 - Listar Recepcionistas      | Lista todos as instâncias de recepcionista | Administrador
 RF15 - Excluir Recepcionista      | A exclusão é feita com base no Id do(a) recepcionista | Administrador 
 RF16 - Inserir Consulta           | Uma consulta possui titulo, paciente, médico, data e descrição. | Administrador/Recepcionista 
