@@ -85,6 +85,7 @@ classDiagram
         -Patient patient
         -Appointment appointment
         -String description
+        -String Illness
 
         +insertDiagnosis() void
         +getDiagnosis() Diagnosis
