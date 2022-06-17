@@ -2,9 +2,13 @@
 classDiagram
     
     class Recepcionist{
+        -Int id
+        -String name
+        -String cpf
+        -String phone
+        -String email
         -String username
         -String password
-        -String name
 
         +insertRecepcionist() void
         +getRecepcionist() Recepcionist
@@ -13,24 +17,26 @@ classDiagram
     }
 
     class Appointment{
+        -Int id
         -String title
         -Patient patient
         -Doctor doctor
         -Date date
         -String description
-        +insertDoctor() void
-        +getDoctor() Doctor
-        +updateDoctor() Doctor
-        +deleteDoctor() Doctor
+        
+        +insertAppointment() void
+        +getAppointment() Doctor
+        +updateAppointment() Doctor
+        +deleteAppointment() Doctor
     }
 
     class Exam{
+        -Int id
         -String title
         -Patient patient
         -Doctor doctor
         -Date date
         -String description
-        -String ExamPlace
 
         +insertExam() void
         +getExam() Exam
@@ -39,10 +45,13 @@ classDiagram
     }
 
     class Doctor{
-        -String username
-        -String password
+        -Int id
         -String name
         -String crm
+        -String phone
+        -String email
+        -String username
+        -String password
 
         +insertDoctor() void
         +getDoctor() Doctor
@@ -51,9 +60,13 @@ classDiagram
     }
 
     class Patient{
+        -Int id
+        -String name
+        -String cpf
+        -String phone
+        -String email
         -String username
         -String password
-        -String name
 
         +insertPatient() void
         +getPatient() Patient
