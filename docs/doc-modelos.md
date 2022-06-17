@@ -20,7 +20,7 @@ classDiagram
         +getRecepcionist() Recepcionist
         +updateRecepcionist() Recepcionist
         +deleteRecepcionist() Recepcionist
-        +listRecepcionist() Array<Recepcionist>
+        +listRecepcionist() List~Recepcionist~
     }
 
     class Appointment{
@@ -32,10 +32,10 @@ classDiagram
         -String description
         
         +insertAppointment() void
-        +getAppointment() Doctor
-        +updateAppointment() Doctor
-        +deleteAppointment() Doctor
-        +listAppointment() Array<Appointment>
+        +getAppointment() Appointment
+        +updateAppointment() Appointment
+        +deleteAppointment() Appointment
+        +listAppointment() List~Appointment~
     }
 
     class Exam{
@@ -50,7 +50,7 @@ classDiagram
         +getExam() Exam
         +updateExam() Exam
         +deleteExam() Exam
-        +listExam() Array<Exam>
+        +listExam() List~Exam~
     }
     
     class Payament{
@@ -63,7 +63,20 @@ classDiagram
         -Date date_payment
 
         +insertPayament() void
-        +listPayament() Array<Payament>
+        +listPayament() List~Payament~
+    }
+    
+    class MedicalRecord{
+        -Int id
+        -List~Appointment~ appointment_historic
+        -List~Exam~ exam_historic
+        -Patient patient
+
+        +insertMedicalRecord() void
+        +getMedicalRecord() MedicalRecord
+        +updateMedicalRecord() MedicalRecord
+        +deleteMedicalRecord() MedicalRecord
+        +listMedicalRecord() List~MedicalRecord~
     }
 
     class Doctor{
@@ -79,7 +92,7 @@ classDiagram
         +getDoctor() Doctor
         +updateDoctor() Doctor
         +deleteDoctor() Doctor
-        +listDoctor() Array<Doctor>
+        +listDoctor() List~Doctor~
     }
 
     class Patient{
@@ -95,7 +108,7 @@ classDiagram
         +getPatient() Patient
         +updatePatient() Patient
         +deletePatient() Patient
-        +listPatient() Array<Patient>
+        +listPatient() List~Patient~
     }
     
     Recepcionist "1" -->  "0..*" Appointment: Marca
@@ -104,6 +117,7 @@ classDiagram
     Patient  --*  Appointment: Participa
     Patient  --*  Exam: Participa
     Patient  "1" -->  "0..*"  Payament: Contém
+    Patient  "1" -->  "1"  MedicalRecord: Contém
     Doctor  --*  Exam: Realiza
     
     
@@ -112,13 +126,16 @@ classDiagram
 
 ## Descrição das Entidades
 
-| Entidade     | Descrição                                              |
-|--------------|--------------------------------------------------------|
-| Recepcionist | Entidade concreta que representa um(a) recepcionista   |
-| Patient      | Entidade que representa o(a) Paciente                  |
-| Doctor       | Entidade que representa o(a) Médico(a)                 |
-| Appointment  | Entidade que representa a consulta                     |
-| Exam         | Entidade que representa o exame                        |
+| Entidade      | Descrição                                               |
+|---------------|---------------------------------------------------------|
+| Recepcionist  | Entidade concreta que representa um(a) recepcionista    |
+| Patient       | Entidade que representa o(a) Paciente                   |
+| Doctor        | Entidade que representa o(a) Médico(a)                  |
+| Appointment   | Entidade que representa a consulta                      |
+| Exam          | Entidade que representa o exame                         |
+| Payament      | Entidade que representa o pagamento de consultas/exames |
+| MedicalRecord | Entidade que representa o prontuário do paciente        |
+
 
 ## Modelo de Dados (Entidade-Relacionamento)
 
