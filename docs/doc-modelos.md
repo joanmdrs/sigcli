@@ -58,9 +58,9 @@ classDiagram
         -String type
         -Int id_attendance
         -Patient patient
-        -Double value
+        -Float value
         -String payment_method
-        -Date date_payment
+        -Date payament_date
 
         +insertPayament() void
         +listPayament() List~Payament~
@@ -161,8 +161,8 @@ erDiagram
     Doctor ||--o{ Appointment : conducts
     Patient ||--o{ Appointment : participates
     Patient ||--o{ Exam : participates
+    Patient ||--o{ Payament : have
     Doctor ||--o{ Exam : requests
-    
 ```
 ## Dicionário de Dados
 
@@ -231,3 +231,17 @@ erDiagram
 | patient       | representa o cpf do(a) paciente que realizou o exame         | INT          |         | FK                    |
 | doctor        | representa o crm do médico(a) que solicitou o exame          | INT          | ---     | FK                    |
 
+### Payament
+|   Tabela   | Payament                                                                               |
+| ---------- | -------------------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações do pagamento que o paciente deve realizar.                     |
+
+|  Nome           | Descrição                                                              | Tipo de Dado | Tamanho | Restrições de Domínio |
+| --------------- | ---------------------------------------------------------------------- | ------------ | ------- | --------------------- |
+| id              | identificador gerado pelo SGBD                                         | INT          | ---     | PK / Identity         |
+| type            | representa se é pagamento de consulta ou exame                         | VARCHAR      | 8       | Not Null              |
+| id_attendance   | representa o id da consulta ou do exame a qual o pagamento se refere   | VARCHAR      | 500     | Not Null              |
+| patient         | representa o cpf do(a) paciente que realizou o pagamento               | INT          |         | FK                    |
+| value           | representa o valor que o paciente deve pagar                           | FLOAT        | ---     | Not Null              |
+| payament_method | representa o metodo de pagamento que o paciente utilizou               | VARCHAR      | 20      | Not Null              |
+| payament_date   | representa a data do pagamento                                         | DATE         | ---     | Not Null              |
