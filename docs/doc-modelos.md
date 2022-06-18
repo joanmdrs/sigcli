@@ -225,10 +225,10 @@ erDiagram
 | ------------- | ------------------------------------------------------------ | ------------ | ------- | --------------------- |
 | id            | identificador gerado pelo SGBD                               | INT          | ---     | PK / Identity         |
 | title         | representa o título da consulta (O ASSUNTO)                  | VARCHAR      | 50      | Not Null              |
+| patient       | representa o id do(a) paciente que participou da consulta    | VARCHAR      | 11      | FK                    |
+| doctor        | representa o id do médico(a) que participou da consulta      | VARCHAR      | 13      | FK                    |
 | date          | representa a data da consulta                                | DATE         | ---     | Not Null              |
 | description   | representa a descrição da consulta, os detalhes              | VARCHAR      | 500     | Not Null              |
-| patient       | representa o id do(a) paciente que participou da consulta    | VARCHAR      | 11      | FK                    |
-| doctor        | representa o id do médico(a) que participou da consulta      | INT          | ---     | FK                    |
 
 ### Exam
 |   Tabela   | Exam                                                                              |
