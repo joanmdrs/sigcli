@@ -162,6 +162,9 @@ erDiagram
     Patient ||--o{ Appointment : participates
     Patient ||--o{ Exam : participates
     Patient ||--o{ Payament : have
+    Patient ||--o{ MedicalRecord : have
+    MedicalRecord ||--o{ Appointment : have
+    MedicalRecord ||--o{ Exam : have
     Doctor ||--o{ Exam : requests
 ```
 ## Dicionário de Dados
@@ -215,7 +218,7 @@ erDiagram
 | title         | representa o título da consulta (O ASSUNTO)                  | VARCHAR      | 50      | Not Null              |
 | date          | representa a data da consulta                                | DATE         | ---     | Not Null              |
 | description   | representa a descrição da consulta, os detalhes              | VARCHAR      | 500     | Not Null              |
-| patient       | representa o id do(a) paciente que participou da consulta    | INT          | ---     | FK                    |
+| patient       | representa o id do(a) paciente que participou da consulta    | VARCHAR      | 11      | FK                    |
 | doctor        | representa o id do médico(a) que participou da consulta      | INT          | ---     | FK                    |
 
 ### Exam
@@ -228,7 +231,7 @@ erDiagram
 | id            | identificador gerado pelo SGBD                               | INT          | ---     | PK / Identity         |
 | title         | representa o nome do exame                                   | VARCHAR      | 50      | Not Null              |
 | description   | representa a descrição do exame, os detalhes                 | VARCHAR      | 500     | Not Null              |
-| patient       | representa o cpf do(a) paciente que realizou o exame         | INT          |         | FK                    |
+| patient       | representa o cpf do(a) paciente que realizou o exame         | VARCHAR      | 11      | FK                    |
 | doctor        | representa o crm do médico(a) que solicitou o exame          | INT          | ---     | FK                    |
 
 ### Payament
@@ -241,7 +244,20 @@ erDiagram
 | id              | identificador gerado pelo SGBD                                         | INT          | ---     | PK / Identity         |
 | type            | representa se é pagamento de consulta ou exame                         | VARCHAR      | 8       | Not Null              |
 | id_attendance   | representa o id da consulta ou do exame a qual o pagamento se refere   | VARCHAR      | 500     | Not Null              |
-| patient         | representa o cpf do(a) paciente que realizou o pagamento               | INT          |         | FK                    |
+| patient         | representa o cpf do(a) paciente que realizou o pagamento               | VARCHAR      | 11      | FK                    |
 | value           | representa o valor que o paciente deve pagar                           | FLOAT        | ---     | Not Null              |
 | payament_method | representa o metodo de pagamento que o paciente utilizou               | VARCHAR      | 20      | Not Null              |
 | payament_date   | representa a data do pagamento                                         | DATE         | ---     | Not Null              |
+
+### MedicalRecord
+|   Tabela   | MedicalRecord                                                                          |
+| ---------- | -------------------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações do prontuário do paciente                                      |
+
+|  Nome                | Descrição                                                              | Tipo de Dado | Tamanho | Restrições de Domínio |
+| -------------------- | ---------------------------------------------------------------------- | ------------ | ------- | --------------------- |
+| id                   | identificador gerado pelo SGBD                                         | INT          | ---     | PK / Identity         |
+| appointment_historic | representa o histórico de consultas do paciente                        | APPOINTMENT  | ---     | FK                    |
+| exam_historic        | representa o histórico de exames do paciente                           | EXAM         | ---     | FK                    |
+| patient              | representa o cpf do(a) paciente                                        | VARCHAR      | 11      | FK                    |
+
