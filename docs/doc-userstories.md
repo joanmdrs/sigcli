@@ -186,16 +186,15 @@ RF20| Excluir Consulta
 
 ### User Story US05 - Manter Diagnóstico
 
-**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar e excluir os diagósticos. Um diagnóstico tem como atributos um paciente, um médico, um problema encontrado, e uma descrição. Diagrama de classe disponível [aqui](doc-class-diagram.md).
+**Descrição:** O sistema deve possuir uma área para inserir, alterar e buscar os diagósticos. Um diagnóstico tem como atributos um paciente, um médico, um problema encontrado e uma descrição. Diagrama de classe disponível [aqui](doc-class-diagram.md).
 
 
 
 | #    | Requisitos Envolvidos |
 | ---- | --------------------- |
-| RF06 | Inserir Diagnósico        |
-| RF07 | Alterar Diagnósico        |
-| RF08 | Buscar Diagnósico         |
-| RF09 | Excluir Diagnósico        |
+| RF16 | Inserir Diagnóstico   |
+| RF17 | Alterar Diagnóstico   |
+| RF18 | Buscar Diagnóstico    |
 
 
 |                         |               |
@@ -203,7 +202,7 @@ RF20| Excluir Consulta
 | **Prioridade**          | Essencial     |
 | **Estimativa**          | 8h            |
 | **Tempo Gasto (real):** |               |
-| **Tamanho Funcional**   | 37            |
+| **Tamanho Funcional**   | 33            |
 | **Analista**            | Wesley        |
 | **Desenvolvedor**       | Wesley        |
 | **Revisor**             | Allan         |
@@ -221,4 +220,3 @@ RF20| Excluir Consulta
 | **TA04.04** | O usuário doutor navega até o módulo consulta. Estando no módulo de consulta, caso tenha um diagnóstico ele vai poder clicar e será mandado para uma página com o diagnóstico daquela consulta. Ainda terá nessa página dois botões de editar e deletar diagnóstico.
 | **TA04.05** | O usuário doutor navega até o módulo consulta. Estando no módulo de consulta, caso tenha um diagnóstico ele vai poder clicar e será mandado para uma página com o diagnóstico daquela consulta. Ainda terá nessa página dois botões de editar e deletar diagnóstico. O usuário seleciona o botão de editar, e os campos do formulário são preenchidos com os dados do diagnóstico a ser alterado. O usuário realiza a alteração dos campos de maneira incorreta e clica em Salvar, ao clicar em Salvar ele é notificado com uma mensagem de erro. Mensagem: A operação falhou, o campo “xxxx” não foi preenchido corretamente.
 | **TA04.06** | O usuário doutor navega até o módulo consulta. Estando no módulo de consulta, caso tenha um diagnóstico ele vai poder clicar e será mandado para uma página com o diagnóstico daquela consulta. Ainda terá nessa página dois botões de editar e deletar diagnóstico. O usuário seleciona o botão de editar, e os campos do formulário são preenchidos com os dados do diagnóstico a ser alterado. O usuário realiza a alteração dos campos de maneira Correta e clica em Salvar, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Atualização realizada com sucesso.
-| **TA04.07** | O usuário doutor navega até o módulo consulta. Estando no módulo de consulta, caso tenha um diagnóstico ele vai poder clicar e será mandado para uma página com o diagnóstico daquela consulta. Ainda terá nessa página dois botões de editar e deletar diagnóstico. O usuário seleciona o botão Excluir, ao clicar em Excluir, o usuário é notificado com uma pergunta acompanhada de 2 botões de escolha: um botão com a palavra Não e outro com a palavra Sim. Pergunta: Deseja realmente excluir o diagnóstico de id: 'xxxx'. Caso o usuário selecione a opção 'Não' ele deve ser notificado com uma mensagem informativa. Mensagem: Nenhuma alteração foi feita. Caso o usuário selecione a opção 'Sim' ele deve ser notificado com uma mensagem de sucesso. Mensagem: Diangnóstico excluído com sucesso. 
