@@ -263,3 +263,17 @@ erDiagram
 | exam_historic        | representa o histórico de exames do paciente                           | EXAM         | ---     | FK                    |
 | patient              | representa o cpf do(a) paciente                                        | VARCHAR      | 11      | FK                    |
 
+### Diagnosis
+|   Tabela   | Diagnosis                                                                              |
+| ---------- | -------------------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações do diagnóstico do paciente                                     |
+
+|  Nome                | Descrição                                                              | Tipo de Dado | Tamanho | Restrições de Domínio |
+| -------------------- | ---------------------------------------------------------------------- | ------------ | ------- | --------------------- |
+| id                   | identificador gerado pelo SGBD                                         | INT          | ---     | PK / Identity         |
+| patient              | representa o cpf do(a) paciente                                        | VARCHAR      | 11      | FK                    |
+| doctor               | representa o crm do(a) médico(a) que registrou o diagnóstico           | VARCHAR      | 13      | FK                    |
+| appointment          | representa o id da consulta realizada                                  | APPOINTMENT  | ---     | FK                    |
+| exam_historic        | representa o histórico de exames do paciente                           | EXAM         | ---     | FK                    |
+| description          | representa a descrição do diagnóstico                                  | VARCHAR      | 500     | Not Null              |
+| Illness              | representa a o problema/doença constatado                              | VARCHAR      | 50      | Not Null              |
