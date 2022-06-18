@@ -163,9 +163,11 @@ erDiagram
     Patient ||--o{ Exam : participates
     Patient ||--o{ Payament : have
     Patient ||--o{ MedicalRecord : have
+    Patient ||--o{ Diagnosis : have
     MedicalRecord ||--o{ Appointment : have
     MedicalRecord ||--o{ Exam : have
     Doctor ||--o{ Exam : requests
+    Doctor ||--o{ Diagnosis : register
 ```
 ## Dicionário de Dados
 
