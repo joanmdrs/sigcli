@@ -209,8 +209,10 @@ erDiagram
 |  Nome         | Descrição                                                    | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------- | ------------------------------------------------------------ | ------------ | ------- | --------------------- |
 | id            | identificador gerado pelo SGBD                               | INT          | ---     | PK / Identity         |
-| name          | representa o nome do(a) paciente                             | VARCHAR      | 255     | Not Null              |
-| crm           | representa o registro do médico                              | VARCHAR      | 4       | Unique / Not Null     |
+| name          | representa o nome do(a) médico                               | VARCHAR      | 255     | Not Null              |
+| crm           | representa o registro do médico                              | VARCHAR      | 13      | Unique / Not Null     |
+| phone         | representa o telefone do(a) médico                           | VARCHAR      | 14      | Not Null              |
+| email         | representa o email do(a) médico                              | VARCHAR      | 255     | Not Null              |
 | username      | representa o nome de usuário do(a) médico(a) no sistema      | VARCHAR      | 50      | Unique / Not Null     |
 | password      | representa a senha de usuário do(a) médico(a) no sistema     | VARCHAR      | 50      | Not Null              |
 
