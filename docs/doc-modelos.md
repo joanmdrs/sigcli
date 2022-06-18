@@ -43,7 +43,6 @@ classDiagram
         -String title
         -Patient patient
         -Doctor doctor
-        -Date date
         -String description
 
         +insertExam() void
@@ -239,9 +238,9 @@ erDiagram
 | ------------- | ------------------------------------------------------------ | ------------ | ------- | --------------------- |
 | id            | identificador gerado pelo SGBD                               | INT          | ---     | PK / Identity         |
 | title         | representa o nome do exame                                   | VARCHAR      | 50      | Not Null              |
-| description   | representa a descrição do exame, os detalhes                 | VARCHAR      | 500     | Not Null              |
 | patient       | representa o cpf do(a) paciente que realizou o exame         | VARCHAR      | 11      | FK                    |
-| doctor        | representa o crm do médico(a) que solicitou o exame          | INT          | ---     | FK                    |
+| doctor        | representa o crm do médico(a) que solicitou o exame          | VARCHAR      | 13      | FK                    |
+| description   | representa a descrição do exame, os detalhes                 | VARCHAR      | 500     | Not Null              |
 
 ### Payament
 |   Tabela   | Payament                                                                               |
