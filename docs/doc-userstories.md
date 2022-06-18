@@ -186,7 +186,7 @@ RF20| Excluir Consulta
 
 ### User Story US06 - Manter Diagnóstico
 
-**Descrição:** O sistema deve possuir uma área para inserir, alterar e buscar os diagósticos. Um diagnóstico tem como atributos um paciente, um médico, um problema encontrado e uma descrição. Diagrama de classe disponível [aqui](doc-class-diagram.md).
+**Descrição:** O sistema deve possuir uma área para inserir, alterar e buscar os diagósticos. Um diagnóstico tem como atributos um paciente, um médico, um problema encontrado e uma descrição. Diagrama de classe disponível [aqui](doc-modelos.md).
 
 
 
