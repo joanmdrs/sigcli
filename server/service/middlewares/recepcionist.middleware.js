@@ -23,7 +23,7 @@ export const verifyToken = (req, res, next) => {
 export const verifyAuthorization = (req, res) => {
   // Verifica se o usuário possui permissão
   const {user} = req.body;
-  console.log(user);
+  
   try {
     
     if(user.role == "ADMIN" || user.role == "RECEPCIONIST") {

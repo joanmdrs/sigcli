@@ -8,9 +8,19 @@ import {
     Input,
     Button
 } from 'reactstrap'
+import api from "../../services/api";
+import { isAuthenticate, signIn } from "../../services/LoginServices";
 
 
 export default function Login() {
+
+    const handleSignIn = async () => {
+
+        await signIn();
+        isAuthenticate();
+
+
+    }
 
     return (
         <div className="grid-container-primary">
@@ -57,7 +67,8 @@ export default function Login() {
                         id="button-sign-in"
                         name="button-sign-in"
                         className="button-sign-in"
-                        type="submit"> 
+                        type="submit"
+                        onClick = {handleSignIn}> 
                         Sign in
                     </Button>
                     <p className="text-align"> 
