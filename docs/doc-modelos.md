@@ -180,6 +180,9 @@ erDiagram
 | ------------- | ------------------------------------------------------------ | ------------ | ------- | --------------------- |
 | id            | identificador gerado pelo SGBD                               | INT          | ---     | PK / Identity         |
 | name          | representa o nome do(a) recepcionista                        | VARCHAR      | 255     | Not Null              |
+| cpf           | representa o cpf do(a) recepcionista                         | VARCHAR      | 11      | Unique / Not Null     |
+| phone         | representa o telefone do(a) recepcionista                    | VARCHAR      | 14      | Not Null              |
+| email         | representa o email do(a) recepcionista                       | VARCHAR      | 255     | Not Null              |
 | username      | representa o nome de usuário do(a) recepcionista no sistema  | VARCHAR      | 50      | Unique / Not Null     |
 | password      | representa a senha de usuário do(a) recepcionista no sistema | VARCHAR      | 50      | Not Null              |
 
