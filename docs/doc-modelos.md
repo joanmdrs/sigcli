@@ -220,14 +220,14 @@ erDiagram
 | ---------- | --------------------------------------------------------------------------------- |
 | Descrição  | Armazena as informações da consulta médica                                        |
 
-|  Nome         | Descrição                                                    | Tipo de Dado | Tamanho | Restrições de Domínio |
-| ------------- | ------------------------------------------------------------ | ------------ | ------- | --------------------- |
-| id            | identificador gerado pelo SGBD                               | INT          | ---     | PK / Identity         |
-| title         | representa o título da consulta (O ASSUNTO)                  | VARCHAR      | 50      | Not Null              |
-| patient       | representa o id do(a) paciente que participou da consulta    | VARCHAR      | 11      | FK                    |
-| doctor        | representa o id do médico(a) que participou da consulta      | VARCHAR      | 13      | FK                    |
-| date          | representa a data da consulta                                | DATE         | ---     | Not Null              |
-| description   | representa a descrição da consulta, os detalhes              | VARCHAR      | 500     | Not Null              |
+|  Nome         | Descrição                                                         | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------- | ----------------------------------------------------------------- | ------------ | ------- | --------------------- |
+| id            | identificador gerado pelo SGBD                                    | INT          | ---     | PK / Identity         |
+| title         | representa o título da consulta (O ASSUNTO)                       | VARCHAR      | 50      | Not Null              |
+| patient       | representa o cpf do(a) paciente que participou da consulta        | VARCHAR      | 11      | FK                    |
+| doctor        | representa o crm do médico(a) que participou da consulta          | VARCHAR      | 13      | FK                    |
+| date          | representa a data da consulta                                     | DATE         | ---     | Not Null              |
+| description   | representa a descrição da consulta, os detalhes                   | VARCHAR      | 500     | Not Null              |
 
 ### Exam
 |   Tabela   | Exam                                                                              |
