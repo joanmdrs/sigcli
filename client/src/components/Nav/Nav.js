@@ -45,7 +45,7 @@ export default function Nav(){
 
                 <Link className="tag-link" to="/recepcionist" >
                    <FontAwesomeIcon className="icon-menu" icon={faUserGear} /> 
-                   Recepcionist
+                   Recepcionists
                 </Link>
 
             </nav>

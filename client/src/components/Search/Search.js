@@ -10,18 +10,18 @@ import {
 } from 'reactstrap';
 
 
-export function Search ({handleFilterByCpf}) {
+export function Search ({id, title, placeholder, handleSearch}) {
     return (
         <div className="input-search">
           <Row>
               <Col md={4}>
-                    <Label for="searchCpf">Filter By CPF</Label>
+                    <Label for={id}>{title}</Label>
                     <InputGroup >
-                    <Input id="searchCpf" type="text" placeholder="cpf"></Input>
+                    <Input id={id} type="text" placeholder={placeholder}></Input>
                     <Button
                         color="success"
                         onClick={() => {
-                            handleFilterByCpf()
+                            handleSearch()
                     }}>
                         Search
                     </Button>

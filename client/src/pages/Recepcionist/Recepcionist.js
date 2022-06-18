@@ -45,12 +45,13 @@ export default function Recepcionist() {
   }, []);
 
 
+
+
   const handleFilterByCpf = async () => {
 
     const cpfProvided = document.getElementById("searchCpf").value;
    
     api.get(`/recepcionists/${cpfProvided}`).then((response) => {
-      console.log(response.data);
       setListRecepcionist([response.data]);
     })
 
@@ -94,7 +95,10 @@ export default function Recepcionist() {
             />
 
             <Search 
-              handleFilterByCpf={handleFilterByCpf}
+              id="searchCpf"
+              title="Filter by CPF"
+              placeholder="cpf"
+              handleSearch={handleFilterByCpf}
             />
             <ListRecepcionist 
               recepcionists={listRecepcionist} 

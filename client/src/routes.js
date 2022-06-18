@@ -18,8 +18,8 @@ export default function Routes () {
                 <Route path="/patients" element={<Patient />} />
                 <Route path="/exams" element={<Exam />} />
                 <Route path="/appointments" element={<Appointment />} />
-                <Route path="/recepcionist" element={<Recepcionist />} />
-                <Route path="/doctor" element={<Doctor />} />
+                <Route path="/recepcionists" element={<Recepcionist />} />
+                <Route path="/doctors" element={<Doctor />} />
             </Switch>
         </BrowserRouter>
     )
