@@ -1,14 +1,24 @@
-import { isAuthenticated } from "../../services/LoginServices";
-import React from "react";
-import { Route, Navigate } from "react-router-dom";
+import { hasAuthorization, isAuthenticated } from "../../services/LoginServices";
+import {useJwt} from "react-jwt";
+import { useNavigate, Navigate} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Swal from "sweetalert2";
 
 export const PrivateRoute = ({children}) => {
 
-    console.log(isAuthenticated());
+    const token = localStorage.getItem('token');
+    const decode = useJwt(token);
+    const history = useNavigate();
+
+    
     if(isAuthenticated()){
-        return children;
+        if(decode.decodedToken !== null && hasAuthorization(decode.decodedToken.user)){
+            return children;
+        }
+    
     }else {
-        return <Navigate to="/" replace />;
+        return <Navigate to="/" replace />
     }
+       
 }
 
