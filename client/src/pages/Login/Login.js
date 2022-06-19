@@ -1,25 +1,29 @@
 import "./Login.css";
-import React, { Fragment } from "react";
+import React from "react";
+import {useJwt} from "react-jwt";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import img from "../../assets/img/image-home.svg";
-import {
-    FormGroup,
-    Label,
-    Input,
-    Button
-} from 'reactstrap'
-import api from "../../services/api";
-import { isAuthenticate, signIn } from "../../services/LoginServices";
+import { FormGroup, Label, Input, Button } from 'reactstrap'
+import { useNavigate } from "react-router-dom";
+import { hasAuthorization, IsAuthenticate, persistToken, signIn } from "../../services/LoginServices";
 
 
 export default function Login() {
 
+    const token = localStorage.getItem('token');
+    const { decodedToken } = useJwt(token);
+    const history = useNavigate();
+    
     const handleSignIn = async () => {
 
-        await signIn();
-        isAuthenticate();
+        signIn().then((response) => {
+            persistToken(response.data.token);
+            history("/home");
 
-
+        }).catch((error) => {
+            console.log("DEU MERDA");
+        });
+        
     }
 
     return (
