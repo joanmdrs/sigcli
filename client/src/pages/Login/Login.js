@@ -1,28 +1,50 @@
 import "./Login.css";
-import React from "react";
-import {useJwt} from "react-jwt";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import img from "../../assets/img/image-home.svg";
-import { FormGroup, Label, Input, Button } from 'reactstrap'
+import React from "react";
+import { FormGroup, Label, Input, Button , Alert} from 'reactstrap'
 import { useNavigate } from "react-router-dom";
-import { hasAuthorization, IsAuthenticate, persistToken, signIn } from "../../services/LoginServices";
+import { persistToken, signIn } from "../../services/LoginServices";
+import Swal from "sweetalert2";
 
 
 export default function Login() {
 
-    const token = localStorage.getItem('token');
-    const { decodedToken } = useJwt(token);
     const history = useNavigate();
     
     const handleSignIn = async () => {
 
         signIn().then((response) => {
-            persistToken(response.data.token);
-            history("/home");
+            Swal.fire({
+                title: "Success",
+                text: "Login sucessfully",
+                icon: "success",
+                showCancelButton: false,
+                confirmButtonColor: "#0C6170",
+                confirmButtonText: "Ok",
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    persistToken(response.data.token);
+                    history("/home");
+                }
+              });
+            
 
         }).catch((error) => {
-            console.log("DEU MERDA");
-        });
+            Swal.fire({
+                title: "Failure",
+                text: 'Username or password is incorrect',
+                icon: "error",
+                showCancelButton: false,
+                confirmButtonColor: "#0C6170",
+                confirmButtonText: "Ok",
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  document.location.reload();
+                }
+              });
+    
+        })
         
     }
 
