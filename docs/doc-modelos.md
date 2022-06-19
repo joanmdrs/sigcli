@@ -8,29 +8,38 @@ Neste documento temos o modelo Conceitual (UML) ou de Dados (Entidade-Relacionam
 classDiagram
     
     class Recepcionist{
+        -Int id
+        -String name
+        -String cpf
+        -String phone
+        -String email
         -String username
         -String password
-        -String name
 
         +insertRecepcionist() void
         +getRecepcionist() Recepcionist
         +updateRecepcionist() Recepcionist
         +deleteRecepcionist() Recepcionist
+        +listRecepcionist() List~Recepcionist~
     }
 
     class Appointment{
+        -Int id
         -String title
         -Patient patient
         -Doctor doctor
         -Date date
         -String description
-        +insertDoctor() void
-        +getDoctor() Doctor
-        +updateDoctor() Doctor
-        +deleteDoctor() Doctor
+        
+        +insertAppointment() void
+        +getAppointment() Appointment
+        +updateAppointment() Appointment
+        +deleteAppointment() Appointment
+        +listAppointment() List~Appointment~
     }
 
     class Exam{
+        -Int id
         -String title
         -Patient patient
         -Doctor doctor
@@ -40,21 +49,67 @@ classDiagram
         +getExam() Exam
         +updateExam() Exam
         +deleteExam() Exam
+        +listExam() List~Exam~
+    }
+    
+    class Payament{
+        -Int id
+        -String type
+        -Int id_attendance
+        -Patient patient
+        -Float value
+        -String payment_method
+        -Date payament_date
+
+        +insertPayament() void
+        +listPayament() List~Payament~
+    }
+    
+    class MedicalRecord{
+        -Int id
+        -List~Appointment~ appointment_historic
+        -List~Exam~ exam_historic
+        -Patient patient
+
+        +insertMedicalRecord() void
+        +getMedicalRecord() MedicalRecord
+        +updateMedicalRecord() MedicalRecord
+        +deleteMedicalRecord() MedicalRecord
+        +listMedicalRecord() List~MedicalRecord~
+    }
+    
+    class Diagnosis{
+        -Int id
+        -Doctor doctor
+        -Patient patient
+        -Appointment appointment
+        -String description
+        -String Illness
+
+        +insertDiagnosis() void
+        +getDiagnosis() Diagnosis
+        +updateDiagnosis() Diagnosis
+        +listMedicalRecord() List~Diagnosis~
     }
 
     class Doctor{
-        -String username
-        -String password
+        -Int id
         -String name
         -String crm
+        -String phone
+        -String email
+        -String username
+        -String password
 
         +insertDoctor() void
         +getDoctor() Doctor
         +updateDoctor() Doctor
         +deleteDoctor() Doctor
+        +listDoctor() List~Doctor~
     }
 
     class Patient{
+        -Int id
         -String name
         -String cpf
         -String phone
@@ -62,33 +117,39 @@ classDiagram
         -String username
         -String password
 
-
         +insertPatient() void
         +getPatient() Patient
         +updatePatient() Patient
         +deletePatient() Patient
+        +listPatient() List~Patient~
     }
     
-    Recepcionist "1" -->  "0..*" Appointment: Register
-    Recepcionist "1" -->  "0..*" Exam: Register
-    Doctor  --*  Appointment: Conducts
-    Patient  --*  Appointment: Participates
-    Patient  --*  Exam: Participates
-    Doctor  --*  Exam: Requests
-    
-    
+    Recepcionist "1" -->  "0..*" Appointment: Marca
+    Recepcionist "1" -->  "0..*" Exam: Marca
+    Doctor  --*  Appointment:Realiza
+    Doctor  --*  Exam: Realiza
+    Doctor  --*  Diagnosis: Fornece
+    Patient  --*  Appointment: Participa
+    Patient  --*  Exam: Participa
+    Patient  "1" -->  "0..*"  Payament: Contém
+    Patient  "1" -->  "1"  MedicalRecord: Contém
+    Patient  "1" -->  "1"  Diagnosis: Contém
+   
 
 ```
 
 ## Descrição das Entidades
 
-| Entidade     | Descrição                                              |
-|--------------|--------------------------------------------------------|
-| Recepcionist | Entidade concreta que representa um(a) recepcionista   |
-| Patient      | Entidade que representa o(a) Paciente                  |
-| Doctor       | Entidade que representa o(a) Médico(a)                 |
-| Appointment  | Entidade que representa a consulta                     |
-| Exam         | Entidade que representa o exame                        |
+| Entidade      | Descrição                                               |
+|---------------|---------------------------------------------------------|
+| Recepcionist  | Entidade concreta que representa um(a) recepcionista    |
+| Patient       | Entidade que representa o(a) Paciente                   |
+| Doctor        | Entidade que representa o(a) Médico(a)                  |
+| Appointment   | Entidade que representa a consulta                      |
+| Exam          | Entidade que representa o exame                         |
+| Payament      | Entidade que representa o pagamento de consultas/exames |
+| MedicalRecord | Entidade que representa o prontuário do paciente        |
+| Diagnosis     | Entidade que representa o diagnóstico do paciente       |
 
 ## Modelo de Dados (Entidade-Relacionamento)
 
@@ -99,8 +160,13 @@ erDiagram
     Doctor ||--o{ Appointment : conducts
     Patient ||--o{ Appointment : participates
     Patient ||--o{ Exam : participates
+    Patient ||--o{ Payament : have
+    Patient ||--o{ MedicalRecord : have
+    Patient ||--o{ Diagnosis : have
+    MedicalRecord ||--o{ Appointment : have
+    MedicalRecord ||--o{ Exam : have
     Doctor ||--o{ Exam : requests
-    
+    Doctor ||--o{ Diagnosis : register
 ```
 ## Dicionário de Dados
 
@@ -113,6 +179,9 @@ erDiagram
 | ------------- | ------------------------------------------------------------ | ------------ | ------- | --------------------- |
 | id            | identificador gerado pelo SGBD                               | INT          | ---     | PK / Identity         |
 | name          | representa o nome do(a) recepcionista                        | VARCHAR      | 255     | Not Null              |
+| cpf           | representa o cpf do(a) recepcionista                         | VARCHAR      | 11      | Unique / Not Null     |
+| phone         | representa o telefone do(a) recepcionista                    | VARCHAR      | 14      | Not Null              |
+| email         | representa o email do(a) recepcionista                       | VARCHAR      | 255     | Not Null              |
 | username      | representa o nome de usuário do(a) recepcionista no sistema  | VARCHAR      | 50      | Unique / Not Null     |
 | password      | representa a senha de usuário do(a) recepcionista no sistema | VARCHAR      | 50      | Not Null              |
 
@@ -126,6 +195,8 @@ erDiagram
 | id            | identificador gerado pelo SGBD                               | INT          | ---     | PK / Identity         |
 | name          | representa o nome do(a) paciente                             | VARCHAR      | 255     | Not Null              |
 | cpf           | representa o cpf do(a) paciente                              | VARCHAR      | 11      | Unique / Not Null     |
+| phone         | representa o telefone do(a) paciente                         | VARCHAR      | 14      | Not Null              |
+| email         | representa o email do(a) paciente                            | VARCHAR      | 255     | Not Null              |
 | username      | representa o nome de usuário do(a) paciente no sistema       | VARCHAR      | 50      | Unique / Not Null     |
 | password      | representa a senha de usuário do(a) paciente no sistema      | VARCHAR      | 50      | Not Null              |
 
@@ -137,8 +208,10 @@ erDiagram
 |  Nome         | Descrição                                                    | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------- | ------------------------------------------------------------ | ------------ | ------- | --------------------- |
 | id            | identificador gerado pelo SGBD                               | INT          | ---     | PK / Identity         |
-| name          | representa o nome do(a) paciente                             | VARCHAR      | 255     | Not Null              |
-| crm           | representa o registro do médico                              | VARCHAR      | 4       | Unique / Not Null     |
+| name          | representa o nome do(a) médico                               | VARCHAR      | 255     | Not Null              |
+| crm           | representa o registro do médico                              | VARCHAR      | 13      | Unique / Not Null     |
+| phone         | representa o telefone do(a) médico                           | VARCHAR      | 14      | Not Null              |
+| email         | representa o email do(a) médico                              | VARCHAR      | 255     | Not Null              |
 | username      | representa o nome de usuário do(a) médico(a) no sistema      | VARCHAR      | 50      | Unique / Not Null     |
 | password      | representa a senha de usuário do(a) médico(a) no sistema     | VARCHAR      | 50      | Not Null              |
 
@@ -147,14 +220,14 @@ erDiagram
 | ---------- | --------------------------------------------------------------------------------- |
 | Descrição  | Armazena as informações da consulta médica                                        |
 
-|  Nome         | Descrição                                                    | Tipo de Dado | Tamanho | Restrições de Domínio |
-| ------------- | ------------------------------------------------------------ | ------------ | ------- | --------------------- |
-| id            | identificador gerado pelo SGBD                               | INT          | ---     | PK / Identity         |
-| title         | representa o título da consulta (O ASSUNTO)                  | VARCHAR      | 50      | Not Null              |
-| date          | representa a data da consulta                                | DATE         | ---     | Not Null              |
-| description   | representa a descrição da consulta, os detalhes              | VARCHAR      | 500     | Not Null              |
-| patient       | representa o id do(a) paciente que participou da consulta    | INT          | ---     | FK                    |
-| doctor        | representa o id do médico(a) que participou da consulta      | INT          | ---     | FK                    |
+|  Nome         | Descrição                                                         | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------- | ----------------------------------------------------------------- | ------------ | ------- | --------------------- |
+| id            | identificador gerado pelo SGBD                                    | INT          | ---     | PK / Identity         |
+| title         | representa o título da consulta (O ASSUNTO)                       | VARCHAR      | 50      | Not Null              |
+| patient       | representa o cpf do(a) paciente que participou da consulta        | VARCHAR      | 11      | FK                    |
+| doctor        | representa o crm do médico(a) que participou da consulta          | VARCHAR      | 13      | FK                    |
+| date          | representa a data da consulta                                     | DATE         | ---     | Not Null              |
+| description   | representa a descrição da consulta, os detalhes                   | VARCHAR      | 500     | Not Null              |
 
 ### Exam
 |   Tabela   | Exam                                                                              |
@@ -165,7 +238,48 @@ erDiagram
 | ------------- | ------------------------------------------------------------ | ------------ | ------- | --------------------- |
 | id            | identificador gerado pelo SGBD                               | INT          | ---     | PK / Identity         |
 | title         | representa o nome do exame                                   | VARCHAR      | 50      | Not Null              |
+| patient       | representa o cpf do(a) paciente que realizou o exame         | VARCHAR      | 11      | FK                    |
+| doctor        | representa o crm do médico(a) que solicitou o exame          | VARCHAR      | 13      | FK                    |
 | description   | representa a descrição do exame, os detalhes                 | VARCHAR      | 500     | Not Null              |
-| patient       | representa o cpf do(a) paciente que realizou o exame         | INT          |         | FK                    |
-| doctor        | representa o crm do médico(a) que solicitou o exame          | INT          | ---     | FK                    |
 
+### Payament
+|   Tabela   | Payament                                                                               |
+| ---------- | -------------------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações do pagamento que o paciente deve realizar.                     |
+
+|  Nome           | Descrição                                                              | Tipo de Dado | Tamanho | Restrições de Domínio |
+| --------------- | ---------------------------------------------------------------------- | ------------ | ------- | --------------------- |
+| id              | identificador gerado pelo SGBD                                         | INT          | ---     | PK / Identity         |
+| type            | representa se é pagamento de consulta ou exame                         | VARCHAR      | 8       | Not Null              |
+| id_attendance   | representa o id da consulta ou do exame a qual o pagamento se refere   | VARCHAR      | 500     | Not Null              |
+| patient         | representa o cpf do(a) paciente que realizou o pagamento               | VARCHAR      | 11      | FK                    |
+| value           | representa o valor que o paciente deve pagar                           | FLOAT        | ---     | Not Null              |
+| payament_method | representa o metodo de pagamento que o paciente utilizou               | VARCHAR      | 20      | Not Null              |
+| payament_date   | representa a data do pagamento                                         | DATE         | ---     | Not Null              |
+
+### MedicalRecord
+|   Tabela   | MedicalRecord                                                                          |
+| ---------- | -------------------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações do prontuário do paciente                                      |
+
+|  Nome                | Descrição                                                              | Tipo de Dado | Tamanho | Restrições de Domínio |
+| -------------------- | ---------------------------------------------------------------------- | ------------ | ------- | --------------------- |
+| id                   | identificador gerado pelo SGBD                                         | INT          | ---     | PK / Identity         |
+| appointment_historic | representa o histórico de consultas do paciente                        | APPOINTMENT  | ---     | FK                    |
+| exam_historic        | representa o histórico de exames do paciente                           | EXAM         | ---     | FK                    |
+| patient              | representa o cpf do(a) paciente                                        | VARCHAR      | 11      | FK                    |
+
+### Diagnosis
+|   Tabela   | Diagnosis                                                                              |
+| ---------- | -------------------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações do diagnóstico do paciente                                     |
+
+|  Nome                | Descrição                                                              | Tipo de Dado | Tamanho | Restrições de Domínio |
+| -------------------- | ---------------------------------------------------------------------- | ------------ | ------- | --------------------- |
+| id                   | identificador gerado pelo SGBD                                         | INT          | ---     | PK / Identity         |
+| patient              | representa o cpf do(a) paciente                                        | VARCHAR      | 11      | FK                    |
+| doctor               | representa o crm do(a) médico(a) que registrou o diagnóstico           | VARCHAR      | 13      | FK                    |
+| appointment          | representa o id da consulta realizada                                  | APPOINTMENT  | ---     | FK                    |
+| exam_historic        | representa o histórico de exames do paciente                           | EXAM         | ---     | FK                    |
+| description          | representa a descrição do diagnóstico                                  | VARCHAR      | 500     | Not Null              |
+| Illness              | representa a o problema/doença constatado                              | VARCHAR      | 50      | Not Null              |
