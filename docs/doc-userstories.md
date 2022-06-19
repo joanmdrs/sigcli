@@ -220,3 +220,37 @@ RF20| Excluir Consulta
 | **TA06.04** | O usuário doutor navega até o módulo consulta. Estando no módulo de consulta, caso tenha um diagnóstico ele vai poder clicar e será mandado para uma página com o diagnóstico daquela consulta. Ainda terá nessa página dois botões de editar e deletar diagnóstico.
 | **TA06.05** | O usuário doutor navega até o módulo consulta. Estando no módulo de consulta, caso tenha um diagnóstico ele vai poder clicar e será mandado para uma página com o diagnóstico daquela consulta. Ainda terá nessa página dois botões de editar e deletar diagnóstico. O usuário seleciona o botão de editar, e os campos do formulário são preenchidos com os dados do diagnóstico a ser alterado. O usuário realiza a alteração dos campos de maneira incorreta e clica em Salvar, ao clicar em Salvar ele é notificado com uma mensagem de erro. Mensagem: A operação falhou, o campo “xxxx” não foi preenchido corretamente.
 | **TA06.06** | O usuário doutor navega até o módulo consulta. Estando no módulo de consulta, caso tenha um diagnóstico ele vai poder clicar e será mandado para uma página com o diagnóstico daquela consulta. Ainda terá nessa página dois botões de editar e deletar diagnóstico. O usuário seleciona o botão de editar, e os campos do formulário são preenchidos com os dados do diagnóstico a ser alterado. O usuário realiza a alteração dos campos de maneira Correta e clica em Salvar, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Atualização realizada com sucesso.
+
+
+### User Story US07 - Manter Pagamento
+
+**Descrição:** O sistema deve possuir uma área para inserir, alterar e buscar os pagamentos. Um pagamento tem como atributos: Uma consulta ou exame, um paciente, um médico, um valor, um método de pagamento e uma data de pagamento. Diagrama de classe disponível [aqui](doc-modelos.md).
+
+
+| #    | Requisitos Envolvidos |
+| ---- | --------------------- |
+| RF19 | Inserir Pagamento     |
+| RF20 | Listar Pagamento      |
+
+
+|                         |               |
+| ----------------------- | ------------- |
+| **Prioridade**          | Essencial     |
+| **Estimativa**          | 8h            |
+| **Tempo Gasto (real):** |               |
+| **Tamanho Funcional**   |               |
+| **Analistas**           | Rauan e Joan  |
+| **Desenvolvedores**     | Rauan e Joan  |
+| **Revisor**             | Allan         |
+| **Testador**            | Allan         |
+
+
+
+**Testes de Aceitação (TA)**
+
+| **Código**  | **Descrição**                                                                                                                                                                                                                                                                |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **TA07.01** | INSERIR - Caso de Sucesso: O usuário deseja inserir um Pagamento no sistema, então vai ao menu de Pagamentos, seleciona se trata-se de um pagamento de consulta ou exame. Escolhe o método de pagamento. Preenche todos os campos de maneira correta e com dados válidos e clica em Salvar/Cadastrar, recebendo uma notificação de sucesso na tela, como: "Pagamento cadastrado com sucesso!".                                                                                                    |
+| **TA07.02** | INSERIR - Caso de Fracasso: O usuário deseja inserir um Pagamento no sistema, então vai ao menu de inserir Pagamento, porém ele esquece, preenche algum ou todos os campos de maneira incorreta e/ou com dados inválidos e clica em Salvar/Cadastrar, recebendo uma notificação em tela de falha no cadastro, como: "ERRO: Um ou mais campos foram preenchidos de maneira incorreta!".                   |
+| **TA07.03** | LISTAR - Caso de Sucesso: Após rolat até a opção de Listar Pagamentos, surgirá uma tela com todos os pagamentos já cadastrados até o momento.                                                                                                                                                                                                                                                                     |
+| **TA07.04** | LISTAR - Caso de Fracasso: Após rolar até a opção de Listar Pagamentos, caso não haja nenhum pagamento cadastrado até o momento, surgirá uma notificação na tela informando erro na operação, como: "ERRO: Não há pagamentos cadastrados até o momento".                                                |
