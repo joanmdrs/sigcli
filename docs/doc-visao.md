@@ -68,6 +68,11 @@ RF23 - Buscar Exame               | A busca é feita com base no Id do exame. | 
 RF24 - Listar Exames              | Lista todas as instâncias de exame | Administrador/Médico/Recepcionista 
 RF25 - Excluir Exame              | A exclusão é feita com base no Id do exame | Administrador/Médico/Recepcionista 
 RF26 - Criação da Pagina de Login | Os Médicos, Recepcionistas e pacientes terão acesso a ela através do seu nome de usuário e senha. | Médico/Recepcionista/Paciente
+RF27 - Inserir Prontuário         | Prontuário possui o histórico de consultas e exames de um paciente, e o respectivo CPF. | Administrador/Recepcionista/Paciente
+RF28 - Alterar Prontuário         | Possibilidade de alterar o CPF, não é possível mudar o histórico de exames e de consultas. | Administrador/Recepcionista/Paciente
+RF29 - Buscar Prontuário          | Buscar um prontuário de um paciente pelo CPF. | Administrador/Recepcionista/Paciente
+RF30 - Excluir Prontuário         | Excluir um prontuário com seu id. | Administrador/Recepcionista/Paciente
+RF31 - Listar Prontuário          | Listar todos os prontuários cadastrados no sistema. | Administrador/Recepcionista/Paciente
 
 ## Requisitos Não-funcionais
 
