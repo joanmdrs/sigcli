@@ -13,3 +13,19 @@ export const getAllDiagnosisByAppointment = async (appointment_id) => {
         }
     })
 }
+
+export const deleteDiagnosisByID = async (diagnosis_id) => {
+    return await prisma.diagnosis.delete({
+        where: {
+            id: diagnosis_id
+        }
+    })
+}
+
+export const getOneDiagnosisByID = async (diagnosis_id) => {
+    return await prisma.diagnosis.findFirst({
+        where: {
+            id: diagnosis_id
+        }
+    })
+}

@@ -1,6 +1,6 @@
 import {findUniqueByCPFPatient} from '../repositories/patientRepository.js';
 import { findUniqueByCrmDoctor } from '../repositories/doctorRepository.js';
-import { getAllDiagnosisByAppointment } from '../repositories/diagnosisRepository.js';
+import { getAllDiagnosisByAppointment, deleteDiagnosisByID,getOneDiagnosisByID } from '../repositories/diagnosisRepository.js';
 import { validateCPF } from '../service/validations.js';
 
 import { createDiagnosis } from '../repositories/diagnosisRepository.js';
@@ -48,5 +48,21 @@ export const showAllDiagnosisByAppointment = async (req, res) => {
           .status(500)
           .json({ msg: "Error no servidor! Procure o administrador!" });
     }
+
+}
+export const deleteDiagnosis = async (req, res) => {
+    const {diagnosis_id} = req.params;
+    if(await getOneDiagnosisByID(Number(diagnosis_id)) == undefined){
+        return res.status(406).json({msg: 'Diagnóstico não encontrado!'});
+    }
+    try{
+        await deleteDiagnosisByID(Number(diagnosis_id));
+        res.status(200).json({msg: 'Diagnóstico deletado com sucesso!'});
+    }catch(error){
+        res
+          .status(500)
+          .json({ msg: "Error no servidor! Procure o administrador!" });
+    }
+
 
 }
