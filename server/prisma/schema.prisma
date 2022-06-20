@@ -42,7 +42,7 @@ model Doctor {
   email     String      @db.VarChar(255)
   username  String      @unique @db.VarChar(50)
   password  String      @db.VarChar(60)
-  Diagnosis Diagnosis[]
+  Diagnosis Diagnosis[] 
 }
 
 model Exam {
@@ -64,17 +64,17 @@ model Appointment {
   doctor_name      String      @db.VarChar(255)
   data_appointment String      @db.VarChar(20)
   description      String      @db.VarChar(500)
-  Diagnosis        Diagnosis[]
+  Diagnosis        Diagnosis?
 }
 
 model Diagnosis {
   id             Int         @id @default(autoincrement())
   doctor_crm     String      @unique
   doctor         Doctor      @relation(fields: [doctor_crm], references: [crm])
-  description    String      @db.VarChar(500)
+  description    String?     @db.VarChar(500)
   patient_cpf    String      @unique
   patient        Patient     @relation(fields: [patient_cpf], references: [cpf])
   appointment_id Int         @unique
   appointment    Appointment @relation(fields: [appointment_id], references: [id])
-  illness_id     String
+  illness     String
 }
