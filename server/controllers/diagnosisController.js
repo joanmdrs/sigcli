@@ -1,6 +1,6 @@
 import {findUniqueByCPFPatient} from '../repositories/patientRepository.js';
 import { findUniqueByCrmDoctor } from '../repositories/doctorRepository.js';
-
+import { getAllDiagnosisByAppointment } from '../repositories/diagnosisRepository.js';
 import { validateCPF } from '../service/validations.js';
 
 import { createDiagnosis } from '../repositories/diagnosisRepository.js';
@@ -19,8 +19,6 @@ export const registerDiagnosis = async (req, res) => {
         return res.status(406).json({msg: 'Médico não encontrado!'});
     }
 
-    
-
     try {
         const diagnosisBody = {
           illness,
@@ -38,4 +36,17 @@ export const registerDiagnosis = async (req, res) => {
           .status(500)
           .json({ msg: "Error no servidor! Procure o administrador!" });
     }
+}
+
+export const showAllDiagnosisByAppointment = async (req, res) => {
+    const {appointment_id} = req.params;
+    try{
+        const diagnosis = await getAllDiagnosisByAppointment(Number(appointment_id));
+        res.status(200).json(diagnosis);
+    }catch(error){
+        res
+          .status(500)
+          .json({ msg: "Error no servidor! Procure o administrador!" });
+    }
+
 }

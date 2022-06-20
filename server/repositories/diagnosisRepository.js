@@ -5,3 +5,11 @@ export const createDiagnosis = async (diagnosisBody) => {
         data: diagnosisBody
     })
 }
+
+export const getAllDiagnosisByAppointment = async (appointment_id) => {
+    return await prisma.diagnosis.findMany({
+        where: {
+            appointment_id
+        }
+    })
+}
