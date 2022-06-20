@@ -29,3 +29,12 @@ export const getOneDiagnosisByID = async (diagnosis_id) => {
         }
     })
 }
+
+export const updateDiagnosisByID = async (diagnosis_id, diagnosisBody) => {
+    return await prisma.diagnosis.update({
+        where: {
+            id: diagnosis_id
+        },
+        data: diagnosisBody
+    })
+}
