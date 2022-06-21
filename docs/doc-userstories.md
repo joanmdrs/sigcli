@@ -220,3 +220,42 @@ RF20| Excluir Consulta
 | **TA06.04** | O usuário doutor navega até o módulo consulta. Estando no módulo de consulta, caso tenha um diagnóstico ele vai poder clicar e será mandado para uma página com o diagnóstico daquela consulta. Ainda terá nessa página dois botões de editar e deletar diagnóstico.
 | **TA06.05** | O usuário doutor navega até o módulo consulta. Estando no módulo de consulta, caso tenha um diagnóstico ele vai poder clicar e será mandado para uma página com o diagnóstico daquela consulta. Ainda terá nessa página dois botões de editar e deletar diagnóstico. O usuário seleciona o botão de editar, e os campos do formulário são preenchidos com os dados do diagnóstico a ser alterado. O usuário realiza a alteração dos campos de maneira incorreta e clica em Salvar, ao clicar em Salvar ele é notificado com uma mensagem de erro. Mensagem: A operação falhou, o campo “xxxx” não foi preenchido corretamente.
 | **TA06.06** | O usuário doutor navega até o módulo consulta. Estando no módulo de consulta, caso tenha um diagnóstico ele vai poder clicar e será mandado para uma página com o diagnóstico daquela consulta. Ainda terá nessa página dois botões de editar e deletar diagnóstico. O usuário seleciona o botão de editar, e os campos do formulário são preenchidos com os dados do diagnóstico a ser alterado. O usuário realiza a alteração dos campos de maneira Correta e clica em Salvar, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Atualização realizada com sucesso.
+
+### User Story US07 - Manter Prontuário
+
+**Descrição:** O sistema deve possuir uma área para inserir, alterar e buscar os prontuários. Um prontuário tem como atributos um histórico de consultas, histórico de exames e o CPF do Paciente. Diagrama de classe disponível [aqui](doc-modelos.md#medicalrecord).
+
+
+
+| #    | Requisitos Envolvidos |
+| ---- | --------------------- |
+| RF27 | Inserir Prontuário   |
+| RF28 | Alterar Prontuário   |
+| RF29 | Buscar Prontuário    |
+| RF30 | Excluir Prontuário   |
+| RF31 | Listar Prontuário   |
+
+
+|                         |               |
+| ----------------------- | ------------- |
+| **Prioridade**          | Alta          |
+| **Estimativa**          | 10h           |
+| **Tempo Gasto (real):** |               |
+| **Tamanho Funcional**   | 32            |
+| **Analista**            | Adson         |
+| **Desenvolvedor**       | Adson         |
+| **Revisor**             | Allan         |
+| **Testador**            | Adson         |
+
+
+
+**Testes de Aceitação (TA)**
+
+| **Código**  | **Descrição**                                                                                                                                                                                                                                                                |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **TA07.01** | O usuário preenche o campo do CPF corretamente e clica no botão Salvar, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Prontuário cadastrado com sucesso.
+| **TA07.02** | O usuário não preenche o campo do CPF e clica no botão Salvar, ao clicar em Salvar ele é notificado com uma mensagem de erro. Mensagem: É necessário informar um CPF de Paciente.
+| **TA07.03** | O usuário clica no input de buscar, e prenche o campo de busca com um CPF cadastrado no sistema, ao clicar no botão Buscar, o sistema deve exibir aquela instância de prontuário.
+| **TA07.04** | O usuário clica no input de buscar, e prenche o campo de busca com um CPF não cadastrado no sistema, ao clicar no botão Buscar, o sistema deve exibir a mensagem "Nenhum prontuário para este CPF".
+| **TA07.05** | Na página de prontuários, uma lista com todos os prontuários deve ser exibida, com os botões de editar e excluir.
+| **TA07.07** | Ao clicar no botão de Excluir, será mostrado um alerta com opção de confirmar a exclusão ou cancelar; se confirmado, o prontuário será deletado do banco de dados.
