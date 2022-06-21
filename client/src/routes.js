@@ -5,13 +5,13 @@ import Patient from "./pages/Patient/Patient"
 import Appointment from "./pages/Appointment/Appointment"
 import Recepcionist from "./pages/Recepcionist/Recepcionist"
 import Doctor from "./pages/Doctor/Doctor"
-import {BrowserRouter, Routes as Switch, Route, Router } from "react-router-dom"
+import {BrowserRouter, Routes as Switch, Route } from "react-router-dom"
 import Login from "./pages/Login/Login";
 
 export default function Routes () {
 
     return (
-        <Router>
+        <BrowserRouter>
             <Switch>
                 <Route path="/login" element={<Login />} />
                 <Route path="/" element={<Home />} />
@@ -21,6 +21,6 @@ export default function Routes () {
                 <Route path="/recepcionists" element={<Recepcionist />} />
                 <Route path="/doctors" element={<Doctor />} />
             </Switch>
-        </Router>
+        </BrowserRouter>
     )
 }

@@ -1,4 +1,8 @@
 import './Box.css' 
-export default function Box(){
-  return <div />  
+export const Box = ({children}) => {
+  return (
+  <div className='box'>
+    {children}
+  </div> 
+  )
 }
