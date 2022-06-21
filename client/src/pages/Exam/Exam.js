@@ -83,8 +83,9 @@ export default function Exam(){
                 <HeaderExam 
                     title="Exam" 
                     text="Exam registration: Include, Search, Change, Delete and List" 
-                    icon="file-waveform"
+                    
                 ></HeaderExam>
+
                 <FormExam handleSaveButton={handleSaveButton} />
                <ListExam exams={listExams} setFields={handlePreparaToUpdate} handleDelete={handleDelete} />
             </BoxExam>
