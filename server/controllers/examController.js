@@ -6,6 +6,7 @@ import {
 } from '../repositories/examRepository.js'
 
 import {validateCPF} from '../service/validations.js';
+import {findUniqueByCrmDoctor} from '../repositories/doctorRepository.js';
 
 
 export const registerExam = async (req, res) => {
@@ -13,6 +14,10 @@ export const registerExam = async (req, res) => {
     if (!validateCPF(examBody.patient_cpf)) {
         return res.status(406).json({ msg: "CPF do paciente inválido!" });
     }
+    else if (!findUniqueByCrmDoctor(examBody.doctor_crm)) {
+        return res.status(406).json({ msg: "CRM do Doutor inexistente!" });
+    }
+    
     try{
         const exam = await createExam(examBody);
         res.status(200).json(exam);
