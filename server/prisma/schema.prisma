@@ -61,7 +61,8 @@ model Appointment {
   patient_name String @db.VarChar(255)
   doctor_crm String @db.VarChar(13)
   doctor_name String @db.VarChar(255)
-  data_appointment String @db.VarChar(20)
+  data_appointment String @db.VarChar(12)
+  hour_appointment String @db.VarChar(5)
   description String @db.VarChar(500)
 }  
 

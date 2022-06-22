@@ -66,6 +66,14 @@
 | doctor        | representa o id do médico(a) que solicitou o exame           | INT          | ---     | FK                    |
 | exam_place    | representa o local que o exame foi realizado                 | VARCHAR      | 255     | Not Null              |
 
+### MedicalRecord
+|   Tabela   | MedicalRecord                                                                          |
+| ---------- | -------------------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações do prontuário do paciente                                      |
 
-
-
+|  Nome                | Descrição                                                              | Tipo de Dado | Tamanho | Restrições de Domínio |
+| -------------------- | ---------------------------------------------------------------------- | ------------ | ------- | --------------------- |
+| id                   | identificador gerado pelo SGBD                                         | INT          | ---     | PK / Identity         |
+| appointment_historic | representa o histórico de consultas do paciente                        | APPOINTMENT  | ---     | FK                    |
+| exam_historic        | representa o histórico de exames do paciente                           | EXAM         | ---     | FK                    |
+| patient              | representa o cpf do(a) paciente                                        | VARCHAR      | 11      | FK                    |

@@ -5,7 +5,7 @@ import FormDoctor from "../../components/Forms/FormDoctor/FormDoctor";
 import ListDoctor from "../../components/ListDoctor/ListDoctor";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container as ContainerDoctor} from "../../components/Container/Container";
-import { Box as BoxDoctor } from "../../components/Box/Box";
+import {Box as BoxDoctor} from "../../components/Box/Box";
 import { Header as HeaderDoctor } from "../../components/Header/Header";
 import { Search } from "../../components/Search/Search";
 import {
