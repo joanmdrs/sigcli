@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swal from 'sweetalert2';
 import Nav from "../../components/Nav/Nav";
 import { Container as ContainerExam} from "../../components/Container/Container";
 import { Box as BoxExam } from "../../components/Box/Box";
@@ -6,7 +7,7 @@ import { Header as HeaderExam} from "../../components/Header/Header"
 import FormExam from "../../components/Forms/FormExam/FormExam";
 import { addExam, deleteExam, getActionForm, getExams, getValuesInput, messageFailure, messagePrepareToUpdate, messageSucess, setFields, updateExam } from "../../services/ExamServices";
 import ListExam from "../../components/ListExam/ListExam";
-import Swal from 'sweetalert2';
+
 
 export default function Exam(){
 
@@ -16,7 +17,6 @@ export default function Exam(){
     const handleSaveButton = () => {
 
         const data = getValuesInput();
-
         const action = getActionForm();
 
         if(action === "add"){
@@ -60,13 +60,14 @@ export default function Exam(){
         });
 
         setFields(data);
-    
+        
+        messagePrepareToUpdate(
+            "Edit Exam",
+            "Now you will edit this Exam's informations, be careful."
+        );
+        
     }
 
-    messagePrepareToUpdate(
-        "Edit Exam",
-        "Now you will edit this Exam's informations, be careful."
-    );
 
     // DELETE 
 
