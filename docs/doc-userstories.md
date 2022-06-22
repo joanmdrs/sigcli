@@ -259,3 +259,35 @@ RF20| Excluir Consulta
 | **TA07.04** | O usuário clica no input de buscar, e prenche o campo de busca com um CPF não cadastrado no sistema, ao clicar no botão Buscar, o sistema deve exibir a mensagem "Nenhum prontuário para este CPF".
 | **TA07.05** | Na página de prontuários, uma lista com todos os prontuários deve ser exibida, com os botões de editar e excluir.
 | **TA07.07** | Ao clicar no botão de Excluir, será mostrado um alerta com opção de confirmar a exclusão ou cancelar; se confirmado, o prontuário será deletado do banco de dados.
+
+
+### User Story US08 - Manter Pagamento
+
+**Descrição:** O sistema deve possuir uma área para inserir, alterar e buscar os pagamentos. Um pagamento tem como atributos: Uma consulta ou exame, um paciente, um médico, um valor, um método de pagamento e uma data de pagamento. Diagrama de classe disponível [aqui](doc-modelos.md).
+
+
+| #    | Requisitos Envolvidos |
+| ---- | --------------------- |
+| RF32 | Inserir Pagamento     |
+| RF33 | Listar Pagamento      |
+
+|                         |               |
+| ----------------------- | ------------- |
+| **Prioridade**          | Essencial     |
+| **Estimativa**          | 8h            |
+| **Tempo Gasto (real):** |               |
+| **Tamanho Funcional**   | 24            |
+| **Analistas**           | Rauan e Joan  |
+| **Desenvolvedores**     | Rauan e Joan  |
+| **Revisor**             | Allan         |
+| **Testador**            | Allan         |
+
+
+**Testes de Aceitação (TA)**
+
+| **Código**  | **Descrição**                                                                                                                                                                                                                                                                |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **TA08.01** | INSERIR - Caso de Sucesso: O usuário deseja inserir um Pagamento no sistema, então vai ao menu de Pagamentos, seleciona se trata-se de um pagamento de consulta ou exame. Escolhe o método de pagamento. Preenche todos os campos de maneira correta e com dados válidos e clica em Salvar/Cadastrar, recebendo uma notificação de sucesso na tela, como: "Pagamento cadastrado com sucesso!".                                                                                                    |
+| **TA08.02** | INSERIR - Caso de Fracasso: O usuário deseja inserir um Pagamento no sistema, então vai ao menu de inserir Pagamento, porém ele esquece, preenche algum ou todos os campos de maneira incorreta e/ou com dados inválidos e clica em Salvar/Cadastrar, recebendo uma notificação em tela de falha no cadastro, como: "ERRO: Um ou mais campos foram preenchidos de maneira incorreta!".                   |
+| **TA08.03** | LISTAR - Caso de Sucesso: Após rolat até a opção de Listar Pagamentos, surgirá uma tela com todos os pagamentos já cadastrados até o momento.                                                                                                                                                                                                                                                                     |
+| **TA08.04** | LISTAR - Caso de Fracasso: Após rolar até a opção de Listar Pagamentos, caso não haja nenhum pagamento cadastrado até o momento, surgirá uma notificação na tela informando erro na operação, como: "ERRO: Não há pagamentos cadastrados até o momento".                                                |
