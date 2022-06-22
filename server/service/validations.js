@@ -10,3 +10,16 @@ export const validatePhone = (phoneReceived)=>{
     const phoneFormatted = phoneReceived.trim();
     return validator.isMobilePhone(phoneFormatted, "pt-BR");
 }
+
+export const validateCRM = (crmReceived) => {
+    const crmFormatted = crmReceived.trim();
+    if(crmFormatted.length === 12){
+        return true;
+    }
+    return false;
+}
+
+export const validateDate = (dateReceived) => {
+    const dateFormatted = dateReceived.trim();
+    return validator.isDate(dateFormatted);
+}

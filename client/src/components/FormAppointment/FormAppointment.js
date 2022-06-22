@@ -13,7 +13,7 @@ import {
 } from 'reactstrap'
 
 
-function FormAppointment({handleSaveButton}) {
+function FormAppointment({handleSaveButton, handleSearchPatient, handleSearchDoctor}) {
   return (
     <Form className="form-appointment" data-action='add' id='form-appointment'>
         <FormGroup>
@@ -36,7 +36,9 @@ function FormAppointment({handleSaveButton}) {
                     <Input 
                         id="patient-cpf"
                         type="text" 
-                        placeholder="patient cpf">
+                        placeholder="patient cpf"
+                        onChange={handleSearchPatient}
+                    >
                     </Input>
                 </FormGroup>
             </Col>
@@ -57,13 +59,15 @@ function FormAppointment({handleSaveButton}) {
         <Row>
             <Col md={2}>
                 <FormGroup>
-                    <Label for="doctor-id">
+                    <Label for="doctor-crm">
                         Doctor CRM
                     </Label>
                     <Input 
                         id="doctor-crm"
                         type="number" 
-                        placeholder="doctor crm">
+                        placeholder="doctor crm"
+                        onChange={handleSearchDoctor}
+                    >
                     </Input>
                 </FormGroup>
             </Col>
@@ -80,18 +84,35 @@ function FormAppointment({handleSaveButton}) {
                 </FormGroup>
             </Col>
         </Row>
+        <Row>
+            <Col md={4}>
+                <FormGroup>
+                    <Label for="data">
+                        Date of Appointment
+                    </Label>
+                    <Input 
+                        id="data-appointment"
+                        type="date"
+                        placeholder="data appointment">
+                    </Input>
+                </FormGroup>
 
-        <FormGroup>
-            <Label for="data">
-                Date of Appointment
-            </Label>
-            <Input 
-                id="data-appointment"
-                type="data" 
-                placeholder="data appointment">
-            </Input>
-        </FormGroup>
+            </Col>
+            <Col md={4}>
+                <FormGroup>
+                    <Label for="data">
+                        Hour of Appointment
+                    </Label>
+                    <Input 
+                        id="hour-appointment"
+                        type="time"
+                        placeholder="hour appointment">
+                    </Input>
+                </FormGroup>
 
+            </Col>
+        </Row>
+       
         <Row >
             <Col md={8}>
                 <FormGroup>
