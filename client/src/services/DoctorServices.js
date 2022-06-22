@@ -1,17 +1,23 @@
 import api from "./api";
 import Swal from "sweetalert2";
 
-export const addDoctor = (data) => {
+export const addDoctor = async (data) => {
     const {name, crm, phone, email, username, password} = data;
 
-    api.post("/doctors", {
-      name: name,
-      crm: crm,
-      phone: phone,
-      email: email,
-      username: username,
-      password: password
-    });
+    try {
+        await api.post("/doctors", {
+            name: name,
+            crm: crm,
+            phone: phone,
+            email: email,
+            username: username,
+            password: password
+        });
+        messageConfirm("New doctor added.");
+    } catch(error){
+        messageFailure(error.response.data.msg);
+        console.log(error);
+    }
 }
 
 export const getDoctorByCrm = async (crmProvided) => {

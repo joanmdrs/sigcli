@@ -20,7 +20,6 @@ import {
     messageFailure,
     getDoctorByCrm
 } from "../../services/DoctorServices";
-import api from "../../services/api";
 
 function Doctor(){
     const [listDoctors, setListDoctors] = useState([]);
@@ -32,7 +31,6 @@ function Doctor(){
         if(action === "add"){
             try {
                 addDoctor(data);
-                messageConfirm("New doctor added.");
             } catch(error) {
                 messageFailure("Something went wrong.");
             }
