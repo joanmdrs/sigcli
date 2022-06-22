@@ -88,7 +88,7 @@ export default function Exam(){
 
                 <FormExam handleSaveButton={handleSaveButton} />
                 <ListExam 
-                    exam={listExams} 
+                    exams={listExams} 
                     setFields={handlePreparaToUpdate} 
                     handleDelete={handleDelete} />
             </BoxExam>
