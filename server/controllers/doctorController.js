@@ -7,14 +7,14 @@ import {
 } from "../repositories/doctorRepository.js";
 
 import { hashPassword } from '../service/cryptoService.js'
+import { validateCRM } from "../service/validations.js";
 
 
 export const registerDoctor = async (req, res) => {
-    // const doctorBody = req.body;
-    // const doctor = await createDoctor(doctorBody);
-    // res.json(doctor);
     const { name, crm, phone, email, username, password } = req.body
-
+    if (!validateCRM(crm.trim())){
+        return res.status(406).json({msg: "Invalid CRM: 12 characters required"});
+    }
     try {
         const doctorBody = {
         name: name.toLowerCase().trim(),
@@ -27,7 +27,7 @@ export const registerDoctor = async (req, res) => {
         const doctor = await createDoctor(doctorBody)
         res.status(200).json(doctor)
     } catch (error) {
-        res.status(500).json({ msg: 'Error no servidor! Procure o administrador!' })
+        res.status(500).json({ msg: 'Server Error' })
     }
 };
 
