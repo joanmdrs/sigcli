@@ -4,7 +4,7 @@ import { Container as ContainerExam} from "../../components/Container/Container"
 import { Box as BoxExam } from "../../components/Box/Box";
 import { Header as HeaderExam} from "../../components/Header/Header"
 import FormExam from "../../components/Forms/FormExam/FormExam";
-import { addExam, deleteExam, getActionForm, getExams, getValuesInput, messageConfirm, setFields, updateExam } from "../../services/ExamServices";
+import { addExam, deleteExam, getActionForm, getExams, getValuesInput, messageFailure, messagePrepareToUpdate, messageSucess, setFields, updateExam } from "../../services/ExamServices";
 import ListExam from "../../components/ListExam/ListExam";
 import Swal from 'sweetalert2';
 
@@ -12,7 +12,7 @@ export default function Exam(){
 
     const [listExams, setListExams] = useState([]);
 
-    // POST 
+    // POST OR UPDATE
     const handleSaveButton = () => {
 
         const data = getValuesInput();
@@ -20,13 +20,20 @@ export default function Exam(){
         const action = getActionForm();
 
         if(action === "add"){
-            addExam(data);
-            messageConfirm("New exam added.");
+            try{
+                addExam(data);
+                messageSucess("New exam added.");
+            }catch(error){
+                messageFailure("Something went wrong.")
+            }
         }else {
-            updateExam(action, data);
-            messageConfirm("The informations about this exam were updated.")
+            try{
+                updateExam(action, data);
+                messageSucess("The informations about this exam were updated.")
+            }catch(error){
+                messageFailure("Something went wrong.")
+            }  
         }
-
     }
 
     // LIST 
@@ -56,23 +63,15 @@ export default function Exam(){
     
     }
 
+    messagePrepareToUpdate(
+        "Edit Exam",
+        "Now you will edit this Exam's informations, be careful."
+    );
+
     // DELETE 
 
     const handleDelete = (id) => {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#0C6170',
-            confirmButtonText: 'Yes, delete it!'
-         }).then((result) => {
-            if (result.isConfirmed) {
-               deleteExam(id);
-               document.location.reload();
-            }
-         })
+        deleteExam(id);
     }
 
 
@@ -87,7 +86,10 @@ export default function Exam(){
                 ></HeaderExam>
 
                 <FormExam handleSaveButton={handleSaveButton} />
-               <ListExam exams={listExams} setFields={handlePreparaToUpdate} handleDelete={handleDelete} />
+                <ListExam 
+                    exam={listExams} 
+                    setFields={handlePreparaToUpdate} 
+                    handleDelete={handleDelete} />
             </BoxExam>
         </ContainerExam>
     )
