@@ -17,7 +17,23 @@ RF19| Listar Consultas
 RF20| Excluir Consulta
 
 #### Cálculo
-
+|#                | Valores |
+|-----------------|---------|
+|RLR              | Consulta
+|DERS             | (titulo, data e descrição)
+|ALI              | (Consulta, Paciente, Médico)
+|EE               | (Inserir Consulta, Alterar Consulta, Deletar Consulta) 
+|CE               | (Buscar Consulta, Listar Consultas)
+|ALR              | (Consulta, Paciente, Médico)
+|Complexidade Funcional das funções de dados | Baixa
+|Complexidade Funcional das funções de Transação | Média
+|
+```
+3 ALI * 7 = 21
+3 EE * 3 = 9
+2 CE * 3 = 6
+PF = 21+9+6 = 36
+```
 
 ### User Story US02 - Manter Paciente
 
