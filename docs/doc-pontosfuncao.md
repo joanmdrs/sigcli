@@ -47,7 +47,25 @@ PF = 21+9+6 = 36
 | RF09 | Listar Pacientes      |
 | RF10 | Excluir Paciente      |
 
-#### Cálculo                              
+#### Cálculo     
+
+|#                | Valores |
+|-----------------|---------|
+|RLR              | Paciente
+|DERS             | (nome, cpf, telefone e email)
+|ALI              | (Paciente)
+|EE               | (Inserir Paciente, Alterar Paciente, Deletar Paciente) 
+|CE               | (Buscar Paciente, Listar Pacientes)
+|ALR              | (Paciente)
+|Complexidade Funcional das funções de dados | Baixa
+|Complexidade Funcional das funções de Transação | Baixa
+|
+```
+1 ALI * 7 = 7
+3 EE * 3 = 9
+2 CE * 3 = 6
+PF = 7+9+6 = 22
+```
 
 ### User Story US03 - Manter Exame
 
