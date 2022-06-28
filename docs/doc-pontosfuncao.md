@@ -60,7 +60,7 @@ RF20| Excluir Consulta
 | RF09 | Listar Médicos        |
 | RF10 | Excluir Médico        |
 
-#### Cálculo]
+#### Cálculo
 
 |#                | Valores |
 |-----------------|---------|
