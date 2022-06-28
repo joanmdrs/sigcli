@@ -60,7 +60,41 @@ RF20| Excluir Consulta
 | RF09 | Listar Médicos        |
 | RF10 | Excluir Médico        |
 
-#### Cálculo
+#### Cálculo]
+
+|#                | Valores |
+|-----------------|---------|
+|RLR              | Médico
+|DERS             | (id, nome, crm, telefone, email, usernameFK)
+|ALI              | (Médico)
+|AIE              | (Usuário)
+|EE               | (Inserir Médico, Alterar Médico,  Excluir Médico) 
+|CE               | (Buscar Médico, Listar Médicos)
+|ALR              | (Médico, Usuário)
+|Complexidade Funcional das funções de dados | Baixa
+|Complexidade Funcional das funções de Transação | Baixa
+|
+
+Tabela Médico, Tabela Usuário
+1 ALI * 7PF + 1 AIE * 5PF = 12 PF
+
+Inserir, Buscar, Excluir, Atualizar, Listar Médicos
+3 EE * 3 + 2 CE * 3 = 15 PF
+
+Tamanho Funcional
+DFP = 27 PF
+
+Total de Nível de Influência
+DTI = 25 (aproximação suposta - cálculo opcional)
+
+Fator de Ajuste
+FAV = 0,65 + (DTI * 0,01)  = 0,65 + 0,25 = 0,9
+
+Tamanho Funcional Ajustado
+aDFP = 27 * 0,9 = 24,3 PF
+
+
+
 
 
 ### User Story US05 - Manter Recepcionista
