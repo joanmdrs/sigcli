@@ -158,6 +158,23 @@ PF = 7+9+6 = 22
 
 #### Cálculo
 
+|#                | Valores |
+|-----------------|---------|
+|RLR              | Diagnóstico
+|DERS             | (Doença, Descrição)
+|ALI              | (Dianóstico, Paciente, Médico)
+|EE               | (Inserir Diagnóstico, Alterar Diagnóstico) 
+|CE               | (Buscar Diagnóstico)
+|ALR              | (Dianóstico, Paciente, Médico)
+|Complexidade Funcional das funções de dados | Baixa
+|Complexidade Funcional das funções de Transação | Média
+|
+```
+3 ALI * 7 = 21
+2 EE * 4 = 8
+1 CE * 4 = 4
+PF = 21+8+4 = 33
+```
 
 ### User Story US07 - Manter Prontuário
 
