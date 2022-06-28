@@ -62,7 +62,23 @@ PF = 21+9+6 = 36
 | RF25 | Excluir Exame         |
 
 #### Cálculo
-
+|#                | Valores |
+|-----------------|---------|
+|RLR              | Exame
+|DERS             | titulo, doutor, paciente e descrição
+|ALI              | Paciente, Doutor
+|EE               | Inserir Exame, Alterar Exame, Excluir Exame
+|CE               | Buscar Exame, Listar Exame
+|ALR              | Paciente, Doutor
+|Complexidade Funcional das funções de dados | Baixa
+|Complexidade Funcional das funções de Transação | Baixa
+|
+```
+2 ALI * 7 = 14
+3 EE * 3 = 9
+2 CE * 3 = 6
+PF = 21+9+6 = 29
+```
 
 ### User Story US04 - Manter Médico
 
