@@ -26,7 +26,7 @@ RF20| Excluir Consulta
 |CE               | (Buscar Consulta, Listar Consultas)
 |ALR              | (Consulta, Paciente, Médico)
 |Complexidade Funcional das funções de dados | Baixa
-|Complexidade Funcional das funções de Transação | Média
+|Complexidade Funcional das funções de Transação | Baixa
 |
 ```
 3 ALI * 7 = 21
@@ -92,6 +92,23 @@ PF = 21+9+6 = 36
 | RF15 | Excluir Recepcionista |
 
 #### Cálculo
+|#                | Valores |
+|-----------------|---------|
+|RLR              | Recepcionista
+|DERS             | (nome, cpf, telefone e email)
+|ALI              | (Recepcionista)
+|EE               | (Inserir Recepcionista, Alterar Recepcionista, Deletar Recepcionista) 
+|CE               | (Buscar Recepcionista, Listar Recepcionistas)
+|ALR              | (Recepcionista)
+|Complexidade Funcional das funções de dados | Baixa
+|Complexidade Funcional das funções de Transação | Baixa
+|
+```
+1 ALI * 7 = 7
+3 EE * 3 = 9
+2 CE * 3 = 6
+PF = 7+9+6 = 22
+```
 
 
 ### User Story US06 - Manter Diagnóstico
