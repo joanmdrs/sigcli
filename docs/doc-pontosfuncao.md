@@ -238,3 +238,20 @@ PF = 21+8+4 = 33
  
 #### Cálculo
            
+|#                | Valores |
+|-----------------|---------|
+|RLR              | Pagamento
+|DERS             | (tipo, valor, data, método)
+|ALI              | (Pagamento, Paciente, Médico)
+|EE               | (Inserir Pagamento) 
+|CE               | (Listar Pagamentos)
+|ALR              | (Pagamento, Paciente, Médico)
+|Complexidade Funcional das funções de dados | Baixa
+|Complexidade Funcional das funções de Transação | Média
+|
+```
+3 ALI * 7 = 21
+1 EE * 3 = 3
+1 CE * 3 = 3
+PF = 21+3+3 = 27
+```
