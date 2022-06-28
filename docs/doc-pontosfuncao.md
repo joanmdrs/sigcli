@@ -225,6 +225,23 @@ PF = 21+8+4 = 33
 
 #### Cálculo
 
+|#                | Valores |
+|-----------------|---------|
+|RLR              | Prontuário
+|DERS             | cpf, histórico de consultas e de exames
+|ALI              | Prontuário, Consulta, Exame
+|EE               | Inserir Prontuário, Alterar Prontuário, Excluir Prontuário
+|CE               | Buscar Prontuário, Listar Prontuário
+|ALR              | Paciente, Doutor
+|Complexidade Funcional das funções de dados | Baixa
+|Complexidade Funcional das funções de Transação | Baixa
+|
+```
+3 ALI * 7 = 21
+3 EE * 3 = 9
+2 CE * 3 = 6
+PF = 21+9+6 = 36
+```
 
 ### User Story US08 - Manter Pagamento
 
