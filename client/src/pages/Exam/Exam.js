@@ -49,7 +49,7 @@ export default function Exam(){
 
         let data = {}
         listExams.forEach(element => {
-            element.id === ExamID ? data = element : data = data
+            if(element.id === ExamID) data = element
         });
 
         setFields(data);

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Swal from 'sweetalert2';
 import Nav from "../../components/Nav/Nav";
 import { Container as ContainerAppointment} from "../../components/Container/Container";
 import {BoxAppointment} from "../../components/BoxAppointment/BoxAppointment";
@@ -56,7 +55,7 @@ export default function Appointment(){
 
         let data = {}
         listAppointments.forEach(element => {
-            element.id === AppointmentID ? data = element : data = data
+            if(element.id === AppointmentID) data = element
         });
 
         setFields(data);

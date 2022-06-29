@@ -28,7 +28,7 @@ export const isAuthenticated = () => {
 }
 
 export const hasAuthorization = (user) => {
-    if(user.role == "ADMIN" || user.role == "RECEPCIONIST"){
+    if(user.role === "ADMIN" || user.role === "RECEPCIONIST"){
         return true;
     }
     return false;

@@ -20,7 +20,6 @@ import {
     messageFailure,
     getDoctorByCrm
 } from "../../services/DoctorServices";
-import api from "../../services/api";
 
 function Doctor(){
     const [listDoctors, setListDoctors] = useState([]);

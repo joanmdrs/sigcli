@@ -2,7 +2,7 @@ import "./Login.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import img from "../../assets/img/image-home.svg";
 import React from "react";
-import { FormGroup, Label, Input, Button , Alert} from 'reactstrap'
+import { FormGroup, Label, Input, Button } from 'reactstrap'
 import { useNavigate } from "react-router-dom";
 import { persistToken, signIn } from "../../services/LoginServices";
 import Swal from "sweetalert2";
