@@ -144,9 +144,6 @@ Tamanho Funcional Ajustado
 aDFP = 27 * 0,9 = 24,3 PF
 
 
-
-
-
 ### User Story US05 - Manter Recepcionista
 
 **Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir os recepcionistas. Um recepcionista tem como atributos um nome, um cpf, um telefone, um email, um username e uma senha. Diagrama de classe disponível [aqui](doc-modelos.md).
@@ -272,3 +269,8 @@ PF = 21+9+6 = 36
 1 CE * 3 = 3
 PF = 21+3+3 = 27
 ```
+
+### Tamanho Funcional Total do Sistema
+
+PF = 36 + 22 + 29 + 27 + 22 + 33 + 36 + 27 
+TOTAL PF = 232PF
