@@ -10,6 +10,7 @@ export const getValuesInput = () => {
        doctor_crm: document.getElementById("doctor-crm").value,
        doctor_name: document.getElementById("doctor-name").value,
        data_appointment: document.getElementById("data-appointment").value,
+       hour_appointment: document.getElementById("hour-appointment").value,
        description: document.getElementById("description").value
    };
  
@@ -23,17 +24,28 @@ export const getValuesInput = () => {
  
  export const addAppointment = (data) => {
  
-    const {title, patient_cpf, patient_name, doctor_crm, doctor_name, data_appointment, description} = data;
+    const { 
+      title, 
+      patient_cpf, 
+      patient_name, 
+      doctor_crm, 
+      doctor_name, 
+      data_appointment, 
+      hour_appointment, 
+      description} = data;
 
-    api.post("/appointments", {
+    let response = api.post("/appointments", {
       title: title,
       patient_cpf: patient_cpf,
       patient_name: patient_name,
       doctor_crm: doctor_crm,
       doctor_name: doctor_name,
       data_appointment: data_appointment,
+      hour_appointment: hour_appointment,
       description: description
     });
+
+    return response;
 }
 
 export const getAppointments = async () => {
@@ -45,7 +57,16 @@ export const getAppointments = async () => {
 
  export const setFields = (data) => {
 
-    const {id, title, patient_cpf, patient_name, doctor_crm, doctor_name, data_appointment, description} = data;
+    const {
+      id, 
+      title, 
+      patient_cpf, 
+      patient_name, 
+      doctor_crm, 
+      doctor_name, 
+      data_appointment, 
+      hour_appointment, 
+      description} = data;
  
     document.getElementById("form-appointment").dataset.action = id;
     document.getElementById("title").value = title;
@@ -54,14 +75,23 @@ export const getAppointments = async () => {
     document.getElementById("doctor-crm").value = doctor_crm;
     document.getElementById("doctor-name").value = doctor_name;
     document.getElementById("data-appointment").value = data_appointment;
+    document.getElementById("hour-appointment").value = hour_appointment;
     document.getElementById("description").value = description;
  }
  
  export const updateAppointment = (id, data) => {
  
-    const {title, patient_cpf, patient_name, doctor_crm, doctor_name, data_appointment, description} = data;
+    const {
+      title, 
+      patient_cpf, 
+      patient_name, 
+      doctor_crm, 
+      doctor_name, 
+      data_appointment, 
+      hour_appointment, 
+      description} = data;
  
-    api.put(`/appointments/${id}`, {
+    let response = api.put(`/appointments/${id}`, {
       id: id,
       title: title,
       patient_cpf: patient_cpf,
@@ -69,8 +99,11 @@ export const getAppointments = async () => {
       doctor_crm: doctor_crm,
       doctor_name: doctor_name,
       data_appointment: data_appointment,
+      hour_appointment: hour_appointment,
       description: description
     });
+
+    return response;
 
     
 }

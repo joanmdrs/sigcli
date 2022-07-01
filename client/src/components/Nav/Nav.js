@@ -42,7 +42,7 @@ export default function Nav(){
                     <FontAwesomeIcon className="icon-menu" icon={faHospitalUser} /> 
                     Patients
                 </Link>
-                <Link className="tag-link" to="/doctor" >
+                <Link className="tag-link" to="/doctors" >
                     <FontAwesomeIcon className="icon-menu" icon={faStethoscope} />  
                     Doctors
                 </Link>
@@ -51,7 +51,7 @@ export default function Nav(){
                    Exams
                 </Link>
 
-                <Link className="tag-link" to="/recepcionist" >
+                <Link className="tag-link" to="/recepcionists" >
                    <FontAwesomeIcon className="icon-menu" icon={faUserGear} /> 
                    Recepcionists
                 </Link>

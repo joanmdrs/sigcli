@@ -19,20 +19,22 @@ export const getActionForm = () => {
    return action;
 }
 
+
 export const addExam = (data) => {
 
-    const {title, patient_cpf, patient_name, doctor_crm, doctor_name, description} = data;
+   const {title, patient_cpf, patient_name, doctor_crm, doctor_name, description} = data;
 
-    api.post("/exams", {
+   api.post("/exams", {
       title: title,
       patient_cpf: patient_cpf,
       patient_name: patient_name,
       doctor_crm: doctor_crm,
       doctor_name: doctor_name,
       description: description
-    });
+   });
   
 }
+
 
 export const getExams = async () => {
    const res = await api.get("/exams");
@@ -54,51 +56,73 @@ export const setFields = (data) => {
    document.getElementById("description").value = description;
 }
 
+
 export const updateExam = (id, data) => {
 
    const {title, patient_cpf, patient_name, doctor_crm, doctor_name, description} = data;
 
    api.put(`/exams/${id}`, {
-     id: id,
-     title: title,
-     patient_cpf: patient_cpf,
-     patient_name: patient_name,
-     crm_doctor: doctor_crm,
-     doctor_name: doctor_name,
-     description: description,
+      id: id,
+      title: title,
+      patient_cpf: patient_cpf,
+      patient_name: patient_name,
+      doctor_crm: doctor_crm,
+      doctor_name: doctor_name,
+      description: description
    });
 }
 
-export const deleteExam = (id) => {
-   api.delete(`/exams/${id}`);
-}
 
-export const clearFields = () => {
-   document.getElementById("title").value = "";
-   document.getElementById("patient-cpf").value = "";
-   document.getElementById("patient-name").value = "";
-   document.getElementById("doctor-crm").value = "";
-   document.getElementById("doctor-name").value = "";
-   document.getElementById("description").value = "";
-};
- 
-export const messageConfirm = (message) => {
+export const deleteExam = (id) => {
 
    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#0C6170',
+      confirmButtonText: 'Yes, delete it!'
+   }).then((result) => {
+      if (result.isConfirmed) {
+        api.delete(`/exams/${id}`);
+        document.location.reload();
+      }
+   });
+}
+  
+
+export const messageSucess = (message) => {
+    Swal.fire({
       title: 'Success',
-      text: `${message}`,
+      text: message,
       icon: 'success',
       showCancelButton: false,
       confirmButtonColor: '#0C6170',
       confirmButtonText: 'Ok',
    }).then((result) => {
       if (result.isConfirmed) {
-         document.location.reload();
+        document.location.reload();
       }
    });
-
-
 }
+  
+
+export const messageFailure = (message) => {
+    Swal.fire({
+      title: "Failure",
+      text: message,
+      icon: "error",
+      showCancelButton: false,
+      confirmButtonColor: "#0C6170",
+      confirmButtonText: "Ok",
+   }).then((result) => {
+      if (result.isConfirmed) {
+        document.location.reload();
+      }
+   });
+}
+
 
 export const messagePrepareToUpdate = () => {
    Swal.fire({
@@ -110,6 +134,5 @@ export const messagePrepareToUpdate = () => {
       confirmButtonText: 'Ok',
   });
 }
-
 
 

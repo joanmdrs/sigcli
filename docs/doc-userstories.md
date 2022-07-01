@@ -6,7 +6,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 
 ### User Story US01 - Manter Consulta
 
-**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir consultas. Uma consulta tem como atributos um título, paciente, doutor, possui uma data e uma descrição. Diagrama de classe disponível [aqui](doc-class-diagram.md).
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir consultas. Uma consulta tem como atributos um título, paciente, doutor, possui uma data e uma descrição. Diagrama de classe disponível [aqui](doc-modelos.md).
 
 | # | Requisitos Envolvidos |
 ----|---------------------
@@ -21,7 +21,7 @@ RF20| Excluir Consulta
 | **Prioridade**            | Essencial    |
 | **Estimativa**            | 8h           |
 | **Tempo Gasto (real):**   |              |
-| **Tamanho Funcional**     | 40           |
+| **Tamanho Funcional**     | 36           |
 | **Analista**              | Allan        |
 | **Desenvolvedor**         | Rauan        |
 | **Revisor**               | Adson        |
@@ -41,7 +41,7 @@ RF20| Excluir Consulta
 
 ### User Story US02 - Manter Paciente
 
-**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir pacientes. Um paciente tem como atributos um nome, username e password. Diagrama de classe disponível [aqui](doc-class-diagram.md).
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir pacientes. Um paciente tem como atributos um nome, username e password. Diagrama de classe disponível [aqui](doc-modelos.md).
 
 | #    | Requisitos Envolvidos |
 | ---- | --------------------- |
@@ -55,8 +55,8 @@ RF20| Excluir Consulta
 | ----------------------- | ------------- |
 | **Prioridade**          | Essencial     |
 | **Estimativa**          | 8h            |
-| **Tempo Gasto (real):** |               |
-| **Tamanho Funcional**   | 40            |
+| **Tempo Gasto (real):** |       -       |
+| **Tamanho Funcional**   | 22            |
 | **Analista**            | Rauan         |
 | **Desenvolvedor**       | Allan         |
 | **Revisor**             | Joan          |
@@ -78,7 +78,7 @@ RF20| Excluir Consulta
 
 ### User Story US03 - Manter Exame
 
-**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir exames. Um exame tem como atributos um título, paciente, doutor, possui uma data, além de uma descrição e local do exame. Diagrama de classe disponível [aqui](doc-class-diagram.md).
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir exames. Um exame tem como atributos um título, paciente, doutor, possui uma data, além de uma descrição e local do exame. Diagrama de classe disponível [aqui](doc-modelos.md).
 
 | #    | Requisitos Envolvidos |
 | ---- | --------------------- |
@@ -110,7 +110,7 @@ RF20| Excluir Consulta
 
 ### User Story US04 - Manter Médico
 
-**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir os médicos. Um médico tem como atributos um nome, um crm, um username, e uma senha. Diagrama de classe disponível [aqui](doc-class-diagram.md).
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir os médicos. Um médico tem como atributos um nome, um crm, um username, e uma senha. Diagrama de classe disponível [aqui](doc-modelos.md).
 
 
 | #    | Requisitos Envolvidos |
@@ -145,3 +145,149 @@ RF20| Excluir Consulta
 | **TA04.06** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do médico pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão de editar, e os campos do formulário são preenchidos com os dados do médico a ser alterado. O usuário realiza a alteração dos campos de maneira incorreta e clica em Salvar, ao clicar em Salvar ele é notificado com uma mensagem de erro. Mensagem: A operação falhou, o campo “xxxx” não foi preenchido corretamente.
 | **TA04.07** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do médico pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão Excluir, ao clicar em Excluir, o usuário é notificado com uma pergunta acompanhada de 2 botões de escolha: um botão com a palavra Não e outro com a palavra Sim. Pergunta: Deseja realmente excluir o médico de id: 'xxxx'. Caso o usuário selecione a opção 'Não' ele deve ser notificado com uma mensagem informativa. Mensagem: Nenhuma alteração foi feita. Caso o usuário selecione a opção 'Sim' ele deve ser notificado com uma mensagem de sucesso. Mensagem: Médico excluído com sucesso. 
 | **TA04.08** | O usuário recepcionista/administrador navega até o módulo médico. Estando no módulo de médico, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do médico pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão Excluir e ele não tem permissão para Excluir, ao clicar em Excluir, o usuário é notificado com uma mensagem de erro. Mensagem: Você não possui permissão para realizar esta operação.
+
+### User Story US05 - Manter Recepcionista
+
+**Descrição:** O sistema deve possuir uma área para inserir, alterar, buscar, listar e excluir os recepcionistas. Um recepcionista tem como atributos um nome, um cpf, um telefone, um email, um username e uma senha. Diagrama de classe disponível [aqui](doc-modelos.md).
+
+| #    | Requisitos Envolvidos |
+| ---- | --------------------- |
+| RF11 | Inserir Recepcionista |
+| RF12 | Alterar Recepcionista |
+| RF13 | Buscar Recepcionista  |
+| RF14 | Listar Recepcionista  |
+| RF15 | Excluir Recepcionista |
+
+
+|                         |               |
+| ----------------------- | ------------- |
+| **Prioridade**          | Essencial     |
+| **Estimativa**          | 8h            |
+| **Tempo Gasto (real):** | (A preencher) |
+| **Tamanho Funcional**   | 22            |
+| **Analista**            | Allan         |
+| **Desenvolvedor**       | Joan          |
+| **Revisor**             | Rauan         |
+| **Testador**            | Rauan         |
+
+
+**Testes de Aceitação (TA)**
+
+| **Código**  | **Descrição**                                                                                                                                                                                                                                                                |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **TA05.01** | O usuário administrador navega até o módulo recepcionista. Estando no módulo de recepcionista, o usuário preenche todos os campos do formulário corretamente e clica no botão Salvar, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Cadastro realizado com sucesso.
+| **TA05.02** | O usuário administrador navega até o módulo recepcionista. Estando no módulo de recepcionista, o usuário preenche os dados de maneira incorreta e clica no botão Salvar, ao clicar em Salvar ele é notificado com uma mensagem de erro. Mensagem: Cadastro não realizado, o campo “xxxx” não foi informado corretamente.
+| **TA05.03** | O usuário administrador navega até o módulo recepcionista. Estando no módulo de recepcionista, o usuário seleciona a opção buscar, e prenche o campo de busca corretamente e clica e em Buscar, ao clicar em Buscar, o sistema fará uma busca no banco de dados, se a informação contida no campo de busca corresponder a alguma instância da entidade recepcionista, o sistema deve exibir aquela instância, caso contrário, o sistema deve exibir uma mensagem de aviso. Mensagem: Nada foi encontrado.
+| **TA05.04** | O usuário administrador navega até o módulo recepcionista. Estando no módulo de recepcionista, o usuário seleciona a opção buscar, e prenche o campo de busca de maneira incorreta e clica e em Buscar, ao clicar em Buscar ele é notificado com uma mensagem de aviso. Mensagem: Preencha o campo de busca corretamente.
+| **TA05.05** | O usuário administrador navega até o módulo recepcionista. Estando no módulo de recepcionista, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do recepcionista pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão de editar, e os campos do formulário são preenchidos com os dados do recepcionista a ser alterado. O usuário realiza a alteração dos campos corretamente e clica em Salvar, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Recepcionista alterado com sucesso.
+| **TA05.06** | O usuário administrador navega até o módulo recepcionista. Estando no módulo de recepcionista, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do recepcionista pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão de editar, e os campos do formulário são preenchidos com os dados do recepcionista a ser alterado. O usuário realiza a alteração dos campos de maneira incorreta e clica em Salvar, ao clicar em Salvar ele é notificado com uma mensagem de erro. Mensagem: A operação falhou, o campo “xxxx” não foi preenchido corretamente.
+| **TA05.07** | O usuário administrador navega até o módulo recepcionista. Estando no módulo de recepcionista, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do recepcionista pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão Excluir, ao clicar em Excluir, o usuário é notificado com uma pergunta acompanhada de 2 botões de escolha: um botão com a palavra Não e outro com a palavra Sim. Pergunta: Deseja realmente excluir o recepcionista de id: 'xxxx'. Caso o usuário selecione a opção 'Não' ele deve ser notificado com uma mensagem informativa. Mensagem: Nenhuma alteração foi feita. Caso o usuário selecione a opção 'Sim' ele deve ser notificado com uma mensagem de sucesso. Mensagem: Recepcionista excluído com sucesso. 
+| **TA05.08** | O usuário administrador navega até o módulo recepcionista. Estando no módulo de recepcionista, o usuário faz uma busca e recebe como resposta uma tabela contendo todas as informações do recepcionista pesquisado, além de dois botões, um de editar e outro de excluir. O usuário seleciona o botão Excluir e ele não tem permissão para Excluir, ao clicar em Excluir, o usuário é notificado com uma mensagem de erro. Mensagem: Você não possui permissão para realizar esta operação.
+
+### User Story US06 - Manter Diagnóstico
+
+**Descrição:** O sistema deve possuir uma área para inserir, alterar e buscar os diagósticos. Um diagnóstico tem como atributos um paciente, um médico, um problema encontrado e uma descrição. Diagrama de classe disponível [aqui](doc-modelos.md).
+
+
+
+| #    | Requisitos Envolvidos |
+| ---- | --------------------- |
+| RF16 | Inserir Diagnóstico   |
+| RF17 | Alterar Diagnóstico   |
+| RF18 | Buscar Diagnóstico    |
+
+
+|                         |               |
+| ----------------------- | ------------- |
+| **Prioridade**          | Essencial     |
+| **Estimativa**          | 8h            |
+| **Tempo Gasto (real):** |               |
+| **Tamanho Funcional**   | 33            |
+| **Analista**            | Wesley        |
+| **Desenvolvedor**       | Wesley        |
+| **Revisor**             | Allan         |
+| **Testador**            | Allan         |
+
+
+
+**Testes de Aceitação (TA)**
+
+| **Código**  | **Descrição**                                                                                                                                                                                                                                                                |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **TA06.01** | O usuário doutor navega até o módulo diagnóstico. Estando no módulo de diagnóstico, o usuário preenche todos os campos do formulário corretamente e clica no botão Salvar, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Cadastro realizado com sucesso.
+| **TA06.02** | O usuário doutor navega até o módulo diagnóstico. Estando no módulo de diagnóstico, o usuário preenche os dados de maneira incorreta e clica no botão Salvar, ao clicar em Salvar ele é notificado com uma mensagem de erro. Mensagem: Cadastro não realizado, o campo “xxxx” não foi informado corretamente.
+| **TA06.03** | O usuário doutor navega até o módulo consulta. Estando no módulo de consulta, o usuário seleciona a opção buscar, e prenche o campo de busca corretamente, ao clicar em Buscar, o sistema fará uma busca no banco de dados, se a informação contida no campo de busca corresponder a alguma instância da entidade consulta, o sistema deve exibir aquela instância com diagnóstico, caso contrário, o sistema mostra uma instância sem diagnóstico.
+| **TA06.04** | O usuário doutor navega até o módulo consulta. Estando no módulo de consulta, caso tenha um diagnóstico ele vai poder clicar e será mandado para uma página com o diagnóstico daquela consulta. Ainda terá nessa página dois botões de editar e deletar diagnóstico.
+| **TA06.05** | O usuário doutor navega até o módulo consulta. Estando no módulo de consulta, caso tenha um diagnóstico ele vai poder clicar e será mandado para uma página com o diagnóstico daquela consulta. Ainda terá nessa página dois botões de editar e deletar diagnóstico. O usuário seleciona o botão de editar, e os campos do formulário são preenchidos com os dados do diagnóstico a ser alterado. O usuário realiza a alteração dos campos de maneira incorreta e clica em Salvar, ao clicar em Salvar ele é notificado com uma mensagem de erro. Mensagem: A operação falhou, o campo “xxxx” não foi preenchido corretamente.
+| **TA06.06** | O usuário doutor navega até o módulo consulta. Estando no módulo de consulta, caso tenha um diagnóstico ele vai poder clicar e será mandado para uma página com o diagnóstico daquela consulta. Ainda terá nessa página dois botões de editar e deletar diagnóstico. O usuário seleciona o botão de editar, e os campos do formulário são preenchidos com os dados do diagnóstico a ser alterado. O usuário realiza a alteração dos campos de maneira Correta e clica em Salvar, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Atualização realizada com sucesso.
+
+### User Story US07 - Manter Prontuário
+
+**Descrição:** O sistema deve possuir uma área para inserir, alterar e buscar os prontuários. Um prontuário tem como atributos um histórico de consultas, histórico de exames e o CPF do Paciente. Diagrama de classe disponível [aqui](doc-modelos.md#medicalrecord).
+
+
+
+| #    | Requisitos Envolvidos |
+| ---- | --------------------- |
+| RF27 | Inserir Prontuário   |
+| RF28 | Alterar Prontuário   |
+| RF29 | Buscar Prontuário    |
+| RF30 | Excluir Prontuário   |
+| RF31 | Listar Prontuário   |
+
+
+|                         |               |
+| ----------------------- | ------------- |
+| **Prioridade**          | Alta          |
+| **Estimativa**          | 10h           |
+| **Tempo Gasto (real):** |               |
+| **Tamanho Funcional**   | 32            |
+| **Analista**            | Adson         |
+| **Desenvolvedor**       | Adson         |
+| **Revisor**             | Allan         |
+| **Testador**            | Adson         |
+
+
+
+**Testes de Aceitação (TA)**
+
+| **Código**  | **Descrição**                                                                                                                                                                                                                                                                |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **TA07.01** | O usuário preenche o campo do CPF corretamente e clica no botão Salvar, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Prontuário cadastrado com sucesso.
+| **TA07.02** | O usuário não preenche o campo do CPF e clica no botão Salvar, ao clicar em Salvar ele é notificado com uma mensagem de erro. Mensagem: É necessário informar um CPF de Paciente.
+| **TA07.03** | O usuário clica no input de buscar, e prenche o campo de busca com um CPF cadastrado no sistema, ao clicar no botão Buscar, o sistema deve exibir aquela instância de prontuário.
+| **TA07.04** | O usuário clica no input de buscar, e prenche o campo de busca com um CPF não cadastrado no sistema, ao clicar no botão Buscar, o sistema deve exibir a mensagem "Nenhum prontuário para este CPF".
+| **TA07.05** | Na página de prontuários, uma lista com todos os prontuários deve ser exibida, com os botões de editar e excluir.
+| **TA07.07** | Ao clicar no botão de Excluir, será mostrado um alerta com opção de confirmar a exclusão ou cancelar; se confirmado, o prontuário será deletado do banco de dados.
+
+
+### User Story US08 - Manter Pagamento
+
+**Descrição:** O sistema deve possuir uma área para inserir, alterar e buscar os pagamentos. Um pagamento tem como atributos: Uma consulta ou exame, um paciente, um médico, um valor, um método de pagamento e uma data de pagamento. Diagrama de classe disponível [aqui](doc-modelos.md).
+
+
+| #    | Requisitos Envolvidos |
+| ---- | --------------------- |
+| RF32 | Inserir Pagamento     |
+| RF33 | Listar Pagamento      |
+
+|                         |               |
+| ----------------------- | ------------- |
+| **Prioridade**          | Essencial     |
+| **Estimativa**          | 8h            |
+| **Tempo Gasto (real):** |      -        |
+| **Tamanho Funcional**   | 27            |
+| **Analistas**           | Rauan e Joan  |
+| **Desenvolvedores**     | Rauan e Joan  |
+| **Revisor**             | Allan         |
+| **Testador**            | Allan         |
+
+
+**Testes de Aceitação (TA)**
+
+| **Código**  | **Descrição**                                                                                                                                                                                                                                                                |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **TA08.01** | INSERIR - Caso de Sucesso: O usuário deseja inserir um Pagamento no sistema, então vai ao menu de Pagamentos, seleciona se trata-se de um pagamento de consulta ou exame. Escolhe o método de pagamento. Preenche todos os campos de maneira correta e com dados válidos e clica em Salvar/Cadastrar, recebendo uma notificação de sucesso na tela, como: "Pagamento cadastrado com sucesso!".                                                                                                    |
+| **TA08.02** | INSERIR - Caso de Fracasso: O usuário deseja inserir um Pagamento no sistema, então vai ao menu de inserir Pagamento, porém ele esquece, preenche algum ou todos os campos de maneira incorreta e/ou com dados inválidos e clica em Salvar/Cadastrar, recebendo uma notificação em tela de falha no cadastro, como: "ERRO: Um ou mais campos foram preenchidos de maneira incorreta!".                   |
+| **TA08.03** | LISTAR - Caso de Sucesso: Após rolat até a opção de Listar Pagamentos, surgirá uma tela com todos os pagamentos já cadastrados até o momento.                                                                                                                                                                                                                                                                     |
+| **TA08.04** | LISTAR - Caso de Fracasso: Após rolar até a opção de Listar Pagamentos, caso não haja nenhum pagamento cadastrado até o momento, surgirá uma notificação na tela informando erro na operação, como: "ERRO: Não há pagamentos cadastrados até o momento".                                                |

@@ -52,9 +52,9 @@ RF07 - Alterar Paciente           | A alteração permite a mudança do nome, no
 RF08 - Buscar Paciente            | A busca é feita com base no Id do paciente. | Administrador/Médico/Recepcionista 
 RF09 - Listar Pacientes           | Lista todos as instâncias de paciente | Administrador/Médico/Recepcionista
 RF10 - Excluir Paciente           | A exclusão é feita com base no Id do paciente | Administrador/Recepcionista
-RF11 - Inserir Recepcionista      | Um recepcionista possui nome, nome de usuário e senha. | Administrador
-RF12 - Alterar Recepcionista      | A alteração permite a mudança do nome, nome de usuário e senha. | Administrador 
-RF13 - Buscar Recepcionista       | A busca é feita com base no Id do recepcionista. | Administrador 
+RF11 - Inserir Recepcionista      | Um recepcionista possui nome, cpf, telefone, email, nome de usuário e senha. | Administrador
+RF12 - Alterar Recepcionista      | A alteração permite a mudança do telefone, email, nome, nome de usuário e senha. | Administrador 
+RF13 - Buscar Recepcionista       | A busca é feita com base no cpf do recepcionista. | Administrador 
 RF14 - Listar Recepcionistas      | Lista todos as instâncias de recepcionista | Administrador
 RF15 - Excluir Recepcionista      | A exclusão é feita com base no Id do(a) recepcionista | Administrador 
 RF16 - Inserir Consulta           | Uma consulta possui titulo, paciente, médico, data e descrição. | Administrador/Recepcionista 
@@ -68,6 +68,13 @@ RF23 - Buscar Exame               | A busca é feita com base no Id do exame. | 
 RF24 - Listar Exames              | Lista todas as instâncias de exame | Administrador/Médico/Recepcionista 
 RF25 - Excluir Exame              | A exclusão é feita com base no Id do exame | Administrador/Médico/Recepcionista 
 RF26 - Criação da Pagina de Login | Os Médicos, Recepcionistas e pacientes terão acesso a ela através do seu nome de usuário e senha. | Médico/Recepcionista/Paciente
+RF27 - Inserir Prontuário         | Prontuário possui o histórico de consultas e exames de um paciente, e o respectivo CPF. | Administrador/Recepcionista/Paciente
+RF28 - Alterar Prontuário         | Possibilidade de alterar o CPF, não é possível mudar o histórico de exames e de consultas. | Administrador/Recepcionista/Paciente
+RF29 - Buscar Prontuário          | Buscar um prontuário de um paciente pelo CPF. | Administrador/Recepcionista/Paciente
+RF30 - Excluir Prontuário         | Excluir um prontuário com seu id. | Administrador/Recepcionista/Paciente
+RF31 - Listar Prontuário          | Listar todos os prontuários cadastrados no sistema. | Administrador/Recepcionista/Paciente
+RF32 - Inserir Pagamento          | Pagamento possui Tipo (consulta ou exame), Id da consulta ou do exame, CPF do Paciente, Valor, Método de Pagamento e Data de Pagamento       | Administrador/Recepcionista/Paciente
+RF33 - Listar Pagamento           | Listar todos os pagamentos cadastrados no sistema.  | Administrador/Recepcionista/Paciente
 
 ## Requisitos Não-funcionais
 

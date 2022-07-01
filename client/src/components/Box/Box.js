@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-
-export const Box = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column ;
-`;
-
+import './Box.css' 
+export const Box = ({children}) => {
+  return (
+  <div className='box'>
+    {children}
+  </div> 
+  )
+}
