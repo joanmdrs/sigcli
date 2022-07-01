@@ -1,49 +1,35 @@
 import "./Login.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'antd/dist/antd.css';
 import img from "../../assets/img/image-home.svg";
 import React from "react";
 import { FormGroup, Label, Input, Button } from 'reactstrap'
 import { useNavigate } from "react-router-dom";
 import { persistToken, signIn } from "../../services/LoginServices";
-import Swal from "sweetalert2";
+import { message  } from 'antd';
 
 
 export default function Login() {
 
     const history = useNavigate();
+
     
     const handleSignIn = async () => {
 
+
         signIn().then((response) => {
-            Swal.fire({
-                title: "Success",
-                text: "Login sucessfully",
-                icon: "success",
-                showCancelButton: false,
-                confirmButtonColor: "#0C6170",
-                confirmButtonText: "Ok",
-              }).then((result) => {
-                if (result.isConfirmed) {
-                    persistToken(response.data.token);
-                    history("/home");
-                }
-              });
+            persistToken(response.data.token);
+            history("/home");
+            message.success("user is authenticated");
+
             
 
+
         }).catch((error) => {
-            Swal.fire({
-                title: "Failure",
-                text: 'Username or password is incorrect',
-                icon: "error",
-                showCancelButton: false,
-                confirmButtonColor: "#0C6170",
-                confirmButtonText: "Ok",
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  document.location.reload();
-                }
-              });
-    
+            message.error("username or password is incorrect");
+            setTimeout(() => {
+                window.location.reload()
+            }, 1500);
         })
         
     }

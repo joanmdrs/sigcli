@@ -10,19 +10,22 @@ auth.post("/login", async (req, res) => {
   const user = await findUniqueUserByUsername(username);
 
   try {
+
     if(user == undefined) {
       res.status(404).json({msg: 'Usuário não encontrado.'});
+     
 
     } else {
+
 
         if(comparePassword(password, user.password)){
           try {
             const secret = process.env.JWT_SECRET;
             const token = jwt.sign({ user }, secret, { expiresIn: "1h" });
-            return res.status(200).json({msg: "Usuário autenticao", token});       
+            return res.status(200).json({msg: "Usuário autenticado", token});       
 
           } catch (error) {
-            res.status(500).json({ msg: "Ocorreu um erro no servidor." });
+            res.status(500).json({ msg: "Usuário não autenticado" });
           }
 
         }else {
@@ -30,6 +33,7 @@ auth.post("/login", async (req, res) => {
         }
     }
   } catch (error) {
+
     res.status(500).json({ msg: 'Ocorreu um erro no servidor.' });
   }
 
