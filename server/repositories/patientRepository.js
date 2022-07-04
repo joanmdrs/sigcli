@@ -1,6 +1,7 @@
 import { prisma } from "../service/prisma.js";
 
 export const createPatient = async (patient) => {
+  
   return await prisma.patient.create({
     data: patient,
   });

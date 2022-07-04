@@ -34,8 +34,9 @@ export default function Patient() {
 
   const handleSaveButton = () => {
     createPatient(values).then((patient)=>{
-      messageSucess(`${patient.data.name} was added.`)
+      messageSucess(`New Patient was added.`)
     }).catch((error)=>{
+      console.log(error)
       messageFailure("Something went wrong.");
     });
     
@@ -70,6 +71,7 @@ export default function Patient() {
     editPatient(patientUpdated).then((response)=>{
       messageSucess(`${response.data.name} was updated.`)
     }).catch((error)=>{
+      console.log(error)
        Swal.fire({
          title: "Edit Patient",
          text: "Something was wrong.",
@@ -176,7 +178,7 @@ export default function Patient() {
             <Col md={4}>
               <FormGroup>
                 <Label for="password">Password</Label>
-                <Input id="password" name="password" type="text" placeholder="password" ref={passwordRef} onChange={handleChangeValues}></Input>
+                <Input id="password" name="password" type="password" placeholder="password" ref={passwordRef} onChange={handleChangeValues}></Input>
               </FormGroup>
             </Col>
           </Row>

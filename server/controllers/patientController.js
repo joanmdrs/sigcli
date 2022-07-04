@@ -5,13 +5,18 @@ import {
   updatePatientWithPrisma,
   deletePatientWithPrisma
 } from '../repositories/patientRepository.js'
+import { createUser } from '../repositories/userRepository.js'
 
 import { hashPassword } from '../service/cryptoService.js'
 
 import { validateCPF, validatePhone } from '../service/validations.js'
 
+
+
 export const registerPatient = async (req, res) => {
+
   const { name, cpf, phone, email, username, password } = req.body
+
   if (!validateCPF(cpf)) {
     return res.status(406).json({ msg: 'CPF Inválido!' })
   }
@@ -20,21 +25,34 @@ export const registerPatient = async (req, res) => {
     return res.status(406).json({ msg: 'Telefone Inválido!' })
   }
 
-
-
   try {
-    const patientBody = {
-      name: name.toLowerCase().trim(),
-      cpf: cpf.trim(),
-      phone: phone.trim(),
-      email: email.trim(),
-      username,
-      password: hashPassword(password)
+    const userBody = { 
+        username: username.trim(), 
+        password: hashPassword(password), 
+        role: "PATIENT"
+    };
+    const user = await createUser(userBody);
+
+    try {
+      const patientBody = {
+        name: name, 
+        cpf: cpf, 
+        phone: phone,
+        email: email,
+        username_fk: String(username)
+    
+      }
+      const patient = await createPatient(patientBody)
+
+  
+      res.status(200).json({patient, user})
+      
+    } catch (error) {
+      res.status(500).json({msg: 'Ocorreu um erro ao tentar criar o paciente'})
     }
-    const patient = await createPatient(patientBody)
-    res.status(200).json(patient)
+
   } catch (error) {
-    res.status(500).json({ msg: 'Error no servidor! Procure o administrador!' })
+    res.status(500).json({ msg: 'Ocorre um erro ao tentar criar o usuário' })
   }
 }
 
