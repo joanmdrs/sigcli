@@ -14,3 +14,11 @@ export const findUniqueUserByUsername= async (username) => {
     }
   })
 };
+
+export const deleteUser = async (username) => {
+  return await prisma.user.delete({
+    where: {
+      username: username,
+    }
+  })
+}
