@@ -14,10 +14,10 @@ export const patientRoutes = Router();
 // /recepcionist/register
 patientRoutes.post("/register", registerPatient);
 
-patientRoutes.get("/getAll", verifyToken, verifyAuthorization, listPatients);
+patientRoutes.get("/getAll", listPatients);
 
 patientRoutes.get("/:cpf", getPatientByCPF);
 
 patientRoutes.put('/:id', updatePatient);
 
-patientRoutes.delete("/:id", deletePatient);
+patientRoutes.delete("/:cpf", deletePatient);

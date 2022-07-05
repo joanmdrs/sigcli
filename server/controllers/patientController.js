@@ -5,7 +5,6 @@ import {
   updatePatientWithPrisma,
   deletePatientWithPrisma
 } from '../repositories/patientRepository.js'
-import { createUser } from '../repositories/userRepository.js'
 
 import { hashPassword } from '../service/cryptoService.js'
 
@@ -31,29 +30,24 @@ export const registerPatient = async (req, res) => {
         password: hashPassword(password), 
         role: "PATIENT"
     };
-    const user = await createUser(userBody);
-
-    try {
-      const patientBody = {
-        name: name, 
-        cpf: cpf, 
-        phone: phone,
-        email: email,
-        username_fk: String(username)
     
-      }
-      const patient = await createPatient(patientBody)
-
+    const patientBody = {
+      name: name, 
+      cpf: cpf, 
+      phone: phone,
+      email: email,
+      username_fk: String(username)
   
-      res.status(200).json({patient, user})
-      
-    } catch (error) {
-      res.status(500).json({msg: 'Ocorreu um erro ao tentar criar o paciente'})
     }
-
+    
+    const patientCreated = await createPatient(patientBody, userBody)
+    res.status(200).json(patientCreated);
+      
   } catch (error) {
-    res.status(500).json({ msg: 'Ocorre um erro ao tentar criar o usuário' })
+    console.log(error)
+    res.status(500).json({msg: 'Ocorreu um erro ao tentar criar o paciente'})
   }
+
 }
 
 export const listPatients = async (req, res) => {
@@ -86,13 +80,14 @@ export const getPatientByCPF = async (req, res) => {
 
 export const updatePatient = async (req, res) => {
   const idReceived = req.params.id
-  const { id, name, cpf, phone, email, username, password } = req.body
+  const { id, name, cpf, phone, email } = req.body
   if (!validateCPF(cpf)) {
     return res.status(406).json({ msg: 'CPF inválido!' })
   }
   if (!validatePhone(phone)) {
     return res.status(406).json({ msg: 'Telefone Inválido!' })
   }
+
   try {
     const patientBody = {
       id,
@@ -100,8 +95,6 @@ export const updatePatient = async (req, res) => {
       cpf: cpf.trim(),
       phone: phone.trim(),
       email: email.trim(),
-      username: username.trim(),
-      password: password.trim()
     }
     const updatedPatient = await updatePatientWithPrisma(
       patientBody,
@@ -109,16 +102,32 @@ export const updatePatient = async (req, res) => {
     )
     res.status(200).json(updatedPatient)
   } catch (error) {
+    console.log(error);
     res.status(500).json({ msg: 'Error no servidor! Procure o administrador!' })
   }
 }
 
 export const deletePatient = async (req, res) => {
+
+  const cpfReceived = req.params.cpf;
+  const patient = await findUniqueByCPFPatient(cpfReceived);
+
+  if (patient === null || patient === undefined)  {
+    return res.status(500)
+              .json({msg: "Erro no servidor, não foi possível encontrar o paciente"})
+  }
+
   try {
-    const id = req.params.id
-    const deletedPatient = await deletePatientWithPrisma(id)
-    res.json(deletedPatient)
+    const id = patient.id;
+    const username = patient.username_fk;
+
+    const deletedPatient = await deletePatientWithPrisma(id, username);
+
+    res.status(200).json(deletedPatient);
+
   } catch (error) {
-    res.status(500).json({ msg: 'Error no servidor! Procure o administrador!' })
+    
+    console.log(error)
+    res.status(500).json({ msg: 'Deu erro'})
   }
 }

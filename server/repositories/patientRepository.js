@@ -1,16 +1,19 @@
 import { prisma } from "../service/prisma.js";
 
-export const createPatient = async (patient) => {
+export const createPatient = async (patient, user) => {
   
-  return await prisma.patient.create({
-    data: patient,
-  });
+  return await prisma.$transaction([
+    prisma.user.create({
+      data: user,
+    }),
+    prisma.patient.create({
+      data: patient,
+    })
+  ]);
 };
 
 export const listPatient = async () => {
 
-  const data = await prisma.patient.findMany();
-  console.log("Fui chamado")
   return await prisma.patient.findMany();
 };
 
@@ -32,10 +35,20 @@ export const updatePatientWithPrisma = async (patient, idReceived) => {
   });
 };
 
-export const deletePatientWithPrisma = async (patientID) => {
-  return await prisma.patient.delete({
-    where: {
-      id: Number(patientID),
-    },
-  });
+export const deletePatientWithPrisma = async (patientID, patientUsername) => {
+  
+  return await prisma.$transaction([
+    prisma.patient.delete({
+      where: {
+        id: Number(patientID)
+      }
+    }),
+    prisma.user.delete({
+      where: {
+        username: String(patientUsername),
+      }
+    })
+
+
+  ])
 };
