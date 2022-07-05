@@ -8,13 +8,17 @@ import { Form, FormGroup, Label, Input, Row, Col, Button, Table, InputGroup } fr
 import { createPatient, editPatient, removePatient, listPatients, filterPatient, messageSucess, messageFailure } from '../../services/patientServices.js'
 import TableCard from "../../components/Table/Table.js";
 import Swal from 'sweetalert2';
+import Listpatient from '../../components/ListPatient/ListPatient';
+import ListPatient from '../../components/ListPatient/ListPatient';
 
 
 export default function Patient() {
 
   const [values, setValues] = useState();
-  const [listValues, setListValues] = useState();
+  const [listValues, setListValues] = useState([]);
   const [searchValue, setSearchValue] = useState([]);
+
+
 
 
   const idRef = useRef(null);
@@ -36,7 +40,7 @@ export default function Patient() {
     createPatient(values).then((patient)=>{
       messageSucess(`New Patient was added.`)
     }).catch((error)=>{
-      console.log(error)
+      console.log("Caiu aqui", error)
       messageFailure("Something went wrong.");
     });
     
@@ -95,15 +99,12 @@ export default function Patient() {
     passwordRef.current.value = '';
   };
 
-  const handleFilterButton = async ()  => {
-    const searchCpf = document.getElementById("searchCpf").value;
-    const data = await filterPatient(searchCpf);
-    const patients = JSON.parse(data);
-    setSearchValue(patients);
-    
+  const handleFilterPatientByCpf = async ()  => {
+    const cpfReceived = document.getElementById("searchCpf").value;
+    const data = await filterPatient(cpfReceived);
+    const patient = JSON.parse(data);
+    setListValues([patient]);
 
-    document.getElementById('tableSearch').classList.add("tablePatientClosed");
-    document.getElementById('filterTable').className = "tableFilterPatientOp table table-borderless table-hover";
   }
 
 
@@ -116,6 +117,8 @@ export default function Patient() {
 
     fetchData();
   }, []);
+
+  console.log(listValues)
 
   return (
     <div className="container-patient">
@@ -209,118 +212,19 @@ export default function Patient() {
             <Button 
             color="success" 
             onClick={() => {
-              handleFilterButton();
+              handleFilterPatientByCpf();
             }}>
               Search
             </Button>
           </InputGroup>
         </div>
+        <ListPatient
+          patients={listValues}
 
-        <Table responsive hover borderless className='tableFilterPatient' id='filterTable'>
-          <thead id="thead">
-            <tr>
-              <th>
-                Id
-              </th>
-              <th>
-                Name
-              </th>
-              <th>
-                Username
-              </th>
-              <th>
-                CPF
-              </th>
-              <th>
-                Phone
-              </th>
-              <th>
-                Email
-              </th>
-              <th>
-                Actions
-              </th>
-            </tr>
-          </thead>
-          <tbody id="tbody">
-            <tr>
-              <th scope="row">{searchValue.id}</th>
-              <td>{searchValue.name}</td>
-              <td>{searchValue.username}</td>
-              <td>{searchValue.cpf}</td>
-              <td>{searchValue.phone}</td>
-              <td>{searchValue.email}</td>
-              <td className='td-with-btns'>
-                  <Button className="btn-action btn-warning" onClick={() => {
-                    Swal.fire({
-                      title: 'Edit Patient',
-                      text: "Now you will edit this Patient's informations, be careful.",
-                      icon: 'info',
-                      showCancelButton: false,
-                      confirmButtonColor: '#0C6170',
-                      confirmButtonText: 'Ok',
-                    });
-                    document.getElementById("id").defaultValue = searchValue.id;
-                    document.getElementById("name").defaultValue = searchValue.name;
-                    document.getElementById("cpf").defaultValue = searchValue.cpf;
-                    document.getElementById("phone").defaultValue = searchValue.phone;
-                    document.getElementById("email").defaultValue = searchValue.email;
-                    document.getElementById("username").defaultValue = searchValue.username;
-                    document.getElementById("password").defaultValue = searchValue.password;
-                    document.getElementById("form-patient").dataset.action = "edit"
-                  }}>
-                    <FontAwesomeIcon className="icon-menu" icon={faPenToSquare} /> 
-                  </Button>
-                  <Button className="btn-action btn-danger" onClick={() => handleDeleteButton(searchValue.id)}>
-                    <FontAwesomeIcon className="icon-menu" icon={faTrash} />
-                  </Button>
-              </td>
-            </tr>
-          </tbody>
-        </Table>
+        >
+
+        </ListPatient>
         
-        <Table responsive hover borderless className='tablePatient' id ='tableSearch'>
-          <thead>
-            <tr>
-              <th>
-                Id
-              </th>
-              <th>
-                Name
-              </th>
-              <th>
-                Username
-              </th>
-              <th>
-                CPF
-              </th>
-              <th>
-                Phone
-              </th>
-              <th>
-                Email
-              </th>
-              <th>
-                Actions
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-          {typeof listValues !== "undefined" && listValues.map((value) => {
-            return <TableCard 
-            key={value.id} 
-            listCard={listValues} 
-            setListCard={setListValues} 
-            id={value.id} 
-            name={value.name} 
-            cpf={value.cpf} 
-            phone={value.phone} 
-            email={value.email} 
-            username={value.username} 
-            password={value.password}></TableCard>
-          })}
-          </tbody>
-        </Table>
 
       </div>
     </div>
