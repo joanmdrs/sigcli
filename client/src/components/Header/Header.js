@@ -7,7 +7,7 @@ export const Header = ({title, text, icon}) => {
   return (
     <div className="box-header">
         <div className="box-icon-and-title">
-            <FontAwesomeIcon className="icon" icon={faFileWaveform} /> 
+            <FontAwesomeIcon className="icon" icon={icon} /> 
             <h3> {title} </h3>
         </div>
         <div className="box-list-functions">
