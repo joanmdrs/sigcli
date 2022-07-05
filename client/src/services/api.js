@@ -1,7 +1,9 @@
 import axios from "axios";
 
-let token = localStorage.getItem('token');
-token = token.substring(1, token.length - 1);
+let storedToken = localStorage.getItem('token');
+let token
+
+storedToken !== null ? token = storedToken.substring(1, storedToken.length - 1) : token = null
 
 const api = axios.create({
   baseURL: "http://localhost:3001",
