@@ -58,7 +58,8 @@ export const registerPatient = async (req, res) => {
 
 export const listPatients = async (req, res) => {
   try {
-    const listPatients = await listPatient()
+    const listPatients = await listPatient();
+    
     if (listPatients.length == 0) {
       res.status(404).json({ msg: 'Não existe pacientes cadastrados!' })
     } else {

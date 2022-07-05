@@ -8,6 +8,9 @@ export const createPatient = async (patient) => {
 };
 
 export const listPatient = async () => {
+
+  const data = await prisma.patient.findMany();
+  console.log("Fui chamado")
   return await prisma.patient.findMany();
 };
 

@@ -1,7 +1,7 @@
 import api from "./api";
 import Swal from "sweetalert2";
-export const createPatient = (props) => {
 
+export const createPatient = (props) => {
   
   let response = api.post("/patients/register", {
     name: props.name,
@@ -46,8 +46,10 @@ export const messageFailure = (message) => {
 };
 
 export const listPatients = async () => {
-  const res = await api.get("/patients");
+
+  const res = await api.get("/patients/getAll");
   const data = res.data;    
+  console.log(data)
   return JSON.stringify(data);
 }
 
