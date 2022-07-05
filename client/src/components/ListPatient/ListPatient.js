@@ -5,25 +5,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table, Button } from 'reactstrap'
 import { faPenToSquare , faTrash } from '@fortawesome/free-solid-svg-icons'
 
-function ListPatient({patients, setFields, handleDelete}) {
+function ListPatient({patients, prepareToUpdate, removePatient }) {
 
-    return (
-        <Table responsive hover borderless className='table-list-patients'>
-            <thead>
-                <tr>
-                    <th> ID     </th>
-                    <th> name   </th>
-                    <th> cpf    </th>
-                    <th> phone  </th>
-                    <th> e-mail  </th>
-                    <th> username </th>
-                    <th> ações    </th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    patients !== undefined ?                 
+    if(patients.length !== 0){
+        return (
+            <Table responsive hover borderless className='table-list-patients'>
+                <thead>
+                    <tr>
+                        <th> ID     </th>
+                        <th> name   </th>
+                        <th> cpf    </th>
+                        <th> phone  </th>
+                        <th> e-mail  </th>
+                        <th> username </th>
+                        <th> ações    </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
                         patients.map((patient, key) => {
+
                             return (
                                 <tr key={key}>
                                     <td>{patient.id}</td>
@@ -36,15 +37,14 @@ function ListPatient({patients, setFields, handleDelete}) {
                                     <td className="td-with-btns">
 
                                         <Button className="btn-action btn-warning" onClick={() => {
-                                            setFields(patient.id);
-                                            //messagePrepareToUpdate();
+                                            prepareToUpdate(patient.cpf);
                                         
                                         }}>
                                             <FontAwesomeIcon className="icon-menu" icon={faPenToSquare} /> 
                                         </Button>
 
                                         <Button className="btn-action btn-danger" onClick={() => {
-                                            handleDelete(patient.id);
+                                           removePatient(patient.cpf);
                                             
                                         }}>
                                             <FontAwesomeIcon className="icon-menu" icon={faTrash} /> 
@@ -53,12 +53,19 @@ function ListPatient({patients, setFields, handleDelete}) {
                                 </tr>
                             )
                         })
-                    : "" 
-                }
-            </tbody>
-        </Table>
+                    }
+                </tbody>
+            </Table>
+        );
+    } 
 
-    );
+    return (
+        <div className='div-no-patients'>
+            Não há pacientes cadastrados
+        </div>
+    )
+   
 }
 
 export default ListPatient;
+
