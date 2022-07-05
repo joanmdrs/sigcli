@@ -83,6 +83,7 @@ export default function Exam(){
                 <HeaderExam 
                     title="Exam" 
                     text="Exam registration: Include, Search, Change, Delete and List" 
+                    icon="file-waveform"
                     
                 ></HeaderExam>
 

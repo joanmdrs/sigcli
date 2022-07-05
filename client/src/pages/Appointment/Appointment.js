@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Nav from "../../components/Nav/Nav";
 import { Container as ContainerAppointment} from "../../components/Container/Container";
-import {BoxAppointment} from "../../components/BoxAppointment/BoxAppointment";
-import HeaderAppointment from "../../components/HeaderAppointment/HeaderAppointment";
+import { Header as HeaderAppointment } from "../../components/Header/Header";
+import { Box as BoxAppointment } from "../../components/Box/Box";
 import FormAppointment from "../../components/FormAppointment/FormAppointment";
 import { addAppointment, deleteAppointment, getActionForm, getAppointments, getValuesInput, messageFailure, messagePrepareToUpdate, messageSucess, setFields, updateAppointment } from "../../services/AppointmentServices";
 import ListAppointment from "../../components/ListAppointment/ListAppointment";
-import { filterPatient } from "../../services/patientServices";
+// import { filterPatient } from "../../services/patientServices";
 import { getDoctorByCrm } from "../../services/DoctorServices";
 
 export default function Appointment(){
@@ -78,21 +78,21 @@ export default function Appointment(){
 
 
     const handleSearchPatient = async () => {
-        const cpfReceived = document.getElementById("patient-cpf").value;
+        // const cpfReceived = document.getElementById("patient-cpf").value;
 
-        try {
-            const data = await filterPatient(cpfReceived);
-            const patient = JSON.parse(data);
-            document.getElementById("patient-name").value = patient.name;
-            cpfReceived === "" 
-            ? 
-            document.getElementById("patient-name").value = "" 
-            : 
-            document.getElementById("patient-name").value = document.getElementById("patient-name").value;
-        }catch(error) {
-            document.getElementById("patient-name").value = "buscando ...";
+        // try {
+        //     const data = await filterPatient(cpfReceived);
+        //     const patient = JSON.parse(data);
+        //     document.getElementById("patient-name").value = patient.name;
+        //     cpfReceived === "" 
+        //     ? 
+        //     document.getElementById("patient-name").value = "" 
+        //     : 
+        //     document.getElementById("patient-name").value = document.getElementById("patient-name").value;
+        // }catch(error) {
+        //     document.getElementById("patient-name").value = "buscando ...";
 
-        }
+        // }
     }
 
     const handleSearchDoctor = async () => {
@@ -117,7 +117,11 @@ export default function Appointment(){
         <ContainerAppointment>
             <Nav />
             <BoxAppointment>
-                <HeaderAppointment />
+                <HeaderAppointment 
+                    title="Appointment" 
+                    text="Appointment registration: Include, Search, Change, Delete and List"
+                    icon="calendar-check"
+                ></HeaderAppointment>
                 <FormAppointment 
                     handleSaveButton={handleSaveButton} 
                     handleSearchPatient={handleSearchPatient}
