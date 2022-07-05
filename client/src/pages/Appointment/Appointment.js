@@ -23,7 +23,7 @@ export default function Appointment(){
           addAppointment(data).then((response) => {
             messageSucess("New Appointment added");
           }).catch((error) => {
-            console.log(error);
+            messageFailure("an error occurred on the server");
           });
             
               
@@ -32,7 +32,7 @@ export default function Appointment(){
             updateAppointment(data).then((response) => {
                 messageSucess("The informations about this appointment were updated.")
             }).catch((error) => {
-                messageFailure(error);
+                messageFailure("an error occurred on the server");
             });
             
         }
@@ -57,13 +57,9 @@ export default function Appointment(){
     const handlePreparaToUpdate = (AppointmentID) => {
 
         let data = {};
-        listAppointments.forEach(element => {
-<<<<<<< HEAD
+        listAppointments.forEach((element) => {
             if(element.id === AppointmentID) data = element
-=======
-            element.id === AppointmentID ? data = element : data = {}
->>>>>>> 46995df574f70651bd9ba994fb49beb3adff801a
-        });
+        })
 
         setFields(data);
         

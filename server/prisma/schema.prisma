@@ -82,24 +82,12 @@ model Exam {
 }
 
 model Appointment {
-<<<<<<< HEAD
-  id               Int    @id @default(autoincrement())
-  title            String @db.VarChar(255)
-  data_appointment String @db.VarChar(20)
-  description      String @db.VarChar(500)
-=======
+
   id Int @id @default(autoincrement())
   title String @db.VarChar(255)
-  patient_cpf String @db.VarChar(255)
-  patient_name String @db.VarChar(255)
-  doctor_crm String @db.VarChar(13)
-  doctor_name String @db.VarChar(255)
   data_appointment String @db.VarChar(12)
   hour_appointment String @db.VarChar(5)
   description String @db.VarChar(500)
-}  
->>>>>>> 46995df574f70651bd9ba994fb49beb3adff801a
-
   Patient     Patient @relation(fields: [patient_fk], references: [cpf])
   Doctor      Doctor  @relation(fields: [doctor_fk], references: [crm])
   patient_fk String

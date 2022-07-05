@@ -1,33 +1,33 @@
-import { Role } from "@prisma/client";
 import jwt, { decode } from "jsonwebtoken";
 
 export const verifyToken = (req, res, next) => {
 
-  const token = req.headers.authorization.split(' ')[1];// Capturando o cabeçalho de autenticação com o token
+  const token = (req.headers.authorization.split(' ')[1])
+  
   if (!token) return res.status(401).json({ msg: "Acesso negado!" });
   
-
   const secret = process.env.JWT_SECRET;
   try {
+  
     jwt.verify(token, secret);
-    const decoded = jwt.decode(token);
+    const decoded = decode(token);
 
     req.body = decoded; 
-    console.log(decoded);
-    return next();
-  } catch (err) {
+    next();
+
+  } catch (error) {
     res.status(400).json({ msg: "O Token é inválido!" });
   }
 };
 
-export const verifyAuthorization = (req, res) => {
-  // Verifica se o usuário possui permissão
+export const verifyAuthorization = (req, res, next) => {
+
   const {user} = req.body;
   
   try {
     
     if(user.role == "ADMIN" || user.role == "RECEPCIONIST") {
-      res.status(200).json({msg: "Usuário possui autorização de acesso"});
+      next();
     } else {
       res.status(401).json({msg: "Usuário não possui autorização de acesso"});
     }
