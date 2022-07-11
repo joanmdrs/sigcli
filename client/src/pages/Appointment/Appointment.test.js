@@ -23,11 +23,11 @@ beforeEach(() => {
   title.setAttribute("value", "Consulta");
 
   patient_cpf = document.createElement("input");
-  patient_cpf.setAttribute("id", "pacient-cpf");
-  patient_cpf.setAttribute("value","11215464809");
+  patient_cpf.setAttribute("id", "patient-cpf");
+  patient_cpf.setAttribute("value","71194505490");
 
   patient_name = document.createElement("input");
-  patient_name.setAttribute("id", "pacient-name");
+  patient_name.setAttribute("id", "patient-name");
   patient_name.setAttribute("value", "Rauan");
 
   doctor_crm = document.createElement("input");
@@ -40,11 +40,11 @@ beforeEach(() => {
 
   data_appointment = document.createElement("input");
   data_appointment.setAttribute("id", "data-appointment");
-  data_appointment.setAttribute("value","05-26-2022");
+  data_appointment.setAttribute("value","2022-05-26");
 
   hour_appointment = document.createElement("input");
   hour_appointment.setAttribute("id", "hour-appointment");
-  hour_appointment.setAttribute("value","12:50");
+  hour_appointment.setAttribute("value","09:50");
 
   description = document.createElement("input");
   description.setAttribute("id", "description");
@@ -68,17 +68,17 @@ afterEach(() => {
 
 
 //Teste getValuesInput
-it("returns the patient's cpf", () => {
+it("Retornando a Descrição da Consulta", () => {
 
   const got = getValuesInput();
   const expected = {
     title: "Consulta",
-    patient_cpf: "11215464809",
+    patient_cpf: "71194505490",
     patient_name: "Rauan",
     doctor_crm: "4659",
     doctor_name: "Flavius",
-    data_appointment: "05-26-2022",
-    hour_appointment: "12:50",
+    data_appointment: "2022-05-26",
+    hour_appointment: "09:50",
     description: "Consulta cardiaca"
   };
 
