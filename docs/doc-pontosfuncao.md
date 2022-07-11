@@ -47,7 +47,25 @@ PF = 21+9+6 = 36
 | RF09 | Listar Pacientes      |
 | RF10 | Excluir Paciente      |
 
-#### Cálculo                              
+#### Cálculo     
+
+|#                | Valores |
+|-----------------|---------|
+|RLR              | Paciente
+|DERS             | (nome, cpf, telefone e email)
+|ALI              | (Paciente)
+|EE               | (Inserir Paciente, Alterar Paciente, Deletar Paciente) 
+|CE               | (Buscar Paciente, Listar Pacientes)
+|ALR              | (Paciente)
+|Complexidade Funcional das funções de dados | Baixa
+|Complexidade Funcional das funções de Transação | Baixa
+|
+```
+1 ALI * 7 = 7
+3 EE * 3 = 9
+2 CE * 3 = 6
+PF = 7+9+6 = 22
+```
 
 ### User Story US03 - Manter Exame
 
@@ -62,7 +80,23 @@ PF = 21+9+6 = 36
 | RF25 | Excluir Exame         |
 
 #### Cálculo
-
+|#                | Valores |
+|-----------------|---------|
+|RLR              | Exame
+|DERS             | titulo, doutor, paciente e descrição
+|ALI              | Paciente, Doutor
+|EE               | Inserir Exame, Alterar Exame, Excluir Exame
+|CE               | Buscar Exame, Listar Exame
+|ALR              | Paciente, Doutor
+|Complexidade Funcional das funções de dados | Baixa
+|Complexidade Funcional das funções de Transação | Baixa
+|
+```
+2 ALI * 7 = 14
+3 EE * 3 = 9
+2 CE * 3 = 6
+PF = 21+9+6 = 29
+```
 
 ### User Story US04 - Manter Médico
 
@@ -108,9 +142,6 @@ FAV = 0,65 + (DTI * 0,01)  = 0,65 + 0,25 = 0,9
 
 Tamanho Funcional Ajustado
 aDFP = 27 * 0,9 = 24,3 PF
-
-
-
 
 
 ### User Story US05 - Manter Recepcionista
@@ -191,6 +222,23 @@ PF = 21+8+4 = 33
 
 #### Cálculo
 
+|#                | Valores |
+|-----------------|---------|
+|RLR              | Prontuário
+|DERS             | cpf, histórico de consultas e de exames
+|ALI              | Prontuário, Consulta, Exame
+|EE               | Inserir Prontuário, Alterar Prontuário, Excluir Prontuário
+|CE               | Buscar Prontuário, Listar Prontuário
+|ALR              | Paciente, Doutor
+|Complexidade Funcional das funções de dados | Baixa
+|Complexidade Funcional das funções de Transação | Baixa
+|
+```
+3 ALI * 7 = 21
+3 EE * 3 = 9
+2 CE * 3 = 6
+PF = 21+9+6 = 36
+```
 
 ### User Story US08 - Manter Pagamento
 
@@ -204,3 +252,25 @@ PF = 21+8+4 = 33
  
 #### Cálculo
            
+|#                | Valores |
+|-----------------|---------|
+|RLR              | Pagamento
+|DERS             | (tipo, valor, data, método)
+|ALI              | (Pagamento, Paciente, Médico)
+|EE               | (Inserir Pagamento) 
+|CE               | (Listar Pagamentos)
+|ALR              | (Pagamento, Paciente, Médico)
+|Complexidade Funcional das funções de dados | Baixa
+|Complexidade Funcional das funções de Transação | Média
+|
+```
+3 ALI * 7 = 21
+1 EE * 3 = 3
+1 CE * 3 = 3
+PF = 21+3+3 = 27
+```
+
+### Tamanho Funcional Total do Sistema
+
+PF = 36 + 22 + 29 + 27 + 22 + 33 + 36 + 27 
+TOTAL PF = 232PF
