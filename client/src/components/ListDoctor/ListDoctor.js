@@ -4,41 +4,46 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Table, Button } from 'reactstrap'
 import { faPenToSquare , faTrash } from '@fortawesome/free-solid-svg-icons'
-import { messagePrepareToUpdate } from '../../services/DoctorServices';
 
-function ListDoctor({doctors, setFields, handleDelete}) {
-    return (
-        <Table responsive hover borderless className='table-list-doctors'>
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">CRM</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    doctors !== undefined ?                 
+function ListDoctor({doctors, prepareToUpdate, removeDoctor }) {
+
+    if(doctors.length !== 0){
+        return (
+            <Table responsive hover borderless className='table-list-doctors'>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>CRM</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Username</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
                         doctors.map((doctor, key) => {
+
                             return (
                                 <tr key={key}>
                                     <td>{doctor.name}</td>
                                     <td>{doctor.crm}</td>
                                     <td>{doctor.phone}</td>
                                     <td>{doctor.email}</td>
-                                    <td>{doctor.username}</td>
+                                    <td>{doctor.username_fk}</td>
+
                                     <td className="td-with-btns">
+
                                         <Button className="btn-action btn-warning" onClick={() => {
-                                            setFields(doctor.id);
-                                            messagePrepareToUpdate();
+                                            prepareToUpdate(doctor.crm);
+                                        
                                         }}>
                                             <FontAwesomeIcon className="icon-menu" icon={faPenToSquare} /> 
                                         </Button>
+
                                         <Button className="btn-action btn-danger" onClick={() => {
-                                            handleDelete(doctor.id);
+                                           removeDoctor(doctor.crm);
+                                            
                                         }}>
                                             <FontAwesomeIcon className="icon-menu" icon={faTrash} /> 
                                         </Button>
@@ -46,11 +51,19 @@ function ListDoctor({doctors, setFields, handleDelete}) {
                                 </tr>
                             )
                         })
-                    : ""
-                }
-            </tbody>
-        </Table>
-    );
+                    }
+                </tbody>
+            </Table>
+        );
+    } 
+
+    return (
+        <div className='div-no-doctors'>
+            Não há médicos cadastrados
+        </div>
+    )
+   
 }
+
 
 export default ListDoctor;

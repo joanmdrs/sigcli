@@ -22,6 +22,8 @@ import {
 } from "../../services/DoctorServices";
 
 function Doctor(){
+
+    
     const [listDoctors, setListDoctors] = useState([]);
 
     const handleSaveButton = () => {
@@ -44,14 +46,25 @@ function Doctor(){
         }
     }
 
-    useEffect( () => {
+
+    useEffect(() => {
         const fetchData = async () => {
-            const data = await getDoctors();
-            const doctors = JSON.parse(data);
-            setListDoctors(doctors);
-        }
+    
+            try {
+                const data = await getDoctors();
+                const doctors = JSON.parse(data);
+                setListDoctors(doctors);
+                
+            } catch (error) {
+                setListDoctors([])
+            }
+          
+        };
+    
         fetchData();
-    }, []);
+      }, []);
+
+
 
     const handleDelete = async (doctorId) => {
         Swal.fire({
@@ -113,7 +126,11 @@ function Doctor(){
                     placeholder="crm"
                     handleSearch={handleFilterByCrm}
                 />
-                <ListDoctor doctors={listDoctors} setFields={handlePrepareToUpdate} handleDelete={handleDelete} />
+                <ListDoctor 
+                    doctors={listDoctors} 
+                    setFields={handlePrepareToUpdate} 
+                    handleDelete={handleDelete} 
+                ></ListDoctor>
             </BoxDoctor>
         </ContainerDoctor>
     );
