@@ -5,6 +5,7 @@ export const addDoctor = async (data) => {
     const {name, crm, phone, email, username, password} = data;
 
     try {
+        
         await api.post("/doctors", {
             name: name,
             crm: crm,

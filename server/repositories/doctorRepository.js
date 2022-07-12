@@ -1,9 +1,22 @@
 import { prisma } from "../service/prisma.js";
 
-export const createDoctor = async (doctor) => {
-    return await prisma.doctor.create({
+// export const createDoctor = async (doctor) => {
+//     return await prisma.doctor.create({
+//       data: doctor,
+//     });
+// };
+
+
+export const createDoctor = async (doctor, user) => {
+  
+  return await prisma.$transaction([
+    prisma.user.create({
+      data: user,
+    }),
+    prisma.doctor.create({
       data: doctor,
-    });
+    })
+  ]);
 };
 
 export const findUniqueByCrmDoctor = async (crm) => {

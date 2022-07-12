@@ -11,6 +11,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
 model User {
   id           Int           @unique @default(autoincrement())
   username     String        @id @unique @db.VarChar(60)

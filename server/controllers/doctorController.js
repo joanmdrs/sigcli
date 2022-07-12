@@ -10,22 +10,32 @@ import { hashPassword } from '../service/cryptoService.js'
 import { validateCRM } from "../service/validations.js";
 
 
+
 export const registerDoctor = async (req, res) => {
     const { name, crm, phone, email, username, password } = req.body
     if (!validateCRM(crm.trim())){
         return res.status(406).json({msg: "Invalid CRM: 12 characters required"});
     }
+
     try {
+        const userBody = { 
+            username: username.trim(), 
+            password: hashPassword(password), 
+            role: "DOCTOR"
+        };
+        
         const doctorBody = {
-        name: name.toLowerCase().trim(),
-        crm: crm.trim(),
-        phone: phone.trim(),
-        email: email.trim(),
-        username,
-        password: hashPassword(password)
+            name: name.toLowerCase().trim(),
+            crm: crm.trim(),
+            phone: phone.trim(),
+            email: email.trim(),
+            username_fk: String(username)
+      
         }
-        const doctor = await createDoctor(doctorBody)
-        res.status(200).json(doctor)
+        
+        const doctorCreated = await createDoctor(doctorBody, userBody)
+        res.status(200).json(doctorCreated);
+
     } catch (error) {
         res.status(500).json({ msg: 'Server Error' })
     }

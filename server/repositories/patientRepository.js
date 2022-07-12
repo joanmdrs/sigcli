@@ -12,6 +12,7 @@ export const createPatient = async (patient, user) => {
   ]);
 };
 
+
 export const listPatient = async () => {
 
   return await prisma.patient.findMany();
