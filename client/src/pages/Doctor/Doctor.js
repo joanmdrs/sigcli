@@ -107,6 +107,21 @@ function Doctor(){
     
     }
 
+    const handleRemoveDoctor = async (crm) => {
+        const result = await messageWarning();
+        
+        if(result.isConfirmed === true) {
+          removeDoctor(crm).then(() => {
+            messageSucess("Doctor successfully excluded")
+    
+          }).catch((error) => {
+            messageError("Deu merda");
+          });
+    
+        }
+      }
+    
+
     
 
 
@@ -130,7 +145,7 @@ function Doctor(){
                 <ListDoctor 
                     doctors={listDoctors} 
                     prepareToUpdate={handlePrepareToUpdate} 
-                    
+                    removeDoctor={handleRemoveDoctor}
                 ></ListDoctor>
             </BoxDoctor>
         </ContainerDoctor>

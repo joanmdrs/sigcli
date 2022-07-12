@@ -60,7 +60,23 @@ export const updateDoctor = async (req, res) => {
 };
 
 export const deleteDoctor = async (req, res) => {
-    const id = req.params.id;
-    const deletedDoctor = await deleteDoctorWithPrisma(id);
-    return res.json(deletedDoctor);
-};
+    const crm = req.params.crm;
+    const doctor = await findUniqueByCrmDoctor(crm);
+
+    if(doctor === null || doctor === undefined) {
+        return res.status(500)
+        .json({msg: "Erro no servidor, não foi possível encontrar o médico"})
+    }
+
+    try {
+        const id = doctor.id;
+        const username = doctor.username_fk;
+         
+        const deletedDoctor = await deleteDoctorWithPrisma(id, username);
+        return res.json(deletedDoctor);
+
+    } catch(error) {
+        res.status(500).json({msg : 'Ocorreu um problema no módulo de controle da entidade médico'})
+    }
+}
+

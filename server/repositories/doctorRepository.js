@@ -46,10 +46,17 @@ export const updateDoctorWithPrisma = async (doctor) => {
   });
 };
 
-export const deleteDoctorWithPrisma = async (doctorID) => {
-  return await prisma.doctor.delete({
-    where: {
-      id: Number(doctorID),
-    },
-  });
+export const deleteDoctorWithPrisma = async (doctorID, doctorUsername) => {
+  return await prisma.$transaction([
+    prisma.doctor.delete({
+      where: {
+        id: Number(doctorID),
+      }
+    }),
+    prisma.user.delete({
+      where: {
+        username: String(doctorUsername),
+      }
+    })
+  ])
 };

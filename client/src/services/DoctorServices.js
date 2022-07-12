@@ -53,7 +53,7 @@ export const updateDoctor = async (doctor) => {
 
 // DELETE A DOCTOR
 export const removeDoctor = (crm) => {
-    api.delete(`/doctors/${crm}`);
+    return api.delete(`/doctors/${crm}`);
 }
 
 // GET VALUES OF FORM DOCTORS
