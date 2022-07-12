@@ -32,7 +32,7 @@ export const findManyDoctors = async () => {
 };
 
 export const updateDoctorWithPrisma = async (doctor) => {
-  const { id, name, crm, phone, email, username, password } = doctor;
+  const { id, name, crm, phone, email } = doctor;
   return await prisma.doctor.update({
     where: {
       id: Number(id),
@@ -41,9 +41,7 @@ export const updateDoctorWithPrisma = async (doctor) => {
       name,
       crm,
       phone, 
-      email,
-      username,
-      password,
+      email
     },
   });
 };

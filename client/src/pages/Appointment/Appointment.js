@@ -7,7 +7,7 @@ import FormAppointment from "../../components/FormAppointment/FormAppointment";
 import { addAppointment, deleteAppointment, getActionForm, getAppointments, getValuesInput, messageFailure, messagePrepareToUpdate, messageSucess, setFields, updateAppointment } from "../../services/AppointmentServices";
 import ListAppointment from "../../components/ListAppointment/ListAppointment";
 // import { filterPatient } from "../../services/patientServices";
-import { getDoctorByCrm } from "../../services/DoctorServices";
+import { findDoctorByCrm } from "../../services/DoctorServices";
 
 export default function Appointment(){
 
@@ -99,7 +99,7 @@ export default function Appointment(){
         const crmReceived = document.getElementById("doctor-crm").value;
         
         try {
-            const data = await getDoctorByCrm(crmReceived);
+            const data = await findDoctorByCrm(crmReceived);
             const doctor = JSON.parse(data);
             document.getElementById("doctor-name").value = doctor.name;
             crmReceived === "" 

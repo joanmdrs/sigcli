@@ -17,12 +17,13 @@ export const createPatient = (patient) => {
   return response;
 }
 
+
+
 // LIST ALL PATIENTS
 export const listPatients = async () => {
 
   const res = await api.get("/patients/getAll");
   const data = res.data;    
-  console.log(data)
   return JSON.stringify(data);
 
 }
