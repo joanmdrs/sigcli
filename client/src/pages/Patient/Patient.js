@@ -35,11 +35,9 @@ export default function Patient() {
   const handleSaveButton = () => {
     createPatient(values).then((patient)=>{
       messageSucess(`${patient.data.name} was added.`)
-    }).catch((error)=>{
+    }).catch(()=>{
       messageFailure("Something went wrong.");
     });
-    
-    
   }
 
   const handleClickButton = () => {
@@ -69,7 +67,7 @@ export default function Patient() {
     };
     editPatient(patientUpdated).then((response)=>{
       messageSucess(`${response.data.name} was updated.`)
-    }).catch((error)=>{
+    }).catch(()=>{
        Swal.fire({
          title: "Edit Patient",
          text: "Something was wrong.",

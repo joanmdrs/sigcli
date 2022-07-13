@@ -20,7 +20,7 @@ export default function Appointment(){
         const action = getActionForm();
 
         if(action === "add"){
-          addAppointment(data).then((response) => {
+          addAppointment(data).then(() => {
             messageSucess("New Appointment added");
           }).catch((error) => {
             console.log(error);
@@ -29,7 +29,7 @@ export default function Appointment(){
               
         }else {
 
-            updateAppointment(data).then((response) => {
+            updateAppointment(data).then(() => {
                 messageSucess("The informations about this appointment were updated.")
             }).catch((error) => {
                 messageFailure(error);
