@@ -69,7 +69,7 @@ export const getPatientByCPF = async (req, res) => {
   try {
     const patient = await findUniqueByCPFPatient(cpf)
     if (patient == undefined) {
-      res.status(404).json({ msg: 'Paciente não foi encontrado!' })
+      res.status(404).json({ msg: 'Paciente não encontrado!' })
     } else {
       res.status(200).json(patient)
     }
