@@ -26,27 +26,26 @@ export const findUniqueByCPFPatient = async (cpf) => {
   });
 };
 
-export const updatePatientWithPrisma = async (patient, idReceived) => {
-  //const { name, cpf, phone, email, username, password } = patient;
+export const updatePatientWithPrisma = async (patient, id) => {
   return await prisma.patient.update({
     where: {
-      id: Number(idReceived),
+      id: Number(id),
     },
     data: patient
   });
 };
 
-export const deletePatientWithPrisma = async (patientID, patientUsername) => {
+export const deletePatientWithPrisma = async (id, username) => {
   
   return await prisma.$transaction([
     prisma.patient.delete({
       where: {
-        id: Number(patientID)
+        id: Number(id)
       }
     }),
     prisma.user.delete({
       where: {
-        username: String(patientUsername),
+        username: String(username),
       }
     })
 
