@@ -27,14 +27,12 @@ export default function Appointment(){
           });
             
               
-        }else {
-
-            updateAppointment(data).then(() => {
+        } else {
+            updateAppointment(action, data).then(() => {
                 messageSucess("The informations about this appointment were updated.")
             }).catch((error) => {
                 messageFailure(error);
             });
-            
         }
     }
 
@@ -58,7 +56,9 @@ export default function Appointment(){
 
         let data = {};
         listAppointments.forEach(element => {
-            element.id === AppointmentID ? data = element : data = {}
+            if (element.id === AppointmentID){
+                data = element
+            }
         });
 
         setFields(data);
