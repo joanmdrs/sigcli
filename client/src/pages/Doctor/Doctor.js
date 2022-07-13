@@ -117,6 +117,6 @@ function Doctor(){
             </BoxDoctor>
         </ContainerDoctor>
     );
-};
+}
 
 export default Doctor;
