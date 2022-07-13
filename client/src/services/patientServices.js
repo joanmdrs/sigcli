@@ -1,6 +1,5 @@
 import api from "./api";
 
-
 // INSERT A PATIENT
 export const createPatient = (patient) => {
   
