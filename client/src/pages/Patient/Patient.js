@@ -1,5 +1,5 @@
 import './Patient.css';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Nav from '../../components/Nav/Nav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

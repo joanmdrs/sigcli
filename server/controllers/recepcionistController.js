@@ -93,7 +93,6 @@ export const updateRecepcionist = async (req, res) => {
   try {
 
     const recepcionistBody = {
-      id,
       name: name.trim(),
       cpf: cpf.trim(),
       phone: phone.trim(),

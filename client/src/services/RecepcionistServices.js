@@ -33,13 +33,15 @@ export const getOneRecepcionist = async (cpf) => {
 // UPDATE RECEPCIONIST 
 export const updateRecepcionist = (recepcionist) => {
 
-   api.put(`/recepcionists/${recepcionist.id}`, {
+   let response = api.put(`/recepcionists/${recepcionist.id}`, {
      id: recepcionist.id,
      name: recepcionist.name,
      cpf: recepcionist.cpf,
      phone: recepcionist.phone,
      email: recepcionist.email
    });
+
+   return response;
 }
 
 // DELETE ONE RECEPCIONIST
@@ -68,6 +70,7 @@ export const getValuesFormRecepcionist = () => {
 
 export const setFieldsFormRecepcionist = (recepcionist) => {
 
+   console.log(recepcionist)
    const {id, name, cpf, phone, email, username_fk} = recepcionist;
 
    document.getElementById("form-recepcionist").dataset.action = id;
@@ -75,9 +78,10 @@ export const setFieldsFormRecepcionist = (recepcionist) => {
    document.getElementById("phone").value = phone;
    document.getElementById("email").value = email;
 
-   let cpfField = document.getElementById("cpf").value = cpf;
+   let cpfField = document.getElementById("cpf");
    cpfField.value = cpf;
    cpfField.disabled = true;
+
 
    let username = document.getElementById("username");
    username.value = username_fk;
