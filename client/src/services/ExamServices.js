@@ -22,14 +22,12 @@ export const getActionForm = () => {
 
 export const addExam = (data) => {
 
-   const {title, patient_cpf, patient_name, doctor_crm, doctor_name, description} = data;
+   const {title, patient_cpf, doctor_crm, description} = data;
 
    api.post("/exams", {
       title: title,
-      patient_cpf: patient_cpf,
-      patient_name: patient_name,
-      doctor_crm: doctor_crm,
-      doctor_name: doctor_name,
+      patient_fk: patient_cpf,
+      doctor_fk: doctor_crm,
       description: description
    });
   
@@ -43,15 +41,15 @@ export const getExams = async () => {
 }
 
 
-export const setFields = (data) => {
+export const setFields = (data, patient_name, doctor_name) => {
 
-   const {id, title, patient_cpf, patient_name, doctor_crm, doctor_name, description} = data;
+   const {id, title, patient_fk, doctor_fk, description} = data;
 
    document.getElementById("form-exam").dataset.action = id;
    document.getElementById("title").value = title;
-   document.getElementById("patient-cpf").value = patient_cpf;
+   document.getElementById("patient-cpf").value = patient_fk;
    document.getElementById("patient-name").value = patient_name;
-   document.getElementById("doctor-crm").value = doctor_crm;
+   document.getElementById("doctor-crm").value = doctor_fk;
    document.getElementById("doctor-name").value = doctor_name;
    document.getElementById("description").value = description;
 }
@@ -59,15 +57,14 @@ export const setFields = (data) => {
 
 export const updateExam = (id, data) => {
 
-   const {title, patient_cpf, patient_name, doctor_crm, doctor_name, description} = data;
+   const {title, patient_cpf, doctor_crm, description} = data;
+
 
    api.put(`/exams/${id}`, {
       id: id,
       title: title,
-      patient_cpf: patient_cpf,
-      patient_name: patient_name,
-      doctor_crm: doctor_crm,
-      doctor_name: doctor_name,
+      patient_fk: patient_cpf,
+      doctor_fk: doctor_crm,
       description: description
    });
 }

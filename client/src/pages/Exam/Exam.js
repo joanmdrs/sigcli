@@ -7,9 +7,12 @@ import { Header as HeaderExam} from "../../components/Header/Header"
 import FormExam from "../../components/Forms/FormExam/FormExam";
 import { addExam, deleteExam, getActionForm, getExams, getValuesInput, messageFailure, messagePrepareToUpdate, messageSucess, setFields, updateExam } from "../../services/ExamServices";
 import ListExam from "../../components/ListExam/ListExam";
+import { findDoctorByCrm } from "../../services/DoctorServices";
+import { findPatientByCpf } from "../../services/patientServices";
 
 
 export default function Exam(){
+
 
     const [listExams, setListExams] = useState([]);
 
@@ -52,14 +55,24 @@ export default function Exam(){
     
     // SETFIELDS  
 
-    const handlePreparaToUpdate = (ExamID) => {
+    const handlePreparaToUpdate = async (ExamID) => {
 
         let data = {}
         listExams.forEach(element => {
             if(element.id === ExamID) data = element
         });
 
-        setFields(data);
+        const getPatient = await findPatientByCpf(data.patient_fk);
+        const patient = JSON.parse(getPatient);
+
+
+
+        const getDoctor = await findDoctorByCrm(data.doctor_fk);
+        const doctor = JSON.parse(getDoctor);
+
+
+
+        setFields(data, patient.name, doctor.name);
         
         messagePrepareToUpdate(
             "Edit Exam",
@@ -75,6 +88,42 @@ export default function Exam(){
         deleteExam(id);
     }
 
+    const handleSearchPatient = async () => {
+        const cpfReceived = document.getElementById("patient-cpf").value;
+
+        try {
+            const data = await findPatientByCpf(cpfReceived);
+            const patient = JSON.parse(data);
+            document.getElementById("patient-name").value = patient.name;
+            cpfReceived === "" 
+            ? 
+            document.getElementById("patient-name").value = "" 
+            : 
+            document.getElementById("patient-name").value = document.getElementById("patient-name").value;
+        }catch(error) {
+            document.getElementById("patient-name").value = "buscando ...";
+
+        }
+    }
+
+    const handleSearchDoctor = async () => {
+        const crmReceived = document.getElementById("doctor-crm").value;
+        
+        try {
+            const data = await findDoctorByCrm(crmReceived);
+            const doctor = JSON.parse(data);
+            document.getElementById("doctor-name").value = doctor.name;
+            crmReceived === "" 
+            ? 
+            document.getElementById("doctor-name").value = "" 
+            : 
+            document.getElementById("doctor-name").value = document.getElementById("doctor-name").value;
+        }catch(error) {
+            document.getElementById("doctor-name").value = "buscando ...";
+
+        }
+    }
+
 
     return (
         <ContainerExam>
@@ -87,7 +136,10 @@ export default function Exam(){
                     
                 ></HeaderExam>
 
-                <FormExam handleSaveButton={handleSaveButton} />
+                <FormExam 
+                    handleSaveButton={handleSaveButton} 
+                    handleSearchPatient={handleSearchPatient} 
+                    handleSearchDoctor={handleSearchDoctor} />
                 <ListExam 
                     exams={listExams} 
                     setFields={handlePreparaToUpdate} 
