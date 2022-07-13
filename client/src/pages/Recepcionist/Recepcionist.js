@@ -4,9 +4,8 @@ import { Container as ContainerRecepcionist} from "../../components/Container/Co
 import { Box as BoxRecepcionist } from "../../components/Box/Box";
 import { Header as HeaderRecepcionist} from "../../components/Header/Header"
 import { FormRecepcionist } from "../../components/Forms/FormRecepcionist/FormRecepcionist";
-import { addRecepcionist, deleteRecepcionist, getActionForm, getAllRecepcionist, getOneRecepcionist, getValuesInput, messageConfirm, messageConfirmDelete, setFields, updateRecepcionist } from "../../services/RecepcionistServices";
+import { addRecepcionist, getActionForm, getAllRecepcionist, getValuesInput, messageConfirm, messageConfirmDelete, setFields, updateRecepcionist } from "../../services/RecepcionistServices";
 import { ListRecepcionist } from "../../components/Listing/ListRecepcionist/ListRecepcionist";
-import Swal from 'sweetalert2';
 import { Search } from "../../components/Search/Search";
 import api from "../../services/api";
 
@@ -66,7 +65,7 @@ export default function Recepcionist() {
     const allRecepcionists = await getAllRecepcionist();
     const data = JSON.parse(allRecepcionists);
 
-    const verifyID = (value) => value == RecepcionistID;
+    const verifyID = (value) => value === RecepcionistID;
     let recepcionist = data.filter((element) => (verifyID(element.id)));
 
     setFields(recepcionist[0]);

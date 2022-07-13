@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Swal from 'sweetalert2';
 import Nav from "../../components/Nav/Nav";
 import { Container as ContainerExam} from "../../components/Container/Container";
 import { Box as BoxExam } from "../../components/Box/Box";
