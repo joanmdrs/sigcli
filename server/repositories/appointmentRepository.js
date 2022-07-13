@@ -2,14 +2,7 @@ import { prisma } from "../service/prisma.js";
 
 export const createAppointment = async (appointment) => {
     return await prisma.appointment.create({
-        data : {
-            title: String(appointment.title),
-            data_appointment: String(appointment.data_appointment),
-            hour_appointment: String(appointment.hour_appointment),
-            description: String(appointment.description), 
-            patient_fk: String(appointment.patient_fk),
-            doctor_fk: String(appointment.doctor_fk)
-        }
+        data : appointment,
     });
 
 }

@@ -4,12 +4,12 @@ import Swal from 'sweetalert2';
 
 export const getValuesInput = () => {
     const data = {
-       title: document.getElementById("title").value,
-       data_appointment: document.getElementById("data-appointment").value,
-       hour_appointment: document.getElementById("hour-appointment").value,
-       description: document.getElementById("description").value,
-       patient_fk: document.getElementById("patient-cpf").value,
-       doctor_fk: document.getElementById("doctor-crm").value
+      title: document.getElementById("title").value,
+      data_appointment: document.getElementById("data-appointment").value,
+      hour_appointment: document.getElementById("hour-appointment").value,
+      description: document.getElementById("description").value,
+      patient_fk: document.getElementById("patient-cpf").value,
+      doctor_fk: document.getElementById("doctor-crm").value
    };
  
    return data;
@@ -49,10 +49,9 @@ export const getAppointments = async () => {
  }
 
 
- export const setFields = (data) => {
+ export const setFields = (id, data) => {
 
   const { 
-    id,
     title,
     data_appointment, 
     hour_appointment, 
@@ -69,8 +68,9 @@ export const getAppointments = async () => {
     document.getElementById("doctor-crm").value = doctor_fk;
  }
  
- export const updateAppointment = (id, data) => {
- 
+ export const updateAppointment = async (id, data) => {
+  
+    console.log(data)
     const { 
       title,
       data_appointment, 
@@ -79,7 +79,7 @@ export const getAppointments = async () => {
       patient_fk, 
       doctor_fk} = data;
  
-    let response = api.put(`/appointments/${id}`, {
+    let response = await api.put(`/appointments/${id}`, {
       id: id,
       title: title,
       data_appointment: data_appointment,
