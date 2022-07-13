@@ -1,7 +1,8 @@
 import api from "./api";
 import Swal from "sweetalert2";
+
 export const createPatient = (props) => {
-  let response = api.post("/patients", {
+  return api.post("/patients", {
     name: props.name,
     cpf: props.cpf,
     phone: props.phone,
@@ -9,7 +10,6 @@ export const createPatient = (props) => {
     username: props.username,
     password: props.password,
   });
-  return response;
 }
 
 export const messageSucess = (message) => {

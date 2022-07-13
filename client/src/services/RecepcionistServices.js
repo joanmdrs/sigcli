@@ -2,7 +2,7 @@ import api from "./api";
 import Swal from 'sweetalert2';
 
 export const getValuesInput = () => {
-   const data = {
+   return {
       name: document.getElementById("name").value,
       cpf: document.getElementById("cpf").value,
       phone: document.getElementById("phone").value,
@@ -10,13 +10,10 @@ export const getValuesInput = () => {
       username: document.getElementById("username").value,
       password: document.getElementById("password").value
   };
-
-  return data;
 }
 
 export const getActionForm = () => {
-   const action = document.getElementById("form-recepcionist").dataset.action;
-   return action;
+   return document.getElementById("form-recepcionist").dataset.action;
 }
 
 export const addRecepcionist = (data) => {
