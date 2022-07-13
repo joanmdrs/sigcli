@@ -24,19 +24,19 @@ import {
 function Doctor(){
     const [listDoctors, setListDoctors] = useState([]);
 
-    const handleSaveButton = () => {
+    const handleSaveButton = async () => {
         const data = getValuesInput();
         const action = getActionForm();
 
         if(action === "add"){
             try {
-                addDoctor(data);
+                await addDoctor(data);
             } catch(error) {
                 messageFailure("Something went wrong.");
             }
         } else {
             try {
-                updateDoctor(action, data);
+                await updateDoctor(action, data);
                 messageConfirm("The informations about this doctor were updated.")
             } catch(error){
                 messageFailure("Something went wrong");
@@ -117,6 +117,6 @@ function Doctor(){
             </BoxDoctor>
         </ContainerDoctor>
     );
-};
+}
 
 export default Doctor;

@@ -20,21 +20,19 @@ export default function Appointment(){
         const action = getActionForm();
 
         if(action === "add"){
-          addAppointment(data).then((response) => {
+          addAppointment(data).then(() => {
             messageSucess("New Appointment added");
           }).catch((error) => {
             console.log(error);
           });
             
               
-        }else {
-
-            updateAppointment(data).then((response) => {
+        } else {
+            updateAppointment(action, data).then(() => {
                 messageSucess("The informations about this appointment were updated.")
             }).catch((error) => {
                 messageFailure(error);
             });
-            
         }
     }
 
@@ -58,7 +56,9 @@ export default function Appointment(){
 
         let data = {};
         listAppointments.forEach(element => {
-            element.id === AppointmentID ? data = element : data = {}
+            if (element.id === AppointmentID){
+                data = element
+            }
         });
 
         setFields(data);

@@ -2,7 +2,7 @@ import api from "./api";
 import Swal from 'sweetalert2';
 
 export const getValuesInput = () => {
-   const data = {
+   return {
       title: document.getElementById("title").value,
       patient_cpf: document.getElementById("patient-cpf").value,
       patient_name: document.getElementById("patient-name").value,
@@ -10,21 +10,18 @@ export const getValuesInput = () => {
       doctor_name: document.getElementById("doctor-name").value,
       description: document.getElementById("description").value
   };
-
-  return data;
 }
 
 export const getActionForm = () => {
-   const action = document.getElementById("form-exam").dataset.action;
-   return action;
+   return document.getElementById("form-exam").dataset.action;
 }
 
 
-export const addExam = (data) => {
+export const addExam = async (data) => {
 
    const {title, patient_cpf, patient_name, doctor_crm, doctor_name, description} = data;
 
-   api.post("/exams", {
+   await api.post("/exams", {
       title: title,
       patient_cpf: patient_cpf,
       patient_name: patient_name,

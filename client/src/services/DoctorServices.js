@@ -26,10 +26,10 @@ export const getDoctorByCrm = async (crmProvided) => {
     return JSON.stringify(data);
 }
 
-export const updateDoctor = (id, data) => {
+export const updateDoctor = async (id, data) => {
     const {name, crm, phone, email, username, password} = data;
 
-    api.put(`/doctors/${id}`, {
+    await api.put(`/doctors/${id}`, {
       id: id,
       name: name,
       crm: crm,
@@ -51,7 +51,7 @@ export const getDoctors = async () => {
 }
 
 export const getValuesInput = () => {
-    const data = {
+    return {
        name: document.getElementById("input-name").value,
        crm: document.getElementById("input-crm").value,
        phone: document.getElementById("input-phone").value,
@@ -59,12 +59,10 @@ export const getValuesInput = () => {
        username: document.getElementById("input-username").value,
        password: document.getElementById("input-password").value
    };
-   return data;
 }
 
 export const getActionForm = () => {
-    const action = document.getElementById("form-doctor").dataset.action;
-    return action;
+    return document.getElementById("form-doctor").dataset.action;
 }
 
 export const setFields = (data) => {

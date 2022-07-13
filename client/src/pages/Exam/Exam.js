@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Swal from 'sweetalert2';
 import Nav from "../../components/Nav/Nav";
 import { Container as ContainerExam} from "../../components/Container/Container";
 import { Box as BoxExam } from "../../components/Box/Box";
@@ -14,19 +13,19 @@ export default function Exam(){
     const [listExams, setListExams] = useState([]);
 
     // POST OR UPDATE
-    const handleSaveButton = () => {
+    const handleSaveButton = async () => {
 
         const data = getValuesInput();
         const action = getActionForm();
 
         if(action === "add"){
-            try{
-                addExam(data);
-                messageSucess("New exam added.");
-            }catch(error){
-                messageFailure("Something went wrong.")
-            }
-        }else {
+            addExam(data).then(() => {
+              messageSucess("New Exam added");
+            }).catch((error) => {
+              messageFailure(error);
+              console.log(error);
+            });
+        } else {
             try{
                 updateExam(action, data);
                 messageSucess("The informations about this exam were updated.")
@@ -56,7 +55,9 @@ export default function Exam(){
 
         let data = {}
         listExams.forEach(element => {
-            element.id === ExamID ? data = element : data = data
+            if (element.id === ExamID){
+                data = element
+            }
         });
 
         setFields(data);

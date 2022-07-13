@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 
 
 export const getValuesInput = () => {
-    const data = {
+    return {
        title: document.getElementById("title").value,
        patient_cpf: document.getElementById("patient-cpf").value,
        patient_name: document.getElementById("patient-name").value,
@@ -13,13 +13,10 @@ export const getValuesInput = () => {
        hour_appointment: document.getElementById("hour-appointment").value,
        description: document.getElementById("description").value
    };
- 
-   return data;
  }
  
  export const getActionForm = () => {
-    const action = document.getElementById("form-appointment").dataset.action;
-    return action;
+    return document.getElementById("form-appointment").dataset.action;
  }
  
  export const addAppointment = (data) => {
@@ -34,7 +31,7 @@ export const getValuesInput = () => {
       hour_appointment, 
       description} = data;
 
-    let response = api.post("/appointments", {
+    return api.post("/appointments", {
       title: title,
       patient_cpf: patient_cpf,
       patient_name: patient_name,
@@ -44,8 +41,6 @@ export const getValuesInput = () => {
       hour_appointment: hour_appointment,
       description: description
     });
-
-    return response;
 }
 
 export const getAppointments = async () => {
@@ -91,7 +86,7 @@ export const getAppointments = async () => {
       hour_appointment, 
       description} = data;
  
-    let response = api.put(`/appointments/${id}`, {
+    return api.put(`/appointments/${id}`, {
       id: id,
       title: title,
       patient_cpf: patient_cpf,
@@ -101,11 +96,7 @@ export const getAppointments = async () => {
       data_appointment: data_appointment,
       hour_appointment: hour_appointment,
       description: description
-    });
-
-    return response;
-
-    
+    });    
 }
 
 export const deleteAppointment = (id) => {
