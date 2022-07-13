@@ -3,8 +3,6 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import  { faFileWaveform } from '@fortawesome/free-solid-svg-icons'
 
-// import { Container } from './styles';
-
 function HeaderAppointment() {
   return (
     <div className="box-header-appointment">
