@@ -123,6 +123,7 @@ Este documento descreve os Testes de Aceitação criados a partir do [Documento 
 ### Relatório de Bugs e Providências
 | Teste | Providência |
 | ----- | ----------- |
+| TA02.02 | Concertar implementação do server para que ele não quebre ao usuário não preencher todos os campos na hora da inserção de um paciente. |
 | TA04.02 | Implementar mensagem para o usuário como especificado no TA. |
 | TA04.03 | Implementar mensagem para o usuário como especificado no TA. |
 | TA04.04 | Implementar mensagem para o usuário como especificado no TA. |
