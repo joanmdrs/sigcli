@@ -26,10 +26,10 @@ export const getDoctorByCrm = async (crmProvided) => {
     return JSON.stringify(data);
 }
 
-export const updateDoctor = (id, data) => {
+export const updateDoctor = async (id, data) => {
     const {name, crm, phone, email, username, password} = data;
 
-    api.put(`/doctors/${id}`, {
+    await api.put(`/doctors/${id}`, {
       id: id,
       name: name,
       crm: crm,
