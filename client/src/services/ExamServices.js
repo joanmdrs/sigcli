@@ -17,11 +17,11 @@ export const getActionForm = () => {
 }
 
 
-export const addExam = (data) => {
+export const addExam = async (data) => {
 
    const {title, patient_cpf, patient_name, doctor_crm, doctor_name, description} = data;
 
-   api.post("/exams", {
+   await api.post("/exams", {
       title: title,
       patient_cpf: patient_cpf,
       patient_name: patient_name,
