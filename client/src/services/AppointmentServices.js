@@ -3,15 +3,13 @@ import Swal from 'sweetalert2';
 
 
 export const getValuesInput = () => {
-    return {
-       title: document.getElementById("title").value,
-       patient_cpf: document.getElementById("patient-cpf").value,
-       patient_name: document.getElementById("patient-name").value,
-       doctor_crm: document.getElementById("doctor-crm").value,
-       doctor_name: document.getElementById("doctor-name").value,
-       data_appointment: document.getElementById("data-appointment").value,
-       hour_appointment: document.getElementById("hour-appointment").value,
-       description: document.getElementById("description").value
+    const data = {
+      title: document.getElementById("title").value,
+      data_appointment: document.getElementById("data-appointment").value,
+      hour_appointment: document.getElementById("hour-appointment").value,
+      description: document.getElementById("description").value,
+      patient_fk: document.getElementById("patient-cpf").value,
+      doctor_fk: document.getElementById("doctor-crm").value
    };
  }
  
@@ -22,24 +20,20 @@ export const getValuesInput = () => {
  export const addAppointment = (data) => {
  
     const { 
-      title, 
-      patient_cpf, 
-      patient_name, 
-      doctor_crm, 
-      doctor_name, 
+      title,
       data_appointment, 
       hour_appointment, 
-      description} = data;
+      description, 
+      patient_fk, 
+      doctor_fk} = data;
 
     return api.post("/appointments", {
       title: title,
-      patient_cpf: patient_cpf,
-      patient_name: patient_name,
-      doctor_crm: doctor_crm,
-      doctor_name: doctor_name,
       data_appointment: data_appointment,
       hour_appointment: hour_appointment,
-      description: description
+      description: description,
+      patient_fk: patient_fk,
+      doctor_fk: doctor_fk
     });
 }
 
@@ -50,53 +44,48 @@ export const getAppointments = async () => {
  }
 
 
- export const setFields = (data) => {
+ export const setFields = (id, data) => {
 
-    const {
-      id, 
-      title, 
-      patient_cpf, 
-      patient_name, 
-      doctor_crm, 
-      doctor_name, 
-      data_appointment, 
-      hour_appointment, 
-      description} = data;
+  const { 
+    title,
+    data_appointment, 
+    hour_appointment, 
+    description, 
+    patient_fk, 
+    doctor_fk} = data;
  
     document.getElementById("form-appointment").dataset.action = id;
     document.getElementById("title").value = title;
-    document.getElementById("patient-cpf").value = patient_cpf;
-    document.getElementById("patient-name").value = patient_name;
-    document.getElementById("doctor-crm").value = doctor_crm;
-    document.getElementById("doctor-name").value = doctor_name;
     document.getElementById("data-appointment").value = data_appointment;
     document.getElementById("hour-appointment").value = hour_appointment;
     document.getElementById("description").value = description;
+    document.getElementById("patient-cpf").value = patient_fk;
+    document.getElementById("doctor-crm").value = doctor_fk;
  }
  
- export const updateAppointment = (id, data) => {
- 
-    const {
-      title, 
-      patient_cpf, 
-      patient_name, 
-      doctor_crm, 
-      doctor_name, 
+ export const updateAppointment = async (id, data) => {
+  
+    console.log(data)
+    const { 
+      title,
       data_appointment, 
       hour_appointment, 
-      description} = data;
+      description, 
+      patient_fk, 
+      doctor_fk} = data;
  
-    return api.put(`/appointments/${id}`, {
+    let response = await api.put(`/appointments/${id}`, {
       id: id,
       title: title,
-      patient_cpf: patient_cpf,
-      patient_name: patient_name,
-      doctor_crm: doctor_crm,
-      doctor_name: doctor_name,
       data_appointment: data_appointment,
       hour_appointment: hour_appointment,
-      description: description
-    });    
+      description: description,
+      patient_fk: patient_fk, 
+      doctor_fk: doctor_fk
+    });
+
+    return response;
+    
 }
 
 export const deleteAppointment = (id) => {

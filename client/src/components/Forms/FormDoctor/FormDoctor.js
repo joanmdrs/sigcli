@@ -18,7 +18,7 @@ function FormDoctor({handleSaveButton}) {
             <Col md={4}>
                 <FormGroup>
                     <Label for="input-crm">CRM:</Label>
-                    <Input id="input-crm" name="crm" maxLength={12} minLength={12} type="text" placeholder="CRM" className="input-crm-doctor" required></Input>
+                    <Input id="input-crm" name="crm" maxLength={12} minLength={12} type="text" placeholder="Ex.: 0000-UF" className="input-crm-doctor" required></Input>
                 </FormGroup>
             </Col>
             <Col md={8}>

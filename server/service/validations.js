@@ -13,7 +13,7 @@ export const validatePhone = (phoneReceived)=>{
 
 export const validateCRM = (crmReceived) => {
     const crmFormatted = crmReceived.trim();
-    if(crmFormatted.length === 12){
+    if(crmFormatted.length === 7){
         return true;
     }
     return false;

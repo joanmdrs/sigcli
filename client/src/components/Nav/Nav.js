@@ -1,6 +1,6 @@
 import './Nav.css'
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import 
 {
@@ -10,10 +10,18 @@ import
     faHospitalUser,
     faStethoscope,
     faFileWaveform,
-    faUserGear
+    faUserGear,
+    faArrowRightFromBracket
  } from '@fortawesome/free-solid-svg-icons'
 
 export default function Nav(){
+
+    const history = useNavigate();
+    const handleLogout = () => {
+        localStorage.clear();
+        history("/");
+
+    }
     return (
         <aside>
             <h1>
@@ -22,7 +30,7 @@ export default function Nav(){
             </h1>
             
             <nav>
-                <Link className="tag-link" to="/" >
+                <Link className="tag-link" to="/home" >
                     <FontAwesomeIcon className="icon-menu" icon={faHome} /> 
                     Home
                 </Link>
@@ -46,6 +54,11 @@ export default function Nav(){
                 <Link className="tag-link" to="/recepcionists" >
                    <FontAwesomeIcon className="icon-menu" icon={faUserGear} /> 
                    Recepcionists
+                </Link>
+
+                <Link className="tag-link" onClick={handleLogout} to="/">
+                    <FontAwesomeIcon className="icon-menu" icon={faArrowRightFromBracket} />
+                    Logout
                 </Link>
 
             </nav>

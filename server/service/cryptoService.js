@@ -5,3 +5,7 @@ export const hashPassword = (value) => {
 
 };
 
+export const comparePassword = (value, hash) => {
+  return bcrypt.compareSync(value.trim(), hash);
+}
+

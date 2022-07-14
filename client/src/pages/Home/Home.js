@@ -9,9 +9,6 @@ export default function Home(){
             <Nav />
             <div className="box-right-home">
 
-                <div className="box-header-home">
-                    my account
-                </div>
                 <div className="box-image-home">
                     <img src={imageHome} alt="ilustration of a time of doctors"></img>
                 </div>
