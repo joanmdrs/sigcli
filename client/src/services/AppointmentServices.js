@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 
 
 export const getValuesInput = () => {
-    const data = {
+    return {
       title: document.getElementById("title").value,
       data_appointment: document.getElementById("data-appointment").value,
       hour_appointment: document.getElementById("hour-appointment").value,
