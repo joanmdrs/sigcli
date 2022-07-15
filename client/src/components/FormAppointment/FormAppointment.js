@@ -66,7 +66,7 @@ function FormAppointment({handleSaveButton, handleSearchPatient, handleSearchDoc
                         id="doctor-crm"
                         type="text" 
                         placeholder="doctor crm"
-                        onWaiting={handleSearchDoctor}
+                        onChange={handleSearchDoctor}
                     >
                     </Input>
                 </FormGroup>
