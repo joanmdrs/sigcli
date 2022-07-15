@@ -64,7 +64,7 @@ function FormAppointment({handleSaveButton, handleSearchPatient, handleSearchDoc
                     </Label>
                     <Input 
                         id="doctor-crm"
-                        type="number" 
+                        type="text" 
                         placeholder="doctor crm"
                         onChange={handleSearchDoctor}
                     >

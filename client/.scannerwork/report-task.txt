@@ -2,5 +2,5 @@ projectKey=sigcli_frontend
 serverUrl=http://labens.dct.ufrn.br/sonarqube
 serverVersion=9.4.0.54424
 dashboardUrl=http://labens.dct.ufrn.br/sonarqube/dashboard?id=sigcli_frontend
-ceTaskId=AYGJXpZn6XokyAk1hi3A
-ceTaskUrl=http://labens.dct.ufrn.br/sonarqube/api/ce/task?id=AYGJXpZn6XokyAk1hi3A
+ceTaskId=AYHYrQJW6XokyAk1hi6v
+ceTaskUrl=http://labens.dct.ufrn.br/sonarqube/api/ce/task?id=AYHYrQJW6XokyAk1hi6v
