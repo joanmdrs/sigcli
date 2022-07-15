@@ -123,7 +123,6 @@ Este documento descreve os Testes de Aceitação criados a partir do [Documento 
 ### Relatório de Bugs e Providências
 | Teste | Providência |
 | ----- | ----------- |
-| TA02.03 | Mudar exibição do password do paciente na parte da edição |
 | TA02.04 | Não permitir a atualização sem os campos chave do paciente preenchidos (CPF, username, password e name) |
 | TA02.06 | Concertar implementação da busca para se o usuário informar um CPF que não consta cadastrado no banco de dados |
 | TA02.08 | Concertar implementação da listagem para se o não existir pacientes cadastrados no banco de dados |
