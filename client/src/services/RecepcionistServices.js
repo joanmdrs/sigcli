@@ -1,10 +1,5 @@
 import api from "./api";
-import Swal from 'sweetalert2';
 
-<<<<<<< HEAD
-export const getValuesInput = () => {
-   return {
-=======
 // INSERT A RECEPCIONIST
 export const createRecepcionist = (recepcionist) => {
 
@@ -58,7 +53,6 @@ export const getValuesFormRecepcionist = () => {
 
    const recepcionist = {
       id: document.getElementById("form-recepcionist").dataset.action,
->>>>>>> feat/issue108
       name: document.getElementById("name").value,
       cpf: document.getElementById("cpf").value,
       phone: document.getElementById("phone").value,
@@ -66,47 +60,11 @@ export const getValuesFormRecepcionist = () => {
       username: document.getElementById("username").value,
       password: document.getElementById("password").value
   };
-<<<<<<< HEAD
-}
-
-export const getActionForm = () => {
-   return document.getElementById("form-recepcionist").dataset.action;
-}
-
-export const addRecepcionist = (data) => {
-
-    const {name, cpf, phone, email, username, password} = data;
-
-    api.post("/recepcionists", {
-      name: name,
-      cpf: cpf,
-      phone: phone,
-      email: email,
-      username: username,
-      password: password
-    });
-  
-}
-
-export const getAllRecepcionist = async () => {
-   const res = await api.get("/recepcionists");
-
-   const data = res.data;    
-   return JSON.stringify(data);
-}
-
-export const getOneRecepcionist = async (id) => {
-   const res = await api.get(`/recepcionists/${id}`);
-   const data = res.data;
-   return JSON.stringify(data);
-}
-=======
 
   return recepcionist;
 }
 
 // SET VALUES OF FORM RECEPCIONIST
->>>>>>> feat/issue108
 
 
 export const setFieldsFormRecepcionist = (recepcionist) => {

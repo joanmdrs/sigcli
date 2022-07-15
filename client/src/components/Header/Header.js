@@ -1,7 +1,6 @@
 import "./Header.css"
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileWaveform } from "@fortawesome/free-solid-svg-icons";
 
 export const Header = ({title, text, icon}) => {
   return (

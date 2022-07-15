@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Swal from 'sweetalert2';
 import Nav from '../../components/Nav/Nav';
 import FormDoctor from "../../components/Forms/FormDoctor/FormDoctor";
 import ListDoctor from "../../components/ListDoctor/ListDoctor";
