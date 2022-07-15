@@ -31,7 +31,7 @@ export const listAllDoctors = async () => {
 }
 
 
-// FIND ONE DOCTOR BY CPF
+// FIND ONE DOCTOR BY CRM
 export const findDoctorByCrm = async (crm) => {
     const res = await api.get(`/doctors/${crm}`);
     const data = res.data;

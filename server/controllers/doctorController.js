@@ -14,7 +14,7 @@ import { validateCRM } from "../service/validations.js";
 export const registerDoctor = async (req, res) => {
     const { name, crm, phone, email, username, password } = req.body
     if (!validateCRM(crm.trim())){
-        return res.status(406).json({msg: "Invalid CRM: 12 characters required"});
+        return res.status(406).json({msg: "Invalid CRM: 7 characters required"});
     }
 
     try {
