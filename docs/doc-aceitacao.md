@@ -123,8 +123,7 @@ Este documento descreve os Testes de Aceitação criados a partir do [Documento 
 ### Relatório de Bugs e Providências
 | Teste | Providência |
 | ----- | ----------- |
-| TA02.06 | Concertar implementação da busca para se o usuário informar um CPF que não consta cadastrado no banco de dados |
-| TA02.08 | Concertar implementação da listagem para se o não existir pacientes cadastrados no banco de dados |
+| TA02.06 | Concertar implementação da busca para se o usuário informar um CPF que não consta cadastrado no banco de dados 
 | TA04.02 | Implementar mensagem para o usuário como especificado no TA. |
 | TA04.03 | Implementar mensagem para o usuário como especificado no TA. |
 | TA04.04 | Implementar mensagem para o usuário como especificado no TA. |
