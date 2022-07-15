@@ -1,16 +1,38 @@
 import "./Login.css";
-import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'antd/dist/antd.css';
 import img from "../../assets/img/image-home.svg";
-import {
-    FormGroup,
-    Label,
-    Input,
-    Button
-} from 'reactstrap'
+import React from "react";
+import { FormGroup, Label, Input, Button } from 'reactstrap'
+import { useNavigate } from "react-router-dom";
+import { persistToken, signIn } from "../../services/LoginServices";
+import { message  } from 'antd';
 
 
 export default function Login() {
+
+    const history = useNavigate();
+
+    
+    const handleSignIn = async () => {
+
+
+        signIn().then((response) => {
+            persistToken(response.data.token);
+            history("/home");
+            message.success("user is authenticated");
+
+            
+
+
+        }).catch((error) => {
+            message.error("username or password is incorrect");
+            setTimeout(() => {
+                window.location.reload()
+            }, 1500);
+        })
+        
+    }
 
     return (
         <div className="grid-container-primary">
@@ -57,7 +79,8 @@ export default function Login() {
                         id="button-sign-in"
                         name="button-sign-in"
                         className="button-sign-in"
-                        type="submit"> 
+                        type="submit"
+                        onClick = {handleSignIn}> 
                         Sign in
                     </Button>
                     <p className="text-align"> 

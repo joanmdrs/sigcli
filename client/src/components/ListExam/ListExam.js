@@ -13,9 +13,8 @@ function ListExam({exams, setFields, handleDelete}) {
                 <tr>
                     <th> ID </th>
                     <th> title   </th>
-                    <th> patient </th>
-                    <th> doctor </th>
-                    <th> crm </th>
+                    <th> patient cpf </th>
+                    <th> doctor crm </th>
                     <th> ações </th>
                 </tr>
             </thead>
@@ -27,9 +26,8 @@ function ListExam({exams, setFields, handleDelete}) {
                                 <tr key={key}>
                                     <td>{exam.id}</td>
                                     <td>{exam.title}</td>
-                                    <td>{exam.patient_name}</td>
-                                    <td>{exam.doctor_name}</td>
-                                    <td>{exam.doctor_crm}</td>
+                                    <td>{exam.patient_fk}</td>
+                                    <td>{exam.doctor_fk}</td>
                                     <td className="td-with-btns">
 
                                         <Button className="btn-action btn-warning" onClick={() => {

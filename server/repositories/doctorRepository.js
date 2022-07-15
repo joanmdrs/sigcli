@@ -1,9 +1,22 @@
 import { prisma } from "../service/prisma.js";
 
-export const createDoctor = async (doctor) => {
-    return await prisma.doctor.create({
+// export const createDoctor = async (doctor) => {
+//     return await prisma.doctor.create({
+//       data: doctor,
+//     });
+// };
+
+
+export const createDoctor = async (doctor, user) => {
+  
+  return await prisma.$transaction([
+    prisma.user.create({
+      data: user,
+    }),
+    prisma.doctor.create({
       data: doctor,
-    });
+    })
+  ]);
 };
 
 export const findUniqueByCrmDoctor = async (crm) => {
@@ -19,7 +32,7 @@ export const findManyDoctors = async () => {
 };
 
 export const updateDoctorWithPrisma = async (doctor) => {
-  const { id, name, crm, phone, email, username, password } = doctor;
+  const { id, name, crm, phone, email } = doctor;
   return await prisma.doctor.update({
     where: {
       id: Number(id),
@@ -28,17 +41,22 @@ export const updateDoctorWithPrisma = async (doctor) => {
       name,
       crm,
       phone, 
-      email,
-      username,
-      password,
+      email
     },
   });
 };
 
-export const deleteDoctorWithPrisma = async (doctorID) => {
-  return await prisma.doctor.delete({
-    where: {
-      id: Number(doctorID),
-    },
-  });
+export const deleteDoctorWithPrisma = async (doctorID, doctorUsername) => {
+  return await prisma.$transaction([
+    prisma.doctor.delete({
+      where: {
+        id: Number(doctorID),
+      }
+    }),
+    prisma.user.delete({
+      where: {
+        username: String(doctorUsername),
+      }
+    })
+  ])
 };

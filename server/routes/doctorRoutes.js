@@ -13,4 +13,4 @@ doctorRoutes.post("/", registerDoctor);
 doctorRoutes.get("/", getDoctors);
 doctorRoutes.get("/:crm", getDoctorByCrm);
 doctorRoutes.put("/:id", updateDoctor);
-doctorRoutes.delete("/:id", deleteDoctor);
+doctorRoutes.delete("/:crm", deleteDoctor);

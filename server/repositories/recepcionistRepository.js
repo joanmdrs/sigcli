@@ -1,9 +1,14 @@
 import { prisma } from "../service/prisma.js";
 
-export const createRecepcionist = async (recepcionist) => {
-  return await prisma.recepcionist.create({
-    data: recepcionist,
-  });
+export const createRecepcionist = async (recepcionist, user) => {
+  return await prisma.$transaction([
+    prisma.user.create({
+      data: user,
+    }),
+    prisma.recepcionist.create({
+      data: recepcionist,
+    })
+  ]);
 };
 
 
@@ -15,29 +20,33 @@ export const listRecepcionistWithPrisma = async () => {
 export const findUniqueByCPFRecepcionist = async (cpf) => {
   return await prisma.recepcionist.findUnique({
     where: {
-      cpf,
+      cpf: cpf,
     },
   });
 };
 
-export const updateRecepcionistWithPrisma = async (recepcionist) => {
-  const { id, name, username, password } = recepcionist;
+export const updateRecepcionistWithPrisma = async (recepcionist, id) => {
   return await prisma.recepcionist.update({
     where: {
       id: Number(id),
     },
-    data: {
-      name,
-      username,
-      password,
-    },
+    data: recepcionist
   });
 };
 
-export const deleteRecepcionistWithPrisma = async (recepcionistID) => {
-  return await prisma.recepcionist.delete({
-    where: {
-      id: Number(recepcionistID),
-    },
-  });
+export const deleteRecepcionistWithPrisma = async (id, username) => {
+  return await prisma.$transaction([
+    prisma.recepcionist.delete({
+      where: {
+        id: Number(id)
+      }
+    }),
+    prisma.user.delete({
+      where: {
+        username: String(username),
+      }
+    })
+
+
+  ])
 };

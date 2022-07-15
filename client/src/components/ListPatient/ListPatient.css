@@ -2,8 +2,7 @@
     box-sizing: border-box;
 }
 
-
-.table-list-doctors {
+.table-list-patients {
     background-color: #fff;
     margin-left: 15px;
     margin-right: 15px;
@@ -13,13 +12,13 @@
 
 }
 
-.table-list-doctors thead  tr{
+.table-list-patients thead  tr{
     background-color: #fff;
 }
 
 
-.table-list-doctors thead tr th,
-.table-list-doctors tbody tr td {
+.table-list-patients thead tr th,
+.table-list-patients tbody tr td {
     padding: 15px;
 }
 
@@ -38,7 +37,7 @@
     align-items: center;
 }
 
-.div-no-doctors {
+.div-no-patients {
     padding: 30px;
     border-radius: 4px;
     margin: 15px;
