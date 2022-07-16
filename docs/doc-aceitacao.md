@@ -128,3 +128,10 @@ Este documento descreve os Testes de Aceitação criados a partir do [Documento 
 | TA04.04 | Implementar mensagem para o usuário como especificado no TA. |
 | TA04.06 | Implementar mensagem para o usuário como especificado no TA. |
 | TA04.08 | Aguardar implementação das permissões dos usuários |
+| TA05.01 | Modificar mensagem de acordo com o User story|
+| TA05.02 | Adicionar validadores de email|
+| TA05.04 | Criação de um handler de erros|
+| TA05.05 | Modificar mensagem de acordo com o User story|
+| TA05.06 | Adicionar validadores de email|
+| TA05.07 | Modificar mensagem de acordo com o User story|
+| TA05.08 | Adicionar níveis de autorização nas páginas|
