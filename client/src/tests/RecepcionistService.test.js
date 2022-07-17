@@ -1,4 +1,4 @@
-import {getValuesInput} from "../services/RecepcionistServices.js";
+import {getValuesFormRecepcionist} from "../services/RecepcionistServices.js";
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -9,8 +9,15 @@ let phone = null;
 let email = null;
 let username = null;
 let password = null;
+let idRecepcionist = null;
 beforeEach(() => {
   container = document.createElement("div");
+
+  idRecepcionist = document.createElement("form")
+  idRecepcionist.setAttribute("id", "form-recepcionist");
+  idRecepcionist.dataset.action = 'add' 
+
+
   nameRecepcionist = document.createElement("input");
   nameRecepcionist.setAttribute("id", "name");
   nameRecepcionist.setAttribute("value", "Bruna");
@@ -36,6 +43,7 @@ beforeEach(() => {
   password.setAttribute("value","123abc");
   
   container.appendChild(nameRecepcionist);
+  container.appendChild(idRecepcionist);
   container.appendChild(cpf);
   container.appendChild(phone);
   container.appendChild(email);
@@ -51,8 +59,9 @@ afterEach(() => {
 
 it("returns the recepcionist's cpf", () => {
   
-  const got = getValuesInput();
+  const got = getValuesFormRecepcionist();
   const expected = {
+    id:"add",
     name: "Bruna",
     cpf: "12387698787",
     phone: "84999342312",
