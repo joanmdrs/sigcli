@@ -1,6 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import FormDoctor from './FormDoctor';
-import { handleClickButtonSave } from '../../../pages/Doctor/Doctor';
 
 it("renders the form doctor's page", () => {
     render(<FormDoctor handleSaveButton={() => {}} />);
@@ -12,7 +11,7 @@ it("renders the form doctor's page", () => {
     expect(screen.getByLabelText("Email:")).toBeInTheDocument();
 });
 
-it("clicks on the cancel button when creating a doctor", async () => {
+it("clicks on the cancel button when creating a doctor", () => {
     render(<FormDoctor handleSaveButton={() => {handleClickButtonSave}} />);
     const crm = screen.getByPlaceholderText("Ex.: 0000-UF");
     const name = screen.getByPlaceholderText("Name");
