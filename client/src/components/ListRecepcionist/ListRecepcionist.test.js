@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { act } from "react-dom/test-utils";
-import {ListRecepcionist} from "./ListRecepcionist";
+import { act} from "react-dom/test-utils";
+import ListRecepcionist from "./ListRecepcionist";
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -27,7 +27,7 @@ it("returns the recepcionist's cpf", () => {
     },
   ];
   act(() => {
-    root.render(<ListRecepcionist recepcionists={recepcionist} />);
+    root.render(<ListRecepcionist recepcionists={recepcionist} prepareToUpdate={()=>{}} removeRecepcionist={()=>{}}/>);
   });
   expect(container.textContent).toContain("12343543543");
 });
