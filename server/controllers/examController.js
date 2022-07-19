@@ -5,22 +5,35 @@ import {
     deleteExamWithPrisma
 } from '../repositories/examRepository.js'
 
-import {validateCPF} from '../service/validations.js';
+import { findUniqueByCPFPatient } from '../repositories/patientRepository.js';
 import {findUniqueByCrmDoctor} from '../repositories/doctorRepository.js';
 
 
 export const registerExam = async (req, res) => {
-    const examBody = req.body;
-    if (!validateCPF(examBody.patient_cpf)) {
-        return res.status(406).json({ msg: "CPF do paciente inválido!" });
+    const { title, description, patient_fk, doctor_fk } = req.body;
+
+    const patient = await findUniqueByCPFPatient(patient_fk);
+    const doctor = await findUniqueByCrmDoctor(doctor_fk);
+
+    if(patient === null || patient === undefined) {
+        res.status(500).json({msg: "Paciente não registrado no sistema."});
     }
-    else if (!findUniqueByCrmDoctor(examBody.doctor_crm)) {
-        return res.status(406).json({ msg: "CRM do Doutor inexistente!" });
+
+    if(doctor === null || doctor === undefined) {
+        res.status(500).json({msg: "Médico não registrado no sistema."});
     }
     
+    
     try{
+        const examBody = {
+            title: title,
+            description: description,
+            patient_fk: patient_fk,
+            doctor_fk: doctor_fk
+        }
         const exam = await createExam(examBody);
         res.status(200).json(exam);
+        
     }catch(error){
         res.status(500).json({msg:"Error no servidor!"});
     }
@@ -33,15 +46,27 @@ export const listExam = async (req, res) => {
 
 
 export const updateExam = async (req, res) => {
-    const examBody = req.body;
-    if (!validateCPF(examBody.patient_cpf)) {
-        return res.status(406).json({ msg: "CPF do paciente inválido!" });
+    const {id, title, description, patient_fk, doctor_fk } = req.body;
+
+    const patient = await findUniqueByCPFPatient(patient_fk);
+    const doctor = await findUniqueByCrmDoctor(doctor_fk);
+
+    if(patient === null || patient === undefined) {
+        res.status(500).json({msg: "Paciente não registrado no sistema."});
     }
-    else if (!findUniqueByCrmDoctor(examBody.doctor_crm)) {
-        return res.status(406).json({ msg: "CRM do Doutor inexistente!" });
+
+    if(doctor === null || doctor === undefined) {
+        res.status(500).json({msg: "Médico não registrado no sistema."});
     }
     
     try{
+        const examBody = {
+            id: id,
+            title: title,
+            description: description,
+            patient_fk: patient_fk,
+            doctor_fk: doctor_fk
+        }
         const updatedExam = await updateExamWithPrisma(examBody);
         res.json(updatedExam);
     }catch(error){

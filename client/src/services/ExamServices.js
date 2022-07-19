@@ -2,7 +2,7 @@ import api from "./api";
 import Swal from 'sweetalert2';
 
 export const getValuesInput = () => {
-   const data = {
+   return {
       title: document.getElementById("title").value,
       patient_cpf: document.getElementById("patient-cpf").value,
       patient_name: document.getElementById("patient-name").value,
@@ -10,26 +10,21 @@ export const getValuesInput = () => {
       doctor_name: document.getElementById("doctor-name").value,
       description: document.getElementById("description").value
   };
-
-  return data;
 }
 
 export const getActionForm = () => {
-   const action = document.getElementById("form-exam").dataset.action;
-   return action;
+   return document.getElementById("form-exam").dataset.action;
 }
 
 
-export const addExam = (data) => {
+export const addExam = async (data) => {
 
-   const {title, patient_cpf, patient_name, doctor_crm, doctor_name, description} = data;
+   const {title, patient_cpf, doctor_crm, description} = data;
 
-   api.post("/exams", {
+   await api.post("/exams", {
       title: title,
-      patient_cpf: patient_cpf,
-      patient_name: patient_name,
-      doctor_crm: doctor_crm,
-      doctor_name: doctor_name,
+      patient_fk: patient_cpf,
+      doctor_fk: doctor_crm,
       description: description
    });
   
@@ -43,15 +38,15 @@ export const getExams = async () => {
 }
 
 
-export const setFields = (data) => {
+export const setFields = (data, patient_name, doctor_name) => {
 
-   const {id, title, patient_cpf, patient_name, doctor_crm, doctor_name, description} = data;
+   const {id, title, patient_fk, doctor_fk, description} = data;
 
    document.getElementById("form-exam").dataset.action = id;
    document.getElementById("title").value = title;
-   document.getElementById("patient-cpf").value = patient_cpf;
+   document.getElementById("patient-cpf").value = patient_fk;
    document.getElementById("patient-name").value = patient_name;
-   document.getElementById("doctor-crm").value = doctor_crm;
+   document.getElementById("doctor-crm").value = doctor_fk;
    document.getElementById("doctor-name").value = doctor_name;
    document.getElementById("description").value = description;
 }
@@ -59,15 +54,14 @@ export const setFields = (data) => {
 
 export const updateExam = (id, data) => {
 
-   const {title, patient_cpf, patient_name, doctor_crm, doctor_name, description} = data;
+   const {title, patient_cpf, doctor_crm, description} = data;
+
 
    api.put(`/exams/${id}`, {
       id: id,
       title: title,
-      patient_cpf: patient_cpf,
-      patient_name: patient_name,
-      doctor_crm: doctor_crm,
-      doctor_name: doctor_name,
+      patient_fk: patient_cpf,
+      doctor_fk: doctor_crm,
       description: description
    });
 }

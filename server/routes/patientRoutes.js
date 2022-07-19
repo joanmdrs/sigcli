@@ -1,21 +1,23 @@
-import { Router } from 'express'
+import { Router } from "express";
 import {
   registerPatient,
   listPatients,
   getPatientByCPF,
   updatePatient,
-  deletePatient
-} from '../controllers/patientController.js'
+  deletePatient,
+} from "../controllers/patientController.js";
 
-export const patientRoutes = Router()
+import { verifyToken, verifyAuthorization } from "../service/middlewares/recepcionist.middleware.js";
+
+export const patientRoutes = Router();
 
 // /recepcionist/register
-patientRoutes.post('/', registerPatient)
+patientRoutes.post("/register", registerPatient);
 
-patientRoutes.get('/', listPatients)
+patientRoutes.get("/getAll", listPatients);
 
 patientRoutes.get("/:cpf", getPatientByCPF);
 
-patientRoutes.put('/:id', updatePatient)
+patientRoutes.put('/:id', updatePatient);
 
-patientRoutes.delete('/:id', deletePatient)
+patientRoutes.delete("/:cpf", deletePatient);

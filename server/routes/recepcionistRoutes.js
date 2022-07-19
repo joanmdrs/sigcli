@@ -10,12 +10,12 @@ import {
 export const recepcionistRoutes = Router();
 
 // /recepcionist/register
-recepcionistRoutes.post("/", registerRecepcionist);
+recepcionistRoutes.post("/register", registerRecepcionist);
 
-recepcionistRoutes.get("/", listRecepcionist);
+recepcionistRoutes.get("/getAll", listRecepcionist);
 
 recepcionistRoutes.get("/:cpf", getRecepcionistByCPF);
 
 recepcionistRoutes.put("/:id", updateRecepcionist);
 
-recepcionistRoutes.delete("/:id", deleteRecepcionist);
+recepcionistRoutes.delete("/:cpf", deleteRecepcionist);

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Swal from 'sweetalert2';
 import Nav from '../../components/Nav/Nav';
 import FormDoctor from "../../components/Forms/FormDoctor/FormDoctor";
 import ListDoctor from "../../components/ListDoctor/ListDoctor";
@@ -9,91 +8,120 @@ import {Box as BoxDoctor} from "../../components/Box/Box";
 import { Header as HeaderDoctor } from "../../components/Header/Header";
 import { Search } from "../../components/Search/Search";
 import {
-    addDoctor,
+    createDoctor,
     updateDoctor,
-    deleteDoctor,
-    getDoctors,
-    getValuesInput,
+    removeDoctor,
+    listAllDoctors,
+    getValuesFormDoctor,
     getActionForm,
-    setFields,
-    messageConfirm,
-    messageFailure,
-    getDoctorByCrm
+    setFieldsFormDoctor,
+    findDoctorByCrm
 } from "../../services/DoctorServices";
+import {messageSucess, messageError, messageInfo, messageWarning} from "../../services/MessagesServices.js"
+
 
 function Doctor(){
+
+    
     const [listDoctors, setListDoctors] = useState([]);
 
-    const handleSaveButton = () => {
-        const data = getValuesInput();
-        const action = getActionForm();
 
-        if(action === "add"){
-            try {
-                addDoctor(data);
-            } catch(error) {
-                messageFailure("Something went wrong.");
-            }
-        } else {
-            try {
-                updateDoctor(action, data);
-                messageConfirm("The informations about this doctor were updated.")
-            } catch(error){
-                messageFailure("Something went wrong");
-            }
-        }
-    }
-
-    useEffect( () => {
+    useEffect(() => {
         const fetchData = async () => {
-            const data = await getDoctors();
-            const doctors = JSON.parse(data);
-            setListDoctors(doctors);
-        }
+    
+            try {
+                const data = await listAllDoctors();
+                const doctors = JSON.parse(data);
+                setListDoctors(doctors);
+                
+            } catch (error) {
+                setListDoctors([])
+            }
+          
+        };
+    
         fetchData();
     }, []);
 
-    const handleDelete = async (doctorId) => {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#0C6170',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                try {
-                    deleteDoctor(doctorId);
-                } catch(error) {
-                    messageFailure("Something went wrong");
-                } finally {
-                    document.location.reload();
-                }
-            }
-        })
+    const handleClickButtonSave = () => {
+        const action = getActionForm();
+
+        if(action === "add"){
+            handleCreateDoctor();
+        } else {
+            handleUpdateDoctor();
+        }
     }
 
-    const handleFilterByCrm = async () => {
+    const handleCreateDoctor = () => {
+        const doctor = getValuesFormDoctor();
+
+        createDoctor(doctor).then(() => {
+        messageSucess(`New Doctor was added.`);
+
+        }).catch(() => {
+            messageError("Something went wrong.");
+        });
+    }
+
+    const handlePrepareToUpdate = async (doctorCrm) => {
+
+        const data = await findDoctorByCrm(doctorCrm);
+        const doctor = JSON.parse(data);
+        messageInfo("Now you will edit this Doctor's informations, be careful.");
+        setFieldsFormDoctor(doctor);
+        
+    }
+
+    const handleUpdateDoctor = async () => {
+
+        const doctor = getValuesFormDoctor();
+       
+        const doctorUpdated = {
+          id: Number(doctor.id),
+          name: doctor.name,
+          crm: doctor.crm,
+          phone: doctor.phone,
+          email: doctor.email
+        };
+    
+    
+        updateDoctor(doctorUpdated).then((response)=>{
+          messageSucess(`${response.data.name} was updated.`)
+    
+        }).catch((error)=>{
+          messageError("An error occurred on the server and the doctor could not be updated")
+        })
+    
+        
+    };
+
+    const handleFilterDoctorByCrm = async () => {
 
         const crmProvided = document.getElementById("searchCrm").value;
        
-        const data = await getDoctorByCrm(crmProvided);
+        const data = await findDoctorByCrm(crmProvided);
         const doctor = JSON.parse(data);
         setListDoctors([doctor]);
     
     }
 
-    const handlePrepareToUpdate = (DoctorId) => {
-        let data = {}
-        listDoctors.forEach(element => {
-            if (element.id === DoctorId){
-                data = element;
-            }
-        });
-        setFields(data);
-    }
+    const handleRemoveDoctor = async (crm) => {
+        const result = await messageWarning();
+        
+        if(result.isConfirmed === true) {
+          removeDoctor(crm).then(() => {
+            messageSucess("Doctor successfully excluded")
+    
+          }).catch((error) => {
+            messageError("Deu merda");
+          });
+    
+        }
+      }
+    
+
+    
 
 
 
@@ -106,17 +134,21 @@ function Doctor(){
                     title="Doctor"
                     text="Doctor registration: Include, Search, Change, Delete and List" 
                     icon="stethoscope"/>
-                <FormDoctor handleSaveButton={handleSaveButton} />
+                <FormDoctor handleSaveButton={handleClickButtonSave} />
                 <Search 
                     id="searchCrm"
                     title="Filter by CRM"
                     placeholder="crm"
-                    handleSearch={handleFilterByCrm}
+                    handleSearch={handleFilterDoctorByCrm}
                 />
-                <ListDoctor doctors={listDoctors} setFields={handlePrepareToUpdate} handleDelete={handleDelete} />
+                <ListDoctor 
+                    doctors={listDoctors} 
+                    prepareToUpdate={handlePrepareToUpdate} 
+                    removeDoctor={handleRemoveDoctor}
+                ></ListDoctor>
             </BoxDoctor>
         </ContainerDoctor>
     );
-};
+}
 
 export default Doctor;

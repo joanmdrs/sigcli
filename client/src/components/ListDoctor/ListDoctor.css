@@ -2,6 +2,7 @@
     box-sizing: border-box;
 }
 
+
 .table-list-doctors {
     background-color: #fff;
     margin-left: 15px;
@@ -35,4 +36,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.div-no-doctors {
+    padding: 30px;
+    border-radius: 4px;
+    margin: 15px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
 }

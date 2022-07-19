@@ -14,7 +14,7 @@ import {
 
 
 
-function FormExam({handleSaveButton}) {
+function FormExam({handleSaveButton, handleSearchPatient, handleSearchDoctor}) {
   return (
     <BaseForm idForm="form-exam">
         <FormGroup>
@@ -37,7 +37,8 @@ function FormExam({handleSaveButton}) {
                     <Input 
                         id="patient-cpf"
                         type="text" 
-                        placeholder="patient cpf">
+                        placeholder="patient cpf"
+                        onChange={handleSearchPatient}>
                     </Input>
                 </FormGroup>
             </Col>
@@ -49,7 +50,8 @@ function FormExam({handleSaveButton}) {
                     <Input
                         id="patient-name"
                         type="text" 
-                        placeholder="patient name">
+                        placeholder="patient name"
+                        disabled>
                     </Input>
                 </FormGroup>
             </Col>
@@ -63,8 +65,9 @@ function FormExam({handleSaveButton}) {
                     </Label>
                     <Input 
                         id="doctor-crm"
-                        type="number" 
-                        placeholder="doctor crm">
+                        type="text" 
+                        placeholder="doctor crm"
+                        onChange={handleSearchDoctor}>
                     </Input>
                 </FormGroup>
             </Col>
@@ -76,7 +79,8 @@ function FormExam({handleSaveButton}) {
                     <Input
                         id="doctor-name"
                         type="text" 
-                        placeholder="doctor name">
+                        placeholder="doctor name"
+                        disabled>
                     </Input>
                 </FormGroup>
             </Col>

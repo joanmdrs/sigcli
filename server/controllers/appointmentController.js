@@ -13,13 +13,12 @@ export const registerAppointment = async (req, res) => {
    
     const {
         title, 
-        patient_cpf, 
-        patient_name, 
-        doctor_crm, 
-        doctor_name, 
         data_appointment, 
         hour_appointment, 
-        description} = req.body;
+        description,
+        patient_fk,
+        doctor_fk} = req.body;
+
 
     if(!validateDate(data_appointment)){
         return res.status(406).json({ msg: 'Formato de Data Inválido!' })
@@ -28,13 +27,11 @@ export const registerAppointment = async (req, res) => {
     try {
         const appointmentBody = {
             title: title.toLowerCase().trim(),
-            patient_cpf: patient_cpf.trim(),
-            patient_name: patient_name,
-            doctor_crm: doctor_crm,
-            doctor_name: doctor_name,
             data_appointment: data_appointment,
             hour_appointment: hour_appointment,
-            description: description
+            description: description,
+            patient_fk: patient_fk,
+            doctor_fk: doctor_fk
         }
         const appointment = await createAppointment(appointmentBody)
         res.status(200).json(appointment);
