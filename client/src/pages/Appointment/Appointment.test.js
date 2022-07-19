@@ -7,9 +7,7 @@ globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 let container = null;
 let title = null;
 let patient_cpf = null;
-let patient_name = null;
 let doctor_crm = null;
-let doctor_name = null;
 let data_appointment = null;
 let hour_appointment = null;
 let description = null;
@@ -26,17 +24,9 @@ beforeEach(() => {
   patient_cpf.setAttribute("id", "patient-cpf");
   patient_cpf.setAttribute("value","71194505490");
 
-  patient_name = document.createElement("input");
-  patient_name.setAttribute("id", "patient-name");
-  patient_name.setAttribute("value", "Rauan");
-
   doctor_crm = document.createElement("input");
   doctor_crm.setAttribute("id", "doctor-crm");
   doctor_crm.setAttribute("value","4659");
-
-  doctor_name = document.createElement("input");
-  doctor_name.setAttribute("id", "doctor-name");
-  doctor_name.setAttribute("value", "Flavius");
 
   data_appointment = document.createElement("input");
   data_appointment.setAttribute("id", "data-appointment");
@@ -52,9 +42,7 @@ beforeEach(() => {
 
   container.appendChild(title);
   container.appendChild(patient_cpf);
-  container.appendChild(patient_name);
   container.appendChild(doctor_crm);
-  container.appendChild(doctor_name);
   container.appendChild(data_appointment);
   container.appendChild(hour_appointment);
   container.appendChild(description);
@@ -73,13 +61,11 @@ it("Retornando a Descrição da Consulta", () => {
   const got = getValuesInput();
   const expected = {
     title: "Consulta",
-    patient_cpf: "71194505490",
-    patient_name: "Rauan",
-    doctor_crm: "4659",
-    doctor_name: "Flavius",
     data_appointment: "2022-05-26",
     hour_appointment: "09:50",
-    description: "Consulta cardiaca"
+    description: "Consulta cardiaca",
+    patient_fk: "71194505490",
+    doctor_fk: "4659",
   };
 
 
