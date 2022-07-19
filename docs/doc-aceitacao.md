@@ -48,10 +48,14 @@ Este documento descreve os Testes de Aceitação criados a partir do [Documento 
 
 | **Código**  | **Descrição** | **Especificação** | **Resultado**
 | ----------- | ------ | --------- | -------- |
-| **TA03.01** | O usuário deseja cadastrar um exame no sistema, então vai à tela de inserir exame. Então ele preenche todos os campos de modo correto e clica em Salvar/Cadastrar, recebendo uma notificação em tela de sucesso, como "Exame cadastrado com sucesso".                        |
-| **TA03.02** | O usuário tenta cadastrar um exame no sistema sem preencher todos os campos obrigatórios definidos. Então deve ser notificado em tela informando que não foi possível cadastrar o exame pois há campos obrigatórios em branco.                                               |
-| **TA03.03** | Ao editar um exame já cadastrado, o usuário deixa algum campo obrigatório em branco. Desse modo, deve surgir uma notificação em tela informando que não é possível salvar a edição feita com campos obrigatórios faltando.                                                   |
-| **TA03.04** | Ao realizar uma busca de um exame não cadastrado ou que não atende aos parâmetros de pesquisa, uma mensagem de aviso deve ser mostrada em tela, informando que "Não há nenhum exame no sistema que atenda a esses parâmetros" ou "A consulta não retornou nenhum resultado". |
+| **TA03.01** | O usuário deseja cadastrar um exame no sistema, então vai à tela de inserir exame. Então ele preenche todos os campos de modo correto e clica em Salvar/Cadastrar, recebendo uma notificação em tela de sucesso, como "Exame cadastrado com sucesso".  |  OK | OK
+| **TA03.02** | O usuário tenta cadastrar um exame no sistema sem preencher todos os campos obrigatórios definidos. Então deve ser notificado em tela informando que não foi possível cadastrar o exame pois há campos obrigatórios em branco.  | Não | É exibido uma mensagem de erro, porém a mensagem não especifica que o problema é devido os campos em branco.
+| **TA03.03** | Ao editar os dados de um exame já cadastrado, o usuário preenche os campos que deseja editar de maneira correta e válida. Logo, após confirmar a edição, deve surgir uma notificação de sucesso na tela, como: "A edição foi feita e salva com sucesso!". | OK | OK |
+| **TA03.04** | Ao editar um exame já cadastrado, o usuário deixa algum campo obrigatório em branco. Desse modo, deve surgir uma notificação em tela informando que não é possível salvar a edição feita com campos obrigatórios faltando.| Não | O sistema realiza a atualização, mesmo contendo um espaço em branco.
+| **TA03.05** | Ao acessar o módulo de Exames, caso haja exames cadastrados, é exibido ao final da página, logo abaixo do formulário, uma tabela com todos os exames já cadastrados até o momento. | OK | OK |
+| **TA03.06** | Ao acessar o módulo de Exames, caso não haja exames cadastrados, é exibido ao final da página, logo abaixo do formulário, uma mesagem informando que não há exames cadastrados | Não | É exibido apenas uma linha contendo o cabeçalho da tabela de listagem |
+| **TA03.07** | O usuário deseja excluir um Exame do sistema, então após o sistema exibir a lista de exames cadastrados, o usúario escolhe o exame que deseja e clica na opção de "Excluir". Após confirmar a operação, receberá uma notificação de sucesso em tela, como: "Excluído excluído com sucesso!".| OK | OK |
+
 
 ### User Story US04 - Manter Médico
 
