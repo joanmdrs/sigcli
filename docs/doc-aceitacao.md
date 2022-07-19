@@ -123,6 +123,7 @@ Este documento descreve os Testes de Aceitação criados a partir do [Documento 
 ### Relatório de Bugs e Providências
 | Teste | Providência |
 | ----- | ----------- |
+| TA01.02 | Implementar ou concertar a notificação ao usúario sobre erro no cadastro de consulta por falta ou preenchimento incorreto de dados |
 | TA02.06 | Concertar implementação da busca para se o usuário informar um CPF que não consta cadastrado no banco de dados 
 | TA04.02 | Implementar mensagem para o usuário como especificado no TA. |
 | TA04.03 | Implementar mensagem para o usuário como especificado no TA. |
