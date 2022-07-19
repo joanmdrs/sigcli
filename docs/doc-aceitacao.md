@@ -24,7 +24,7 @@ Este documento descreve os Testes de Aceitação criados a partir do [Documento 
 | **TA01.04** | Ao editar uma consulta já cadastrada, o usuário deixa algum campo obrigatório em branco. Desse modo, deve surgir uma notificação em tela informando que não é possível salvar a edição feita com campos obrigatórios faltando.                                                       | OK | OK |
 | **TA01.05** | Ao realizar uma busca de uma consulta, o sistema retornará os dados do cliente que possui o parâmetro submetido na pesquisa.                                                                                                                                                        | OK | OK |
 | **TA01.06** | Ao realizar uma busca de uma consulta não cadastrada ou que não atende aos parâmetros de pesquisa, uma mensagem de aviso deve ser mostrada em tela, informando que "Não há nenhuma consulta no sistema que atenda a esses parâmetros" ou "A consulta não retornou nenhum resultado". | OK | OK |
-| **TA01.07** | Ao realizar uma exclusão de uma consulta, o sistema deve retornar uma notificação em tela de sucesso, como "Consulta excluida com sucesso".                                                                                                             
+| **TA01.07** | Ao realizar uma exclusão de uma consulta, o sistema deve retornar uma notificação em tela de sucesso, como "Consulta excluida com sucesso".   | OK | OK |                                                                                                          
 
 ### User Story US02 - Manter Paciente
 
