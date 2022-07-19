@@ -20,16 +20,18 @@ it("returns the appointment patient's name", () => {
   const root = createRoot(container);
   const appointment = [
     {
-      "patient_name":"joan de azevedo medeiros",
-      "name":"consulta",
-      "patient_cpf":"13064465465",
-      "doctor_name":"flavius gorgonio",
+      'title': "Consulta",
+      'data_appointment': "2022-05-26",
+      'hour_appointment': "09:50",
+      'description': "Consulta cardiaca",
+      'patient_fk': "71194505490",
+      'doctor_fk': "4659",
     },
   ];
 
   act(() => {
-    root.render(<ListAppointment appointments={appointment} />);
+    root.render(<ListAppointment appointments={appointment} setFields={()=>{}} handleDelete={()=>{}} />);
   });
-  expect(container.textContent).toContain("joan de azevedo medeiros");
+  expect(container.textContent).toContain("71194505490");
 
 });
