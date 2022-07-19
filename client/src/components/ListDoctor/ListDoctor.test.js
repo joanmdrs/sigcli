@@ -29,3 +29,17 @@ it("returns the doctor's name", () => {
   });
   expect(container.textContent).toContain("flavius");
 });
+
+it("returns doctor's crm", () => {
+  const root = createRoot(container);
+  const fakeDoctor = [
+      {
+          "name":"taciano",
+          "crm":"123456789012",
+      }
+  ];
+  act(() => {
+      root.render(<ListDoctor doctors={fakeDoctor} />);
+  });
+  expect(container.textContent).toContain("123456789012");
+});
