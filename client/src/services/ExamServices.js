@@ -6,7 +6,7 @@ export const getValuesInput = () => {
       title: document.getElementById("title").value,
       patient_cpf: document.getElementById("patient-cpf").value,
       patient_name: document.getElementById("patient-name").value,
-      doctor_crm: document.getElementById("doctor-crm").value,
+      doctor_crm:  document.getElementById("doctor-crm").value,
       doctor_name: document.getElementById("doctor-name").value,
       description: document.getElementById("description").value
   };
