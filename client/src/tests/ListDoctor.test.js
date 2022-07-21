@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { act } from "react-dom/test-utils";
-import ListDoctor from "./ListDoctor";
+import ListDoctor from "../components/ListDoctor/ListDoctor";
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 

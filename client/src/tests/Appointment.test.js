@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
-import {getValuesInput} from "../../services/AppointmentServices.js";
-import Appointment from "./Appointment";
+import {getValuesInput} from "../services/AppointmentServices.js";
+import Appointment from "../pages/Appointment/Appointment";
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 

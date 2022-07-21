@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { act } from "react-dom/test-utils";
-import ListAppointment from "./ListAppointment";
+import ListAppointment from "../components/ListAppointment/ListAppointment";
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { act} from "react-dom/test-utils";
-import ListRecepcionist from "./ListRecepcionist";
+import ListRecepcionist from "../components/ListRecepcionist/ListRecepcionist";
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 

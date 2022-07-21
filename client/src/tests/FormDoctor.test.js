@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import FormDoctor from './FormDoctor';
+import FormDoctor from '../components/Forms/FormDoctor/FormDoctor';
 
 it("renders the form doctor's page", () => {
     render(<FormDoctor handleSaveButton={() => {}} />);
